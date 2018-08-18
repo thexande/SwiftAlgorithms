@@ -329,21 +329,7 @@ class ViewController: UITableViewController {
 //        view = md
 //    }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        tableView.tableHeaderView = header
-        title = "Algorithms"
-        
-        let items = [
-            QuadrantItemView.Properties(title: "Search", image: UIImage(), backgroundColor: .turquiose()),
-            QuadrantItemView.Properties(title: "Compress", image: UIImage(), backgroundColor: .flatRed()),
-            QuadrantItemView.Properties(title: "Sort", image: UIImage(), backgroundColor: .amethist()),
-            QuadrantItemView.Properties(title: "Math", image: UIImage(), backgroundColor: .orangeCream()),
-        ]
-        
-        header.configure(with: items)
-    }
+   
 }
 
 import Anchorage
