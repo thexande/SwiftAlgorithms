@@ -7,7 +7,25 @@
 		<key>swift_algorithms.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>B00B269E2123B5DE00E1DF9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B00B26B22123B5E000E1DF9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B00B26BD2123B5E000E1DF9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

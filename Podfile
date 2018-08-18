@@ -7,6 +7,9 @@ target 'swift_algorithms' do
 
   # Pods for swift_algorithms
   pod 'MarkdownView'
+  pod 'DeckTransition'
+  pod 'Anchorage'
+  
   target 'swift_algorithmsTests' do
     inherit! :search_paths
     # Pods for testing

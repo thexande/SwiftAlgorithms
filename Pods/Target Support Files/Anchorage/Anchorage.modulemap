@@ -1,0 +1,6 @@
+framework module Anchorage {
+  umbrella header "Anchorage-umbrella.h"
+
+  export *
+  module * { export * }
+}

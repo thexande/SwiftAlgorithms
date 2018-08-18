@@ -1,16 +1,24 @@
 PODS:
+  - Anchorage (4.2.4)
+  - DeckTransition (2.0.0)
   - MarkdownView (1.3.0)
 
 DEPENDENCIES:
+  - Anchorage
+  - DeckTransition
   - MarkdownView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Anchorage
+    - DeckTransition
     - MarkdownView
 
 SPEC CHECKSUMS:
+  Anchorage: f855157310859280c706cc0b9c9281c21702f515
+  DeckTransition: 2300694f94fbeca2c103f365dc9dc09ffae14a4f
   MarkdownView: 6cee6c558eed4a012005405066071ef16a042d17
 
-PODFILE CHECKSUM: 36d070bdf848ed66b37867204ec71498ec4eb1e4
+PODFILE CHECKSUM: e26c1176abbb98219e84a63e302c5ca23023e08f
 
 COCOAPODS: 1.5.3
