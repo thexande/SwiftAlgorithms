@@ -321,16 +321,24 @@ struct Dummy {
     """
 }
 
-class ViewController: UITableViewController {
-    let header = QuadrantSelectorView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width))
-//    let md = MarkdownView()
-//
-//    override func loadView() {
-//        view = md
-//    }
 
-   
-}
-
+import UIKit
+import MarkdownView
 import Anchorage
-import Lottie
+
+final class MarkdownPresentationViewController: UIViewController {
+    let markdownView = MarkdownView()
+    
+    override func loadView() {
+        view = markdownView
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Stack"
+        
+        markdownView.load(markdown: Dummy.stack)
+        
+    }
+}
