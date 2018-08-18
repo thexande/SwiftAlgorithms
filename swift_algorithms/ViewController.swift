@@ -337,6 +337,7 @@ final class MarkdownPresentationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Stack"
+        navigationItem.largeTitleDisplayMode = .never
         
         markdownView.load(markdown: Dummy.stack)
         
