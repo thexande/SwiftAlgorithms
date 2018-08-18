@@ -9,6 +9,7 @@ target 'swift_algorithms' do
   pod 'MarkdownView'
   pod 'DeckTransition'
   pod 'Anchorage'
+  pod 'lottie-ios'
   
   target 'swift_algorithmsTests' do
     inherit! :search_paths

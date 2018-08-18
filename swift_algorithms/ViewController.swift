@@ -322,6 +322,7 @@ struct Dummy {
 }
 
 class ViewController: UITableViewController {
+    let header = QuadrantSelectorView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width))
 //    let md = MarkdownView()
 //
 //    override func loadView() {
@@ -331,67 +332,19 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
-        tableView.tableHeaderView = QuadrantSelectorView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width))
+        tableView.tableHeaderView = header
         title = "Algorithms"
+        
+        let items = [
+            QuadrantItemView.Properties(title: "Search", image: UIImage(), backgroundColor: .turquiose()),
+            QuadrantItemView.Properties(title: "Compress", image: UIImage(), backgroundColor: .flatRed()),
+            QuadrantItemView.Properties(title: "Sort", image: UIImage(), backgroundColor: .amethist()),
+            QuadrantItemView.Properties(title: "Math", image: UIImage(), backgroundColor: .orangeCream()),
+        ]
+        
+        header.configure(with: items)
     }
 }
 
 import Anchorage
-
-final class QuadrantItemView: UIView {
-    let title = UILabel()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addSubview(title)
-        title.topAnchor == topAnchor + 8
-        title.horizontalAnchors == horizontalAnchors + 15
-        
-        title.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
-        title.text = "Woot"
-        title.textColor = .white
-        
-        layer.cornerRadius = 11
-        backgroundColor = .black
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-final class QuadrantSelectorView: UIView {
-    let one = QuadrantItemView()
-    let two = QuadrantItemView()
-    let three = QuadrantItemView()
-    let four = QuadrantItemView()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        [one, two, three, four].forEach { view in
-            
-        }
-        
-        let firstRow = UIStackView(arrangedSubviews: [one, two])
-        firstRow.distribution = .fillEqually
-        firstRow.spacing = 8
-        
-        let secondRow = UIStackView(arrangedSubviews: [three, four])
-        secondRow.distribution = .fillEqually
-        secondRow.spacing = 8
-        
-        let stack = UIStackView(arrangedSubviews: [firstRow, secondRow])
-        stack.distribution = .fillEqually
-        stack.axis = .vertical
-        stack.spacing = 8
-        
-        addSubview(stack)
-        stack.edgeAnchors == edgeAnchors + UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
+import Lottie
