@@ -2,9 +2,7 @@ import UIKit
 import DeckTransition
 
 final class AlgorithmViewController: SectionProxyTableViewController {
-    enum Action {
-        case selectedAlgorithm
-    }
+    
     
     let header = QuadrantSelectorView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width))
     
@@ -28,11 +26,11 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         actionSection.registerReusableTypes(tableView: tableView)
         
         let rowProps: [ActionTableRowController.Properties] = [
-            ActionTableRowController.Properties(title: "What are algorithms and data structures?", subtitle: "Pancakes!", icon: UIImage(named: "pancakes"), identifier: UUID()),
-            ActionTableRowController.Properties(title: "Why learn algorithms?", subtitle: "Worried this isn't your cup of tea? Then read this.", icon: UIImage(named: "?"), identifier: UUID()),
-            ActionTableRowController.Properties(title: "Big-O notation", subtitle: "We often say things like, 'This algorithm is O(n).' If you don't know what that means, read this first.", icon: UIImage(named: "line_chart"), identifier: UUID()),
-            ActionTableRowController.Properties(title: "Algorithm design techniques", subtitle: "How do you create your own algorithms?", icon: UIImage(named: "algo")?.withRenderingMode(.alwaysTemplate), identifier: UUID()),
-            ActionTableRowController.Properties(title: "How to contribute", subtitle: "Report an issue to leave feedback, or submit a pull request.", icon: UIImage(named: "git"), identifier: UUID())
+            ActionTableRowController.Properties(title: "What are algorithms and data structures?", subtitle: "Pancakes!", icon: UIImage(named: "pancakes"), action: .whatAreAlgorithms),
+            ActionTableRowController.Properties(title: "Why learn algorithms?", subtitle: "Worried this isn't your cup of tea? Then read this.", icon: UIImage(named: "?"), action: .whyLearnAlgorithms),
+            ActionTableRowController.Properties(title: "Big-O notation", subtitle: "We often say things like, 'This algorithm is O(n).' If you don't know what that means, read this first.", icon: UIImage(named: "line_chart"), action: .bigO),
+            ActionTableRowController.Properties(title: "Algorithm design techniques", subtitle: "How do you create your own algorithms?", icon: UIImage(named: "algo")?.withRenderingMode(.alwaysTemplate), action: .designTechniques),
+            ActionTableRowController.Properties(title: "How to contribute", subtitle: "Report an issue to leave feedback, or submit a pull request.", icon: UIImage(named: "git"), action: .howToContribute)
             
         ]
         
@@ -44,12 +42,13 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         let starterSection = BasicTableSectionController()
         
         let starterRowProps = [
-            BasicTableRowController.Properties(title: "Stack", subtitle: nil, showsDisclosure: true, identifier: UUID()),
-            BasicTableRowController.Properties(title: "Queue", subtitle: nil, showsDisclosure: true, identifier: UUID()),
-            BasicTableRowController.Properties(title: "Insertion Sort", subtitle: nil, showsDisclosure: true, identifier: UUID()),
-            BasicTableRowController.Properties(title: "Binary Search and Binary Search Tree", subtitle: nil, showsDisclosure: true, identifier: UUID()),
-            BasicTableRowController.Properties(title: "Merge Sort", subtitle: nil, showsDisclosure: true, identifier: UUID()),
-            BasicTableRowController.Properties(title: "Boyer-Moore string search", subtitle: nil, showsDisclosure: true, identifier: UUID()),
+            BasicTableRowController.Properties(title: "Stack", subtitle: nil, showsDisclosure: true, action: .stack),
+            BasicTableRowController.Properties(title: "Queue", subtitle: nil, showsDisclosure: true, action: .queue),
+            BasicTableRowController.Properties(title: "Insertion Sort", subtitle: nil, showsDisclosure: true, action: .insertionSort),
+            BasicTableRowController.Properties(title: "Binary Search", subtitle: nil, showsDisclosure: true, action: .binarySearch),
+            BasicTableRowController.Properties(title: "Binary Search Tree", subtitle: nil, showsDisclosure: true, action: .binarySearchTree),
+            BasicTableRowController.Properties(title: "Merge Sort", subtitle: nil, showsDisclosure: true, action: .mergeSort),
+            BasicTableRowController.Properties(title: "Boyer-Moore string search", subtitle: nil, showsDisclosure: true, action: .boyerMoore),
             
             ]
         
@@ -61,14 +60,14 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         
         
         let searchingRowProps = [
-            BasicTableRowController.Properties(title: "Linnear Search", subtitle: "Find an element in an array.", showsDisclosure: true, identifier: UUID()),
-            BasicTableRowController.Properties(title: "Binary Search", subtitle: "Quickly find elements in a sorted array.", showsDisclosure: true, identifier: UUID()),
-            BasicTableRowController.Properties(title: "Count Occurrences", subtitle: "Count how often a value appears in an array.", showsDisclosure: true, identifier: UUID()),
-            BasicTableRowController.Properties(title: "Select Minimum / Maximum", subtitle: "Find the minimum/maximum value in an array.", showsDisclosure: true, identifier: UUID()),
-            BasicTableRowController.Properties(title: "k-th Largest Element.", subtitle: "Find the k-th largest element in an array, such as the median.", showsDisclosure: true, identifier: UUID()),
-            BasicTableRowController.Properties(title: "Selection Sampling", subtitle: "Randomly choose a bunch of items from a collection.", showsDisclosure: true, identifier: UUID()),
-            BasicTableRowController.Properties(title: "Union-Find", subtitle: "Keeps track of disjoint sets and lets you quickly merge them.", showsDisclosure: true, identifier: UUID()),
-        ]
+            BasicTableRowController.Properties(title: "Linnear Search", subtitle: "Find an element in an array.", showsDisclosure: true, action: .linnearSearch),
+            BasicTableRowController.Properties(title: "Binary Search", subtitle: "Quickly find elements in a sorted array.", showsDisclosure: true, action: .binarySearch),
+            BasicTableRowController.Properties(title: "Count Occurrences", subtitle: "Count how often a value appears in an array.", showsDisclosure: true, action: .countOccurences),
+            BasicTableRowController.Properties(title: "Select Minimum / Maximum", subtitle: "Find the minimum/maximum value in an array.", showsDisclosure: true, action: .selectMinMax),
+            BasicTableRowController.Properties(title: "k-th Largest Element.", subtitle: "Find the k-th largest element in an array, such as the median.", showsDisclosure: true, action: .kthLargestElement),
+            BasicTableRowController.Properties(title: "Selection Sampling", subtitle: "Randomly choose a bunch of items from a collection.", showsDisclosure: true, action: .selectionSampling),
+            BasicTableRowController.Properties(title: "Union-Find", subtitle: "Keeps track of disjoint sets and lets you quickly merge them.", showsDisclosure: true, action: .unionFind),
+            ]
         
         let searchingRowSection = BasicTableSectionController()
         let searchingRows = searchingRowProps.map(BasicTableRowController.map)
@@ -86,6 +85,30 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         
         tableView.reloadData()
     }
+    
+    enum Action {
+        case whatAreAlgorithms
+        case whyLearnAlgorithms
+        case bigO
+        case designTechniques
+        case howToContribute
+        
+        case stack
+        case queue
+        case insertionSort
+        case binarySearch
+        case binarySearchTree
+        case mergeSort
+        case boyerMoore
+        
+        case linnearSearch
+        case countOccurences
+        case selectMinMax
+        case kthLargestElement
+        case selectionSampling
+        case unionFind
+    }
+    
     
     @objc func presentMD() {
         let modal = MarkdownPresentationViewController()

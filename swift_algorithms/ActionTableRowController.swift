@@ -5,8 +5,8 @@ final class ActionTableRowController: NSObject, RowController {
         let title: String
         let subtitle: String?
         let icon: UIImage?
-        let identifier: UUID
-        static let `default` = Properties(title: "Test Title", subtitle: nil, icon: UIImage(named: "pancakes"), identifier: UUID())
+        let action: AlgorithmViewController.Action
+        static let `default` = Properties(title: "Test Title", subtitle: nil, icon: UIImage(named: "pancakes"), action: .bigO)
     }
     
     public var properties: Properties = .default
@@ -40,7 +40,7 @@ extension ActionTableRowController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dispatcher?.dispatch(.selected(properties.identifier))
+        dispatcher?.dispatch(properties.action)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

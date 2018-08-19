@@ -5,8 +5,8 @@ final class BasicTableRowController: NSObject, RowController {
         let title: String
         let subtitle: String?
         let showsDisclosure: Bool
-        let identifier: UUID
-        static let `default` = Properties(title: "title", subtitle: nil, showsDisclosure: false, identifier: UUID())
+        let action: AlgorithmViewController.Action
+        static let `default` = Properties(title: "title", subtitle: nil, showsDisclosure: false, action: .binarySearch)
     }
     
     public var properties: Properties = .default

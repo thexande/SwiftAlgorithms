@@ -7,12 +7,9 @@ protocol RowController: UITableViewDelegate, UITableViewDataSource {
     func registerReusableTypes(tableView: UITableView)
 }
 
-enum RowAction {
-    case selected(UUID)
-}
 
 protocol RowActionDispatching: AnyObject {
-    func dispatch(_ action: RowAction)
+    func dispatch(_ action: AlgorithmViewController.Action)
 }
 
 final class ActionTableSectionController: NSObject, TableSectionController {
