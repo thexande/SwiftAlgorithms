@@ -158,6 +158,21 @@ final class AlgorithmPresenter {
         
         return sortingRowsSection
     }
+    
+    public func makeCompressionSection() -> BasicTableSectionController {
+        let compressionRowProps = [
+            BasicTableRowController.Properties(title: "Run-Length Encoding (RLE).", subtitle: "Store repeated values as a single byte and a count.", showsDisclosure: true, action: .runLengthEncoding),
+            BasicTableRowController.Properties(title: "Huffman Coding", subtitle: "Store more common elements using a smaller number of bits.", showsDisclosure: true, action: .huffmanCoding),
+        ]
+        
+        let compressionRowSection = BasicTableSectionController()
+        let compressionRows = compressionRowProps.map(BasicTableRowController.map)
+        
+        compressionRowSection.rows = compressionRows
+        compressionRowSection.sectionTitle = "Compression"
+        compressionRowSection.dispatcher = self.dispatcher
+        return compressionRowSection
+    }
 }
 
 extension AlgorithmPresenter: RowActionDispatching {
