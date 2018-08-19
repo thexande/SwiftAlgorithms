@@ -19,7 +19,7 @@ final class BasicTableHeaderView: UITableViewHeaderFooterView {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-//        contentView.backgroundColor = .white
+        contentView.backgroundColor = .groupTableViewBackground
         let labels = [titleLabel, subtitleLabel]
         
         labels.forEach { label in

@@ -89,27 +89,67 @@ final class AlgorithmPresenter {
     
     
     public func makeSortingSection() -> BasicTableSectionController {
-        let sortingProps = [
+        var sortingRows: [RowController] = []
+        
+        // configure basic sorts
+        
+        let basicSorts = [
             BasicTableRowController.Properties(title: "Insertion Sort", subtitle: nil, showsDisclosure: true, action: .insertionSort),
             BasicTableRowController.Properties(title: "Selection Sort", subtitle: nil, showsDisclosure: true, action: .selectionSort),
             BasicTableRowController.Properties(title: "Shell Sort", subtitle: nil, showsDisclosure: true, action: .shellSort),
-            
+        ]
+        
+        let basicSortHeader = BasicTableHeaderRowController.map(BasicTableHeaderRowController.Properties(title: "Basic Sorts"))
+        sortingRows.append(basicSortHeader)
+        sortingRows.append(contentsOf: basicSorts.map(BasicTableRowController.map))
+        
+        // configure fast sorts
+        
+        let fastSorts = [
             BasicTableRowController.Properties(title: "QuickSort", subtitle: nil, showsDisclosure: true, action: .quickSort),
             BasicTableRowController.Properties(title: "Merge Sort", subtitle: nil, showsDisclosure: true, action: .mergeSort),
             BasicTableRowController.Properties(title: "Heap Sort", subtitle: nil, showsDisclosure: true, action: .heapSort),
-            
+        ]
+        
+        let fastSortHeader = BasicTableHeaderRowController.map(BasicTableHeaderRowController.Properties(title: "Fast Sorts"))
+        sortingRows.append(fastSortHeader)
+        sortingRows.append(contentsOf: fastSorts.map(BasicTableRowController.map))
+        
+        // configure hybrid sorts
+        
+        let hybridSorts = [
             BasicTableRowController.Properties(title: "Introsort", subtitle: nil, showsDisclosure: true, action: .introSort),
-            
+        ]
+        
+        let hybridSortHeader = BasicTableHeaderRowController.map(BasicTableHeaderRowController.Properties(title: "Fast Sorts"))
+        sortingRows.append(hybridSortHeader)
+        sortingRows.append(contentsOf: hybridSorts.map(BasicTableRowController.map))
+        
+        // configure special purpose sorts
+        
+        let specialPurposeSorts = [
             BasicTableRowController.Properties(title: "Counting Sort", subtitle: nil, showsDisclosure: true, action: .countingSort),
             BasicTableRowController.Properties(title: "Radix Sort", subtitle: nil, showsDisclosure: true, action: .radixSort),
             BasicTableRowController.Properties(title: "Topological Sort", subtitle: nil, showsDisclosure: true, action: .topologicalSort),
-            
+        ]
+        
+        let specialPurposeSortHeader = BasicTableHeaderRowController.map(BasicTableHeaderRowController.Properties(title: "Basic Sorts"))
+        sortingRows.append(specialPurposeSortHeader)
+        sortingRows.append(contentsOf: specialPurposeSorts.map(BasicTableRowController.map))
+        
+        // configure bad sorts
+        
+        let badSorts = [
             BasicTableRowController.Properties(title: "Bubble Sort", subtitle: nil, showsDisclosure: true, action: .bubbleSort),
             BasicTableRowController.Properties(title: "Slow Sort", subtitle: nil, showsDisclosure: true, action: .slowSort),
         ]
         
+        let badSortHeader = BasicTableHeaderRowController.map(BasicTableHeaderRowController.Properties(title: "Basic Sorts"))
+        sortingRows.append(badSortHeader)
+        sortingRows.append(contentsOf: badSorts.map(BasicTableRowController.map))
+        
+        
         let sortingRowsSection = BasicTableSectionController()
-        let sortingRows = sortingProps.map(BasicTableRowController.map)
         
         sortingRowsSection.rows = sortingRows
         sortingRowsSection.sectionTitle = "Sorting"

@@ -38,6 +38,7 @@
 		B01733AD21294C4C00FBEFE5 /* UrlFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733AC21294C4C00FBEFE5 /* UrlFactory.swift */; };
 		B01733AF21294C6E00FBEFE5 /* StringNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733AE21294C6E00FBEFE5 /* StringNetworkService.swift */; };
 		B0A4DB342129E781000CFC7F /* AlgorithmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB332129E781000CFC7F /* AlgorithmPresenter.swift */; };
+		B0A4DB362129F21C000CFC7F /* BasicTableHeaderRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB352129F21C000CFC7F /* BasicTableHeaderRowController.swift */; };
 		CF258018CEDC1C30BBC0CCEB /* Pods_swift_algorithmsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C9489049617C5233D06003 /* Pods_swift_algorithmsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		B01733AC21294C4C00FBEFE5 /* UrlFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlFactory.swift; sourceTree = "<group>"; };
 		B01733AE21294C6E00FBEFE5 /* StringNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringNetworkService.swift; sourceTree = "<group>"; };
 		B0A4DB332129E781000CFC7F /* AlgorithmPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmPresenter.swift; sourceTree = "<group>"; };
+		B0A4DB352129F21C000CFC7F /* BasicTableHeaderRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableHeaderRowController.swift; sourceTree = "<group>"; };
 		B11B52C8253786514CD57982 /* Pods-swift_algorithmsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsTests/Pods-swift_algorithmsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B607CDB0A6FEE9DA2C6F0695 /* Pods-swift_algorithms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithms.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithms/Pods-swift_algorithms.release.xcconfig"; sourceTree = "<group>"; };
 		EF9A1484C74813E3093C6FBE /* Pods-swift_algorithmsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsUITests/Pods-swift_algorithmsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				B01733AC21294C4C00FBEFE5 /* UrlFactory.swift */,
 				B01733AE21294C6E00FBEFE5 /* StringNetworkService.swift */,
 				B0A4DB332129E781000CFC7F /* AlgorithmPresenter.swift */,
+				B0A4DB352129F21C000CFC7F /* BasicTableHeaderRowController.swift */,
 			);
 			path = swift_algorithms;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				B01733A92129387100FBEFE5 /* OnboardItemView.swift in Sources */,
 				B01733992128E92400FBEFE5 /* ActionIconRowCell.swift in Sources */,
 				B01733912128D04500FBEFE5 /* AlgorithmViewController.swift in Sources */,
+				B0A4DB362129F21C000CFC7F /* BasicTableHeaderRowController.swift in Sources */,
 				B01733A52129351A00FBEFE5 /* BasicTableCell.swift in Sources */,
 				B00B26A32123B5DE00E1DF9C /* AppDelegate.swift in Sources */,
 			);
