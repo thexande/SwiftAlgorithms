@@ -26,6 +26,12 @@
 		B01733952128E44500FBEFE5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733942128E44500FBEFE5 /* UIImage.swift */; };
 		B01733972128E8EA00FBEFE5 /* ActionTableSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733962128E8EA00FBEFE5 /* ActionTableSectionController.swift */; };
 		B01733992128E92400FBEFE5 /* ActionIconRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733982128E92400FBEFE5 /* ActionIconRowCell.swift */; };
+		B017339B2129347600FBEFE5 /* ActionTableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B017339A2129347600FBEFE5 /* ActionTableRowController.swift */; };
+		B017339D212934A200FBEFE5 /* BasicTableSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B017339C212934A200FBEFE5 /* BasicTableSectionController.swift */; };
+		B017339F212934CB00FBEFE5 /* LabelTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B017339E212934CB00FBEFE5 /* LabelTableFooterView.swift */; };
+		B01733A1212934DE00FBEFE5 /* BasicTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733A0212934DE00FBEFE5 /* BasicTableHeaderView.swift */; };
+		B01733A3212934F400FBEFE5 /* BasicTableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733A2212934F400FBEFE5 /* BasicTableRowController.swift */; };
+		B01733A52129351A00FBEFE5 /* BasicTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733A42129351A00FBEFE5 /* BasicTableCell.swift */; };
 		CF258018CEDC1C30BBC0CCEB /* Pods_swift_algorithmsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C9489049617C5233D06003 /* Pods_swift_algorithmsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +82,12 @@
 		B01733942128E44500FBEFE5 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		B01733962128E8EA00FBEFE5 /* ActionTableSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTableSectionController.swift; sourceTree = "<group>"; };
 		B01733982128E92400FBEFE5 /* ActionIconRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionIconRowCell.swift; sourceTree = "<group>"; };
+		B017339A2129347600FBEFE5 /* ActionTableRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTableRowController.swift; sourceTree = "<group>"; };
+		B017339C212934A200FBEFE5 /* BasicTableSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableSectionController.swift; sourceTree = "<group>"; };
+		B017339E212934CB00FBEFE5 /* LabelTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableFooterView.swift; sourceTree = "<group>"; };
+		B01733A0212934DE00FBEFE5 /* BasicTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableHeaderView.swift; sourceTree = "<group>"; };
+		B01733A2212934F400FBEFE5 /* BasicTableRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableRowController.swift; sourceTree = "<group>"; };
+		B01733A42129351A00FBEFE5 /* BasicTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableCell.swift; sourceTree = "<group>"; };
 		B11B52C8253786514CD57982 /* Pods-swift_algorithmsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsTests/Pods-swift_algorithmsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B607CDB0A6FEE9DA2C6F0695 /* Pods-swift_algorithms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithms.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithms/Pods-swift_algorithms.release.xcconfig"; sourceTree = "<group>"; };
 		EF9A1484C74813E3093C6FBE /* Pods-swift_algorithmsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsUITests/Pods-swift_algorithmsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +172,12 @@
 				B01733942128E44500FBEFE5 /* UIImage.swift */,
 				B01733962128E8EA00FBEFE5 /* ActionTableSectionController.swift */,
 				B01733982128E92400FBEFE5 /* ActionIconRowCell.swift */,
+				B017339A2129347600FBEFE5 /* ActionTableRowController.swift */,
+				B017339C212934A200FBEFE5 /* BasicTableSectionController.swift */,
+				B017339E212934CB00FBEFE5 /* LabelTableFooterView.swift */,
+				B01733A0212934DE00FBEFE5 /* BasicTableHeaderView.swift */,
+				B01733A2212934F400FBEFE5 /* BasicTableRowController.swift */,
+				B01733A42129351A00FBEFE5 /* BasicTableCell.swift */,
 			);
 			path = swift_algorithms;
 			sourceTree = "<group>";
@@ -415,13 +433,19 @@
 				B01733952128E44500FBEFE5 /* UIImage.swift in Sources */,
 				B017338B2128CC9800FBEFE5 /* RootTabBarController.swift in Sources */,
 				B017338D2128CDC700FBEFE5 /* SectionProxyTableViewController.swift in Sources */,
+				B017339D212934A200FBEFE5 /* BasicTableSectionController.swift in Sources */,
 				B01733852128CB7200FBEFE5 /* QuadrantSelectorView.swift in Sources */,
+				B017339F212934CB00FBEFE5 /* LabelTableFooterView.swift in Sources */,
 				B01733932128D1F600FBEFE5 /* ClosureProxy.swift in Sources */,
 				B01733872128CB9500FBEFE5 /* UIColor.swift in Sources */,
 				B017338F2128D02900FBEFE5 /* DataStructuresViewController.swift in Sources */,
+				B01733A1212934DE00FBEFE5 /* BasicTableHeaderView.swift in Sources */,
+				B017339B2129347600FBEFE5 /* ActionTableRowController.swift in Sources */,
+				B01733A3212934F400FBEFE5 /* BasicTableRowController.swift in Sources */,
 				B00B26A52123B5DE00E1DF9C /* ViewController.swift in Sources */,
 				B01733992128E92400FBEFE5 /* ActionIconRowCell.swift in Sources */,
 				B01733912128D04500FBEFE5 /* AlgorithmViewController.swift in Sources */,
+				B01733A52129351A00FBEFE5 /* BasicTableCell.swift in Sources */,
 				B00B26A32123B5DE00E1DF9C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

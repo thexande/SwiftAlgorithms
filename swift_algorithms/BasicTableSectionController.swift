@@ -1,23 +1,9 @@
 import UIKit
 
-
-
-protocol RowController: UITableViewDelegate, UITableViewDataSource {
-    var dispatcher: RowActionDispatching? { get set }
-    func registerReusableTypes(tableView: UITableView)
-}
-
-enum RowAction {
-    case selected(UUID)
-}
-
-protocol RowActionDispatching: AnyObject {
-    func dispatch(_ action: RowAction)
-}
-
-final class ActionTableSectionController: NSObject, TableSectionController {
+final class BasicTableSectionController: NSObject, TableSectionController {
     public var rows: [RowController] = []
     public var sectionTitle: String?
+    public var sectionSubtitle: String?
     
     public weak var dispatcher: RowActionDispatching? {
         didSet {
@@ -28,13 +14,15 @@ final class ActionTableSectionController: NSObject, TableSectionController {
     }
     
     func registerReusableTypes(tableView: UITableView) {
+        tableView.register(BasicTableHeaderView.self, forHeaderFooterViewReuseIdentifier: String(describing: BasicTableHeaderView.self))
+        
         rows.forEach { row in
             row.registerReusableTypes(tableView: tableView)
         }
     }
 }
 
-extension ActionTableSectionController: UITableViewDelegate, UITableViewDataSource {
+extension BasicTableSectionController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rows.count
     }
@@ -44,11 +32,16 @@ extension ActionTableSectionController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return (sectionTitle != nil) ? 38 : 0
+        return (sectionTitle != nil) ? UITableViewAutomaticDimension : 0
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionTitle
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: BasicTableHeaderView.self)) as? BasicTableHeaderView else {
+            return nil
+        }
+        view.title = sectionTitle
+        view.subtitle = sectionSubtitle
+        return view
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -59,4 +52,5 @@ extension ActionTableSectionController: UITableViewDelegate, UITableViewDataSour
         return rows[indexPath.row].tableView?(tableView, heightForRowAt: indexPath) ?? UITableViewAutomaticDimension
     }
 }
+
 
