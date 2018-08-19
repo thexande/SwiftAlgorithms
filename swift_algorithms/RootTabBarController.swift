@@ -6,6 +6,9 @@ final class RootTabCoordinator {
 
     private let algorithmViewController = AlgorithmViewController(style: .plain)
     private let algorithmPresenter = AlgorithmPresenter()
+    
+    private let algorithmSearchResultsController = ResultsTableViewController()
+    private let algorithmSearchResultsPresenter = AlgorithmResultsPresenter()
 
     private let dataStructureController = DataStructuresViewController()
     
@@ -60,6 +63,24 @@ final class RootTabCoordinator {
     func makeRootTabBarController() -> RootTabBarController {
         let tabBarSize = CGSize(width: 30, height: 30)
         let controller = RootTabBarController()
+        
+        
+        let algorithmSearchController = UISearchController(searchResultsController: algorithmSearchResultsController)
+        algorithmSearchController.searchResultsUpdater = algorithmSearchResultsPresenter
+        algorithmSearchController.obscuresBackgroundDuringPresentation = false
+        algorithmSearchController.searchBar.placeholder = "Search Algorithms"
+        
+        algorithmSearchResultsPresenter.deliver = { [weak algorithmSearchResultsController] properties in
+            algorithmSearchResultsController?.properties = properties
+            
+        }
+        
+        let rows = AlgorithmSectionProperties.allAlgorithmProperties()
+        algorithmSearchResultsPresenter.properties = rows
+        algorithmSearchResultsPresenter.searchedProperties = rows
+        
+        
+        algorithmViewController.navigationItem.searchController = algorithmSearchController
         
         algorithmViewController.title = "Algorithms"
         let algoImage = UIImage(named: "algo")?.scaledImage(withSize: tabBarSize)
@@ -145,6 +166,7 @@ final class RootTabBarController: UITabBarController {
         super.viewDidAppear(animated)
         coordinator?.rootViewDidAppear()
     }
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         tabBar.tintColor = .coral()

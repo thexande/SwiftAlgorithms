@@ -9,20 +9,23 @@ extension AlgorithmViewController: UISearchResultsUpdating {
 
 import UIKit
 
-class ResultsTableViewController: SectionProxyTableViewController, UISearchResultsUpdating, UISearchBarDelegate {
+final class AlgorithmResultsPresenter: NSObject, UISearchResultsUpdating, UISearchBarDelegate {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    var properties: [BasicTableRowController.Properties] = []
+    var deliver: (([BasicTableRowController.Properties]) -> Void)?
+    
+    var searchedProperties: [BasicTableRowController.Properties] = [] {
+        didSet {
+            deliver?(searchedProperties)
+        }
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         
-        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -30,8 +33,28 @@ class ResultsTableViewController: SectionProxyTableViewController, UISearchResul
     }
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        
         return true
+    }
+}
+
+class ResultsTableViewController: SectionProxyTableViewController {
+    let section = BasicTableSectionController()
+    
+    var properties: [BasicTableRowController.Properties] = [] {
+        didSet {
+            update(with: properties.map(BasicTableRowController.map))
+        }
+    }
+    
+    func update(with properties: [RowController]) {
+        section.rows = properties
+        tableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        section.registerReusableTypes(tableView: tableView)
+        sections = [section]
     }
 }
 
@@ -42,13 +65,8 @@ final class AlgorithmViewController: SectionProxyTableViewController {
     weak var dispatcher: RowActionDispatching?
     let header = QuadrantSelectorView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width))
     private let footer = DonateFooterView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 80))
-    let searchResultsController: ResultsTableViewController
-    let searchController: UISearchController
     
     override init(style: UITableViewStyle) {
-        let searchResultsController = ResultsTableViewController()
-        searchController = UISearchController(searchResultsController: searchResultsController)
-        self.searchResultsController = searchResultsController
         super.init(style: style)
     }
     
@@ -73,10 +91,6 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         tableView.backgroundColor = .groupTableViewBackground
         
         // Setup the Search Controller
-        searchController.searchResultsUpdater = searchResultsController
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Algorithms"
-        navigationItem.searchController = searchController
         definesPresentationContext = true
         
 //        header
