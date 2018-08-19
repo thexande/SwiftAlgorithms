@@ -41,6 +41,70 @@ final class UrlFactory {
             return nil
         case .unionFind:
             return nil
+        case .bruteForceStringSearch:
+            return nil
+        case .knuthMorrisPratt:
+            return nil
+        case .rabinKarp:
+            return nil
+        case .longestCommonSubsequence:
+            return nil
+        case .zAlgorithm:
+            return nil
+        case .selectionSort:
+            return nil
+        case .shellSort:
+            return nil
+        case .quickSort:
+            return nil
+        case .heapSort:
+            return nil
+        case .introSort:
+            return nil
+        case .countingSort:
+            return nil
+        case .radixSort:
+            return nil
+        case .topologicalSort:
+            return nil
+        case .bubbleSort:
+            return nil
+        case .slowSort:
+            return nil
+        case .runLengthEncoding:
+            return nil
+        case .huffmanCoding:
+            return nil
+        case .shuffle:
+            return nil
+        case .comboSort:
+            return nil
+        case .convexHull:
+            return nil
+        case .millerRabin:
+            return nil
+        case .minimumCoin:
+            return nil
+        case .gcd:
+            return nil
+        case .permutationsAndCombinations:
+            return nil
+        case .shuntingYard:
+            return nil
+        case .karatsubaMultiplication:
+            return nil
+        case .haversineDistance:
+            return nil
+        case .strassenMultiplicationMatrix:
+            return nil
+        case .kMeansClustering:
+            return nil
+        case .linnearRegression:
+            return nil
+        case .naiveBayesClassifier:
+            return nil
+        case .simulatedAnnealing:
+            return nil
         }
     }
 }

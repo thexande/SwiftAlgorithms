@@ -67,6 +67,26 @@ final class AlgorithmPresenter {
         return searchingRowSection
     }
     
+    public func makeStringSearchSection() -> BasicTableSectionController {
+        
+        let searchRowProps = [
+            BasicTableRowController.Properties(title: "Brute-Force String Search", subtitle: "A naive method", showsDisclosure: true, action: .bruteForceStringSearch),
+            BasicTableRowController.Properties(title: "Boyer-Moore", subtitle: "A fast method to search for substrings. It skips ahead based on a look-up table, to avoid looking at every character in the text.", showsDisclosure: true, action: .boyerMoore),
+            BasicTableRowController.Properties(title: "Knuth-Morris-Pratt", subtitle: "A linear-time string algorithm that returns indexes of all occurrencies of a given pattern.", showsDisclosure: true, action: .knuthMorrisPratt),
+            BasicTableRowController.Properties(title: "Rabin-Karp", subtitle: "Faster search by using hashing.", showsDisclosure: true, action: .rabinKarp),
+            BasicTableRowController.Properties(title: "Longest Common Subsequence", subtitle: "Find the longest sequence of characters that appear in the same order in both strings.", showsDisclosure: true, action: .longestCommonSubsequence),
+            BasicTableRowController.Properties(title: "Z-Algorithm", subtitle: " Finds all instances of a pattern in a String, and returns the indexes of where the pattern starts within the String.", showsDisclosure: true, action: .zAlgorithm)
+        ]
+        
+        let searchingRowSection = BasicTableSectionController()
+        let searchingRows = searchRowProps.map(BasicTableRowController.map)
+        
+        searchingRowSection.rows = searchingRows
+        searchingRowSection.sectionTitle = "String Search"
+        searchingRowSection.dispatcher = self.dispatcher
+        return searchingRowSection
+    }
+    
 }
 
 extension AlgorithmPresenter: RowActionDispatching {

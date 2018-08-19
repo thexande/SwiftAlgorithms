@@ -19,7 +19,7 @@ final class BasicTableHeaderView: UITableViewHeaderFooterView {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .white
+//        contentView.backgroundColor = .white
         let labels = [titleLabel, subtitleLabel]
         
         labels.forEach { label in
@@ -33,7 +33,7 @@ final class BasicTableHeaderView: UITableViewHeaderFooterView {
         stack.axis = .vertical
         stack.spacing = 12
         contentView.addSubview(stack)
-        stack.edgeAnchors == contentView.edgeAnchors + UIEdgeInsets(top: 18, left: 18, bottom: 18, right: 18)
+        stack.edgeAnchors == contentView.edgeAnchors + UIEdgeInsets(top: 8, left: 18, bottom: 8, right: 18)
     }
     
     required init?(coder aDecoder: NSCoder) {

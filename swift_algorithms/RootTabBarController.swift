@@ -4,7 +4,7 @@ final class RootTabCoordinator {
     
     private let onboardingViewController = OnboardingInformationViewController()
 
-    private let algorithmViewController = AlgorithmViewController()
+    private let algorithmViewController = AlgorithmViewController(style: .plain)
     private let algorithmPresenter = AlgorithmPresenter()
 
     private let dataStructureController = DataStructuresViewController()
@@ -70,7 +70,8 @@ final class RootTabCoordinator {
         let controllers: [TableSectionController] = [
             algorithmPresenter.makeIntroSectionSection(),
             algorithmPresenter.makeGettingStartedSection(),
-            algorithmPresenter.makeSearchingSection()
+            algorithmPresenter.makeSearchingSection(),
+            algorithmPresenter.makeStringSearchSection()
         ]
         
         algorithmViewController.update(with: controllers)

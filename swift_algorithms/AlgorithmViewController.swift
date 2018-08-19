@@ -1,9 +1,31 @@
 import UIKit
 
+extension AlgorithmViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO
+    }
+}
+
 final class AlgorithmViewController: SectionProxyTableViewController {
+    
+    override init(style: UITableViewStyle) {
+        let searchResultsController = UIViewController()
+        searchController = UISearchController(searchResultsController: searchResultsController)
+        self.searchResultsController = searchResultsController
+        super.init(style: style)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     
     weak var dispatcher: RowActionDispatching?
     let header = QuadrantSelectorView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width))
+    let searchResultsController: UIViewController
+    let searchController: UISearchController
     
     public func update(with sections: [TableSectionController]) {
         sections.forEach { section in
@@ -19,6 +41,12 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         
         tableView.tableHeaderView = header
         
+        // Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Algorithms"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
         
 //        header
         let items = [
@@ -55,12 +83,65 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         case mergeSort
         case boyerMoore
         
+        // Searching
+        
         case linnearSearch
         case countOccurences
         case selectMinMax
         case kthLargestElement
         case selectionSampling
         case unionFind
+        
+        // String Search
+        
+        case bruteForceStringSearch
+        case knuthMorrisPratt
+        case rabinKarp
+        case longestCommonSubsequence
+        case zAlgorithm
+        
+        // Sorting
+        
+        case selectionSort
+        case shellSort
+        case quickSort
+        case heapSort
+        case introSort
+        case countingSort
+        case radixSort
+        case topologicalSort
+        case bubbleSort
+        case slowSort
+        
+        // Compression
+        
+        case runLengthEncoding
+        case huffmanCoding
+        
+        // Miscellaneous
+        
+        case shuffle
+        case comboSort
+        case convexHull
+        case millerRabin
+        case minimumCoin
+        
+        // Mathematics
+        
+        case gcd
+        case permutationsAndCombinations
+        case shuntingYard
+        case karatsubaMultiplication
+        case haversineDistance
+        case strassenMultiplicationMatrix
+        
+        // Machine Learning
+        
+        case kMeansClustering
+        case linnearRegression
+        case naiveBayesClassifier
+        case simulatedAnnealing
+        
         
         var title: String {
             switch self {
