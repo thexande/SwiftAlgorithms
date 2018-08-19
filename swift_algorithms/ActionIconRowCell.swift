@@ -58,7 +58,6 @@ final class ActionIconRowCell: UITableViewCell {
         subtitleLabel.numberOfLines = 0
         subtitleLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         
-        
         accessoryType = .disclosureIndicator
         
         
