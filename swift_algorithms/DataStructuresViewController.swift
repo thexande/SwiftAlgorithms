@@ -8,7 +8,7 @@ final class DataStructuresViewController: SectionProxyTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
         tableView.tableHeaderView = header
         
         let items = [

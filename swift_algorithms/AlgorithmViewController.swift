@@ -16,7 +16,7 @@ final class AlgorithmViewController: SectionProxyTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
+        
         tableView.tableHeaderView = header
         
         

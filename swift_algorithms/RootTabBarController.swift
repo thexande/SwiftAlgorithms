@@ -76,6 +76,7 @@ final class RootTabCoordinator {
         algorithmViewController.update(with: controllers)
         
         let algoNav = UINavigationController(rootViewController: algorithmViewController)
+        algoNav.navigationBar.prefersLargeTitles = true
         
         algorithmNav = algoNav
         
