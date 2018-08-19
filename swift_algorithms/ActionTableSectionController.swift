@@ -1,7 +1,5 @@
 import UIKit
 
-
-
 protocol RowController: UITableViewDelegate, UITableViewDataSource {
     var dispatcher: RowActionDispatching? { get set }
     func registerReusableTypes(tableView: UITableView)

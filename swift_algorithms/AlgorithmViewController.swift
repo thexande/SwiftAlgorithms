@@ -3,7 +3,7 @@ import DeckTransition
 
 final class AlgorithmViewController: SectionProxyTableViewController {
     
-    
+    weak var dispatcher: RowActionDispatching?
     let header = QuadrantSelectorView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width))
     
     override func viewDidLoad() {
@@ -38,6 +38,8 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         
         actionSection.rows = actionRows
         actionSection.registerReusableTypes(tableView: tableView)
+        actionSection.dispatcher = self.dispatcher
+
         
         let starterSection = BasicTableSectionController()
         
@@ -54,10 +56,10 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         
         starterSection.rows = starterRowProps.map(BasicTableRowController.map)
         starterSection.registerReusableTypes(tableView: tableView)
+        starterSection.dispatcher = self.dispatcher
+
         starterSection.sectionTitle = "Where to start?"
         starterSection.sectionSubtitle = "If you're new to algorithms and data structures, here are a few good ones to start out with:"
-        
-        
         
         let searchingRowProps = [
             BasicTableRowController.Properties(title: "Linnear Search", subtitle: "Find an element in an array.", showsDisclosure: true, action: .linnearSearch),
@@ -73,6 +75,7 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         let searchingRows = searchingRowProps.map(BasicTableRowController.map)
         searchingRowSection.rows = searchingRows
         searchingRowSection.sectionTitle = "Searching"
+        searchingRowSection.dispatcher = self.dispatcher
         
         
         sections = [

@@ -47,7 +47,7 @@ final class RootTabCoordinator {
         algoController.title = "Algorithms"
         let algoImage = UIImage(named: "algo")?.scaledImage(withSize: tabBarSize)
         algoController.tabBarItem = UITabBarItem(title: "Algorithms", image: algoImage, selectedImage: algoImage)
-        
+        algoController.dispatcher = self
         let algoNav = UINavigationController(rootViewController: algoController)
         
         
@@ -70,6 +70,14 @@ final class RootTabCoordinator {
     }
     
     
+}
+
+extension RootTabCoordinator: RowActionDispatching {
+    func dispatch(_ action: AlgorithmViewController.Action) {
+        switch action {
+        default: return
+        }
+    }
 }
 
 final class RootTabBarController: UITabBarController {

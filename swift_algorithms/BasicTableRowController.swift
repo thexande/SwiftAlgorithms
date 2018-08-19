@@ -1,6 +1,7 @@
 import UIKit
 
 final class BasicTableRowController: NSObject, RowController {
+    
     struct Properties {
         let title: String
         let subtitle: String?
@@ -42,5 +43,9 @@ extension BasicTableRowController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dispatcher?.dispatch(properties.action)
     }
 }
