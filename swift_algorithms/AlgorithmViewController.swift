@@ -110,6 +110,13 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         case kthLargestElement
         case selectionSampling
         case unionFind
+        
+        var title: String {
+            switch self {
+            case .whatAreAlgorithms: return "Pancakes!"
+            default: return ""
+            }
+        }
     }
     
     

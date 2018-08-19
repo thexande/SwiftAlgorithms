@@ -10,7 +10,7 @@
 		14899360A0E73C8E72ABAA29 /* Pods_swift_algorithms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B254810D18500517746385D /* Pods_swift_algorithms.framework */; };
 		5E1D7F0E4899F1A093BC4E45 /* Pods_swift_algorithmsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010057000291407B68D16CC9 /* Pods_swift_algorithmsTests.framework */; };
 		B00B26A32123B5DE00E1DF9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B26A22123B5DE00E1DF9C /* AppDelegate.swift */; };
-		B00B26A52123B5DE00E1DF9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B26A42123B5DE00E1DF9C /* ViewController.swift */; };
+		B00B26A52123B5DE00E1DF9C /* MarkdownPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B26A42123B5DE00E1DF9C /* MarkdownPresentationViewController.swift */; };
 		B00B26AA2123B5E000E1DF9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00B26A92123B5E000E1DF9C /* Assets.xcassets */; };
 		B00B26AD2123B5E000E1DF9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B00B26AB2123B5E000E1DF9C /* LaunchScreen.storyboard */; };
 		B00B26B82123B5E000E1DF9C /* swift_algorithmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B26B72123B5E000E1DF9C /* swift_algorithmsTests.swift */; };
@@ -64,7 +64,7 @@
 		9B254810D18500517746385D /* Pods_swift_algorithms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_algorithms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00B269F2123B5DE00E1DF9C /* swift_algorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swift_algorithms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00B26A22123B5DE00E1DF9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B00B26A42123B5DE00E1DF9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B00B26A42123B5DE00E1DF9C /* MarkdownPresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownPresentationViewController.swift; sourceTree = "<group>"; };
 		B00B26A92123B5E000E1DF9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B00B26AC2123B5E000E1DF9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B00B26AE2123B5E000E1DF9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				B00B26A22123B5DE00E1DF9C /* AppDelegate.swift */,
-				B00B26A42123B5DE00E1DF9C /* ViewController.swift */,
+				B00B26A42123B5DE00E1DF9C /* MarkdownPresentationViewController.swift */,
 				B00B26A92123B5E000E1DF9C /* Assets.xcassets */,
 				B00B26AB2123B5E000E1DF9C /* LaunchScreen.storyboard */,
 				B00B26AE2123B5E000E1DF9C /* Info.plist */,
@@ -362,6 +362,7 @@
 				"${BUILT_PRODUCTS_DIR}/Anchorage/Anchorage.framework",
 				"${BUILT_PRODUCTS_DIR}/DeckTransition/DeckTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -369,6 +370,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Anchorage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeckTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,7 +455,7 @@
 				B01733A1212934DE00FBEFE5 /* BasicTableHeaderView.swift in Sources */,
 				B017339B2129347600FBEFE5 /* ActionTableRowController.swift in Sources */,
 				B01733A3212934F400FBEFE5 /* BasicTableRowController.swift in Sources */,
-				B00B26A52123B5DE00E1DF9C /* ViewController.swift in Sources */,
+				B00B26A52123B5DE00E1DF9C /* MarkdownPresentationViewController.swift in Sources */,
 				B01733A92129387100FBEFE5 /* OnboardItemView.swift in Sources */,
 				B01733992128E92400FBEFE5 /* ActionIconRowCell.swift in Sources */,
 				B01733912128D04500FBEFE5 /* AlgorithmViewController.swift in Sources */,

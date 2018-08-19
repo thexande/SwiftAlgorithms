@@ -3,12 +3,14 @@ PODS:
   - DeckTransition (2.0.0)
   - lottie-ios (2.5.0)
   - MarkdownView (1.3.0)
+  - Result (4.0.0)
 
 DEPENDENCIES:
   - Anchorage
   - DeckTransition
   - lottie-ios
   - MarkdownView
+  - Result
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -16,13 +18,15 @@ SPEC REPOS:
     - DeckTransition
     - lottie-ios
     - MarkdownView
+    - Result
 
 SPEC CHECKSUMS:
   Anchorage: f855157310859280c706cc0b9c9281c21702f515
   DeckTransition: 2300694f94fbeca2c103f365dc9dc09ffae14a4f
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   MarkdownView: 6cee6c558eed4a012005405066071ef16a042d17
+  Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
 
-PODFILE CHECKSUM: 830eb9845a7799d0595f8b71f1266524216d76f8
+PODFILE CHECKSUM: e664ee8060259420ba475f730370493e951f4544
 
 COCOAPODS: 1.5.3
