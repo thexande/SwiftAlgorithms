@@ -73,7 +73,10 @@ final class RootTabCoordinator {
             algorithmPresenter.makeSearchingSection(),
             algorithmPresenter.makeStringSearchSection(),
             algorithmPresenter.makeSortingSection(),
-            algorithmPresenter.makeCompressionSection()
+            algorithmPresenter.makeCompressionSection(),
+            algorithmPresenter.makeMiscellaneousSection(),
+            algorithmPresenter.makeMathSection(),
+            algorithmPresenter.makeMachineLearningSection()
         ]
         
         algorithmViewController.update(with: controllers)

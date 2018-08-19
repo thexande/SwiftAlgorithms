@@ -181,8 +181,8 @@ final class AlgorithmPresenter {
             BasicTableRowController.Properties(title: "Convex Hull", subtitle: " The Convex Hull algorithm calculates the shape (made up from the points itself) containing all these points.", showsDisclosure: true, action: .convexHull),
             
             BasicTableRowController.Properties(title: "Shuffle", subtitle: "Randomly rearranges the contents of an array.", showsDisclosure: true, action: .shuffle),
-            BasicTableRowController.Properties(title: "Miller-Rabin Primality Test", subtitle: "Is the number a prime number?", showsDisclosure: true, action: .shuffle),
-            BasicTableRowController.Properties(title: "MinimumCoinChange", subtitle: "A showcase for dynamic programming.", showsDisclosure: true, action: .shuffle),
+            BasicTableRowController.Properties(title: "Miller-Rabin Primality Test", subtitle: "Is the number a prime number?", showsDisclosure: true, action: .millerRabin),
+            BasicTableRowController.Properties(title: "MinimumCoinChange", subtitle: "A showcase for dynamic programming.", showsDisclosure: true, action: .minimumCoin),
         ]
         
         let miscellaneousRowSection = BasicTableSectionController()
@@ -192,6 +192,42 @@ final class AlgorithmPresenter {
         miscellaneousRowSection.sectionTitle = "Miscellaneous"
         miscellaneousRowSection.dispatcher = self.dispatcher
         return miscellaneousRowSection
+    }
+    
+    public func makeMathSection() -> BasicTableSectionController {
+        let mathRowProps = [
+            BasicTableRowController.Properties(title: "Greatest Common Divisor (GCD)", subtitle: "Special bonus: the least common multiple.", showsDisclosure: true, action: .gcd),
+            BasicTableRowController.Properties(title: "Permutations and Combinations", subtitle: "Get your combinatorics on!", showsDisclosure: true, action: .permutationsAndCombinations),
+            BasicTableRowController.Properties(title: "Shunting Yard Algorithm", subtitle: "Convert infix expressions to postfix.", showsDisclosure: true, action: .permutationsAndCombinations),
+            BasicTableRowController.Properties(title: "Karatsuba Multiplication", subtitle: "Another take on elementary multiplication.", showsDisclosure: true, action: .karatsubaMultiplication),
+            BasicTableRowController.Properties(title: "Haversine Distance", subtitle: "Calculating the distance between 2 points from a sphere.", showsDisclosure: true, action: .haversineDistance),
+            BasicTableRowController.Properties(title: "Strassen's Multiplication Matrix", subtitle: "Efficient way to handle matrix multiplication.", showsDisclosure: true, action: .strassenMultiplicationMatrix),
+        ]
+        
+        let mathRowSection = BasicTableSectionController()
+        let mathRows = mathRowProps.map(BasicTableRowController.map)
+        
+        mathRowSection.rows = mathRows
+        mathRowSection.sectionTitle = "Mathematics"
+        mathRowSection.dispatcher = self.dispatcher
+        return mathRowSection
+    }
+    
+    public func makeMachineLearningSection() -> BasicTableSectionController {
+        let machineLearningRowProps = [
+            BasicTableRowController.Properties(title: "k-Means Clustering", subtitle: "Unsupervised classifier that partitions data into k clusters", showsDisclosure: true, action: .kMeansClustering),
+            BasicTableRowController.Properties(title: "Linear Regression", subtitle: "A technique for creating a model of the relationship between two (or more) variable quantities.", showsDisclosure: true, action: .linnearRegression),
+            BasicTableRowController.Properties(title: "Naive Bayes Classifier", subtitle: "The goal of a classifier is to predict the class of a given data entry based on previously fed data and its features.", showsDisclosure: true, action: .naiveBayesClassifier),
+            BasicTableRowController.Properties(title: "Simulated Annealing", subtitle: "Probabilistic technique for approximating the global maxima in a (often discrete) large search space.", showsDisclosure: true, action: .simulatedAnnealing),
+        ]
+        
+        let machineLearningRowSection = BasicTableSectionController()
+        let machineLearningRows = machineLearningRowProps.map(BasicTableRowController.map)
+        
+        machineLearningRowSection.rows = machineLearningRows
+        machineLearningRowSection.sectionTitle = "Machine Learning"
+        machineLearningRowSection.dispatcher = self.dispatcher
+        return machineLearningRowSection
     }
 }
 
