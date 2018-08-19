@@ -87,6 +87,37 @@ final class AlgorithmPresenter {
         return searchingRowSection
     }
     
+    
+    public func makeSortingSection() -> BasicTableSectionController {
+        let sortingProps = [
+            BasicTableRowController.Properties(title: "Insertion Sort", subtitle: nil, showsDisclosure: true, action: .insertionSort),
+            BasicTableRowController.Properties(title: "Selection Sort", subtitle: nil, showsDisclosure: true, action: .selectionSort),
+            BasicTableRowController.Properties(title: "Shell Sort", subtitle: nil, showsDisclosure: true, action: .shellSort),
+            
+            BasicTableRowController.Properties(title: "QuickSort", subtitle: nil, showsDisclosure: true, action: .quickSort),
+            BasicTableRowController.Properties(title: "Merge Sort", subtitle: nil, showsDisclosure: true, action: .mergeSort),
+            BasicTableRowController.Properties(title: "Heap Sort", subtitle: nil, showsDisclosure: true, action: .heapSort),
+            
+            BasicTableRowController.Properties(title: "Introsort", subtitle: nil, showsDisclosure: true, action: .introSort),
+            
+            BasicTableRowController.Properties(title: "Counting Sort", subtitle: nil, showsDisclosure: true, action: .countingSort),
+            BasicTableRowController.Properties(title: "Radix Sort", subtitle: nil, showsDisclosure: true, action: .radixSort),
+            BasicTableRowController.Properties(title: "Topological Sort", subtitle: nil, showsDisclosure: true, action: .topologicalSort),
+            
+            BasicTableRowController.Properties(title: "Bubble Sort", subtitle: nil, showsDisclosure: true, action: .bubbleSort),
+            BasicTableRowController.Properties(title: "Slow Sort", subtitle: nil, showsDisclosure: true, action: .slowSort),
+        ]
+        
+        let sortingRowsSection = BasicTableSectionController()
+        let sortingRows = sortingProps.map(BasicTableRowController.map)
+        
+        sortingRowsSection.rows = sortingRows
+        sortingRowsSection.sectionTitle = "Sorting"
+        sortingRowsSection.sectionSubtitle = "It's fun to see how sorting algorithms work, but in practice you'll almost never have to provide your own sorting routines. Swift's own sort() is more than up to the job. But if you're curious, read on..."
+        sortingRowsSection.dispatcher = self.dispatcher
+        
+        return sortingRowsSection
+    }
 }
 
 extension AlgorithmPresenter: RowActionDispatching {
