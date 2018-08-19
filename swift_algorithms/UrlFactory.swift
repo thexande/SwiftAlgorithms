@@ -6,18 +6,18 @@ final class UrlFactory {
         case .whatAreAlgorithms:
             return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/What%20are%20Algorithms.markdown")
         case .whyLearnAlgorithms:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Why%20Algorithms.markdown")
         case .bigO:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Big-O%20Notation.markdown")
         case .designTechniques:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Algorithm%20Design.markdown")
         case .howToContribute:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/.github/CONTRIBUTING.md")
             
         case .stack:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Stack/README.markdown")
         case .queue:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Queue/README.markdown")
         case .insertionSort:
             return nil
         case .binarySearch:
