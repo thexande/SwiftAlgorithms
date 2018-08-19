@@ -24,8 +24,11 @@ final class AlgorithmViewController: SectionProxyTableViewController {
     
     weak var dispatcher: RowActionDispatching?
     let header = QuadrantSelectorView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width))
+    private let footer = DonateFooterView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 80))
+
     let searchResultsController: UIViewController
     let searchController: UISearchController
+    
     
     public func update(with sections: [TableSectionController]) {
         sections.forEach { section in
@@ -40,7 +43,8 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         super.viewDidLoad()
         
         tableView.tableHeaderView = header
-        tableView.backgroundColor = UIColor.groupTableViewBackground
+        tableView.tableFooterView = footer
+        tableView.backgroundColor = .groupTableViewBackground
         
         // Setup the Search Controller
         searchController.searchResultsUpdater = self

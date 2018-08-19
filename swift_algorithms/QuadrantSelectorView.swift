@@ -41,6 +41,8 @@ final class QuadrantSelectorView: UIView {
         
         addSubview(stack)
         stack.edgeAnchors == edgeAnchors + UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        
+        backgroundColor = .white
     }
     
     required init?(coder aDecoder: NSCoder) {
