@@ -40,6 +40,7 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         super.viewDidLoad()
         
         tableView.tableHeaderView = header
+        tableView.backgroundColor = UIColor.groupTableViewBackground
         
         // Setup the Search Controller
         searchController.searchResultsUpdater = self

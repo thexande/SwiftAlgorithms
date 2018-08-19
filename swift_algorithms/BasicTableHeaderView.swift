@@ -31,7 +31,7 @@ final class BasicTableHeaderView: UITableViewHeaderFooterView {
         
         let stack = UIStackView(arrangedSubviews: labels)
         stack.axis = .vertical
-        stack.spacing = 12
+//        stack.spacing = 6
         contentView.addSubview(stack)
         stack.edgeAnchors == contentView.edgeAnchors + UIEdgeInsets(top: 8, left: 18, bottom: 8, right: 18)
     }

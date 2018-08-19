@@ -76,7 +76,8 @@ final class RootTabCoordinator {
             algorithmPresenter.makeCompressionSection(),
             algorithmPresenter.makeMiscellaneousSection(),
             algorithmPresenter.makeMathSection(),
-            algorithmPresenter.makeMachineLearningSection()
+            algorithmPresenter.makeMachineLearningSection(),
+            algorithmPresenter.makeAboutSection()
         ]
         
         algorithmViewController.update(with: controllers)

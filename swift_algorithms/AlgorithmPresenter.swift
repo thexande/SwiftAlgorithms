@@ -229,6 +229,13 @@ final class AlgorithmPresenter {
         machineLearningRowSection.dispatcher = self.dispatcher
         return machineLearningRowSection
     }
+    
+    func makeAboutSection() -> BasicTableSectionController {
+        let rowController = JoinTheClubRowController()
+        let controller = BasicTableSectionController()
+        controller.rows = [rowController]
+        return controller
+    }
 }
 
 extension AlgorithmPresenter: RowActionDispatching {
