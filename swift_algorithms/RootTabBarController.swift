@@ -3,7 +3,10 @@ import UIKit
 final class RootTabCoordinator {
     
     private let onboardingViewController = OnboardingInformationViewController()
-    private let algoController = AlgorithmViewController()
+
+    private let algorithmViewController = AlgorithmViewController()
+    private let algorithmPresenter = AlgorithmPresenter()
+
     private let dataStructureController = DataStructuresViewController()
     
     private var algorithmNav: UINavigationController?
@@ -16,8 +19,15 @@ final class RootTabCoordinator {
     var root: UIViewController?
     
     init() {
+        // configure dispatch
+        algorithmPresenter.dispatcher = self
+        algorithmViewController.dispatcher = algorithmPresenter
+
+        // configure root views
         root = makeRootTabBarController()
         
+        
+        // configure onboarding
         onboardingViewController.onDismiss = { [weak self] in
             DispatchQueue.main.async {
                 self?.onboardingViewController.dismiss(animated: true, completion: nil)
@@ -51,11 +61,21 @@ final class RootTabCoordinator {
         let tabBarSize = CGSize(width: 30, height: 30)
         let controller = RootTabBarController()
         
-        algoController.title = "Algorithms"
+        algorithmViewController.title = "Algorithms"
         let algoImage = UIImage(named: "algo")?.scaledImage(withSize: tabBarSize)
-        algoController.tabBarItem = UITabBarItem(title: "Algorithms", image: algoImage, selectedImage: algoImage)
-        algoController.dispatcher = self
-        let algoNav = UINavigationController(rootViewController: algoController)
+        algorithmViewController.tabBarItem = UITabBarItem(title: "Algorithms", image: algoImage, selectedImage: algoImage)
+        algorithmViewController.dispatcher = self
+        
+        // configure sections
+        let controllers: [TableSectionController] = [
+            algorithmPresenter.makeIntroSectionSection(),
+            algorithmPresenter.makeGettingStartedSection(),
+            algorithmPresenter.makeSearchingSection()
+        ]
+        
+        algorithmViewController.update(with: controllers)
+        
+        let algoNav = UINavigationController(rootViewController: algorithmViewController)
         
         algorithmNav = algoNav
         
