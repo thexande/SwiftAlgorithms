@@ -1,15 +1,46 @@
 import UIKit
 
 final class RootTabCoordinator {
-    let tabBarSize = CGSize(width: 30, height: 30)
     
+    private let onboardingViewController = OnboardingInformationViewController()
+    private var hasPresentedOnboarding = false
+
     var root: UIViewController?
     
     init() {
         root = makeRootTabBarController()
+        
+        onboardingViewController.onDismiss = { [weak self] in
+            DispatchQueue.main.async {
+                self?.onboardingViewController.dismiss(animated: true, completion: nil)
+            }
+        }
+       
+    }
+    
+    func rootViewDidAppear() {
+        if hasPresentedOnboarding == false {
+            root?.present(onboardingViewController, animated: true, completion: { [weak self] in
+                self?.hasPresentedOnboarding = true
+            })
+        }
+    }
+    
+    private func configureOnboarding() {
+        if (UserDefaults.standard.object(forKey: "has_seen_onboarding") == nil) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+                if let controller = self?.onboardingViewController {
+                    controller.modalTransitionStyle = .crossDissolve
+                    self?.root?.present(controller, animated: true, completion: {
+                        UserDefaults.standard.set(true, forKey: "has_seen_onboarding")
+                    })
+                }
+            }
+        }
     }
     
     func makeRootTabBarController() -> RootTabBarController {
+        let tabBarSize = CGSize(width: 30, height: 30)
         let controller = RootTabBarController()
         
         let algoController = AlgorithmViewController()
@@ -33,6 +64,8 @@ final class RootTabCoordinator {
             dataNav
         ]
         
+        controller.coordinator = self
+        
         return controller
     }
     
@@ -40,6 +73,12 @@ final class RootTabCoordinator {
 }
 
 final class RootTabBarController: UITabBarController {
+    weak var coordinator: RootTabCoordinator?
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        coordinator?.rootViewDidAppear()
+    }
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         

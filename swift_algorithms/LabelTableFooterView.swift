@@ -1,4 +1,5 @@
 import UIKit
+import Anchorage
 
 final class LabelTableFooterView: UITableViewHeaderFooterView {
     let label = UILabel()
