@@ -7,10 +7,46 @@ extension AlgorithmViewController: UISearchResultsUpdating {
     }
 }
 
+import UIKit
+
+class ResultsTableViewController: SectionProxyTableViewController, UISearchResultsUpdating, UISearchBarDelegate {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        
+        return true
+    }
+}
+
+
+
+
 final class AlgorithmViewController: SectionProxyTableViewController {
+    weak var dispatcher: RowActionDispatching?
+    let header = QuadrantSelectorView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width))
+    private let footer = DonateFooterView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 80))
+    let searchResultsController: ResultsTableViewController
+    let searchController: UISearchController
     
     override init(style: UITableViewStyle) {
-        let searchResultsController = UIViewController()
+        let searchResultsController = ResultsTableViewController()
         searchController = UISearchController(searchResultsController: searchResultsController)
         self.searchResultsController = searchResultsController
         super.init(style: style)
@@ -19,16 +55,6 @@ final class AlgorithmViewController: SectionProxyTableViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
-    weak var dispatcher: RowActionDispatching?
-    let header = QuadrantSelectorView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width))
-    private let footer = DonateFooterView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 80))
-
-    let searchResultsController: UIViewController
-    let searchController: UISearchController
-    
     
     public func update(with sections: [TableSectionController]) {
         sections.forEach { section in
@@ -47,7 +73,7 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         tableView.backgroundColor = .groupTableViewBackground
         
         // Setup the Search Controller
-        searchController.searchResultsUpdater = self
+        searchController.searchResultsUpdater = searchResultsController
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Algorithms"
         navigationItem.searchController = searchController

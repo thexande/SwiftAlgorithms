@@ -2,7 +2,7 @@ import UIKit
 
 final class BasicTableRowController: NSObject, RowController {
     
-    struct Properties {
+    public struct Properties {
         let title: String
         let subtitle: String?
         let showsDisclosure: Bool
