@@ -26,8 +26,8 @@ final class BasicTableHeaderView: UITableViewHeaderFooterView {
             label.numberOfLines = 0
         }
         
-        titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-        subtitleLabel.font = UIFont.systemFont(ofSize: 14)
+        titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        subtitleLabel.font = UIFont.systemFont(ofSize: 12)
         
         let stack = UIStackView(arrangedSubviews: labels)
         stack.axis = .vertical

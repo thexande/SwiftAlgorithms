@@ -16,7 +16,7 @@ final class BasicTableHeaderCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         textLabel?.numberOfLines = 0
-        textLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
         selectionStyle = .none
         contentView.backgroundColor = .groupTableViewBackground

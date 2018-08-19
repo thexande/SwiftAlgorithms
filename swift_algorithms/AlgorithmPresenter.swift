@@ -161,7 +161,7 @@ final class AlgorithmPresenter {
     
     public func makeCompressionSection() -> BasicTableSectionController {
         let compressionRowProps = [
-            BasicTableRowController.Properties(title: "Run-Length Encoding (RLE).", subtitle: "Store repeated values as a single byte and a count.", showsDisclosure: true, action: .runLengthEncoding),
+            BasicTableRowController.Properties(title: "Run-Length Encoding (RLE)", subtitle: "Store repeated values as a single byte and a count.", showsDisclosure: true, action: .runLengthEncoding),
             BasicTableRowController.Properties(title: "Huffman Coding", subtitle: "Store more common elements using a smaller number of bits.", showsDisclosure: true, action: .huffmanCoding),
         ]
         
@@ -172,6 +172,26 @@ final class AlgorithmPresenter {
         compressionRowSection.sectionTitle = "Compression"
         compressionRowSection.dispatcher = self.dispatcher
         return compressionRowSection
+    }
+    
+    public func makeMiscellaneousSection() -> BasicTableSectionController {
+        let miscellaneousRowProps = [
+            BasicTableRowController.Properties(title: "Shuffle", subtitle: "Randomly rearranges the contents of an array.", showsDisclosure: true, action: .shuffle),
+            BasicTableRowController.Properties(title: "Combo Sort", subtitle: "An improve upon the Bubble Sort algorithm.", showsDisclosure: true, action: .comboSort),
+            BasicTableRowController.Properties(title: "Convex Hull", subtitle: " The Convex Hull algorithm calculates the shape (made up from the points itself) containing all these points.", showsDisclosure: true, action: .convexHull),
+            
+            BasicTableRowController.Properties(title: "Shuffle", subtitle: "Randomly rearranges the contents of an array.", showsDisclosure: true, action: .shuffle),
+            BasicTableRowController.Properties(title: "Miller-Rabin Primality Test", subtitle: "Is the number a prime number?", showsDisclosure: true, action: .shuffle),
+            BasicTableRowController.Properties(title: "MinimumCoinChange", subtitle: "A showcase for dynamic programming.", showsDisclosure: true, action: .shuffle),
+        ]
+        
+        let miscellaneousRowSection = BasicTableSectionController()
+        let miscellaneousRows = miscellaneousRowProps.map(BasicTableRowController.map)
+        
+        miscellaneousRowSection.rows = miscellaneousRows
+        miscellaneousRowSection.sectionTitle = "Miscellaneous"
+        miscellaneousRowSection.dispatcher = self.dispatcher
+        return miscellaneousRowSection
     }
 }
 
