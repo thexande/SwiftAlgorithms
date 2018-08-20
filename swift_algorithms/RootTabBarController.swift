@@ -79,6 +79,8 @@ final class RootTabCoordinator {
         algorithmSearchResultsPresenter.properties = rows
         algorithmSearchResultsPresenter.searchedProperties = rows
         
+        algorithmSearchResultsController.dispatcher = self
+        
         
         algorithmViewController.navigationItem.searchController = algorithmSearchController
         

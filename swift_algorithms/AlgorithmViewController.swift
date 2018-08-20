@@ -1,11 +1,3 @@
-import UIKit
-
-extension AlgorithmViewController: UISearchResultsUpdating {
-    // MARK: - UISearchResultsUpdating Delegate
-    func updateSearchResults(for searchController: UISearchController) {
-        // TODO
-    }
-}
 
 import UIKit
 
@@ -21,7 +13,11 @@ final class AlgorithmResultsPresenter: NSObject, UISearchResultsUpdating, UISear
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        
+        if let text = searchController.searchBar.text {
+            searchedProperties = properties.filter { item in
+                return (item.title + (item.subtitle ?? "")).lowercased().contains(text.lowercased())
+            }
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -37,8 +33,10 @@ final class AlgorithmResultsPresenter: NSObject, UISearchResultsUpdating, UISear
     }
 }
 
-class ResultsTableViewController: SectionProxyTableViewController {
-    let section = BasicTableSectionController()
+final class ResultsTableViewController: SectionProxyTableViewController {
+    private let section = BasicTableSectionController()
+    
+    weak var dispatcher: RowActionDispatching?
     
     var properties: [BasicTableRowController.Properties] = [] {
         didSet {
@@ -48,6 +46,7 @@ class ResultsTableViewController: SectionProxyTableViewController {
     
     func update(with properties: [RowController]) {
         section.rows = properties
+        section.dispatcher = dispatcher
         tableView.reloadData()
     }
     
@@ -55,6 +54,7 @@ class ResultsTableViewController: SectionProxyTableViewController {
         super.viewDidLoad()
         section.registerReusableTypes(tableView: tableView)
         sections = [section]
+        tableView.tableFooterView = UIView()
     }
 }
 
