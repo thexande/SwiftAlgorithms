@@ -36,7 +36,7 @@ final class QuadrantItemView: UIView {
         
         addSubview(lottie)
         lottie.heightAnchor == lottie.widthAnchor
-        lottie.heightAnchor == heightAnchor * 0.66
+        lottie.heightAnchor == heightAnchor * 0.5
         lottie.bottomAnchor == bottomAnchor - 8
         lottie.trailingAnchor == trailingAnchor - 8
         

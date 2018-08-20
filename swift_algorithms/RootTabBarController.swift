@@ -7,7 +7,7 @@ final class RootTabCoordinator {
     private let algorithmViewController = AlgorithmViewController(style: .plain)
     private let algorithmPresenter = AlgorithmPresenter()
     
-    private let algorithmSearchResultsController = ResultsTableViewController()
+    private let algorithmSearchResultsController = ResultsTableViewController(style: .grouped)
     private let algorithmSearchResultsPresenter = AlgorithmResultsPresenter()
 
     private let dataStructureController = DataStructuresViewController()

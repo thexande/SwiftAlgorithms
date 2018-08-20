@@ -143,6 +143,63 @@ final class AlgorithmViewController: SectionProxyTableViewController {
             }
         }
         
+        enum Cagegory {
+            case gettingStarted
+            case searching
+            case stringSearch
+            case sorting
+            case compression
+            case misc
+            case math
+            case machineLearning
+            
+            var title: String {
+                switch self {
+                case .gettingStarted:
+                    return "Getting Started"
+                case .searching:
+                    return "Searching"
+                case .stringSearch:
+                    return "String Search"
+                case .sorting:
+                    return "Sorting"
+                case .compression:
+                    return "Compression"
+                case .misc:
+                    return "Miscellaneous"
+                case .math:
+                    return "Math"
+                case .machineLearning:
+                    return "Machine Learning"
+                }
+            }
+            
+            var color: UIColor {
+                switch self {
+                case .gettingStarted:
+                    return .coral()
+                case .searching:
+                    return UIColor.turquiose()
+                case .stringSearch:
+                    return UIColor.amethist()
+                case .sorting:
+                    return UIColor.amethist()
+                case .compression:
+                    return UIColor.coral()
+                case .misc:
+                    return UIColor.flatRed()
+                case .math:
+                    return UIColor.orangeCream()
+                case .machineLearning:
+                    return UIColor.orangeCream()
+                }
+            }
+        }
+        
+        var category: Action.Cagegory? {
+            return Action.category(for: self)
+        }
+        
         static func category(for action: Action) -> Action.Cagegory? {
             switch action {
                 
@@ -180,59 +237,6 @@ final class AlgorithmViewController: SectionProxyTableViewController {
                 
             default:
                 return nil
-            }
-        }
-        
-        enum Cagegory {
-            case gettingStarted
-            case searching
-            case stringSearch
-            case sorting
-            case compression
-            case misc
-            case math
-            case machineLearning
-            
-            var title: String {
-                switch self {
-                case .gettingStarted:
-                    return "Getting Started"
-                case .searching:
-                    return "Searching"
-                case .stringSearch:
-                    return "String Search"
-                case .sorting:
-                    return "Sorting"
-                case .compression:
-                    return "Compression"
-                case .misc:
-                    return "Miscellaneous"
-                case .math:
-                    return "Math"
-                case .machineLearning:
-                    return "Machine Learning"
-                }
-            }
-            
-            var color: UIColor {
-                switch self {
-                case .gettingStarted:
-                    return .black
-                case .searching:
-                    return UIColor.turquiose()
-                case .stringSearch:
-                    return UIColor.amethist()
-                case .sorting:
-                    return UIColor.amethist()
-                case .compression:
-                    return UIColor.coral()
-                case .misc:
-                    return UIColor.blue
-                case .math:
-                    return UIColor.orangeCream()
-                case .machineLearning:
-                    return UIColor.orangeCream()
-                }
             }
         }
     }

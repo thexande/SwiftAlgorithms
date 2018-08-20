@@ -19,92 +19,102 @@ final class UrlFactory {
         case .queue:
             return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Queue/README.markdown")
         case .insertionSort:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Insertion%20Sort/README.markdown")
         case .binarySearch:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Binary%20Search/README.markdown")
         case .binarySearchTree:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Binary%20Search%20Tree/README.markdown")
         case .mergeSort:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Merge%20Sort/README.markdown")
         case .boyerMoore:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Boyer-Moore-Horspool/README.markdown")
             
         case .linnearSearch:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Linear%20Search/README.markdown")
         case .countOccurences:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Count%20Occurrences/README.markdown")
         case .selectMinMax:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Select%20Minimum%20Maximum/README.markdown")
         case .kthLargestElement:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Kth%20Largest%20Element/README.markdown")
         case .selectionSampling:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Selection%20Sampling/README.markdown")
         case .unionFind:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Union-Find/README.markdown")
+        
         case .bruteForceStringSearch:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Brute-Force%20String%20Search/README.markdown")
         case .knuthMorrisPratt:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Knuth-Morris-Pratt/README.markdown")
         case .rabinKarp:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Rabin-Karp/README.markdown")
         case .longestCommonSubsequence:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Longest%20Common%20Subsequence/README.markdown")
         case .zAlgorithm:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Z-Algorithm/README.markdown")
+        
+            // missing?
         case .selectionSort:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Selection%20Sort/README.markdown")
         case .shellSort:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Shell%20Sort/README.markdown")
         case .quickSort:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Quicksort/README.markdown")
         case .heapSort:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Heap%20Sort/README.markdown")
+            
         case .introSort:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Introsort/README.markdown")
+            
         case .countingSort:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Counting%20Sort/README.markdown")
         case .radixSort:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Radix%20Sort/ReadMe.md")
         case .topologicalSort:
-            return nil
+            return URL(string: "https://github.com/raywenderlich/swift-algorithm-club/blob/master/Topological%20Sort/README.markdown")
+       
         case .bubbleSort:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Bubble%20Sort/README.markdown")
         case .slowSort:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Slow%20Sort/README.markdown")
+            
         case .runLengthEncoding:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Run-Length%20Encoding/README.markdown")
         case .huffmanCoding:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Huffman%20Coding/README.markdown")
+            
         case .shuffle:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Shuffle/README.markdown")
         case .comboSort:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Comb%20Sort/README.markdown")
         case .convexHull:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Convex%20Hull/README.md")
         case .millerRabin:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Miller-Rabin%20Primality%20Test/README.markdown")
         case .minimumCoin:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/MinimumCoinChange/README.md")
+            
         case .gcd:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/GCD/README.markdown")
         case .permutationsAndCombinations:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Combinatorics/README.markdown")
         case .shuntingYard:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Shunting%20Yard/README.markdown")
         case .karatsubaMultiplication:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Karatsuba%20Multiplication/README.markdown")
         case .haversineDistance:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/HaversineDistance/README.md")
         case .strassenMultiplicationMatrix:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Strassen%20Matrix%20Multiplication/README.markdown")
+            
         case .kMeansClustering:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/K-Means/README.markdown")
         case .linnearRegression:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Linear%20Regression/README.markdown")
         case .naiveBayesClassifier:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Naive%20Bayes%20Classifier/README.md")
         case .simulatedAnnealing:
-            return nil
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Simulated%20annealing/README.md")
         }
     }
 }
