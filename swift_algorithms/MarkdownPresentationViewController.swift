@@ -5,14 +5,17 @@ import SafariServices
 
 final class MarkdownPresentationViewController: UIViewController {
     let markdownView = MarkdownView()
-    
-    override func loadView() {
-        view = markdownView
-    }
+    let loading = TableLoadingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
+        
+        view.addSubview(markdownView)
+        markdownView.edgeAnchors == view.edgeAnchors
+        
+        view.addSubview(loading)
+        loading.edgeAnchors == view.edgeAnchors
         
         markdownView.onTouchLink = { [weak self] request in
             guard let url = request.url else { return false }
@@ -25,6 +28,12 @@ final class MarkdownPresentationViewController: UIViewController {
                 return false
             } else {
                 return false
+            }
+        }
+        
+        markdownView.onRendered = { [weak self] _ in
+            if let `self` = self {
+                self.view.sendSubview(toBack: self.loading)
             }
         }
     }
