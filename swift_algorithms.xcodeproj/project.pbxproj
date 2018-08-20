@@ -39,6 +39,8 @@
 		B01733AF21294C6E00FBEFE5 /* StringNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733AE21294C6E00FBEFE5 /* StringNetworkService.swift */; };
 		B069F1B5212A3E63002FABFB /* SearchEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1B4212A3E63002FABFB /* SearchEmptyStateView.swift */; };
 		B069F1B7212A406E002FABFB /* Rejection.json in Resources */ = {isa = PBXBuildFile; fileRef = B069F1B6212A406E002FABFB /* Rejection.json */; };
+		B069F1B9212A45EE002FABFB /* AlgorithmResultsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1B8212A45EE002FABFB /* AlgorithmResultsPresenter.swift */; };
+		B069F1BB212A4617002FABFB /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1BA212A4617002FABFB /* ResultsTableViewController.swift */; };
 		B0A4DB342129E781000CFC7F /* AlgorithmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB332129E781000CFC7F /* AlgorithmPresenter.swift */; };
 		B0A4DB362129F21C000CFC7F /* BasicTableHeaderRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB352129F21C000CFC7F /* BasicTableHeaderRowController.swift */; };
 		B0A4DB38212A03B6000CFC7F /* JoinTheClubRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB37212A03B6000CFC7F /* JoinTheClubRowController.swift */; };
@@ -109,6 +111,8 @@
 		B01733AE21294C6E00FBEFE5 /* StringNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringNetworkService.swift; sourceTree = "<group>"; };
 		B069F1B4212A3E63002FABFB /* SearchEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmptyStateView.swift; sourceTree = "<group>"; };
 		B069F1B6212A406E002FABFB /* Rejection.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Rejection.json; sourceTree = "<group>"; };
+		B069F1B8212A45EE002FABFB /* AlgorithmResultsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmResultsPresenter.swift; sourceTree = "<group>"; };
+		B069F1BA212A4617002FABFB /* ResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
 		B0A4DB332129E781000CFC7F /* AlgorithmPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmPresenter.swift; sourceTree = "<group>"; };
 		B0A4DB352129F21C000CFC7F /* BasicTableHeaderRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableHeaderRowController.swift; sourceTree = "<group>"; };
 		B0A4DB37212A03B6000CFC7F /* JoinTheClubRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTheClubRowController.swift; sourceTree = "<group>"; };
@@ -220,6 +224,8 @@
 				B0A4DB3F212A0D42000CFC7F /* AlgorithmSectionProperties.swift */,
 				B069F1B4212A3E63002FABFB /* SearchEmptyStateView.swift */,
 				B069F1B6212A406E002FABFB /* Rejection.json */,
+				B069F1B8212A45EE002FABFB /* AlgorithmResultsPresenter.swift */,
+				B069F1BA212A4617002FABFB /* ResultsTableViewController.swift */,
 			);
 			path = swift_algorithms;
 			sourceTree = "<group>";
@@ -474,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B01733892128CBA900FBEFE5 /* QuadrantItemView.swift in Sources */,
+				B069F1BB212A4617002FABFB /* ResultsTableViewController.swift in Sources */,
 				B0A4DB3C212A066C000CFC7F /* ConfettiButton.swift in Sources */,
 				B01733972128E8EA00FBEFE5 /* ActionTableSectionController.swift in Sources */,
 				B0A4DB3A212A0648000CFC7F /* DonateFooterView.swift in Sources */,
@@ -504,6 +511,7 @@
 				B01733912128D04500FBEFE5 /* AlgorithmViewController.swift in Sources */,
 				B0A4DB362129F21C000CFC7F /* BasicTableHeaderRowController.swift in Sources */,
 				B01733A52129351A00FBEFE5 /* BasicTableCell.swift in Sources */,
+				B069F1B9212A45EE002FABFB /* AlgorithmResultsPresenter.swift in Sources */,
 				B00B26A32123B5DE00E1DF9C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
