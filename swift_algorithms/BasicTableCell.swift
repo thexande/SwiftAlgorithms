@@ -1,4 +1,5 @@
 import UIKit
+import Anchorage
 
 final class BasicTableCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -20,7 +21,32 @@ final class BasicTableHeaderCell: UITableViewCell {
         separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
         selectionStyle = .none
         contentView.backgroundColor = .groupTableViewBackground
-      
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
+final class SearchResultsTableCell: UITableViewCell {
+    let title = UILabel()
+    let indicator = UIView()
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(title)
+        title.edgeAnchors == contentView.edgeAnchors + UIEdgeInsets(top: 8, left: 42, bottom: 8, right: 12)
+        
+        contentView.addSubview(indicator)
+        indicator.sizeAnchors == CGSize(width: 12, height: 12)
+        indicator.layer.cornerRadius = 6
+        indicator.backgroundColor = .black
+        indicator.centerYAnchor == title.centerYAnchor
+        indicator.leadingAnchor == contentView.leadingAnchor + 18
+        
+        separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -18)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

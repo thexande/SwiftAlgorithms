@@ -82,7 +82,7 @@ final class OnboardingInformationViewController: UIViewController {
         return OnboardingInformationViewController.Properties(title: attributedTitle, subtitle: "Great documentation for Data Structures and Algorithms in Swift 4.", onboardingItems: [
             OnboardItemView.Properties(content: "Verify successful transactions through confirmation counts and block indexes.", icon: UIImage(named: "algo")),
             OnboardItemView.Properties(content: "Sourced from Raywenderlich.com's Algorithm Club, view Swift 4 solutions and detailed explanations.", icon: UIImage(named: "swift_logo_color")),
-            OnboardItemView.Properties(content: "Currently, only Bitcoin is supported. Multi currency wallet support is in development.", icon: UIImage(named: "data_structure")),
+            OnboardItemView.Properties(content: "Currently, only Bitcoin is supported. Multi currency wallet support is in development.", icon: UIImage(named: "swift_algo_club")),
             ])
     }
 }

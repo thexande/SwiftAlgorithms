@@ -52,12 +52,17 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         
     }
     
+    
+    
     enum Action {
+        
         case whatAreAlgorithms
         case whyLearnAlgorithms
         case bigO
         case designTechniques
         case howToContribute
+        
+        // getting started
         
         case stack
         case queue
@@ -135,6 +140,99 @@ final class AlgorithmViewController: SectionProxyTableViewController {
             case .designTechniques: return "Design Techniques"
             case .howToContribute: return "How To Contribute"
             default: return ""
+            }
+        }
+        
+        static func category(for action: Action) -> Action.Cagegory? {
+            switch action {
+                
+            // getting started
+            case .stack, .queue, .insertionSort, .binarySearch, .binarySearchTree, .mergeSort, .boyerMoore:
+                return .gettingStarted
+                
+            // Searching
+            case .linnearSearch, .countOccurences, .selectMinMax, .kthLargestElement, .selectionSampling, .unionFind:
+                return .searching
+                
+            // String Search
+            case .bruteForceStringSearch, .knuthMorrisPratt, .rabinKarp, .longestCommonSubsequence, .zAlgorithm:
+                return .stringSearch
+                
+            // Sorting
+            case .selectionSort, .shellSort, .quickSort, .heapSort, .introSort, .countingSort, .radixSort, .topologicalSort, .bubbleSort, .slowSort:
+                return .sorting
+                
+            // Compression
+            case .runLengthEncoding, .huffmanCoding:
+                return .compression
+                
+            // Miscellaneous
+            case .shuffle, .comboSort, .convexHull, .millerRabin, .minimumCoin:
+                return .misc
+                
+            // Mathematics
+            case .gcd, .permutationsAndCombinations, .shuntingYard, .karatsubaMultiplication, .haversineDistance, .strassenMultiplicationMatrix:
+                return .math
+                
+            // Machine Learning
+            case .kMeansClustering, .linnearRegression, .naiveBayesClassifier, .simulatedAnnealing:
+                return .machineLearning
+                
+            default:
+                return nil
+            }
+        }
+        
+        enum Cagegory {
+            case gettingStarted
+            case searching
+            case stringSearch
+            case sorting
+            case compression
+            case misc
+            case math
+            case machineLearning
+            
+            var title: String {
+                switch self {
+                case .gettingStarted:
+                    return "Getting Started"
+                case .searching:
+                    return "Searching"
+                case .stringSearch:
+                    return "String Search"
+                case .sorting:
+                    return "Sorting"
+                case .compression:
+                    return "Compression"
+                case .misc:
+                    return "Miscellaneous"
+                case .math:
+                    return "Math"
+                case .machineLearning:
+                    return "Machine Learning"
+                }
+            }
+            
+            var color: UIColor {
+                switch self {
+                case .gettingStarted:
+                    return .black
+                case .searching:
+                    return UIColor.turquiose()
+                case .stringSearch:
+                    return UIColor.amethist()
+                case .sorting:
+                    return UIColor.amethist()
+                case .compression:
+                    return UIColor.coral()
+                case .misc:
+                    return UIColor.blue
+                case .math:
+                    return UIColor.orangeCream()
+                case .machineLearning:
+                    return UIColor.orangeCream()
+                }
             }
         }
     }

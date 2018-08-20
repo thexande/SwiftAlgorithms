@@ -8,7 +8,7 @@ final class ResultsTableViewController: SectionProxyTableViewController {
     
     var properties: [BasicTableRowController.Properties] = [] {
         didSet {
-            update(with: properties.map(BasicTableRowController.map))
+            update(with: properties.map(SearchResultsRowController.map))
         }
     }
     
