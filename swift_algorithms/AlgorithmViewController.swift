@@ -139,7 +139,120 @@ final class AlgorithmViewController: SectionProxyTableViewController {
             case .bigO: return "Big O"
             case .designTechniques: return "Design Techniques"
             case .howToContribute: return "How To Contribute"
-            default: return ""
+                
+            // getting started
+                
+            case .stack:
+                return "Stack"
+            case .queue:
+                return "Queue"
+            case .insertionSort:
+                return "Insertion Sort"
+            case .binarySearch:
+                return "Binary Search"
+            case .binarySearchTree:
+                return "Binary Search Tree"
+            case .mergeSort:
+                return "Merge Sort"
+            case .boyerMoore:
+                return "Boyer Moore"
+                
+                // Searching
+                
+            case .linnearSearch:
+                return "Linnear Search"
+            case .countOccurences:
+                return "Count Occurences"
+            case .selectMinMax:
+                return "Select Min / Max"
+            case .kthLargestElement:
+                return "Kth Largest Element"
+            case .selectionSampling:
+                return "Selection Sampling"
+            case .unionFind:
+                return "Union Find"
+                
+                // String Search
+                
+            case .bruteForceStringSearch:
+                return "Brute Force String Search"
+            case .knuthMorrisPratt:
+                return "Knuth Morris Pratt"
+            case .rabinKarp:
+                return "Rabin Karp"
+            case .longestCommonSubsequence:
+                return "Longest Common Subsequence"
+            case .zAlgorithm:
+                return "Z Algorithm"
+                
+                // Sorting
+                
+            case .selectionSort:
+                return "Selection Sort"
+            case .shellSort:
+                return "Shell Sort"
+            case .quickSort:
+                return "Quick Sort"
+            case .heapSort:
+                return "Heap Sort"
+            case .introSort:
+                return "Intro Sort"
+            case .countingSort:
+                return "Counting Sort"
+            case .radixSort:
+                return "Radix Sort"
+            case .topologicalSort:
+                return "Topological Sort"
+            case .bubbleSort:
+                return "Bubble Sort"
+            case .slowSort:
+                return "Slow Sort"
+                
+                // Compression
+                
+            case .runLengthEncoding:
+                return "Run Length Encoding"
+            case .huffmanCoding:
+                return "Huffman Coding"
+                
+                // Miscellaneous
+                
+            case .shuffle:
+                return "Shuffle"
+            case .comboSort:
+                return "Combo Sort"
+            case .convexHull:
+                return "Convex Hull"
+            case .millerRabin:
+                return "Miller Rabin"
+            case .minimumCoin:
+                return "Minimum Coin"
+                
+                // Mathematics
+                
+            case .gcd:
+                return "Greatest Common Denominator"
+            case .permutationsAndCombinations:
+                return "Permutations & Combinations"
+            case .shuntingYard:
+                return "Shunning Yard"
+            case .karatsubaMultiplication:
+                return "Karatsuba Multiplication"
+            case .haversineDistance:
+                return "Haversine Distance"
+            case .strassenMultiplicationMatrix:
+                return "Strassen Multiplication Matrix"
+                
+                // Machine Learning
+                
+            case .kMeansClustering:
+                return "K Means Clustering"
+            case .linnearRegression:
+                return "Linnear Regression"
+            case .naiveBayesClassifier:
+                return "Naive Bayes Classifier"
+            case .simulatedAnnealing:
+                return "Simulated Annealing"
             }
         }
         
