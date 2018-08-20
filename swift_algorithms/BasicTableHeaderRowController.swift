@@ -1,7 +1,7 @@
 import UIKit
 
 final class BasicTableHeaderRowController: NSObject, RowController {
-    var dispatcher: RowActionDispatching?
+    var dispatcher: AlogrithmActionDispatching?
     
     struct Properties {
         let title: String

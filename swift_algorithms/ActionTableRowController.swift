@@ -5,12 +5,12 @@ final class ActionTableRowController: NSObject, RowController {
         let title: String
         let subtitle: String?
         let icon: UIImage?
-        let action: AlgorithmViewController.Action
+        let action: Algorithm
         static let `default` = Properties(title: "Test Title", subtitle: nil, icon: UIImage(named: "pancakes"), action: .bigO)
     }
     
     public var properties: Properties = .default
-    public weak var dispatcher: RowActionDispatching?
+    public weak var dispatcher: AlogrithmActionDispatching?
     
     func registerReusableTypes(tableView: UITableView) {
         tableView.register(ActionIconRowCell.self, forCellReuseIdentifier: String(describing: ActionIconRowCell.self))
@@ -40,7 +40,7 @@ extension ActionTableRowController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dispatcher?.dispatch(properties.action)
+        dispatcher?.dispatch(.selectAlgorithm(properties.action))
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

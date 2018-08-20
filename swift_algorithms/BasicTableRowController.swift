@@ -6,12 +6,12 @@ final class BasicTableRowController: NSObject, RowController {
         let title: String
         let subtitle: String?
         let showsDisclosure: Bool
-        let action: AlgorithmViewController.Action
+        let action: Algorithm
         static let `default` = Properties(title: "title", subtitle: nil, showsDisclosure: false, action: .binarySearch)
     }
     
     public var properties: Properties = .default
-    public weak var dispatcher: RowActionDispatching?
+    public weak var dispatcher: AlogrithmActionDispatching?
     
     func registerReusableTypes(tableView: UITableView) {
         tableView.register(BasicTableCell.self, forCellReuseIdentifier: String(describing: BasicTableCell.self))
@@ -46,6 +46,6 @@ extension BasicTableRowController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dispatcher?.dispatch(properties.action)
+        dispatcher?.dispatch(.selectAlgorithm(properties.action))
     }
 }

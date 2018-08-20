@@ -138,25 +138,30 @@ final class RootTabCoordinator {
     }
 }
 
-extension RootTabCoordinator: RowActionDispatching {
+extension RootTabCoordinator: AlogrithmActionDispatching {
     func dispatch(_ action: AlgorithmViewController.Action) {
-        guard let url = urlFactory.markdownFileUrl(for: action) else {
-            return
-        }
-        
-        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
-            switch result {
-            case let .success(markdown):
+        switch action {
+        case let .selectAlgorithm(algorithm):
             
-                DispatchQueue.main.async {
-                    if let controller = self?.makeMarkdownController(with: markdown, title: action.title) {
-                        self?.algorithmNav?.pushViewController(controller, animated: true)
-                    }
-                }
-                
-            case .failure:
+            guard let url = urlFactory.markdownFileUrl(for: algorithm) else {
                 return
             }
+            
+            stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
+                switch result {
+                case let .success(markdown):
+                    
+                    DispatchQueue.main.async {
+                        if let controller = self?.makeMarkdownController(with: markdown, title: algorithm.title) {
+                            self?.algorithmNav?.pushViewController(controller, animated: true)
+                        }
+                    }
+                    
+                case .failure:
+                    return
+                }
+            }
+        default: return 
         }
     }
 }

@@ -1,12 +1,12 @@
 import UIKit
 
 protocol RowController: UITableViewDelegate, UITableViewDataSource {
-    var dispatcher: RowActionDispatching? { get set }
+    var dispatcher: AlogrithmActionDispatching? { get set }
     func registerReusableTypes(tableView: UITableView)
 }
 
 
-protocol RowActionDispatching: AnyObject {
+protocol AlogrithmActionDispatching: AnyObject {
     func dispatch(_ action: AlgorithmViewController.Action)
 }
 
@@ -14,7 +14,7 @@ final class ActionTableSectionController: NSObject, TableSectionController {
     public var rows: [RowController] = []
     public var sectionTitle: String?
     
-    public weak var dispatcher: RowActionDispatching? {
+    public weak var dispatcher: AlogrithmActionDispatching? {
         didSet {
             rows.forEach { row in
                 row.dispatcher = dispatcher

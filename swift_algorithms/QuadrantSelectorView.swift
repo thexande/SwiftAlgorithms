@@ -2,6 +2,7 @@ import UIKit
 import Anchorage
 
 final class QuadrantSelectorView: UIView {
+    
     let one = QuadrantItemView()
     let two = QuadrantItemView()
     let three = QuadrantItemView()

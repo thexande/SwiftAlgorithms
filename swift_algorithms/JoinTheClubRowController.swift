@@ -2,7 +2,7 @@ import UIKit
 import Anchorage
 
 final class JoinTheClubRowController: NSObject, RowController {
-    public weak var dispatcher: RowActionDispatching?
+    public weak var dispatcher: AlogrithmActionDispatching?
     
     func registerReusableTypes(tableView: UITableView) {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))

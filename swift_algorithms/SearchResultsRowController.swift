@@ -3,7 +3,7 @@ import UIKit
 final class SearchResultsRowController: NSObject, RowController {
 
     public var properties: BasicTableRowController.Properties = .default
-    public weak var dispatcher: RowActionDispatching?
+    public weak var dispatcher: AlogrithmActionDispatching?
     
     func registerReusableTypes(tableView: UITableView) {
         tableView.register(SearchResultsTableCell.self, forCellReuseIdentifier: String(describing: SearchResultsTableCell.self))
@@ -27,7 +27,7 @@ extension SearchResultsRowController: UITableViewDelegate, UITableViewDataSource
         }
         cell.title.text = properties.title
         cell.accessoryType = .disclosureIndicator
-        cell.indicator.backgroundColor = (AlgorithmViewController.Action.category(for: properties.action)?.color ?? .black)
+        cell.indicator.backgroundColor = (Algorithm.category(for: properties.action)?.color ?? .black)
         
         return cell
     }
@@ -37,6 +37,6 @@ extension SearchResultsRowController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dispatcher?.dispatch(properties.action)
+        dispatcher?.dispatch(.selectAlgorithm(properties.action))
     }
 }

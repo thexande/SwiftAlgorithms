@@ -3,7 +3,7 @@ import UIKit
 final class ResultsTableViewController: SectionProxyTableViewController {
     private let empty = SearchEmptyStateView()
     
-    weak var dispatcher: RowActionDispatching?
+    weak var dispatcher: AlogrithmActionDispatching?
     
     var properties: [BasicTableRowController.Properties] = [] {
         didSet {
@@ -13,7 +13,7 @@ final class ResultsTableViewController: SectionProxyTableViewController {
     
     func update(with properties: [BasicTableRowController.Properties]) {
         
-        let categories = Array(Set(properties.map { $0.action }.compactMap(AlgorithmViewController.Action.category(for:))))
+        let categories = Array(Set(properties.map { $0.action }.compactMap(Algorithm.category(for:))))
         
         let sections: [TableSectionController] = categories.map { category in
             let sectionProperties = properties.filter {

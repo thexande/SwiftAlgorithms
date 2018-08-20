@@ -5,7 +5,7 @@ final class BasicTableSectionController: NSObject, TableSectionController {
     public var sectionTitle: String?
     public var sectionSubtitle: String?
     
-    public weak var dispatcher: RowActionDispatching? {
+    public weak var dispatcher: AlogrithmActionDispatching? {
         didSet {
             rows.forEach { row in
                 row.dispatcher = dispatcher

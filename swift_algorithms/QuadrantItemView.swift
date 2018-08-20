@@ -10,7 +10,8 @@ final class QuadrantItemView: UIView {
         let title: String
         let image: UIImage?
         let backgroundColor: UIColor
-        static let `default` = Properties(title: " ", image: UIImage(), backgroundColor: .black)
+        let category: Algorithm.Cagegory
+        static let `default` = Properties(title: " ", image: UIImage(), backgroundColor: .black, category: .math)
     }
     
     func render(_ properties: Properties) {

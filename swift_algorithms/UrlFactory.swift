@@ -1,7 +1,7 @@
 import Foundation
 
 final class UrlFactory {
-    func markdownFileUrl(for algorithmAction: AlgorithmViewController.Action) -> URL? {
+    func markdownFileUrl(for algorithmAction: Algorithm) -> URL? {
         switch algorithmAction {
         case .whatAreAlgorithms:
             return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/What%20are%20Algorithms.markdown")
@@ -71,7 +71,7 @@ final class UrlFactory {
         case .radixSort:
             return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Radix%20Sort/ReadMe.md")
         case .topologicalSort:
-            return URL(string: "https://github.com/raywenderlich/swift-algorithm-club/blob/master/Topological%20Sort/README.markdown")
+            return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Topological%20Sort/README.markdown")
        
         case .bubbleSort:
             return URL(string: "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Bubble%20Sort/README.markdown")

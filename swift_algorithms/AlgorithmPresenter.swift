@@ -1,7 +1,7 @@
 import UIKit
 
 final class AlgorithmPresenter {
-    weak var dispatcher: RowActionDispatching?
+    weak var dispatcher: AlogrithmActionDispatching?
     
     public func makeIntroSectionSection() -> ActionTableSectionController {
         
@@ -173,7 +173,7 @@ final class AlgorithmPresenter {
     }
 }
 
-extension AlgorithmPresenter: RowActionDispatching {
+extension AlgorithmPresenter: AlogrithmActionDispatching {
     func dispatch(_ action: AlgorithmViewController.Action) {
         switch action {
         default: dispatcher?.dispatch(action)
