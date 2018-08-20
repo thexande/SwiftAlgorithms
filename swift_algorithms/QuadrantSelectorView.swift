@@ -2,7 +2,15 @@ import UIKit
 import Anchorage
 
 final class QuadrantSelectorView: UIView {
-    
+  
+    weak var dispatcher: AlogrithmActionDispatching? {
+        didSet {
+            [one, two, three, four].forEach { item in
+                item.dispatcher = dispatcher
+            }
+        }
+    }
+
     let one = QuadrantItemView()
     let two = QuadrantItemView()
     let three = QuadrantItemView()

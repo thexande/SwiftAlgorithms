@@ -1,6 +1,12 @@
 import UIKit
 
 final class AlgorithmViewController: SectionProxyTableViewController {
+    
+    enum Action {
+        case selectCategory(Category)
+        case selectAlgorithm(Algorithm)
+    }
+    
     weak var dispatcher: AlogrithmActionDispatching?
     let header = QuadrantSelectorView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width))
     private let footer = DonateFooterView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 80))
@@ -41,10 +47,5 @@ final class AlgorithmViewController: SectionProxyTableViewController {
             ]
         
         header.configure(with: items)
-    }
-
-    enum Action {
-        case selectCategory(Category)
-        case selectAlgorithm(Algorithm)
     }
 }

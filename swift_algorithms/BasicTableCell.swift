@@ -36,7 +36,7 @@ final class SearchResultsTableCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(title)
-        title.edgeAnchors == contentView.edgeAnchors + UIEdgeInsets(top: 8, left: 42, bottom: 8, right: 12)
+        title.edgeAnchors == contentView.edgeAnchors + UIEdgeInsets(top: 12, left: 42, bottom: 12, right: 12)
         
         contentView.addSubview(indicator)
         indicator.sizeAnchors == CGSize(width: 12, height: 12)
@@ -45,7 +45,7 @@ final class SearchResultsTableCell: UITableViewCell {
         indicator.centerYAnchor == title.centerYAnchor
         indicator.leadingAnchor == contentView.leadingAnchor + 18
         
-        separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -18)
+//        separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -18)
         
     }
     

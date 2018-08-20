@@ -3,6 +3,8 @@ import Anchorage
 import Lottie
 
 final class QuadrantItemView: UIView {
+    weak var dispatcher: AlogrithmActionDispatching?
+
     let title = UILabel()
     let lottie = UIImageView()
     
