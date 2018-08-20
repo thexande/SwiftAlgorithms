@@ -1,12 +1,14 @@
 import UIKit
 import Anchorage
+import Lottie
 
 final class QuadrantItemView: UIView {
     let title = UILabel()
+    let lottie = UIImageView()
     
     struct Properties {
         let title: String
-        let image: UIImage
+        let image: UIImage?
         let backgroundColor: UIColor
         static let `default` = Properties(title: " ", image: UIImage(), backgroundColor: .black)
     }
@@ -14,6 +16,7 @@ final class QuadrantItemView: UIView {
     func render(_ properties: Properties) {
         title.text = properties.title
         backgroundColor = properties.backgroundColor
+        lottie.image = properties.image?.withRenderingMode(.alwaysTemplate)
     }
     
     override init(frame: CGRect) {
@@ -30,6 +33,14 @@ final class QuadrantItemView: UIView {
         
         layer.cornerRadius = 11
         backgroundColor = .black
+        
+        addSubview(lottie)
+        lottie.heightAnchor == lottie.widthAnchor
+        lottie.heightAnchor == heightAnchor * 0.66
+        lottie.bottomAnchor == bottomAnchor - 8
+        lottie.trailingAnchor == trailingAnchor - 8
+        
+        lottie.tintColor = .white
     }
     
     required init?(coder aDecoder: NSCoder) {

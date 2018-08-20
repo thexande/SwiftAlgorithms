@@ -35,6 +35,7 @@ final class AlgorithmResultsPresenter: NSObject, UISearchResultsUpdating, UISear
 
 final class ResultsTableViewController: SectionProxyTableViewController {
     private let section = BasicTableSectionController()
+    private let empty = SearchEmptyStateView()
     
     weak var dispatcher: RowActionDispatching?
     
@@ -48,6 +49,13 @@ final class ResultsTableViewController: SectionProxyTableViewController {
         section.rows = properties
         section.dispatcher = dispatcher
         tableView.reloadData()
+        
+        if properties.count > 0 {
+            tableView.backgroundView?.isHidden = true
+        } else {
+            empty.isHidden = false
+            view.bringSubview(toFront: empty)
+        }
     }
     
     override func viewDidLoad() {
@@ -55,6 +63,9 @@ final class ResultsTableViewController: SectionProxyTableViewController {
         section.registerReusableTypes(tableView: tableView)
         sections = [section]
         tableView.tableFooterView = UIView()
+        tableView.backgroundView = empty
+        tableView.backgroundView?.isHidden = true
+
     }
 }
 
@@ -95,10 +106,10 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         
 //        header
         let items = [
-            QuadrantItemView.Properties(title: "Search", image: UIImage(), backgroundColor: .turquiose()),
-            QuadrantItemView.Properties(title: "Compress", image: UIImage(), backgroundColor: .flatRed()),
-            QuadrantItemView.Properties(title: "Sort", image: UIImage(), backgroundColor: .amethist()),
-            QuadrantItemView.Properties(title: "Math", image: UIImage(), backgroundColor: .orangeCream()),
+            QuadrantItemView.Properties(title: "Search", image: UIImage(named: "search"), backgroundColor: .turquiose()),
+            QuadrantItemView.Properties(title: "Compress", image: UIImage(named: "zip"), backgroundColor: .flatRed()),
+            QuadrantItemView.Properties(title: "Sort", image: UIImage(named: "filter"), backgroundColor: .amethist()),
+            QuadrantItemView.Properties(title: "Math", image: UIImage(named: "math"), backgroundColor: .orangeCream()),
             ]
         
         header.configure(with: items)
