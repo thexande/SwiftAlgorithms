@@ -1,4 +1,5 @@
 import UIKit
+import Anchorage
 import Hero
 
 class View: UIView {
@@ -33,7 +34,7 @@ final class CategoryDetailView: View {
         super.init(frame: frame)
         
         let status = UIApplication.shared.statusBarFrame.height
-        cardView.verticalOffset = status + 12
+        cardView.verticalOffset = status + 36
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -73,14 +74,17 @@ final class CategoryDetailView: View {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        cardView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: 110)
-        tableView.frame = CGRect(x: 0, y: 110, width: bounds.width, height: bounds.height)
+        let headerHeight: CGFloat = 140
+        cardView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: headerHeight)
+        tableView.frame = CGRect(x: 0, y: headerHeight, width: bounds.width, height: bounds.height)
     }
 }
 
-class CategoryDetailViewController: UIViewController {
+final class CategoryDetailViewController: UIViewController {
     
     let detail = CategoryDetailView()
+    let back = UIButton()
+    
     
     var sections: [TableSectionController] = []
     
@@ -98,6 +102,21 @@ class CategoryDetailViewController: UIViewController {
         detail.tableView.delegate = self
         detail.tableView.dataSource = self
         detail.tableView.backgroundColor = UIColor.groupTableViewBackground
+        
+        back.setImage(UIImage(named: "back")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        back.tintColor = .white
+        back.imageView?.contentMode = .scaleAspectFit
+        
+        detail.cardView.addSubview(back)
+        back.leadingAnchor == detail.cardView.leadingAnchor + 8
+        back.centerYAnchor == detail.cardView.centerYAnchor
+        back.sizeAnchors == CGSize(width: 24, height: 24)
+        back.addTarget(self, action: #selector(dismissModal), for: .touchUpInside)
+        
+    }
+    
+    @objc func dismissModal() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     public func update(with sections: [TableSectionController]) {
@@ -107,6 +126,16 @@ class CategoryDetailViewController: UIViewController {
         
         self.sections = sections
         detail.tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 }
 

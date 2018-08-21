@@ -146,7 +146,10 @@ extension RootTabCoordinator: AlogrithmActionDispatching {
             let vc = CategoryDetailViewController()
             vc.update(with: [algorithmPresenter.makeSortingSection()])
             vc.detail.cardView.render(CategoryTileItemView.Properties(category))
-            algorithmNav?.present(vc, animated: true, completion: nil)
+            
+            let nav = UINavigationController(rootViewController: vc)
+            nav.hero.isEnabled = true
+            algorithmNav?.present(nav, animated: true, completion: nil)
             
         case let .selectAlgorithm(algorithm):
             
