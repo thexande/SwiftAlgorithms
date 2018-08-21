@@ -32,7 +32,7 @@ final class ActionIconRowCell: UITableViewCell {
         
         icon.sizeAnchors == CGSize(width: 36, height: 36)
         icon.contentMode = .scaleAspectFit
-        icon.tintColor = UIColor.blue
+        icon.tintColor = .amethist()
         
         contentView.addSubview(icon)
         

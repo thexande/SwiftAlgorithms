@@ -72,7 +72,7 @@ final class CategoryTileItemView: UIView {
         lottie.tintColor = .white
         
         layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        layer.shadowRadius = 6.0
+        layer.shadowRadius = 10.0
         layer.shadowOpacity = 0.7
     }
     
@@ -82,8 +82,9 @@ final class CategoryTileItemView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        title.frame = CGRect(x: 8, y: 8 + verticalOffset, width: bounds.width - 40, height: 30)
-        let imageWidth = bounds.height * 0.5
-        lottie.frame = CGRect(x: bounds.width - 8 - imageWidth, y: bounds.height - 8 - imageWidth, width: imageWidth, height: imageWidth)
+        let inset: CGFloat = 12
+        title.frame = CGRect(x: inset, y: inset + verticalOffset, width: bounds.width - 40, height: 30)
+        let imageWidth = bounds.height * 0.4
+        lottie.frame = CGRect(x: bounds.width - inset - imageWidth, y: bounds.height - inset - imageWidth, width: imageWidth, height: imageWidth)
     }
 }

@@ -97,6 +97,7 @@ class CategoryDetailViewController: UIViewController {
         hero.isEnabled = true
         detail.tableView.delegate = self
         detail.tableView.dataSource = self
+        detail.tableView.backgroundColor = UIColor.groupTableViewBackground
     }
     
     public func update(with sections: [TableSectionController]) {

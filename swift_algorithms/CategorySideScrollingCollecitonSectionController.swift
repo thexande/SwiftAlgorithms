@@ -1,7 +1,7 @@
 import UIKit
 
 final class CategorySideScrollingCollecitonSectionController: NSObject, CollectionSectionController {
-    
+    let width = UIScreen.main.bounds.width
     public var properties: [CategoryTileItemView.Properties] = []
     
     weak var dispatcher: AlogrithmActionDispatching?
@@ -27,8 +27,8 @@ final class CategorySideScrollingCollecitonSectionController: NSObject, Collecti
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.frame.width / 2.35)
-        return CGSize(width: width, height: collectionView.frame.height - 24)
+        let width = (self.width / 2.35)
+        return CGSize(width: width, height: collectionView.frame.height - 36)
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -40,7 +40,7 @@ final class CategorySideScrollingCollecitonSectionController: NSObject, Collecti
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+        return UIEdgeInsets(top: 18, left: 12, bottom: 18, right: 12)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
