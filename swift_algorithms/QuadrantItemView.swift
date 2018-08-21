@@ -36,19 +36,23 @@ final class CategoryTileItemView: UIView {
         lottie.image = properties.image?.withRenderingMode(.alwaysTemplate)
         layer.shadowColor =  UIColor.gray.cgColor
         hero.id = properties.title
+        
+        title.sizeToFit()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        hero.modifiers = [.whenMatched(.useNoSnapshot), .spring(stiffness: 300, damping: 25)]
+        
         addSubview(title)
         addSubview(lottie)
 
         
-        title.topAnchor == topAnchor + 8
-        title.horizontalAnchors == horizontalAnchors + 15
-        title.bottomAnchor <= lottie.topAnchor
-        
+//        title.topAnchor == topAnchor + 8
+//        title.horizontalAnchors == horizontalAnchors + 15
+//        title.bottomAnchor <= lottie.topAnchor
+//
         title.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
         title.text = "Woot"
         title.textColor = .white
@@ -59,10 +63,10 @@ final class CategoryTileItemView: UIView {
         layer.cornerRadius = 11
         backgroundColor = .black
         
-        lottie.heightAnchor == lottie.widthAnchor
-        lottie.heightAnchor == heightAnchor * 0.5
-        lottie.bottomAnchor == bottomAnchor - 8
-        lottie.trailingAnchor == trailingAnchor - 8
+//        lottie.heightAnchor == lottie.widthAnchor
+//        lottie.heightAnchor == heightAnchor * 0.5
+//        lottie.bottomAnchor == bottomAnchor - 8
+//        lottie.trailingAnchor == trailingAnchor - 8
         
         lottie.tintColor = .white
         
@@ -73,5 +77,11 @@ final class CategoryTileItemView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        title.frame = CGRect(x: 8, y: 8, width: bounds.width - 40, height: 30)
+//        lottie.frame = CGRect(x: bounds.width - 8, y: bounds.height - 8, width: bounds.height * 0.5, height: bounds.height * 0.5)
     }
 }

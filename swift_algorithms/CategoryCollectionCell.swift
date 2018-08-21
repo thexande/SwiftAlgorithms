@@ -3,11 +3,12 @@ import Anchorage
 
 final class CategoryCollectionCell: UICollectionViewCell, Reusable {
     let tile = CategoryTileItemView()
+    let card = RoundedCardWrapperView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(tile)
-        tile.edgeAnchors == contentView.edgeAnchors
+        contentView.addSubview(card)
+        card.frame = contentView.frame
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -16,5 +17,6 @@ final class CategoryCollectionCell: UICollectionViewCell, Reusable {
     
     public func render(_ properties: CategoryTileItemView.Properties) {
         tile.render(properties)
+        card.cardView.render(properties)
     }
 }

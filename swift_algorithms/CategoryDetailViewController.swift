@@ -27,11 +27,15 @@ class View: UIView {
 final class CategoryDetailView: View {
     
     let cardView = CategoryTileItemView()
+//    let cardView =  CardView()
     let contentView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundColor = .white
+        
+        cardView.layer.cornerRadius = 0
+        cardView.layer.shadowColor = UIColor.clear.cgColor
         
         addSubview(contentView)
         addSubview(cardView)
@@ -80,3 +84,42 @@ class CategoryDetailViewController: UIViewController {
     }
 }
 
+
+class CardView: View {
+    let titleLabel = UILabel()
+    let subtitleLabel = UILabel()
+    let imageView = UIImageView()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        imageView.backgroundColor = .blue
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 32)
+        subtitleLabel.font = UIFont.systemFont(ofSize: 17)
+        addSubview(imageView)
+        addSubview(titleLabel)
+        addSubview(subtitleLabel)
+        
+        heroModifiers = [.whenMatched(.useNoSnapshot), .spring(stiffness: 300, damping: 25)]
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imageView.frame = bounds
+        titleLabel.frame = CGRect(x: 20, y: 30, width: bounds.width - 40, height: 30)
+        subtitleLabel.frame = CGRect(x: 20, y: 70, width: bounds.width - 40, height: 30)
+    }
+}
+
+class RoundedCardWrapperView: View {
+    let cardView = CategoryTileItemView()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addSubview(cardView)
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if cardView.superview == self {
+            // this is necessary because we used useNoSnapshot modifier.
+            // we don't want cardView to be resized when Hero is using it for transition
+            cardView.frame = bounds
+        }
+    }
+}

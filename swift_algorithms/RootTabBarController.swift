@@ -145,7 +145,6 @@ extension RootTabCoordinator: AlogrithmActionDispatching {
         switch action {
         case let .selectCategory(category):
             let vc = CategoryDetailViewController()
-            vc.detail.cardView.hero.id = category.title
             vc.detail.cardView.render(CategoryTileItemView.Properties(category))
             algorithmNav?.present(vc, animated: true, completion: nil)
             
