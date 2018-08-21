@@ -40,11 +40,11 @@ final class RootTabCoordinator {
     }
     
     func rootViewDidAppear() {
-        if hasPresentedOnboarding == false {
-            root?.present(onboardingViewController, animated: true, completion: { [weak self] in
-                self?.hasPresentedOnboarding = true
-            })
-        }
+//        if hasPresentedOnboarding == false {
+//            root?.present(onboardingViewController, animated: true, completion: { [weak self] in
+//                self?.hasPresentedOnboarding = true
+//            })
+//        }
     }
     
     private func configureOnboarding() {
@@ -108,6 +108,7 @@ final class RootTabCoordinator {
         
         let algoNav = UINavigationController(rootViewController: algorithmViewController)
         algoNav.navigationBar.prefersLargeTitles = true
+        algoNav.hero.isEnabled = true
         
         algorithmNav = algoNav
         
@@ -142,6 +143,12 @@ final class RootTabCoordinator {
 extension RootTabCoordinator: AlogrithmActionDispatching {
     func dispatch(_ action: AlgorithmViewController.Action) {
         switch action {
+        case let .selectCategory(category):
+            let vc = CategoryDetailViewController()
+            vc.detail.cardView.hero.id = category.title
+            vc.detail.cardView.render(CategoryTileItemView.Properties(category))
+            algorithmNav?.present(vc, animated: true, completion: nil)
+            
         case let .selectAlgorithm(algorithm):
             
             guard let url = urlFactory.markdownFileUrl(for: algorithm) else {

@@ -3,7 +3,7 @@ import UIKit
 final class AlgorithmViewController: SectionProxyTableViewController {
     
     enum Action {
-        case selectCategory(Category)
+        case selectCategory(Algorithm.Category)
         case selectAlgorithm(Algorithm)
     }
     
@@ -34,5 +34,7 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         
         // Setup the Search Controller
         definesPresentationContext = true
+        
+        hero.isEnabled = true
     }
 }

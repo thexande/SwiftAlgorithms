@@ -1,7 +1,16 @@
 import UIKit
 
 final class CategoryRowTableSectionController: NSObject, TableSectionController {
+    
     var sectionTitle: String?
+    
+    weak var dispatcher: AlogrithmActionDispatching? {
+        didSet {
+            collectionSectionController.dispatcher = dispatcher
+        }
+    }
+    
+    let collectionSectionController = CategorySideScrollingCollecitonSectionController()
     
     var properties: [CategoryTileItemView.Properties] = [] {
         didSet {
@@ -9,7 +18,6 @@ final class CategoryRowTableSectionController: NSObject, TableSectionController 
         }
     }
     
-    let collectionSectionController = CategorySideScrollingCollecitonSectionController()
     
     func registerReusableTypes(tableView: UITableView) {
         tableView.register(CategoryRowTableCell.self, forCellReuseIdentifier: CategoryRowTableCell.reuseIdentifier)

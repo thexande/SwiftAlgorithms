@@ -1,7 +1,11 @@
 import UIKit
 
 final class CategorySideScrollingCollecitonSectionController: NSObject, CollectionSectionController {
+    
     public var properties: [CategoryTileItemView.Properties] = []
+    
+    weak var dispatcher: AlogrithmActionDispatching?
+
     func registerForReusableTypes(with collectionView: UICollectionView) {
         collectionView.register(CategoryCollectionCell.self,
                                 forCellWithReuseIdentifier: CategoryCollectionCell.reuseIdentifier)
@@ -37,6 +41,10 @@ final class CategorySideScrollingCollecitonSectionController: NSObject, Collecti
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        dispatcher?.dispatch(.selectCategory(properties[indexPath.item].category))
     }
 }
 

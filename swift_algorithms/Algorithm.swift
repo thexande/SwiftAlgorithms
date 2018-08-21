@@ -200,7 +200,7 @@ enum Algorithm {
         }
     }
     
-    static func category(for action: Algorithm) -> Algorithm.Cagegory? {
+    static func category(for action: Algorithm) -> Algorithm.Category? {
         switch action {
             
         // getting started
@@ -241,7 +241,7 @@ enum Algorithm {
     }
     
     
-    enum Cagegory {
+    enum Category {
         case gettingStarted
         case searching
         case stringSearch
@@ -292,9 +292,31 @@ enum Algorithm {
                 return UIColor.orangeCream()
             }
         }
+        
+        var image: UIImage? {
+            switch self {
+//            case .gettingStarted:
+                
+            case .searching:
+                return UIImage(named: "search")
+            case .stringSearch:
+                return UIImage(named: "search")
+            case .sorting:
+                return UIImage(named: "sort")
+            case .compression:
+                return UIImage(named: "zip")
+//            case .misc:
+                
+            case .math:
+                return UIImage(named: "math")
+            case .machineLearning:
+                return UIImage(named: "pcb")
+            default: return UIImage()
+            }
+        }
     }
     
-    var category: Algorithm.Cagegory? {
+    var category: Algorithm.Category? {
         return Algorithm.category(for: self)
     }
     

@@ -18,6 +18,3 @@ final class CategoryCollectionCell: UICollectionViewCell, Reusable {
         tile.render(properties)
     }
 }
-
-
-

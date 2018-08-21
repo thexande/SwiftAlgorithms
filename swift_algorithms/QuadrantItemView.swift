@@ -12,8 +12,22 @@ final class CategoryTileItemView: UIView {
         let title: String
         let image: UIImage?
         let backgroundColor: UIColor
-        let category: Algorithm.Cagegory
+        let category: Algorithm.Category
         static let `default` = Properties(title: " ", image: UIImage(), backgroundColor: .black, category: .math)
+        
+        init(title: String, image: UIImage?, backgroundColor: UIColor, category: Algorithm.Category) {
+            self.title = title
+            self.image = image
+            self.backgroundColor = backgroundColor
+            self.category = category
+        }
+        
+        init(_ category: Algorithm.Category) {
+            self.title = category.title
+            self.image = category.image
+            self.backgroundColor = category.color
+            self.category = category
+        }
     }
     
     func render(_ properties: Properties) {
@@ -21,6 +35,7 @@ final class CategoryTileItemView: UIView {
         backgroundColor = properties.backgroundColor
         lottie.image = properties.image?.withRenderingMode(.alwaysTemplate)
         layer.shadowColor =  UIColor.gray.cgColor
+        hero.id = properties.title
     }
     
     override init(frame: CGRect) {
