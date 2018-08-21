@@ -109,7 +109,7 @@ final class CategoryDetailViewController: UIViewController {
         
         detail.cardView.addSubview(back)
         back.leadingAnchor == detail.cardView.leadingAnchor + 8
-        back.centerYAnchor == detail.cardView.centerYAnchor
+        back.centerYAnchor == detail.cardView.centerYAnchor - 8
         back.sizeAnchors == CGSize(width: 24, height: 24)
         back.addTarget(self, action: #selector(dismissModal), for: .touchUpInside)
         
@@ -162,7 +162,11 @@ extension CategoryDetailViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        sections[indexPath.section].tableView?(tableView, didSelectRowAt: indexPath)
+//        sections[indexPath.section].tableView?(tableView, didSelectRowAt: indexPath)
+        let vc = UIViewController()
+        vc.title = "Testing"
+        vc.view.backgroundColor = .white
+        navigationController?.pushViewController(vc, animated: true)
         //Change the selected background view of the cell after selection.
         tableView.deselectRow(at: indexPath, animated: true)
     }
