@@ -29,6 +29,17 @@ final class CategoryDetailView: View {
     let cardView = CategoryTileItemView()
     let tableView = UITableView()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        let status = UIApplication.shared.statusBarFrame.height
+        cardView.verticalOffset = status + 12
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundColor = .white
@@ -62,9 +73,6 @@ final class CategoryDetailView: View {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let status = UIApplication.shared.statusBarFrame.height
-        
-        
         cardView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: 110)
         tableView.frame = CGRect(x: 0, y: 110, width: bounds.width, height: bounds.height)
     }

@@ -7,6 +7,7 @@ final class CategoryTileItemView: UIView {
  
     let title = UILabel()
     let lottie = UIImageView()
+    var verticalOffset: CGFloat = 0
     
     struct Properties {
         let title: String
@@ -81,7 +82,7 @@ final class CategoryTileItemView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        title.frame = CGRect(x: 8, y: 8, width: bounds.width - 40, height: 30)
+        title.frame = CGRect(x: 8, y: 8 + verticalOffset, width: bounds.width - 40, height: 30)
         let imageWidth = bounds.height * 0.5
         lottie.frame = CGRect(x: bounds.width - 8 - imageWidth, y: bounds.height - 8 - imageWidth, width: imageWidth, height: imageWidth)
     }

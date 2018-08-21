@@ -177,7 +177,7 @@ final class AlgorithmPresenter {
         section.dispatcher = self.dispatcher
                 
         let items: [CategoryTileItemView.Properties] = [
-            .searching, .machineLearning, .math, .stringSearch, .sorting, .compression, .misc
+            .gettingStarted, .searching, .machineLearning, .math, .stringSearch, .sorting, .compression, .misc
         ].map(CategoryTileItemView.Properties.init)
         
         section.properties = items

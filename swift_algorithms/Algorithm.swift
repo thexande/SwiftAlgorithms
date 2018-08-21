@@ -277,41 +277,40 @@ enum Algorithm {
             case .gettingStarted:
                 return .coral()
             case .searching:
-                return UIColor.turquiose()
+                return .newGreen()
             case .stringSearch:
                 return UIColor.amethist()
             case .sorting:
-                return UIColor.amethist()
+                return .newOrange()
             case .compression:
-                return UIColor.coral()
+                return .newPink()
             case .misc:
-                return UIColor.flatRed()
+                return .newBlue()
             case .math:
-                return UIColor.orangeCream()
+                return .newYellow()
             case .machineLearning:
-                return UIColor.orangeCream()
+                return .newLightBlue()
             }
         }
         
         var image: UIImage? {
             switch self {
-//            case .gettingStarted:
-                
+            case .gettingStarted:
+                return UIImage(named: "start")
             case .searching:
                 return UIImage(named: "search")
             case .stringSearch:
                 return UIImage(named: "search")
             case .sorting:
-                return UIImage(named: "sort")
+                return UIImage(named: "filter")
             case .compression:
                 return UIImage(named: "zip")
-//            case .misc:
-                
+            case .misc:
+                return UIImage(named: "misc")
             case .math:
                 return UIImage(named: "math")
             case .machineLearning:
                 return UIImage(named: "pcb")
-            default: return UIImage()
             }
         }
     }
