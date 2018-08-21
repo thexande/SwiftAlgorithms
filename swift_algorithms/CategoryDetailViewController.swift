@@ -27,8 +27,7 @@ class View: UIView {
 final class CategoryDetailView: View {
     
     let cardView = CategoryTileItemView()
-//    let cardView =  CardView()
-    let contentView = UITableView()
+    let tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +36,10 @@ final class CategoryDetailView: View {
         cardView.layer.cornerRadius = 0
         cardView.layer.shadowColor = UIColor.clear.cgColor
         
-        addSubview(contentView)
+        addSubview(tableView)
         addSubview(cardView)
         
-        contentView.hero.modifiers = [.useNoSnapshot, .translate(y: -200), .fade]
+        tableView.hero.modifiers = [.useNoSnapshot, .translate(y: -80), .fade]
         
         cardView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(pan(gr:))))
     }
@@ -60,15 +59,22 @@ final class CategoryDetailView: View {
             }
         }
     }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-        cardView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: 180)
-        contentView.frame = CGRect(x: 0, y: 180, width: bounds.width, height: bounds.height)
+        let status = UIApplication.shared.statusBarFrame.height
+        
+        
+        cardView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: 110)
+        tableView.frame = CGRect(x: 0, y: 110, width: bounds.width, height: bounds.height)
     }
 }
 
 class CategoryDetailViewController: UIViewController {
+    
     let detail = CategoryDetailView()
+    
+    var sections: [TableSectionController] = []
     
     override func loadView() {
         view = detail
@@ -81,34 +87,59 @@ class CategoryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hero.isEnabled = true
+        detail.tableView.delegate = self
+        detail.tableView.dataSource = self
     }
-}
-
-
-class CardView: View {
-    let titleLabel = UILabel()
-    let subtitleLabel = UILabel()
-    let imageView = UIImageView()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        imageView.backgroundColor = .blue
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 32)
-        subtitleLabel.font = UIFont.systemFont(ofSize: 17)
-        addSubview(imageView)
-        addSubview(titleLabel)
-        addSubview(subtitleLabel)
+    
+    public func update(with sections: [TableSectionController]) {
+        sections.forEach { section in
+            section.registerReusableTypes(tableView: detail.tableView)
+        }
         
-        heroModifiers = [.whenMatched(.useNoSnapshot), .spring(stiffness: 300, damping: 25)]
-    }
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        imageView.frame = bounds
-        titleLabel.frame = CGRect(x: 20, y: 30, width: bounds.width - 40, height: 30)
-        subtitleLabel.frame = CGRect(x: 20, y: 70, width: bounds.width - 40, height: 30)
+        self.sections = sections
+        detail.tableView.reloadData()
     }
 }
 
-class RoundedCardWrapperView: View {
+extension CategoryDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return sections[indexPath.section].tableView(tableView, cellForRowAt: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sections[section].tableView(tableView, numberOfRowsInSection: section)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return (sections[section].tableView?(tableView, heightForHeaderInSection: section)) ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return sections[section].tableView?(tableView, viewForHeaderInSection: section)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        sections[indexPath.section].tableView?(tableView, didSelectRowAt: indexPath)
+        //Change the selected background view of the cell after selection.
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return sections[indexPath.section].tableView?(tableView, heightForRowAt: indexPath) ?? UITableViewAutomaticDimension
+    }
+}
+
+
+final class RoundedCardWrapperView: View {
     let cardView = CategoryTileItemView()
     override func viewDidLoad() {
         super.viewDidLoad()

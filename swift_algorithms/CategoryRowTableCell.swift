@@ -22,7 +22,7 @@ final class CategoryRowTableCell: UITableViewCell, Reusable {
     }
     
     override func layoutSubviews() {
-        colleciton.frame = frame
+        colleciton.frame = bounds
     }
 }
 

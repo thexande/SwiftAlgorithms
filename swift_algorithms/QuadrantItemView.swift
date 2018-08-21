@@ -82,6 +82,7 @@ final class CategoryTileItemView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         title.frame = CGRect(x: 8, y: 8, width: bounds.width - 40, height: 30)
-//        lottie.frame = CGRect(x: bounds.width - 8, y: bounds.height - 8, width: bounds.height * 0.5, height: bounds.height * 0.5)
+        let imageWidth = bounds.height * 0.5
+        lottie.frame = CGRect(x: bounds.width - 8 - imageWidth, y: bounds.height - 8 - imageWidth, width: imageWidth, height: imageWidth)
     }
 }

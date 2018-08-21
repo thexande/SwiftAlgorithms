@@ -145,6 +145,7 @@ extension RootTabCoordinator: AlogrithmActionDispatching {
         switch action {
         case let .selectCategory(category):
             let vc = CategoryDetailViewController()
+            vc.update(with: [algorithmPresenter.makeSortingSection()])
             vc.detail.cardView.render(CategoryTileItemView.Properties(category))
             algorithmNav?.present(vc, animated: true, completion: nil)
             

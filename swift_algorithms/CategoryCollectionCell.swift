@@ -8,7 +8,7 @@ final class CategoryCollectionCell: UICollectionViewCell, Reusable {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(card)
-        card.frame = contentView.frame
+        card.frame = contentView.bounds
     }
     
     required init?(coder aDecoder: NSCoder) {
