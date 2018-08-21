@@ -11,6 +11,7 @@ target 'swift_algorithms' do
   pod 'Anchorage'
   pod 'lottie-ios'
   pod 'Result'
+  pod 'Hero'
   
   target 'swift_algorithmsTests' do
     inherit! :search_paths
