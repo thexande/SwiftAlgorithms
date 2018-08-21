@@ -171,6 +171,20 @@ final class AlgorithmPresenter {
         controller.rows = [rowController]
         return controller
     }
+    
+    func makeCatgorySideScrollerSection() -> CategoryRowTableSectionController {
+        let section = CategoryRowTableSectionController()
+        let items: [CategoryTileItemView.Properties] = [
+            CategoryTileItemView.Properties(title: "Sorting", image: UIImage(named: "filter"), backgroundColor: .amethist(), category: .math),
+            CategoryTileItemView.Properties(title: "Machine Learning", image: UIImage(named: "pcb"), backgroundColor: .coral(), category: .math),
+            CategoryTileItemView.Properties(title: "Mathematics", image: UIImage(named: "math"), backgroundColor: .orangeCream(), category: .math),
+            CategoryTileItemView.Properties(title: "Searching", image: UIImage(named: "search"), backgroundColor: .turquiose(), category: .math),
+            CategoryTileItemView.Properties(title: "Compression", image: UIImage(named: "zip"), backgroundColor: .flatRed(), category: .math),
+            ]
+        
+        section.properties = items
+        return section
+    }
 }
 
 extension AlgorithmPresenter: AlogrithmActionDispatching {

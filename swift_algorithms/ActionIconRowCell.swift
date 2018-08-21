@@ -49,7 +49,7 @@ final class ActionIconRowCell: UITableViewCell {
         icon.centerYAnchor == contentView.centerYAnchor
         
         labelStack.leadingAnchor == icon.trailingAnchor + 18
-        labelStack.verticalAnchors == contentView.verticalAnchors + 18
+        labelStack.verticalAnchors == contentView.verticalAnchors + 8
         labelStack.trailingAnchor == contentView.trailingAnchor - 18
         
         titleLabel.numberOfLines = 0

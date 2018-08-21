@@ -91,6 +91,7 @@ final class RootTabCoordinator {
         
         // configure sections
         let controllers: [TableSectionController] = [
+            algorithmPresenter.makeCatgorySideScrollerSection(),
             algorithmPresenter.makeIntroSectionSection(),
             algorithmPresenter.makeGettingStartedSection(),
             algorithmPresenter.makeSearchingSection(),

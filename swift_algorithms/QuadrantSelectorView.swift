@@ -11,12 +11,12 @@ final class QuadrantSelectorView: UIView {
         }
     }
 
-    let one = QuadrantItemView()
-    let two = QuadrantItemView()
-    let three = QuadrantItemView()
-    let four = QuadrantItemView()
+    let one = CategoryTileItemView()
+    let two = CategoryTileItemView()
+    let three = CategoryTileItemView()
+    let four = CategoryTileItemView()
     
-    func configure(with items: [QuadrantItemView.Properties]) {
+    func configure(with items: [CategoryTileItemView.Properties]) {
         items.enumerated().forEach({ index, element in
             switch index {
             case 0:

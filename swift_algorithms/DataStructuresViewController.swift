@@ -12,10 +12,10 @@ final class DataStructuresViewController: SectionProxyTableViewController {
         tableView.tableHeaderView = header
         
 //        let items = [
-//            QuadrantItemView.Properties(title: "Trees", image: UIImage(), backgroundColor: .turquiose()),
-//            QuadrantItemView.Properties(title: "Compress", image: UIImage(), backgroundColor: .flatRed()),
-//            QuadrantItemView.Properties(title: "Sort", image: UIImage(), backgroundColor: .amethist()),
-//            QuadrantItemView.Properties(title: "Math", image: UIImage(), backgroundColor: .orangeCream()),
+//            CategoryTileItemView.Properties(title: "Trees", image: UIImage(), backgroundColor: .turquiose()),
+//            CategoryTileItemView.Properties(title: "Compress", image: UIImage(), backgroundColor: .flatRed()),
+//            CategoryTileItemView.Properties(title: "Sort", image: UIImage(), backgroundColor: .amethist()),
+//            CategoryTileItemView.Properties(title: "Math", image: UIImage(), backgroundColor: .orangeCream()),
 //            ]
 //        
 //        header.configure(with: items)
