@@ -28,7 +28,7 @@ class View: UIView {
 final class CategoryDetailView: View {
     
     let cardView = CategoryTileItemView()
-    let tableView = UITableView()
+    let tableView = UITableView(frame: .zero, style: .grouped)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -76,7 +76,7 @@ final class CategoryDetailView: View {
         super.layoutSubviews()
         let headerHeight: CGFloat = 140
         cardView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: headerHeight)
-        tableView.frame = CGRect(x: 0, y: headerHeight, width: bounds.width, height: bounds.height)
+        tableView.frame = CGRect(x: 0, y: headerHeight, width: bounds.width, height: bounds.height - headerHeight)
     }
 }
 
@@ -113,6 +113,9 @@ final class CategoryDetailViewController: UIViewController {
         back.sizeAnchors == CGSize(width: 24, height: 24)
         back.addTarget(self, action: #selector(dismissModal), for: .touchUpInside)
         
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+
+        
     }
     
     @objc func dismissModal() {
@@ -130,12 +133,12 @@ final class CategoryDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 
@@ -164,6 +167,7 @@ extension CategoryDetailViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        sections[indexPath.section].tableView?(tableView, didSelectRowAt: indexPath)
         let vc = UIViewController()
+        vc.navigationController?.interactivePopGestureRecognizer?.delegate = nil
         vc.title = "Testing"
         vc.view.backgroundColor = .white
         navigationController?.pushViewController(vc, animated: true)

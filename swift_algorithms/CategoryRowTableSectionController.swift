@@ -1,6 +1,6 @@
 import UIKit
 
-final class CategoryRowTableSectionController: NSObject, TableSectionController {
+final class CategoryRowTableRowController: NSObject, RowController {
     
     var sectionTitle: String?
     

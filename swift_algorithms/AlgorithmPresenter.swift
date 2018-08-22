@@ -19,6 +19,7 @@ final class AlgorithmPresenter {
         let actionRows = rowProps.map(ActionTableRowController.map)
         
         actionSection.rows = actionRows
+        actionSection.rows.insert(makeCatgorySideScrollerSection(), at: 0)
         actionSection.dispatcher = self.dispatcher
         return actionSection
     }
@@ -172,8 +173,8 @@ final class AlgorithmPresenter {
         return controller
     }
     
-    func makeCatgorySideScrollerSection() -> CategoryRowTableSectionController {
-        let section = CategoryRowTableSectionController()
+    func makeCatgorySideScrollerSection() -> CategoryRowTableRowController {
+        let section = CategoryRowTableRowController()
         section.dispatcher = self.dispatcher
                 
         let items: [CategoryTileItemView.Properties] = [

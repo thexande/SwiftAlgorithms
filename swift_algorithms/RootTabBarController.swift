@@ -91,7 +91,6 @@ final class RootTabCoordinator {
         
         // configure sections
         let controllers: [TableSectionController] = [
-            algorithmPresenter.makeCatgorySideScrollerSection(),
             algorithmPresenter.makeIntroSectionSection(),
             algorithmPresenter.makeGettingStartedSection(),
             algorithmPresenter.makeSearchingSection(),
@@ -144,7 +143,8 @@ extension RootTabCoordinator: AlogrithmActionDispatching {
         switch action {
         case let .selectCategory(category):
             let vc = CategoryDetailViewController()
-            vc.update(with: [algorithmPresenter.makeSortingSection()])
+            let props = algorithmPresenter.makeSortingSection()
+            vc.update(with: [props])
             vc.detail.cardView.render(CategoryTileItemView.Properties(category))
             
             let nav = UINavigationController(rootViewController: vc)
