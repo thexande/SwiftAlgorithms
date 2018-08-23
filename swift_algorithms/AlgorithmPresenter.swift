@@ -28,7 +28,7 @@ final class AlgorithmPresenter {
         let actionRows = identifiableProperties.map(ActionTableRowController.map)
 
         actionSection.rows = actionRows
-//        actionSection.rows.insert(makeCatgorySideScrollerSection(), at: 0)
+        actionSection.rows.insert(makeCatgorySideScrollerSection(), at: 0)
         return actionSection
     }
     
@@ -187,18 +187,27 @@ final class AlgorithmPresenter {
 //        controller.rows = [rowController]
 //        return controller
 //    }
-//
-//    func makeCatgorySideScrollerSection() -> CategoryRowTableRowController {
-//        let section = CategoryRowTableRowController()
-//        section.dispatcher = self.dispatcher
-//
-//        let items: [CategoryTileItemView.Properties] = [
-//            .gettingStarted, .searching, .machineLearning, .math, .stringSearch, .sorting, .compression, .misc
-//        ].map(CategoryTileItemView.Properties.init)
-//
-//        section.properties = items
-//        return section
-//    }
+
+    func makeCatgorySideScrollerSection() -> CategoryRowTableRowController {
+        let section = CategoryRowTableRowController()
+
+        let categories: [Algorithm.Category] = [
+            .gettingStarted, .searching, .machineLearning, .math, .stringSearch, .sorting, .compression, .misc
+        ]
+        
+        let items: [CategoryTileItemView.Properties] = categories.map { category in
+            let identifier = UUID()
+            let prop = CategoryTileItemView.Properties(title: category.title,
+                                                       image: category.image,
+                                                       backgroundColor: category.color,
+                                                       identifier: identifier)
+            actionLookup[identifier] = .selectedCategory(category)
+            return prop
+        }
+
+        section.properties = items
+        return section
+    }
 }
 
 

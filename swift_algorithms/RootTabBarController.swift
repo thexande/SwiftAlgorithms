@@ -141,14 +141,13 @@ final class RootTabCoordinator {
 extension RootTabCoordinator: AlgorithmPresenterActionDispatching {
     private func handleCategorySelect(_ category: Algorithm.Category) {
         let vc = CategoryDetailViewController()
-//        let props = algorithmPresenter.makeSortingSection()
-//        vc.update(with: [props])
-//        vc.detail.cardView.render(CategoryTileItemView.Properties(category))
-//
-//        let nav = UINavigationController(rootViewController: vc)
-//        nav.hero.isEnabled = true
-//        algorithmNav?.present(nav, animated: true, completion: nil)
+        let props = algorithmPresenter.makeGettingStartedSection()
+        vc.update(with: [props])
+        vc.detail.cardView.render(CategoryTileItemView.Properties(category))
 
+        let nav = UINavigationController(rootViewController: vc)
+        nav.hero.isEnabled = true
+        algorithmNav?.present(nav, animated: true, completion: nil)
     }
     
     private func handleAlgorithmSelect(_ algorithm: Algorithm) {

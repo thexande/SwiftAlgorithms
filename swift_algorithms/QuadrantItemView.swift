@@ -14,6 +14,20 @@ final class CategoryTileItemView: UIView {
         let backgroundColor: UIColor
         let identifier: UUID
         static let `default` = Properties(title: " ", image: UIImage(), backgroundColor: .black, identifier: UUID())
+        
+        init(title: String, image: UIImage?, backgroundColor: UIColor, identifier: UUID) {
+            self.title = title
+            self.image = image
+            self.backgroundColor = backgroundColor
+            self.identifier = identifier
+        }
+        
+        init(_ category: Algorithm.Category) {
+            self.title = category.title
+            self.image = category.image
+            self.backgroundColor = category.color
+            self.identifier = UUID()
+        }
     }
     
     func render(_ properties: Properties) {
