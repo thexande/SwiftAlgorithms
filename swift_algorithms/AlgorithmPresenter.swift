@@ -12,26 +12,25 @@ final class AlgorithmPresenter {
     
     weak var dispatcher: AlgorithmPresenterActionDispatching?
     
-//    public func makeIntroSectionSection() -> ActionTableSectionController {
-//
-//        let actionSection = ActionTableSectionController()
-//
-//        let rowProps: [ActionTableRowController.Properties] = [
-//            ActionTableRowController.Properties(title: "What are algorithms and data structures?", subtitle: "Pancakes!", icon: UIImage(named: "pancakes"), action: .whatAreAlgorithms),
-//            ActionTableRowController.Properties(title: "Why learn algorithms?", subtitle: "Worried this isn't your cup of tea? Then read this.", icon: UIImage(named: "?"), action: .whyLearnAlgorithms),
-//            ActionTableRowController.Properties(title: "Big-O notation", subtitle: "We often say things like, 'This algorithm is O(n).' If you don't know what that means, read this first.", icon: UIImage(named: "line_chart"), action: .bigO),
-//            ActionTableRowController.Properties(title: "Algorithm design techniques", subtitle: "How do you create your own algorithms?", icon: UIImage(named: "algo")?.withRenderingMode(.alwaysTemplate), action: .designTechniques),
-//            ActionTableRowController.Properties(title: "How to contribute", subtitle: "Report an issue to leave feedback, or submit a pull request.", icon: UIImage(named: "git"), action: .howToContribute)
-//
-//        ]
-//
-//        let actionRows = rowProps.map(ActionTableRowController.map)
-//
-//        actionSection.rows = actionRows
+    public func makeIntroSectionSection() -> ActionTableSectionController {
+
+        let actionSection = ActionTableSectionController()
+        
+        let actions: [Algorithm] = [.whatAreAlgorithms, .whyLearnAlgorithms, .bigO, .designTechniques, .howToContribute]
+        
+        let identifiableProperties: [ActionTableRowController.Properties] = actions.map { action in
+            let identifier = UUID()
+            let properties = ActionTableRowController.Properties(title: action.title, subtitle: action.subtitle, icon: action.actionImage, identifier: identifier)
+            actionLookup[identifier] = .selectedAlgorithm(action)
+            return properties
+        }
+
+        let actionRows = identifiableProperties.map(ActionTableRowController.map)
+
+        actionSection.rows = actionRows
 //        actionSection.rows.insert(makeCatgorySideScrollerSection(), at: 0)
-//        actionSection.dispatcher = self.dispatcher
-//        return actionSection
-//    }
+        return actionSection
+    }
     
     public func makeGettingStartedSection() -> BasicTableSectionController {
         

@@ -91,7 +91,7 @@ final class RootTabCoordinator {
         
         // configure sections
         let controllers: [TableSectionController] = [
-//            algorithmPresenter.makeIntroSectionSection(),
+            algorithmPresenter.makeIntroSectionSection(),
             algorithmPresenter.makeGettingStartedSection(),
 //            algorithmPresenter.makeSearchingSection(),
 //            algorithmPresenter.makeStringSearchSection(),
@@ -144,7 +144,7 @@ extension RootTabCoordinator: AlgorithmPresenterActionDispatching {
 //        let props = algorithmPresenter.makeSortingSection()
 //        vc.update(with: [props])
 //        vc.detail.cardView.render(CategoryTileItemView.Properties(category))
-//        
+//
 //        let nav = UINavigationController(rootViewController: vc)
 //        nav.hero.isEnabled = true
 //        algorithmNav?.present(nav, animated: true, completion: nil)
@@ -162,7 +162,7 @@ extension RootTabCoordinator: AlgorithmPresenterActionDispatching {
             case let .success(markdown):
                 
                 DispatchQueue.main.async {
-                    if let controller = self?.makeMarkdownController(with: markdown, title: algorithm.title) {
+                    if let controller = self?.makeMarkdownController(with: markdown, title: algorithm.navTitle) {
                         self?.algorithmNav?.pushViewController(controller, animated: true)
                     }
                 }

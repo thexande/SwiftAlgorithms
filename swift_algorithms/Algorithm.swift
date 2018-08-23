@@ -78,18 +78,35 @@ enum Algorithm {
     
     // TODO
     
+    var actionImage: UIImage? {
+        switch self {
+        case .whatAreAlgorithms:
+            return UIImage(named: "pancakes")
+        case .whyLearnAlgorithms:
+            return UIImage(named: "?")
+        case .bigO:
+            return UIImage(named: "line_chart")
+        case .designTechniques:
+            return UIImage(named: "algo")
+        case .howToContribute:
+            return UIImage(named: "git")
+        default:
+            return nil
+        }
+    }
+    
     var subtitle: String? {
         switch self {
         case .whatAreAlgorithms:
-            return ""
+            return "Pancakes!"
         case .whyLearnAlgorithms:
-            return ""
+            return "Worried this isn't your cup of tea? Then read this."
         case .bigO:
-            return ""
+            return "We often say things like, 'This algorithm is O(n).' If you don't know what that means, read this first."
         case .designTechniques:
-            return ""
+            return "How do you create your own algorithms?"
         case .howToContribute:
-            return ""
+            return "Report an issue to leave feedback, or submit a pull request."
             
             // getting started
             
@@ -193,13 +210,35 @@ enum Algorithm {
         }
     }
     
+    var navTitle: String {
+        switch self {
+        case .whatAreAlgorithms:
+            return "Pancakes!"
+        case .whyLearnAlgorithms:
+            return "Why Learn?"
+        case .bigO:
+            return "Big O"
+        case .designTechniques:
+            return "Design Techniques"
+        case .howToContribute:
+            return "How To Contribute"
+        default:
+            return self.title
+        }
+    }
+    
     var title: String {
         switch self {
-        case .whatAreAlgorithms: return "Pancakes!"
-        case .whyLearnAlgorithms: return "Why Learn?"
-        case .bigO: return "Big O"
-        case .designTechniques: return "Design Techniques"
-        case .howToContribute: return "How To Contribute"
+        case .whatAreAlgorithms:
+            return "What are algorithms and data structures?"
+        case .whyLearnAlgorithms: return
+            "Why learn algorithms?"
+        case .bigO:
+            return "Big-O notation"
+        case .designTechniques:
+            return "Algorithm design techniques"
+        case .howToContribute:
+            return "How to contribute"
             
             // getting started
             
