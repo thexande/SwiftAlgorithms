@@ -13,7 +13,6 @@ final class ActionTableRowController: NSObject, RowController {
     }
     
     public var properties: Properties = .default
-    public weak var dispatcher: AlogrithmActionDispatching?
     
     func registerReusableTypes(tableView: UITableView) {
         tableView.register(ActionIconRowCell.self, forCellReuseIdentifier: String(describing: ActionIconRowCell.self))

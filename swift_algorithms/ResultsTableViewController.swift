@@ -3,7 +3,6 @@ import UIKit
 final class ResultsTableViewController: SectionProxyTableViewController {
     private let empty = SearchEmptyStateView()
     
-    weak var dispatcher: AlogrithmActionDispatching?
     
     var properties: [BasicTableRowController.Properties] = [] {
         didSet {

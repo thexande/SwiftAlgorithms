@@ -6,7 +6,7 @@ final class AlgorithmViewController: SectionProxyTableViewController {
         case selectedItem(UUID)
     }
     
-    weak var dispatcher: AlogrithmActionDispatching?
+    weak var dispatcher: AlgorithmViewActionDispatching?
     private let footer = DonateFooterView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 80))
     
     override init(style: UITableViewStyle) {

@@ -3,7 +3,6 @@ import Anchorage
 import Lottie
 
 final class CategoryTileItemView: UIView {
-    weak var dispatcher: AlogrithmActionDispatching?
  
     let title = UILabel()
     let lottie = UIImageView()

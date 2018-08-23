@@ -4,12 +4,11 @@ final class DataStructuresViewController: SectionProxyTableViewController {
     enum Actions {
         case selectedDataStructure
     }
-    let header = QuadrantSelectorView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .always
-        tableView.tableHeaderView = header
+        
         
 //        let items = [
 //            CategoryTileItemView.Properties(title: "Trees", image: UIImage(), backgroundColor: .turquiose()),

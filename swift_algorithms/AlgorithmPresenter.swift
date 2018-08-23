@@ -1,15 +1,16 @@
 import UIKit
 
+
 final class AlgorithmPresenter {
     
-    enum Actions {
+    enum Action {
         case selectedCategory(Category)
         case selectedAlgorithm(Algorithm)
     }
     
-    var actionLookup: [UUID: Actions] = [:]
+    var actionLookup: [UUID: Action] = [:]
     
-    weak var dispatcher: AlogrithmActionDispatching?
+    weak var dispatcher: AlgorithmPresenterActionDispatching?
     
 //    public func makeIntroSectionSection() -> ActionTableSectionController {
 //
@@ -201,11 +202,13 @@ final class AlgorithmPresenter {
 //    }
 }
 
-extension AlgorithmPresenter: AlogrithmActionDispatching {
+
+extension AlgorithmPresenter: AlgorithmViewActionDispatching {
     func dispatch(_ action: AlgorithmViewController.Action) {
         switch action {
         case let .selectedItem(identifier):
-            print(identifier)
+            let action = actionLookup[identifier]
+            print(action)
 //        default: dispatcher?.dispatch(action)
         }
     }

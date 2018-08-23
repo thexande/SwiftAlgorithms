@@ -6,8 +6,11 @@ protocol RowController: UITableViewDelegate, UITableViewDataSource {
 }
 
 
-protocol AlogrithmActionDispatching: AnyObject {
+protocol AlgorithmViewActionDispatching: AnyObject {
     func dispatch(_ action: AlgorithmViewController.Action)
+}
+protocol AlgorithmPresenterActionDispatching: AnyObject {
+    func dispatch(_ action: AlgorithmPresenter.Action)
 }
 
 final class ActionTableSectionController: NSObject, TableSectionController {
