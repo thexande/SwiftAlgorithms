@@ -4,7 +4,7 @@ import UIKit
 final class AlgorithmPresenter {
     
     enum Action {
-        case selectedCategory(Category)
+        case selectedCategory(Algorithm.Category)
         case selectedAlgorithm(Algorithm)
     }
     
@@ -207,8 +207,12 @@ extension AlgorithmPresenter: AlgorithmViewActionDispatching {
     func dispatch(_ action: AlgorithmViewController.Action) {
         switch action {
         case let .selectedItem(identifier):
-            let action = actionLookup[identifier]
-            print(action)
+            
+            guard let action = actionLookup[identifier] else {
+                return
+            }
+            
+            dispatcher?.dispatch(action)
 //        default: dispatcher?.dispatch(action)
         }
     }

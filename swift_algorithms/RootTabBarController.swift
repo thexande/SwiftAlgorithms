@@ -23,7 +23,7 @@ final class RootTabCoordinator {
     
     init() {
         // configure dispatch
-//        algorithmPresenter.dispatcher = self
+        algorithmPresenter.dispatcher = self
         algorithmViewController.dispatcher = algorithmPresenter
 
         // configure root views
@@ -138,43 +138,51 @@ final class RootTabCoordinator {
     }
 }
 
-//extension RootTabCoordinator: AlogrithmActionDispatching {
-//    func dispatch(_ action: AlgorithmViewController.Action) {
-//        switch action {
-//        case let .selectCategory(category):
-//            let vc = CategoryDetailViewController()
-//            let props = algorithmPresenter.makeSortingSection()
-//            vc.update(with: [props])
-//            vc.detail.cardView.render(CategoryTileItemView.Properties(category))
-//
-//            let nav = UINavigationController(rootViewController: vc)
-//            nav.hero.isEnabled = true
-//            algorithmNav?.present(nav, animated: true, completion: nil)
-//
-//        case let .selectAlgorithm(algorithm):
-//
-//            guard let url = urlFactory.markdownFileUrl(for: algorithm) else {
-//                return
-//            }
-//
-//            stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
-//                switch result {
-//                case let .success(markdown):
-//
-//                    DispatchQueue.main.async {
-//                        if let controller = self?.makeMarkdownController(with: markdown, title: algorithm.title) {
-//                            self?.algorithmNav?.pushViewController(controller, animated: true)
-//                        }
-//                    }
-//
-//                case .failure:
-//                    return
-//                }
-//            }
-//        default: return
-//        }
-//    }
-//}
+extension RootTabCoordinator: AlgorithmPresenterActionDispatching {
+    private func handleCategorySelect(_ category: Algorithm.Category) {
+        let vc = CategoryDetailViewController()
+//        let props = algorithmPresenter.makeSortingSection()
+//        vc.update(with: [props])
+//        vc.detail.cardView.render(CategoryTileItemView.Properties(category))
+//        
+//        let nav = UINavigationController(rootViewController: vc)
+//        nav.hero.isEnabled = true
+//        algorithmNav?.present(nav, animated: true, completion: nil)
+
+    }
+    
+    private func handleAlgorithmSelect(_ algorithm: Algorithm) {
+        
+        guard let url = urlFactory.markdownFileUrl(for: algorithm) else {
+            return
+        }
+        
+        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
+            switch result {
+            case let .success(markdown):
+                
+                DispatchQueue.main.async {
+                    if let controller = self?.makeMarkdownController(with: markdown, title: algorithm.title) {
+                        self?.algorithmNav?.pushViewController(controller, animated: true)
+                    }
+                }
+                
+            case .failure:
+                return
+            }
+        }
+
+    }
+    
+    func dispatch(_ action: AlgorithmPresenter.Action) {
+        switch action {
+        case let .selectedAlgorithm(algorithm):
+            handleAlgorithmSelect(algorithm)
+        case let .selectedCategory(category):
+            handleCategorySelect(category)
+        }
+    }
+}
 
 final class RootTabBarController: UITabBarController {
     weak var coordinator: RootTabCoordinator?
