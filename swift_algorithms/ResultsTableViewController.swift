@@ -13,27 +13,27 @@ final class ResultsTableViewController: SectionProxyTableViewController {
     
     func update(with properties: [BasicTableRowController.Properties]) {
         
-        let categories = Array(Set(properties.map { $0.action }.compactMap(Algorithm.category(for:))))
+//        let categories = Array(Set(properties.map { $0.action }.compactMap(Algorithm.category(for:))))
         
-        let sections: [TableSectionController] = categories.map { category in
-            let sectionProperties = properties.filter {
-                if let cat = $0.action.category {
-                    return cat == category
-                } else {
-                    return false
-                }
-            }
-            
-            let section = BasicTableSectionController()
-            section.sectionTitle = category.title
-            section.rows = sectionProperties.map(SearchResultsRowController.map)
-            section.registerReusableTypes(tableView: tableView)
-            section.dispatcher = dispatcher
-            return section
-        }
-        
-        self.sections = sections
-        
+//        let sections: [TableSectionController] = categories.map { category in
+//            let sectionProperties = properties.filter {
+//                if let cat = $0.action.category {
+//                    return cat == category
+//                } else {
+//                    return false
+//                }
+//            }
+//
+//            let section = BasicTableSectionController()
+//            section.sectionTitle = category.title
+//            section.rows = sectionProperties.map(SearchResultsRowController.map)
+//            section.registerReusableTypes(tableView: tableView)
+//            section.dispatcher = dispatcher
+//            return section
+//        }
+//
+//        self.sections = sections
+//
         
         tableView.reloadData()
         

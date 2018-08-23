@@ -1,10 +1,12 @@
 import UIKit
 
 final class CategorySideScrollingCollecitonSectionController: NSObject, CollectionSectionController {
+    
     let width = UIScreen.main.bounds.width
+    
     public var properties: [CategoryTileItemView.Properties] = []
     
-    weak var dispatcher: AlogrithmActionDispatching?
+    var onSelect: ((UUID) -> Void)?
 
     func registerForReusableTypes(with collectionView: UICollectionView) {
         collectionView.register(CategoryCollectionCell.self,
@@ -44,7 +46,7 @@ final class CategorySideScrollingCollecitonSectionController: NSObject, Collecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        dispatcher?.dispatch(.selectCategory(properties[indexPath.item].category))
+        onSelect?(properties[indexPath.row].identifier)
     }
 }
 

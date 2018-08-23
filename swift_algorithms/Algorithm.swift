@@ -76,6 +76,123 @@ enum Algorithm {
     case naiveBayesClassifier
     case simulatedAnnealing
     
+    // TODO
+    
+    var subtitle: String? {
+        switch self {
+        case .whatAreAlgorithms:
+            return ""
+        case .whyLearnAlgorithms:
+            return ""
+        case .bigO:
+            return ""
+        case .designTechniques:
+            return ""
+        case .howToContribute:
+            return ""
+            
+            // getting started
+            
+        case .stack, .queue, .insertionSort, .binarySearch, .binarySearchTree, .mergeSort, .boyerMoore: return nil
+            // Searching
+            
+        case .linnearSearch:
+            return "Find an element in an array."
+        case .countOccurences:
+            return ""
+        case .selectMinMax:
+            return ""
+        case .kthLargestElement:
+            return ""
+        case .selectionSampling:
+            return ""
+        case .unionFind:
+            return ""
+            
+            // String Search
+            
+        case .bruteForceStringSearch:
+            return ""
+        case .knuthMorrisPratt:
+            return ""
+        case .rabinKarp:
+            return ""
+        case .longestCommonSubsequence:
+            return ""
+        case .zAlgorithm:
+            return ""
+            
+            // Sorting
+            
+        case .selectionSort:
+            return ""
+        case .shellSort:
+            return ""
+        case .quickSort:
+            return ""
+        case .heapSort:
+            return ""
+        case .introSort:
+            return ""
+        case .countingSort:
+            return ""
+        case .radixSort:
+            return ""
+        case .topologicalSort:
+            return ""
+        case .bubbleSort:
+            return ""
+        case .slowSort:
+            return ""
+            
+            // Compression
+            
+        case .runLengthEncoding:
+            return ""
+        case .huffmanCoding:
+            return ""
+            
+            // Miscellaneous
+            
+        case .shuffle:
+            return ""
+        case .comboSort:
+            return ""
+        case .convexHull:
+            return ""
+        case .millerRabin:
+            return ""
+        case .minimumCoin:
+            return ""
+            
+            // Mathematics
+            
+        case .gcd:
+            return ""
+        case .permutationsAndCombinations:
+            return ""
+        case .shuntingYard:
+            return ""
+        case .karatsubaMultiplication:
+            return ""
+        case .haversineDistance:
+            return ""
+        case .strassenMultiplicationMatrix:
+            return ""
+            
+            // Machine Learning
+            
+        case .kMeansClustering:
+            return ""
+        case .linnearRegression:
+            return ""
+        case .naiveBayesClassifier:
+            return ""
+        case .simulatedAnnealing:
+            return ""
+        }
+    }
+    
     var title: String {
         switch self {
         case .whatAreAlgorithms: return "Pancakes!"

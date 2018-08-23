@@ -3,8 +3,7 @@ import UIKit
 final class AlgorithmViewController: SectionProxyTableViewController {
     
     enum Action {
-        case selectCategory(Algorithm.Category)
-        case selectAlgorithm(Algorithm)
+        case selectedItem(UUID)
     }
     
     weak var dispatcher: AlogrithmActionDispatching?
@@ -21,6 +20,10 @@ final class AlgorithmViewController: SectionProxyTableViewController {
     public func update(with sections: [TableSectionController]) {
         sections.forEach { section in
             section.registerReusableTypes(tableView: tableView)
+            
+            section.onSelect = { [weak self] identifier in
+                self?.dispatcher?.dispatch(.selectedItem(identifier))
+            }
         }
         
         self.sections = sections

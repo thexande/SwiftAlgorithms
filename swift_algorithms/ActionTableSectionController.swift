@@ -1,7 +1,7 @@
 import UIKit
 
 protocol RowController: UITableViewDelegate, UITableViewDataSource {
-    var dispatcher: AlogrithmActionDispatching? { get set }
+    var onSelect: ((UUID) -> Void)? { get set }
     func registerReusableTypes(tableView: UITableView)
 }
 
@@ -14,10 +14,10 @@ final class ActionTableSectionController: NSObject, TableSectionController {
     public var rows: [RowController] = []
     public var sectionTitle: String?
     
-    public weak var dispatcher: AlogrithmActionDispatching? {
+    var onSelect: ((UUID) -> Void)? {
         didSet {
             rows.forEach { row in
-                row.dispatcher = dispatcher
+                row.onSelect = onSelect
             }
         }
     }

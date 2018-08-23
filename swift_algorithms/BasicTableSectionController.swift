@@ -5,10 +5,10 @@ final class BasicTableSectionController: NSObject, TableSectionController {
     public var sectionTitle: String?
     public var sectionSubtitle: String?
     
-    public weak var dispatcher: AlogrithmActionDispatching? {
+    var onSelect: ((UUID) -> Void)? {
         didSet {
             rows.forEach { row in
-                row.dispatcher = dispatcher
+                row.onSelect = onSelect
             }
         }
     }

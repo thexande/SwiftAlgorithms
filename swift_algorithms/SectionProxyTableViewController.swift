@@ -1,7 +1,7 @@
 import UIKit
 
 protocol TableSectionController: UITableViewDelegate, UITableViewDataSource {
-//    var dispatcher: WalletDetailActionDispatching? { get set }
+    var onSelect: ((UUID) -> Void)? { get set }
     var sectionTitle: String? { get }
     func registerReusableTypes(tableView: UITableView)
 }

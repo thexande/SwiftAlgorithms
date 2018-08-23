@@ -23,7 +23,7 @@ final class RootTabCoordinator {
     
     init() {
         // configure dispatch
-        algorithmPresenter.dispatcher = self
+//        algorithmPresenter.dispatcher = self
         algorithmViewController.dispatcher = algorithmPresenter
 
         // configure root views
@@ -66,20 +66,20 @@ final class RootTabCoordinator {
         
         
         let algorithmSearchController = UISearchController(searchResultsController: algorithmSearchResultsController)
-        algorithmSearchController.searchResultsUpdater = algorithmSearchResultsPresenter
-        algorithmSearchController.obscuresBackgroundDuringPresentation = false
-        algorithmSearchController.searchBar.placeholder = "Search Algorithms"
+//        algorithmSearchController.searchResultsUpdater = algorithmSearchResultsPresenter
+//        algorithmSearchController.obscuresBackgroundDuringPresentation = false
+//        algorithmSearchController.searchBar.placeholder = "Search Algorithms"
+//        
+//        algorithmSearchResultsPresenter.deliver = { [weak algorithmSearchResultsController] properties in
+//            algorithmSearchResultsController?.properties = properties
+//            
+//        }
         
-        algorithmSearchResultsPresenter.deliver = { [weak algorithmSearchResultsController] properties in
-            algorithmSearchResultsController?.properties = properties
-            
-        }
+//        let rows = AlgorithmSectionProperties.allAlgorithmProperties()
+//        algorithmSearchResultsPresenter.properties = rows
+//        algorithmSearchResultsPresenter.searchedProperties = rows
         
-        let rows = AlgorithmSectionProperties.allAlgorithmProperties()
-        algorithmSearchResultsPresenter.properties = rows
-        algorithmSearchResultsPresenter.searchedProperties = rows
-        
-        algorithmSearchResultsController.dispatcher = self
+//        algorithmSearchResultsController.dispatcher = self
         
         
         algorithmViewController.navigationItem.searchController = algorithmSearchController
@@ -87,20 +87,20 @@ final class RootTabCoordinator {
         algorithmViewController.title = "Algorithms"
         let algoImage = UIImage(named: "algo")?.scaledImage(withSize: tabBarSize)
         algorithmViewController.tabBarItem = UITabBarItem(title: "Algorithms", image: algoImage, selectedImage: algoImage)
-        algorithmViewController.dispatcher = self
+//        algorithmViewController.dispatcher = self
         
         // configure sections
         let controllers: [TableSectionController] = [
-            algorithmPresenter.makeIntroSectionSection(),
+//            algorithmPresenter.makeIntroSectionSection(),
             algorithmPresenter.makeGettingStartedSection(),
-            algorithmPresenter.makeSearchingSection(),
-            algorithmPresenter.makeStringSearchSection(),
-            algorithmPresenter.makeSortingSection(),
-            algorithmPresenter.makeCompressionSection(),
-            algorithmPresenter.makeMiscellaneousSection(),
-            algorithmPresenter.makeMathSection(),
-            algorithmPresenter.makeMachineLearningSection(),
-            algorithmPresenter.makeAboutSection()
+//            algorithmPresenter.makeSearchingSection(),
+//            algorithmPresenter.makeStringSearchSection(),
+//            algorithmPresenter.makeSortingSection(),
+//            algorithmPresenter.makeCompressionSection(),
+//            algorithmPresenter.makeMiscellaneousSection(),
+//            algorithmPresenter.makeMathSection(),
+//            algorithmPresenter.makeMachineLearningSection(),
+//            algorithmPresenter.makeAboutSection()
         ]
         
         algorithmViewController.update(with: controllers)
@@ -138,43 +138,43 @@ final class RootTabCoordinator {
     }
 }
 
-extension RootTabCoordinator: AlogrithmActionDispatching {
-    func dispatch(_ action: AlgorithmViewController.Action) {
-        switch action {
-        case let .selectCategory(category):
-            let vc = CategoryDetailViewController()
-            let props = algorithmPresenter.makeSortingSection()
-            vc.update(with: [props])
-            vc.detail.cardView.render(CategoryTileItemView.Properties(category))
-            
-            let nav = UINavigationController(rootViewController: vc)
-            nav.hero.isEnabled = true
-            algorithmNav?.present(nav, animated: true, completion: nil)
-            
-        case let .selectAlgorithm(algorithm):
-            
-            guard let url = urlFactory.markdownFileUrl(for: algorithm) else {
-                return
-            }
-            
-            stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
-                switch result {
-                case let .success(markdown):
-                    
-                    DispatchQueue.main.async {
-                        if let controller = self?.makeMarkdownController(with: markdown, title: algorithm.title) {
-                            self?.algorithmNav?.pushViewController(controller, animated: true)
-                        }
-                    }
-                    
-                case .failure:
-                    return
-                }
-            }
-        default: return 
-        }
-    }
-}
+//extension RootTabCoordinator: AlogrithmActionDispatching {
+//    func dispatch(_ action: AlgorithmViewController.Action) {
+//        switch action {
+//        case let .selectCategory(category):
+//            let vc = CategoryDetailViewController()
+//            let props = algorithmPresenter.makeSortingSection()
+//            vc.update(with: [props])
+//            vc.detail.cardView.render(CategoryTileItemView.Properties(category))
+//
+//            let nav = UINavigationController(rootViewController: vc)
+//            nav.hero.isEnabled = true
+//            algorithmNav?.present(nav, animated: true, completion: nil)
+//
+//        case let .selectAlgorithm(algorithm):
+//
+//            guard let url = urlFactory.markdownFileUrl(for: algorithm) else {
+//                return
+//            }
+//
+//            stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
+//                switch result {
+//                case let .success(markdown):
+//
+//                    DispatchQueue.main.async {
+//                        if let controller = self?.makeMarkdownController(with: markdown, title: algorithm.title) {
+//                            self?.algorithmNav?.pushViewController(controller, animated: true)
+//                        }
+//                    }
+//
+//                case .failure:
+//                    return
+//                }
+//            }
+//        default: return
+//        }
+//    }
+//}
 
 final class RootTabBarController: UITabBarController {
     weak var coordinator: RootTabCoordinator?

@@ -1,7 +1,8 @@
 import UIKit
 
 final class BasicTableHeaderRowController: NSObject, RowController {
-    var dispatcher: AlogrithmActionDispatching?
+    
+    var onSelect: ((UUID) -> Void)?
     
     struct Properties {
         let title: String

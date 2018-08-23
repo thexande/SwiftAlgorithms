@@ -13,22 +13,8 @@ final class CategoryTileItemView: UIView {
         let title: String
         let image: UIImage?
         let backgroundColor: UIColor
-        let category: Algorithm.Category
-        static let `default` = Properties(title: " ", image: UIImage(), backgroundColor: .black, category: .math)
-        
-        init(title: String, image: UIImage?, backgroundColor: UIColor, category: Algorithm.Category) {
-            self.title = title
-            self.image = image
-            self.backgroundColor = backgroundColor
-            self.category = category
-        }
-        
-        init(_ category: Algorithm.Category) {
-            self.title = category.title
-            self.image = category.image
-            self.backgroundColor = category.color
-            self.category = category
-        }
+        let identifier: UUID
+        static let `default` = Properties(title: " ", image: UIImage(), backgroundColor: .black, identifier: UUID())
     }
     
     func render(_ properties: Properties) {

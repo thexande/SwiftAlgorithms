@@ -1,12 +1,15 @@
 import UIKit
 
 final class ActionTableRowController: NSObject, RowController {
+    
+    var onSelect: ((UUID) -> Void)?
+    
     struct Properties {
         let title: String
         let subtitle: String?
         let icon: UIImage?
-        let action: Algorithm
-        static let `default` = Properties(title: "Test Title", subtitle: nil, icon: UIImage(named: "pancakes"), action: .bigO)
+        let identifier: UUID
+        static let `default` = Properties(title: "Test Title", subtitle: nil, icon: UIImage(named: "pancakes"), identifier: UUID())
     }
     
     public var properties: Properties = .default
@@ -40,7 +43,7 @@ extension ActionTableRowController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dispatcher?.dispatch(.selectAlgorithm(properties.action))
+        onSelect?(properties.identifier)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

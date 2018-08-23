@@ -58,6 +58,7 @@
 		B0F3850A212BB26A00779976 /* CategorySideScrollingCollecitonSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F38509212BB26A00779976 /* CategorySideScrollingCollecitonSectionController.swift */; };
 		B0F3850C212BB29200779976 /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F3850B212BB29200779976 /* CategoryCollectionCell.swift */; };
 		B0F3850E212BB33000779976 /* CategoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F3850D212BB33000779976 /* CategoryDetailViewController.swift */; };
+		B0F38512212E56E000779976 /* NewEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F38511212E56E000779976 /* NewEnums.swift */; };
 		CF258018CEDC1C30BBC0CCEB /* Pods_swift_algorithmsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C9489049617C5233D06003 /* Pods_swift_algorithmsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,7 @@
 		B0F38509212BB26A00779976 /* CategorySideScrollingCollecitonSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySideScrollingCollecitonSectionController.swift; sourceTree = "<group>"; };
 		B0F3850B212BB29200779976 /* CategoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCell.swift; sourceTree = "<group>"; };
 		B0F3850D212BB33000779976 /* CategoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailViewController.swift; sourceTree = "<group>"; };
+		B0F38511212E56E000779976 /* NewEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEnums.swift; sourceTree = "<group>"; };
 		B11B52C8253786514CD57982 /* Pods-swift_algorithmsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsTests/Pods-swift_algorithmsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B607CDB0A6FEE9DA2C6F0695 /* Pods-swift_algorithms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithms.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithms/Pods-swift_algorithms.release.xcconfig"; sourceTree = "<group>"; };
 		EF9A1484C74813E3093C6FBE /* Pods-swift_algorithmsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsUITests/Pods-swift_algorithmsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				B0F38509212BB26A00779976 /* CategorySideScrollingCollecitonSectionController.swift */,
 				B0F3850B212BB29200779976 /* CategoryCollectionCell.swift */,
 				B0F3850D212BB33000779976 /* CategoryDetailViewController.swift */,
+				B0F38511212E56E000779976 /* NewEnums.swift */,
 			);
 			path = swift_algorithms;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				B01733972128E8EA00FBEFE5 /* ActionTableSectionController.swift in Sources */,
 				B0A4DB3A212A0648000CFC7F /* DonateFooterView.swift in Sources */,
 				B0F38506212BB21A00779976 /* CategoryRowTableSectionController.swift in Sources */,
+				B0F38512212E56E000779976 /* NewEnums.swift in Sources */,
 				B01733952128E44500FBEFE5 /* UIImage.swift in Sources */,
 				B017338B2128CC9800FBEFE5 /* RootTabBarController.swift in Sources */,
 				B069F1C3212B8F72002FABFB /* CollectionSectionController.swift in Sources */,

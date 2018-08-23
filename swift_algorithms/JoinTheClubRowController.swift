@@ -2,7 +2,8 @@ import UIKit
 import Anchorage
 
 final class JoinTheClubRowController: NSObject, RowController {
-    public weak var dispatcher: AlogrithmActionDispatching?
+    
+    var onSelect: ((UUID) -> Void)?
     
     func registerReusableTypes(tableView: UITableView) {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))

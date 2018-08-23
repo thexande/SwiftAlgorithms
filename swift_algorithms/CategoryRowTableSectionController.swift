@@ -4,13 +4,13 @@ final class CategoryRowTableRowController: NSObject, RowController {
     
     var sectionTitle: String?
     
-    weak var dispatcher: AlogrithmActionDispatching? {
+    let collectionSectionController = CategorySideScrollingCollecitonSectionController()
+   
+    var onSelect: ((UUID) -> Void)? {
         didSet {
-            collectionSectionController.dispatcher = dispatcher
+            collectionSectionController.onSelect = onSelect
         }
     }
-    
-    let collectionSectionController = CategorySideScrollingCollecitonSectionController()
     
     var properties: [CategoryTileItemView.Properties] = [] {
         didSet {
