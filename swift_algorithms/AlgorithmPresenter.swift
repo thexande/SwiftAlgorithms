@@ -12,15 +12,31 @@ final class AlgorithmPresenter {
     
     weak var dispatcher: AlgorithmPresenterActionDispatching?
     
+    private func makeIdentifiableProperties(for algorithms: [Algorithm]) -> [BasicTableRowController.Properties] {
+        
+        let identifiableProperties: [BasicTableRowController.Properties] = algorithms.map { algorithm in
+            let identifier = UUID()
+            let properties = BasicTableRowController.Properties(title: algorithm.title,
+                                                                subtitle: algorithm.subtitle,
+                                                                showsDisclosure: true,
+                                                                identifier: identifier)
+            actionLookup[identifier] = .selectedAlgorithm(algorithm)
+            return properties
+        }
+        
+        return identifiableProperties
+    }
+    
     public func makeIntroSectionSection() -> ActionTableSectionController {
 
         let actionSection = ActionTableSectionController()
         
-        let actions: [Algorithm] = [.whatAreAlgorithms, .whyLearnAlgorithms, .bigO, .designTechniques, .howToContribute]
-        
-        let identifiableProperties: [ActionTableRowController.Properties] = actions.map { action in
+        let identifiableProperties: [ActionTableRowController.Properties] = Algorithm.introduction.map { action in
             let identifier = UUID()
-            let properties = ActionTableRowController.Properties(title: action.title, subtitle: action.subtitle, icon: action.actionImage, identifier: identifier)
+            let properties = ActionTableRowController.Properties(title: action.title,
+                                                                 subtitle: action.subtitle,
+                                                                 icon: action.actionImage,
+                                                                 identifier: identifier)
             actionLookup[identifier] = .selectedAlgorithm(action)
             return properties
         }
@@ -36,15 +52,8 @@ final class AlgorithmPresenter {
         
         let starterSection = BasicTableSectionController()
         
-        let gettingStartedAlgorithms: [Algorithm] = [.stack, .queue, .insertionSort, .binarySearch, .binarySearchTree, .mergeSort, .boyerMoore]
-        
-        let identifiableProperties: [BasicTableRowController.Properties] = gettingStartedAlgorithms.map { algorithm in
-            let identifier = UUID()
-            let properties = BasicTableRowController.Properties(title: algorithm.title, subtitle: algorithm.subtitle, showsDisclosure: false, identifier: identifier)
-            actionLookup[identifier] = .selectedAlgorithm(algorithm)
-            return properties
-        }
-        
+        let identifiableProperties = makeIdentifiableProperties(for: Algorithm.gettingStarted)
+
         starterSection.rows = identifiableProperties.map(BasicTableRowController.map)
         
         starterSection.sectionTitle = "Where to start?"
@@ -53,140 +62,138 @@ final class AlgorithmPresenter {
         return starterSection
     }
     
-//    public func makeSearchingSection() -> BasicTableSectionController {
-//
-//        let searchingRowProps = AlgorithmSectionProperties.searchingSectionProperties
-//
-//        let searchingRowSection = BasicTableSectionController()
-//        let searchingRows = searchingRowProps.map(BasicTableRowController.map)
-//        searchingRowSection.rows = searchingRows
-//        searchingRowSection.sectionTitle = "Searching"
-//        searchingRowSection.dispatcher = self.dispatcher
-//
-//        return searchingRowSection
-//    }
-//
-//    public func makeStringSearchSection() -> BasicTableSectionController {
-//
-//        let searchRowProps = AlgorithmSectionProperties.stringSearchingSectionProperties
-//
-//        let searchingRowSection = BasicTableSectionController()
-//        let searchingRows = searchRowProps.map(BasicTableRowController.map)
-//
-//        searchingRowSection.rows = searchingRows
-//        searchingRowSection.sectionTitle = "String Search"
-//        searchingRowSection.dispatcher = self.dispatcher
-//        return searchingRowSection
-//    }
-//
-//
-//    public func makeSortingSection() -> BasicTableSectionController {
-//        var sortingRows: [RowController] = []
-//
-//        // configure basic sorts
-//
-//        let basicSorts = AlgorithmSectionProperties.Sorting.basic
-//
-//        let basicSortHeader = BasicTableHeaderRowController.map(BasicTableHeaderRowController.Properties(title: "Basic Sorts"))
-//        sortingRows.append(basicSortHeader)
-//        sortingRows.append(contentsOf: basicSorts.map(BasicTableRowController.map))
-//
-//        // configure fast sorts
-//
-//        let fastSorts = AlgorithmSectionProperties.Sorting.fast
-//
-//        let fastSortHeader = BasicTableHeaderRowController.map(BasicTableHeaderRowController.Properties(title: "Fast Sorts"))
-//        sortingRows.append(fastSortHeader)
-//        sortingRows.append(contentsOf: fastSorts.map(BasicTableRowController.map))
-//
-//        // configure hybrid sorts
-//
-//        let hybridSorts = AlgorithmSectionProperties.Sorting.hybrid
-//
-//        let hybridSortHeader = BasicTableHeaderRowController.map(BasicTableHeaderRowController.Properties(title: "Hybrid Sorts"))
-//        sortingRows.append(hybridSortHeader)
-//        sortingRows.append(contentsOf: hybridSorts.map(BasicTableRowController.map))
-//
-//        // configure special purpose sorts
-//
-//        let specialPurposeSorts = AlgorithmSectionProperties.Sorting.special
-//
-//        let specialPurposeSortHeader = BasicTableHeaderRowController.map(BasicTableHeaderRowController.Properties(title: "Basic Sorts"))
-//        sortingRows.append(specialPurposeSortHeader)
-//        sortingRows.append(contentsOf: specialPurposeSorts.map(BasicTableRowController.map))
-//
-//        // configure bad sorts
-//
-//        let badSorts = AlgorithmSectionProperties.Sorting.bad
-//        let badSortHeader = BasicTableHeaderRowController.map(BasicTableHeaderRowController.Properties(title: "Basic Sorts"))
-//        sortingRows.append(badSortHeader)
-//        sortingRows.append(contentsOf: badSorts.map(BasicTableRowController.map))
-//
-//
-//        let sortingRowsSection = BasicTableSectionController()
-//
-//        sortingRowsSection.rows = sortingRows
-//        sortingRowsSection.sectionTitle = "Sorting"
-//        sortingRowsSection.sectionSubtitle = "It's fun to see how sorting algorithms work, but in practice you'll almost never have to provide your own sorting routines. Swift's own sort() is more than up to the job. But if you're curious, read on..."
-//        sortingRowsSection.dispatcher = self.dispatcher
-//
-//        return sortingRowsSection
-//    }
-//
-//    public func makeCompressionSection() -> BasicTableSectionController {
-//        let compressionRowProps = AlgorithmSectionProperties.compressionSectionProperties
-//
-//        let compressionRowSection = BasicTableSectionController()
-//        let compressionRows = compressionRowProps.map(BasicTableRowController.map)
-//
-//        compressionRowSection.rows = compressionRows
-//        compressionRowSection.sectionTitle = "Compression"
-//        compressionRowSection.dispatcher = self.dispatcher
-//        return compressionRowSection
-//    }
-//
-//    public func makeMiscellaneousSection() -> BasicTableSectionController {
-//        let miscellaneousRowProps = AlgorithmSectionProperties.miscellaneousSectionProperties
-//
-//        let miscellaneousRowSection = BasicTableSectionController()
-//        let miscellaneousRows = miscellaneousRowProps.map(BasicTableRowController.map)
-//
-//        miscellaneousRowSection.rows = miscellaneousRows
-//        miscellaneousRowSection.sectionTitle = "Miscellaneous"
-//        miscellaneousRowSection.dispatcher = self.dispatcher
-//        return miscellaneousRowSection
-//    }
-//
-//    public func makeMathSection() -> BasicTableSectionController {
-//        let mathRowProps = AlgorithmSectionProperties.mathSectionProperties
-//
-//        let mathRowSection = BasicTableSectionController()
-//        let mathRows = mathRowProps.map(BasicTableRowController.map)
-//
-//        mathRowSection.rows = mathRows
-//        mathRowSection.sectionTitle = "Mathematics"
-//        mathRowSection.dispatcher = self.dispatcher
-//        return mathRowSection
-//    }
-//
-//    public func makeMachineLearningSection() -> BasicTableSectionController {
-//        let machineLearningRowProps = AlgorithmSectionProperties.machineLearningSectionProperties
-//
-//        let machineLearningRowSection = BasicTableSectionController()
-//        let machineLearningRows = machineLearningRowProps.map(BasicTableRowController.map)
-//
-//        machineLearningRowSection.rows = machineLearningRows
-//        machineLearningRowSection.sectionTitle = "Machine Learning"
-//        machineLearningRowSection.dispatcher = self.dispatcher
-//        return machineLearningRowSection
-//    }
-//
-//    func makeAboutSection() -> BasicTableSectionController {
-//        let rowController = JoinTheClubRowController()
-//        let controller = BasicTableSectionController()
-//        controller.rows = [rowController]
-//        return controller
-//    }
+    public func makeSearchingSection() -> BasicTableSectionController {
+
+        let searchingAlgorithms = makeIdentifiableProperties(for: Algorithm.searching)
+
+        let searchingRowSection = BasicTableSectionController()
+        let searchingRows = searchingAlgorithms.map(BasicTableRowController.map)
+        searchingRowSection.rows = searchingRows
+        searchingRowSection.sectionTitle = "Searching"
+
+        return searchingRowSection
+    }
+
+    public func makeStringSearchSection() -> BasicTableSectionController {
+
+        let searchRowProps = makeIdentifiableProperties(for: Algorithm.stringSearch)
+
+        let searchingRowSection = BasicTableSectionController()
+        let searchingRows = searchRowProps.map(BasicTableRowController.map)
+
+        searchingRowSection.rows = searchingRows
+        searchingRowSection.sectionTitle = "String Search"
+        return searchingRowSection
+        
+    }
+
+
+    public func makeSortingSections() -> [BasicTableSectionController] {
+        var sortingSections: [BasicTableSectionController] = []
+
+        // configure basic sorts
+
+        let basicSorts = makeIdentifiableProperties(for: Algorithm.Sorting.basic)
+
+        let basicSection = BasicTableSectionController()
+        basicSection.sectionTitle = "Basic Sorts"
+        
+        basicSection.sectionTitle = "Sorting"
+        basicSection.sectionSubtitle = "It's fun to see how sorting algorithms work, but in practice you'll almost never have to provide your own sorting routines. Swift's own sort() is more than up to the job. But if you're curious, read on..."
+
+        basicSection.rows = basicSorts.map(BasicTableRowController.map)
+        sortingSections.append(basicSection)
+
+        // configure fast sorts
+
+        let fastSorts = makeIdentifiableProperties(for: Algorithm.Sorting.fast)
+
+        let fastSection = BasicTableSectionController()
+        fastSection.sectionTitle = "Fast Sorts"
+        fastSection.rows = fastSorts.map(BasicTableRowController.map)
+        sortingSections.append(fastSection)
+
+        // configure hybrid sorts
+
+        let hybridSorts = makeIdentifiableProperties(for: Algorithm.Sorting.hybrid)
+
+        let hybridSection = BasicTableSectionController()
+        hybridSection.sectionTitle = "Hybrid Sorts"
+        hybridSection.rows = hybridSorts.map(BasicTableRowController.map)
+        sortingSections.append(hybridSection)
+
+        // configure special purpose sorts
+
+        let specialPurposeSorts = makeIdentifiableProperties(for: Algorithm.Sorting.specialPurpose)
+
+        let specialPurposeSection = BasicTableSectionController()
+        specialPurposeSection.sectionTitle = "Special Purpose Sorts"
+        specialPurposeSection.rows = specialPurposeSorts.map(BasicTableRowController.map)
+        sortingSections.append(specialPurposeSection)
+
+        // configure bad sorts
+
+        let badSorts = makeIdentifiableProperties(for: Algorithm.Sorting.bad)
+        let badSortSection = BasicTableSectionController()
+        badSortSection.rows = badSorts.map(BasicTableRowController.map)
+
+        return sortingSections
+    }
+
+    public func makeCompressionSection() -> BasicTableSectionController {
+        let compressionRowProps = makeIdentifiableProperties(for: Algorithm.compression)
+
+        let compressionRowSection = BasicTableSectionController()
+        let compressionRows = compressionRowProps.map(BasicTableRowController.map)
+
+        compressionRowSection.rows = compressionRows
+        compressionRowSection.sectionTitle = "Compression"
+        
+        return compressionRowSection
+    }
+
+    public func makeMiscellaneousSection() -> BasicTableSectionController {
+        let miscellaneousRowProps = makeIdentifiableProperties(for: Algorithm.miscellaneous)
+
+        let miscellaneousRowSection = BasicTableSectionController()
+        let miscellaneousRows = miscellaneousRowProps.map(BasicTableRowController.map)
+
+        miscellaneousRowSection.rows = miscellaneousRows
+        miscellaneousRowSection.sectionTitle = "Miscellaneous"
+        
+        return miscellaneousRowSection
+    }
+
+    public func makeMathSection() -> BasicTableSectionController {
+        let mathRowProps = makeIdentifiableProperties(for: Algorithm.mathematics)
+
+        let mathRowSection = BasicTableSectionController()
+        let mathRows = mathRowProps.map(BasicTableRowController.map)
+
+        mathRowSection.rows = mathRows
+        mathRowSection.sectionTitle = "Mathematics"
+        
+        return mathRowSection
+    }
+
+    public func makeMachineLearningSection() -> BasicTableSectionController {
+        let machineLearningRowProps = makeIdentifiableProperties(for: Algorithm.machineLearning)
+
+        let machineLearningRowSection = BasicTableSectionController()
+        let machineLearningRows = machineLearningRowProps.map(BasicTableRowController.map)
+
+        machineLearningRowSection.rows = machineLearningRows
+        machineLearningRowSection.sectionTitle = "Machine Learning"
+        
+        return machineLearningRowSection
+    }
+
+    func makeAboutSection() -> BasicTableSectionController {
+        let rowController = JoinTheClubRowController()
+        let controller = BasicTableSectionController()
+        controller.rows = [rowController]
+        return controller
+    }
 
     func makeCatgorySideScrollerSection() -> CategoryRowTableRowController {
         let section = CategoryRowTableRowController()

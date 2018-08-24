@@ -36,7 +36,7 @@ extension SearchResultsRowController: UITableViewDelegate, UITableViewDataSource
         }
         cell.title.text = properties.title
         cell.accessoryType = .disclosureIndicator
-//        cell.indicator.backgroundColor = (Algorithm.category(for: properties.action)?.color ?? .black)
+        cell.indicator.backgroundColor = properties.indicatorColor
         
         return cell
     }

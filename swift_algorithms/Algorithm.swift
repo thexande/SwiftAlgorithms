@@ -1,11 +1,22 @@
 import UIKit
 
-enum Algorithm {
+enum Algorithm: CaseIterable {
+    
+    // Introduction
+    
     case whatAreAlgorithms
     case whyLearnAlgorithms
     case bigO
     case designTechniques
     case howToContribute
+    
+    static let introduction: [Algorithm] = [
+        .whatAreAlgorithms,
+        .whyLearnAlgorithms,
+        .bigO,
+        .designTechniques,
+        .howToContribute
+    ]
     
     // getting started
     
@@ -17,6 +28,16 @@ enum Algorithm {
     case mergeSort
     case boyerMoore
     
+    static let gettingStarted: [Algorithm] = [
+        .stack,
+        .queue,
+        .insertionSort,
+        .binarySearch,
+        .binarySearchTree,
+        .mergeSort,
+        .boyerMoore
+    ]
+    
     // Searching
     
     case linnearSearch
@@ -26,6 +47,15 @@ enum Algorithm {
     case selectionSampling
     case unionFind
     
+    static let searching: [Algorithm] = [
+        .linnearSearch,
+        .countOccurences,
+        .selectMinMax,
+        .kthLargestElement,
+        .selectionSampling,
+        .unionFind
+    ]
+    
     // String Search
     
     case bruteForceStringSearch
@@ -33,6 +63,14 @@ enum Algorithm {
     case rabinKarp
     case longestCommonSubsequence
     case zAlgorithm
+    
+    static let stringSearch: [Algorithm] = [
+        .bruteForceStringSearch,
+        .knuthMorrisPratt,
+        .rabinKarp,
+        .longestCommonSubsequence,
+        .zAlgorithm
+    ]
     
     // Sorting
     
@@ -47,10 +85,20 @@ enum Algorithm {
     case bubbleSort
     case slowSort
     
+    struct Sorting {
+        static let basic: [Algorithm] = [.insertionSort, .selectionSort, .shellSort]
+        static let fast: [Algorithm] = [.quickSort, .mergeSort, .heapSort]
+        static let hybrid: [Algorithm] = [.introSort]
+        static let specialPurpose: [Algorithm] = [.countingSort, .radixSort, .topologicalSort]
+        static let bad: [Algorithm] = [.bubbleSort, .slowSort]
+    }
+    
     // Compression
     
     case runLengthEncoding
     case huffmanCoding
+    
+    static let compression: [Algorithm] = [.runLengthEncoding, .huffmanCoding]
     
     // Miscellaneous
     
@@ -59,6 +107,14 @@ enum Algorithm {
     case convexHull
     case millerRabin
     case minimumCoin
+    
+    static let miscellaneous: [Algorithm] = [
+        .shuffle,
+        .comboSort,
+        .convexHull,
+        .millerRabin,
+        .minimumCoin
+    ]
     
     // Mathematics
     
@@ -69,12 +125,28 @@ enum Algorithm {
     case haversineDistance
     case strassenMultiplicationMatrix
     
+    static let mathematics: [Algorithm] = [
+        .gcd,
+        .permutationsAndCombinations,
+        .shuntingYard,
+        .karatsubaMultiplication,
+        .haversineDistance,
+        .strassenMultiplicationMatrix,
+    ]
+    
     // Machine Learning
     
     case kMeansClustering
     case linnearRegression
     case naiveBayesClassifier
     case simulatedAnnealing
+    
+    static let machineLearning: [Algorithm] = [
+        .kMeansClustering,
+        .linnearRegression,
+        .naiveBayesClassifier,
+        .simulatedAnnealing,
+    ]
     
     // TODO
     
@@ -380,7 +452,7 @@ enum Algorithm {
     }
     
     
-    enum Category {
+    enum Category: CaseIterable {
         case gettingStarted
         case searching
         case stringSearch
@@ -418,7 +490,7 @@ enum Algorithm {
             case .searching:
                 return .newGreen()
             case .stringSearch:
-                return UIColor.amethist()
+                return .amethist()
             case .sorting:
                 return .newOrange()
             case .compression:

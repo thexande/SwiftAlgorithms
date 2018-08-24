@@ -7,8 +7,8 @@ final class RootTabCoordinator {
     private let algorithmViewController = AlgorithmViewController(style: .plain)
     private let algorithmPresenter = AlgorithmPresenter()
     
-    private let algorithmSearchResultsController = ResultsTableViewController(style: .grouped)
-    private let algorithmSearchResultsPresenter = AlgorithmResultsPresenter()
+    private let algorithmSearchResultsController = SearchResultsTableViewController(style: .grouped)
+    private let algorithmSearchResultsPresenter = AlgorithmSearchPresenter()
 
     private let dataStructureController = DataStructuresViewController()
     
@@ -66,18 +66,16 @@ final class RootTabCoordinator {
         
         
         let algorithmSearchController = UISearchController(searchResultsController: algorithmSearchResultsController)
-//        algorithmSearchController.searchResultsUpdater = algorithmSearchResultsPresenter
-//        algorithmSearchController.obscuresBackgroundDuringPresentation = false
-//        algorithmSearchController.searchBar.placeholder = "Search Algorithms"
-//        
-//        algorithmSearchResultsPresenter.deliver = { [weak algorithmSearchResultsController] properties in
-//            algorithmSearchResultsController?.properties = properties
-//            
-//        }
+        algorithmSearchController.searchResultsUpdater = algorithmSearchResultsPresenter
+        algorithmSearchController.obscuresBackgroundDuringPresentation = false
+        algorithmSearchController.searchBar.placeholder = "Search Algorithms"
         
-//        let rows = AlgorithmSectionProperties.allAlgorithmProperties()
-//        algorithmSearchResultsPresenter.properties = rows
-//        algorithmSearchResultsPresenter.searchedProperties = rows
+        algorithmSearchResultsPresenter.deliver = { [weak algorithmSearchResultsController] properties in
+            algorithmSearchResultsController?.properties = properties
+            
+        }
+        
+        algorithmSearchResultsPresenter.makeSearchableAlgorithmProperties()
         
 //        algorithmSearchResultsController.dispatcher = self
         
@@ -87,21 +85,25 @@ final class RootTabCoordinator {
         algorithmViewController.title = "Algorithms"
         let algoImage = UIImage(named: "algo")?.scaledImage(withSize: tabBarSize)
         algorithmViewController.tabBarItem = UITabBarItem(title: "Algorithms", image: algoImage, selectedImage: algoImage)
-//        algorithmViewController.dispatcher = self
+
         
         // configure sections
-        let controllers: [TableSectionController] = [
+        var controllers: [TableSectionController] = [
             algorithmPresenter.makeIntroSectionSection(),
             algorithmPresenter.makeGettingStartedSection(),
-//            algorithmPresenter.makeSearchingSection(),
-//            algorithmPresenter.makeStringSearchSection(),
-//            algorithmPresenter.makeSortingSection(),
-//            algorithmPresenter.makeCompressionSection(),
-//            algorithmPresenter.makeMiscellaneousSection(),
-//            algorithmPresenter.makeMathSection(),
-//            algorithmPresenter.makeMachineLearningSection(),
-//            algorithmPresenter.makeAboutSection()
-        ]
+            algorithmPresenter.makeSearchingSection(),
+            algorithmPresenter.makeStringSearchSection(),
+            algorithmPresenter.makeCompressionSection(),
+            algorithmPresenter.makeMiscellaneousSection(),
+            algorithmPresenter.makeMathSection(),
+            algorithmPresenter.makeMachineLearningSection(),
+            algorithmPresenter.makeAboutSection()
+            ]
+        
+        algorithmPresenter.makeSortingSections().reversed().forEach { section in
+            controllers.insert(section, at: 2)
+        }
+        
         
         algorithmViewController.update(with: controllers)
         
@@ -136,15 +138,13 @@ final class RootTabCoordinator {
         controller.markdownView.load(markdown: markdown, enableImage: true)
         return controller
     }
-}
-
-extension RootTabCoordinator: AlgorithmPresenterActionDispatching {
+    
     private func handleCategorySelect(_ category: Algorithm.Category) {
         let vc = CategoryDetailViewController()
         let props = algorithmPresenter.makeGettingStartedSection()
         vc.update(with: [props])
         vc.detail.cardView.render(CategoryTileItemView.Properties(category))
-
+        
         let nav = UINavigationController(rootViewController: vc)
         nav.hero.isEnabled = true
         algorithmNav?.present(nav, animated: true, completion: nil)
@@ -170,9 +170,10 @@ extension RootTabCoordinator: AlgorithmPresenterActionDispatching {
                 return
             }
         }
-
     }
-    
+}
+
+extension RootTabCoordinator: AlgorithmPresenterActionDispatching {
     func dispatch(_ action: AlgorithmPresenter.Action) {
         switch action {
         case let .selectedAlgorithm(algorithm):

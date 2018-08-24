@@ -8,6 +8,20 @@ final class BasicTableRowController: NSObject, RowController {
         let showsDisclosure: Bool
         let identifier: UUID
         static let `default` = Properties(title: "title", subtitle: nil, showsDisclosure: false, identifier: UUID())
+        
+//        public init(title: String, subtitle: String?, showsDisclosure: Bool, identifier: UUID) {
+//            self.title = title
+//            self.subtitle = subtitle
+//            self.showsDisclosure = showsDisclosure
+//            self.identifier = identifier
+//        }
+//        
+//        public init(_ algorithm: Algorithm) {
+//            self.title = algorithm.title
+//            self.subtitle = algorithm.subtitle
+//            self.showsDisclosure = true
+//            self.identifier = UUID()
+//        }
     }
     
     public var properties: Properties = .default

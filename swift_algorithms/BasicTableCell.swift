@@ -44,6 +44,7 @@ final class SearchResultsTableCell: UITableViewCell {
         indicator.backgroundColor = .black
         indicator.centerYAnchor == title.centerYAnchor
         indicator.leadingAnchor == contentView.leadingAnchor + 18
+        indicator.installCardShadow()
         
 //        separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -18)
         
