@@ -108,105 +108,88 @@ enum Algorithm {
         case .howToContribute:
             return "Report an issue to leave feedback, or submit a pull request."
             
-            // getting started
+        // getting started
             
         case .stack, .queue, .insertionSort, .binarySearch, .binarySearchTree, .mergeSort, .boyerMoore: return nil
-            // Searching
+            
+        // Searching
             
         case .linnearSearch:
             return "Find an element in an array."
         case .countOccurences:
-            return ""
+            return "Count how often a value appears in an array."
         case .selectMinMax:
-            return ""
+            return "Find the minimum/maximum value in an array."
         case .kthLargestElement:
-            return ""
+            return "Find the k-th largest element in an array, such as the median."
         case .selectionSampling:
-            return ""
+            return "Randomly choose a bunch of items from a collection."
         case .unionFind:
-            return ""
+            return "Keeps track of disjoint sets and lets you quickly merge them."
             
             // String Search
             
         case .bruteForceStringSearch:
-            return ""
+            return "A naive method"
         case .knuthMorrisPratt:
-            return ""
+            return "A linear-time string algorithm that returns indexes of all occurrencies of a given pattern."
         case .rabinKarp:
-            return ""
+            return "Faster search by using hashing."
         case .longestCommonSubsequence:
-            return ""
+            return "Find the longest sequence of characters that appear in the same order in both strings."
         case .zAlgorithm:
-            return ""
+            return "Finds all instances of a pattern in a String, and returns the indexes of where the pattern starts within the String."
             
             // Sorting
             
-        case .selectionSort:
-            return ""
-        case .shellSort:
-            return ""
-        case .quickSort:
-            return ""
-        case .heapSort:
-            return ""
-        case .introSort:
-            return ""
-        case .countingSort:
-            return ""
-        case .radixSort:
-            return ""
-        case .topologicalSort:
-            return ""
-        case .bubbleSort:
-            return ""
-        case .slowSort:
-            return ""
+        case .selectionSort, .shellSort, .quickSort, .heapSort, .introSort, .countingSort, .radixSort, .topologicalSort, .bubbleSort, .slowSort:
+            return nil
             
             // Compression
             
         case .runLengthEncoding:
-            return ""
+            return "Store repeated values as a single byte and a count."
         case .huffmanCoding:
-            return ""
+            return "Store more common elements using a smaller number of bits."
             
             // Miscellaneous
             
         case .shuffle:
-            return ""
+            return "Randomly rearranges the contents of an array."
         case .comboSort:
-            return ""
+            return "An improve upon the Bubble Sort algorithm."
         case .convexHull:
-            return ""
+            return "The Convex Hull algorithm calculates the shape (made up from the points itself) containing all these points."
         case .millerRabin:
-            return ""
+            return "Is the number a prime number?"
         case .minimumCoin:
-            return ""
+            return "A showcase for dynamic programming."
             
             // Mathematics
             
         case .gcd:
-            return ""
+            return "Special bonus: the least common multiple."
         case .permutationsAndCombinations:
-            return ""
+            return "Get your combinatorics on!"
         case .shuntingYard:
-            return ""
+            return "Convert infix expressions to postfix."
         case .karatsubaMultiplication:
-            return ""
+            return "Another take on elementary multiplication."
         case .haversineDistance:
-            return ""
+            return "Calculating the distance between 2 points from a sphere."
         case .strassenMultiplicationMatrix:
-            return ""
+            return "Efficient way to handle matrix multiplication."
             
             // Machine Learning
             
         case .kMeansClustering:
-            return ""
+            return "Unsupervised classifier that partitions data into k clusters"
         case .linnearRegression:
-            return ""
+            return "A technique for creating a model of the relationship between two (or more) variable quantities."
         case .naiveBayesClassifier:
-            return ""
+            return "The goal of a classifier is to predict the class of a given data entry based on previously fed data and its features."
         case .simulatedAnnealing:
-            return ""
+            return "Probabilistic technique for approximating the global maxima in a (often discrete) large search space."
         }
     }
     
