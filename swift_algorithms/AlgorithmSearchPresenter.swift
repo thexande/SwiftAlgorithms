@@ -1,15 +1,16 @@
 import UIKit
 
-protocol AlgorithmSearchPresenterDispatching {
+protocol AlgorithmSearchPresenterDispatching: AnyObject {
     func dispatch(_ action: AlgorithmSearchPresenter.Action)
 }
 
-
-final class AlgorithmSearchPresenter: NSObject, UISearchResultsUpdating, UISearchBarDelegate {
+final class AlgorithmSearchPresenter {
     
     enum Action {
         case selectedAlgorithm(Algorithm)
     }
+    
+    weak var dispatcher: AlgorithmSearchPresenterDispatching?
     
     var actionLookup: [UUID: Action] = [:]
     
@@ -74,27 +75,30 @@ final class AlgorithmSearchPresenter: NSObject, UISearchResultsUpdating, UISearc
         return prop
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        if let text = searchController.searchBar.text {
-            
-            let searchedAlgorithms = algorithms.filter { algorithm in
-                return "\(algorithm.title)\(algorithm.subtitle ?? "")".contains(text)
-            }
-            
-            searchedProperties = makeCategorySections(for: searchedAlgorithms)
-            
+    private func handleSearch(_ term: String) {
+        let searchedAlgorithms = algorithms.filter { algorithm in
+            return "\(algorithm.title)\(algorithm.subtitle ?? "")".contains(term)
         }
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
+        searchedProperties = makeCategorySections(for: searchedAlgorithms)
     }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    private func handleSelected(with identifier: UUID) {
+        guard let action = actionLookup[identifier] else {
+            return
+        }
         
+        dispatcher?.dispatch(action)
     }
-    
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        return true
+}
+
+extension AlgorithmSearchPresenter: SearchActionDispatching {
+    func dispatch(_ action: SearchResultsTableViewController.Action) {
+        switch action {
+        case let .searchedTerm(term):
+            handleSearch(term)
+        case let .selectedTerm(identifier):
+            handleSelected(with: identifier)
+        }
     }
 }

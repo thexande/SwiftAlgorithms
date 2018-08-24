@@ -64,21 +64,20 @@ final class RootTabCoordinator {
         let tabBarSize = CGSize(width: 30, height: 30)
         let controller = RootTabBarController()
         
-        
-        let algorithmSearchController = UISearchController(searchResultsController: algorithmSearchResultsController)
-        algorithmSearchController.searchResultsUpdater = algorithmSearchResultsPresenter
-        algorithmSearchController.obscuresBackgroundDuringPresentation = false
-        algorithmSearchController.searchBar.placeholder = "Search Algorithms"
-        
         algorithmSearchResultsPresenter.deliver = { [weak algorithmSearchResultsController] properties in
             algorithmSearchResultsController?.properties = properties
             
         }
         
         algorithmSearchResultsPresenter.makeSearchableAlgorithmProperties()
+        algorithmSearchResultsPresenter.dispatcher = self
         
-//        algorithmSearchResultsController.dispatcher = self
+        algorithmSearchResultsController.dispatcher = algorithmSearchResultsPresenter
         
+        let algorithmSearchController = UISearchController(searchResultsController: algorithmSearchResultsController)
+        algorithmSearchController.searchResultsUpdater = algorithmSearchResultsController
+        algorithmSearchController.obscuresBackgroundDuringPresentation = true
+        algorithmSearchController.searchBar.placeholder = "Search Algorithms"
         
         algorithmViewController.navigationItem.searchController = algorithmSearchController
         
@@ -184,6 +183,15 @@ extension RootTabCoordinator: AlgorithmPresenterActionDispatching {
     }
 }
 
+extension RootTabCoordinator: AlgorithmSearchPresenterDispatching {
+    func dispatch(_ action: AlgorithmSearchPresenter.Action) {
+        switch action {
+        case let .selectedAlgorithm(algorithm):
+            handleAlgorithmSelect(algorithm)
+        }
+    }
+}
+
 final class RootTabBarController: UITabBarController {
     weak var coordinator: RootTabCoordinator?
     
@@ -201,3 +209,5 @@ final class RootTabBarController: UITabBarController {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+

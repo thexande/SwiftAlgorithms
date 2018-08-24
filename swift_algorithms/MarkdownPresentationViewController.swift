@@ -5,7 +5,7 @@ import SafariServices
 
 final class MarkdownPresentationViewController: UIViewController {
     let markdownView = MarkdownView()
-    let loading = LottieLoaderView()
+    let loading = TableLoadingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
