@@ -36,7 +36,7 @@ extension BasicTableSectionController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return (sectionTitle != nil) ? UITableViewAutomaticDimension : 0
+        return (sectionTitle != nil || sectionSubtitle != nil) ? UITableViewAutomaticDimension : 0
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

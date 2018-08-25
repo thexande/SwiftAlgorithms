@@ -16,7 +16,7 @@ final class RootTabCoordinator {
     private let dataStructureSearchResultsController = SearchResultsTableViewController(style: .grouped)
     private let dataStructureSearchResultsPresenter = DataStructureSearchPresenter()
     
-    private let puzzlesViewController = PuzzlesViewController()
+    private let puzzlesViewController = PuzzlesViewController(style: .grouped)
     private let puzzlesPresenter = PuzzlesPresenter()
     private var puzzleNavigation: UINavigationController?
     
@@ -175,17 +175,15 @@ final class RootTabCoordinator {
         let dataNav = makeDataStructureViewController()
         dataStructuresNav = dataNav
         
-        let puzzles = PuzzlesViewController()
+        puzzlesViewController.update(with: [puzzlesPresenter.makePuzzleSection()])
+        puzzlesViewController.dispatcher = puzzlesPresenter
         
-        puzzles.update(with: [puzzlesPresenter.makePuzzleSection()])
-        puzzles.dispatcher = puzzlesPresenter
-        
-        let puzzlesNav = UINavigationController(rootViewController: puzzles)
+        let puzzlesNav = UINavigationController(rootViewController: puzzlesViewController)
         puzzlesNav.navigationBar.prefersLargeTitles = true
         self.puzzleNavigation = puzzlesNav
         
-        puzzles.title = "Puzzles"
-        puzzles.tabBarItem = UITabBarItem(title: "Puzzles",
+        puzzlesViewController.title = "Puzzles"
+        puzzlesViewController.tabBarItem = UITabBarItem(title: "Puzzles",
                                           image: UIImage(named: "puzzle")?.scaledImage(withSize: CGSize(width: 30, height: 30)),
                                           tag: 0)
         

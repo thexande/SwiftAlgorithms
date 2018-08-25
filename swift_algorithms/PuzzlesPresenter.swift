@@ -35,7 +35,7 @@ final class PuzzlesPresenter {
         }
         
         section.rows = rows
-        section.footerText = Puzzle.detailInfo
+        section.sectionSubtitle = Puzzle.detailInfo
         
         return section
     }
