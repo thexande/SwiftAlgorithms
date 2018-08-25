@@ -37,6 +37,7 @@ final class SearchResultsTableCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(title)
         title.edgeAnchors == contentView.edgeAnchors + UIEdgeInsets(top: 12, left: 42, bottom: 12, right: 12)
+        title.numberOfLines = 0
         
         contentView.addSubview(indicator)
         indicator.sizeAnchors == CGSize(width: 12, height: 12)

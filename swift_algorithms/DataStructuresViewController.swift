@@ -29,5 +29,7 @@ final class DataStructuresViewController: SectionProxyTableViewController {
         super.viewDidLoad()
         title = "Data Structures"
         
+        // Setup the Search Controller
+        definesPresentationContext = true
     }
 }

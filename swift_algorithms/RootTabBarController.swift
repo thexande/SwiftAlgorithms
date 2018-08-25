@@ -13,6 +13,9 @@ final class RootTabCoordinator {
     private let dataStructureController = DataStructuresViewController(style: .grouped)
     private let dataStructurePresenter = DataStructurePresenter()
     
+    private let dataStructureSearchResultsController = SearchResultsTableViewController(style: .grouped)
+    private let dataStructureSearchResultsPresenter = DataStructureSearchPresenter()
+    
     private var algorithmNav: UINavigationController?
     private var dataStructuresNav: UINavigationController?
 
@@ -26,6 +29,9 @@ final class RootTabCoordinator {
         // configure dispatch
         algorithmPresenter.dispatcher = self
         algorithmViewController.dispatcher = algorithmPresenter
+        
+        dataStructurePresenter.dispatcher = self
+        dataStructureController.dispatcher = dataStructurePresenter
 
         // configure root views
         root = makeRootTabBarController()
@@ -66,7 +72,6 @@ final class RootTabCoordinator {
 
         algorithmSearchResultsPresenter.deliver = { [weak algorithmSearchResultsController] properties in
             algorithmSearchResultsController?.properties = properties
-            
         }
         
         algorithmSearchResultsPresenter.makeSearchableAlgorithmProperties()
@@ -115,6 +120,22 @@ final class RootTabCoordinator {
     private func makeDataStructureViewController() -> UINavigationController {
         let tabBarSize = CGSize(width: 30, height: 30)
 
+        dataStructureSearchResultsPresenter.deliver = { [weak dataStructureSearchResultsController] properties in
+            dataStructureSearchResultsController?.properties = properties
+        }
+        
+        dataStructureSearchResultsPresenter.makeSearchableDataStructureProperties()
+        dataStructureSearchResultsPresenter.dispatcher = self
+        
+        dataStructureSearchResultsController.dispatcher = dataStructureSearchResultsPresenter
+        
+        let dataStructureSearchController = UISearchController(searchResultsController: dataStructureSearchResultsController)
+        dataStructureSearchController.searchResultsUpdater = dataStructureSearchResultsController
+        dataStructureSearchController.obscuresBackgroundDuringPresentation = true
+        dataStructureSearchController.searchBar.placeholder = "Search Data Structures"
+        
+        dataStructureController.navigationItem.searchController = dataStructureSearchController
+        
         let dataStructureImage = UIImage(named: "data_structure")?.scaledImage(withSize: tabBarSize)
         dataStructureController.title = "Data Structures"
         dataStructureController.tabBarItem = UITabBarItem(title: "Data Structures", image: dataStructureImage, selectedImage: dataStructureImage)
@@ -213,6 +234,22 @@ extension RootTabCoordinator: AlgorithmSearchPresenterDispatching {
         switch action {
         case let .selectedAlgorithm(algorithm):
             handleAlgorithmSelect(algorithm)
+        }
+    }
+}
+
+extension RootTabCoordinator: DataStructurePresenterActionDispatching {
+    func dispatch(_ action: DataStructurePresenter.Action) {
+        switch self {
+        default: return
+        }
+    }
+}
+
+extension RootTabCoordinator: DataStructureSearchPresenterDispatching {
+    func dispatch(_ action: DataStructureSearchPresenter.Action) {
+        switch self {
+        default: return
         }
     }
 }

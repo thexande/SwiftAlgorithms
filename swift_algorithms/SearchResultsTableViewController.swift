@@ -81,6 +81,7 @@ final class SearchResultsTableViewController: SectionProxyTableViewController {
 
 extension SearchResultsTableViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
+        view.isHidden = false
         if let text = searchController.searchBar.text {
             dispatcher?.dispatch(.searchedTerm(text))
         }

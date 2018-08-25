@@ -57,6 +57,10 @@ enum DataStructure: CaseIterable {
     case allPairShortestPaths
     case dijkstrasShortestPath
     
+    var category: DataStructure.Category? {
+        return DataStructure.category(for: self)
+    }
+    
     var title: String {
         switch self {
         case .array2D:

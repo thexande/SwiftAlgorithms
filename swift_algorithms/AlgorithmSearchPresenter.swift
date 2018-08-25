@@ -76,6 +76,13 @@ final class AlgorithmSearchPresenter {
     }
     
     private func handleSearch(_ term: String) {
+        
+        if term == "" {
+            let all = makeCategorySections(for: algorithms)
+            searchedProperties = all
+            return
+        }
+        
         let searchedAlgorithms = algorithms.filter { algorithm in
             return "\(algorithm.title)\(algorithm.subtitle ?? "")".contains(term)
         }
