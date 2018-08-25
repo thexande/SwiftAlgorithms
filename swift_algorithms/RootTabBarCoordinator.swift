@@ -182,6 +182,8 @@ final class RootTabCoordinator {
         
         let puzzlesNav = UINavigationController(rootViewController: puzzles)
         puzzlesNav.navigationBar.prefersLargeTitles = true
+        self.puzzleNavigation = puzzlesNav
+        
         puzzles.title = "Puzzles"
         puzzles.tabBarItem = UITabBarItem(title: "Puzzles",
                                           image: UIImage(named: "puzzle")?.scaledImage(withSize: CGSize(width: 30, height: 30)),
@@ -207,7 +209,9 @@ final class RootTabCoordinator {
         return controller
     }
     
-    func makeMarkdownController(with markdown: String, title: String) -> MarkdownPresentationViewController {
+    private func makeMarkdownController(with markdown: String,
+                                        title: String) -> MarkdownPresentationViewController {
+        
         let controller = MarkdownPresentationViewController()
         controller.title = title
         controller.markdownView.load(markdown: markdown, enableImage: true)
@@ -215,6 +219,7 @@ final class RootTabCoordinator {
     }
     
     private func handleCategorySelect(_ category: Algorithm.Category) {
+        
         let vc = CategoryDetailViewController()
         let props = algorithmPresenter.makeGettingStartedSection()
         vc.update(with: [props])
@@ -246,6 +251,16 @@ final class RootTabCoordinator {
                                      navigationStack: dataStructuresNav)
     }
     
+    private func handlePuzzleSelect(_ puzzle: Puzzle) {
+        
+        guard let url = urlFactory.markdownFileUrl(for: puzzle) else {
+            return
+        }
+        
+        handleMarkdownResourceSelect(with: url,
+                                     resourceTitle: puzzle.title,
+                                     navigationStack: puzzleNavigation)
+    }
     
     private func handleMarkdownResourceSelect(with url: URL,
                                               resourceTitle: String,
@@ -266,10 +281,6 @@ final class RootTabCoordinator {
                 return
             }
         }
-    }
-    
-    private func handlePuzzleSelect(_ puzzle: Puzzle) {
-        
     }
 }
 

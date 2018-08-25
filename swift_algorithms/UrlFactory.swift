@@ -12,4 +12,8 @@ final class UrlFactory {
     func markdownFileUrl(for dataStructure: DataStructure) -> URL? {
         return url(for: dataStructure.resourceUrl)
     }
+    
+    func markdownFileUrl(for puzzle: Puzzle) -> URL? {
+        return url(for: puzzle.resourceUrl)
+    }
 }

@@ -36,4 +36,26 @@ enum Puzzle: CaseIterable {
         default: return nil
         }
     }
+    
+    var resourceUrl: String {
+        switch self {
+        case .twoSumProblem:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Two-Sum%20Problem/README.markdown"
+        default: return ""
+//        case .threeSumFourSumProblem:
+//            <#code#>
+//        case .fizzBuzz:
+//            <#code#>
+//        case .montyHallProblem:
+//            <#code#>
+//        case .findingPalindromes:
+//            <#code#>
+//        case .diningPhilosophers:
+//            <#code#>
+//        case .eggDrop:
+//            <#code#>
+//        case .encodingAndDecodingBinaryTree:
+//            <#code#>
+        }
+    }
 }
