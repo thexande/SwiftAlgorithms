@@ -186,14 +186,7 @@ final class AlgorithmPresenter {
         
         return machineLearningRowSection
     }
-
-    func makeAboutSection() -> BasicTableSectionController {
-        let rowController = JoinTheClubRowController()
-        let controller = BasicTableSectionController()
-        controller.rows = [rowController]
-        return controller
-    }
-
+    
     func makeCatgorySideScrollerSection() -> CategoryRowTableRowController {
         let section = CategoryRowTableRowController()
 
