@@ -55,6 +55,7 @@
 		B0E8C16A212FA09000CBE90B /* AlgorithmSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C169212FA09000CBE90B /* AlgorithmSearchPresenter.swift */; };
 		B0E8C16C212FAC1E00CBE90B /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16B212FAC1D00CBE90B /* SearchResultsTableViewController.swift */; };
 		B0E8C16E212FAC4200CBE90B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16D212FAC4200CBE90B /* UIView.swift */; };
+		B0E8C1702130E41600CBE90B /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16F2130E41600CBE90B /* DataStructure.swift */; };
 		B0F38506212BB21A00779976 /* CategoryRowTableSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F38505212BB21A00779976 /* CategoryRowTableSectionController.swift */; };
 		B0F38508212BB23000779976 /* CategoryRowTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F38507212BB23000779976 /* CategoryRowTableCell.swift */; };
 		B0F3850A212BB26A00779976 /* CategorySideScrollingCollecitonSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F38509212BB26A00779976 /* CategorySideScrollingCollecitonSectionController.swift */; };
@@ -140,6 +141,7 @@
 		B0E8C169212FA09000CBE90B /* AlgorithmSearchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlgorithmSearchPresenter.swift; sourceTree = "<group>"; };
 		B0E8C16B212FAC1D00CBE90B /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		B0E8C16D212FAC4200CBE90B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		B0E8C16F2130E41600CBE90B /* DataStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructure.swift; sourceTree = "<group>"; };
 		B0F38505212BB21A00779976 /* CategoryRowTableSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRowTableSectionController.swift; sourceTree = "<group>"; };
 		B0F38507212BB23000779976 /* CategoryRowTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRowTableCell.swift; sourceTree = "<group>"; };
 		B0F38509212BB26A00779976 /* CategorySideScrollingCollecitonSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySideScrollingCollecitonSectionController.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				B00A1DAF212F8AD5007187CF /* legoloader.json */,
 				B00A1DB1212F8C67007187CF /* LottieLoaderView.swift */,
 				B0E8C16D212FAC4200CBE90B /* UIView.swift */,
+				B0E8C16F2130E41600CBE90B /* DataStructure.swift */,
 			);
 			path = swift_algorithms;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				B017339D212934A200FBEFE5 /* BasicTableSectionController.swift in Sources */,
 				B01733852128CB7200FBEFE5 /* QuadrantSelectorView.swift in Sources */,
 				B017339F212934CB00FBEFE5 /* LabelTableFooterView.swift in Sources */,
+				B0E8C1702130E41600CBE90B /* DataStructure.swift in Sources */,
 				B0F3850A212BB26A00779976 /* CategorySideScrollingCollecitonSectionController.swift in Sources */,
 				B01733932128D1F600FBEFE5 /* ClosureProxy.swift in Sources */,
 				B01733872128CB9500FBEFE5 /* UIColor.swift in Sources */,

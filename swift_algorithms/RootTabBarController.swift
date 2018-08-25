@@ -11,6 +11,7 @@ final class RootTabCoordinator {
     private let algorithmSearchResultsPresenter = AlgorithmSearchPresenter()
 
     private let dataStructureController = DataStructuresViewController()
+    private let dataStructurePresenter = DataStructurePresenter()
     
     private var algorithmNav: UINavigationController?
     private var dataStructuresNav: UINavigationController?
@@ -115,6 +116,12 @@ final class RootTabCoordinator {
         let dataStructureImage = UIImage(named: "data_structure")?.scaledImage(withSize: tabBarSize)
         dataStructureController.title = "Data Structures"
         dataStructureController.tabBarItem = UITabBarItem(title: "Data Structures", image: dataStructureImage, selectedImage: dataStructureImage)
+        
+        let dataStructureSectionControllers: [TableSectionController] = [
+            dataStructurePresenter.makeArraySection()
+        ]
+        
+        dataStructureController.update(with: dataStructureSectionControllers)
         
         let dataNav = UINavigationController(rootViewController: dataStructureController)
         

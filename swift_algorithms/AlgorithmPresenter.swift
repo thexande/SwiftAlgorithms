@@ -1,5 +1,48 @@
 import UIKit
 
+protocol DataStructurePresenterActionDispatching: AnyObject {
+    func dispatch(_ action: DataStructurePresenter.Action)
+}
+
+final class DataStructurePresenter {
+    
+    enum Action {
+        case selectedCategory(DataStructure.Category)
+        case selectedDataStructure(DataStructure)
+    }
+    
+    private var actionLookup: [UUID: Action] = [:]
+    
+    weak var dispatcher: DataStructurePresenterActionDispatching?
+    
+    private func makeIdentifiableProperties(for dataStructures: [DataStructure]) -> [BasicTableRowController.Properties] {
+        
+        let identifiableProperties: [BasicTableRowController.Properties] = dataStructures.map { dataStructure in
+            let identifier = UUID()
+            let properties = BasicTableRowController.Properties(title: dataStructure.title,
+                                                                subtitle: dataStructure.subtitle,
+                                                                showsDisclosure: true,
+                                                                identifier: identifier)
+            actionLookup[identifier] = .selectedDataStructure(dataStructure)
+            return properties
+        }
+        
+        return identifiableProperties
+    }
+    
+    public func makeArraySection() -> BasicTableSectionController {
+        
+        let section = BasicTableSectionController()
+        
+        let arrayProps = makeIdentifiableProperties(for: DataStructure.Category.array.dataStructures)
+        section.rows = arrayProps.map(BasicTableRowController.map)
+        
+        section.sectionTitle = "Variations on Arrays"
+        
+        return section
+    }
+}
+
 
 final class AlgorithmPresenter {
     

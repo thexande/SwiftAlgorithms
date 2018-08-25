@@ -7,7 +7,7 @@ final class BasicTableHeaderView: UITableViewHeaderFooterView {
     
     var title: String? {
         didSet {
-            titleLabel.text = title
+            titleLabel.text = title?.uppercased()
         }
     }
     
@@ -21,6 +21,9 @@ final class BasicTableHeaderView: UITableViewHeaderFooterView {
         super.init(reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .groupTableViewBackground
         let labels = [titleLabel, subtitleLabel]
+        
+        titleLabel.textColor = .darkGray
+        subtitleLabel.textColor = .darkGray
         
         labels.forEach { label in
             label.numberOfLines = 0

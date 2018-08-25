@@ -1,22 +1,33 @@
 import UIKit
 
+protocol DataStructruesViewActionDispatching: AnyObject {
+    func dispatch(_ action: DataStructuresViewController.Action)
+}
+
 final class DataStructuresViewController: SectionProxyTableViewController {
-    enum Actions {
-        case selectedDataStructure
+    
+    enum Action {
+        case selectedItem(UUID)
+    }
+    
+    weak var dispatcher: DataStructruesViewActionDispatching?
+    
+    public func update(with sections: [TableSectionController]) {
+        sections.forEach { section in
+            section.registerReusableTypes(tableView: tableView)
+            
+            section.onSelect = { [weak self] identifier in
+                self?.dispatcher?.dispatch(.selectedItem(identifier))
+            }
+        }
+        
+        self.sections = sections
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Data Structures"
         navigationItem.largeTitleDisplayMode = .always
-        
-        
-//        let items = [
-//            CategoryTileItemView.Properties(title: "Trees", image: UIImage(), backgroundColor: .turquiose()),
-//            CategoryTileItemView.Properties(title: "Compress", image: UIImage(), backgroundColor: .flatRed()),
-//            CategoryTileItemView.Properties(title: "Sort", image: UIImage(), backgroundColor: .amethist()),
-//            CategoryTileItemView.Properties(title: "Math", image: UIImage(), backgroundColor: .orangeCream()),
-//            ]
-//        
-//        header.configure(with: items)
     }
 }
