@@ -28,6 +28,6 @@ final class DataStructuresViewController: SectionProxyTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Data Structures"
-        navigationItem.largeTitleDisplayMode = .always
+        
     }
 }

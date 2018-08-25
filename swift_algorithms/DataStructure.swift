@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 enum DataStructure: CaseIterable {
     
@@ -8,9 +8,7 @@ enum DataStructure: CaseIterable {
     case fixedArraySize
     case orderedArray
     case rootishArrayStack
-    
-    static let Arrays: [DataStructure] = [.array2D, .bitSet, .fixedArraySize, .orderedArray, .rootishArrayStack]
-    
+        
     // Queues
     case stack
     case queue
@@ -286,6 +284,48 @@ enum DataStructure: CaseIterable {
         case hash
         case set
         case graph
+        
+        var title: String {
+            switch self {
+            case .array:
+                return "Arrays"
+            case .queue:
+                return "Queues"
+            case .list:
+                return "Lists"
+            case .tree:
+                return "Trees"
+            case .hash:
+                return "Hashes"
+            case .set:
+                return "Sets"
+            case .graph:
+                return "Graphs"
+            }
+        }
+        
+        var color: UIColor {
+            switch self {
+            case .array:
+                return .newYellow()
+            case .queue:
+                return .newBlue()
+            case .list:
+                return .coral()
+            case .tree:
+                return .amethist()
+            case .hash:
+                return .newGreen()
+            case .set:
+                return .newLightBlue()
+            case .graph:
+                return .newPink()
+            }
+        }
+        
+        var image: UIImage {
+            return UIImage()
+        }
         
         var dataStructures: [DataStructure] {
             switch self {

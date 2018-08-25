@@ -10,7 +10,7 @@ final class RootTabCoordinator {
     private let algorithmSearchResultsController = SearchResultsTableViewController(style: .grouped)
     private let algorithmSearchResultsPresenter = AlgorithmSearchPresenter()
 
-    private let dataStructureController = DataStructuresViewController()
+    private let dataStructureController = DataStructuresViewController(style: .grouped)
     private let dataStructurePresenter = DataStructurePresenter()
     
     private var algorithmNav: UINavigationController?
@@ -61,10 +61,9 @@ final class RootTabCoordinator {
         }
     }
     
-    func makeRootTabBarController() -> RootTabBarController {
+    private func makeAlgorithmViewController() -> UINavigationController {
         let tabBarSize = CGSize(width: 30, height: 30)
-        let controller = RootTabBarController()
-        
+
         algorithmSearchResultsPresenter.deliver = { [weak algorithmSearchResultsController] properties in
             algorithmSearchResultsController?.properties = properties
             
@@ -85,7 +84,7 @@ final class RootTabCoordinator {
         algorithmViewController.title = "Algorithms"
         let algoImage = UIImage(named: "algo")?.scaledImage(withSize: tabBarSize)
         algorithmViewController.tabBarItem = UITabBarItem(title: "Algorithms", image: algoImage, selectedImage: algoImage)
-
+        
         
         // configure sections
         var controllers: [TableSectionController] = [
@@ -98,7 +97,7 @@ final class RootTabCoordinator {
             algorithmPresenter.makeMathSection(),
             algorithmPresenter.makeMachineLearningSection(),
             algorithmPresenter.makeAboutSection()
-            ]
+        ]
         
         algorithmPresenter.makeSortingSections().reversed().forEach { section in
             controllers.insert(section, at: 2)
@@ -110,23 +109,42 @@ final class RootTabCoordinator {
         let algoNav = UINavigationController(rootViewController: algorithmViewController)
         algoNav.navigationBar.prefersLargeTitles = true
         
-        algorithmNav = algoNav
-        
-        
+        return algoNav
+    }
+    
+    private func makeDataStructureViewController() -> UINavigationController {
+        let tabBarSize = CGSize(width: 30, height: 30)
+
         let dataStructureImage = UIImage(named: "data_structure")?.scaledImage(withSize: tabBarSize)
         dataStructureController.title = "Data Structures"
         dataStructureController.tabBarItem = UITabBarItem(title: "Data Structures", image: dataStructureImage, selectedImage: dataStructureImage)
         
         let dataStructureSectionControllers: [TableSectionController] = [
-            dataStructurePresenter.makeArraySection()
+            dataStructurePresenter.makeCatgorySideScrollerSection(),
+            dataStructurePresenter.makeArraySection(),
+            dataStructurePresenter.makeQueueSection(),
+            dataStructurePresenter.makeListSection(),
+            dataStructurePresenter.makeTreeSection(),
+            dataStructurePresenter.makeHashingSection(),
+            dataStructurePresenter.makeSetSection(),
+            dataStructurePresenter.makeGraphSection()
         ]
         
         dataStructureController.update(with: dataStructureSectionControllers)
         
         let dataNav = UINavigationController(rootViewController: dataStructureController)
+        dataNav.navigationBar.prefersLargeTitles = true
+        return dataNav
+    }
+    
+    func makeRootTabBarController() -> RootTabBarController {
+        let controller = RootTabBarController()
         
+        let algoNav = makeAlgorithmViewController()
+        algorithmNav = algoNav
+        
+        let dataNav = makeDataStructureViewController()
         dataStructuresNav = dataNav
-        
         
         controller.viewControllers = [
             algoNav,
