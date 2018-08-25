@@ -248,6 +248,95 @@ enum DataStructure: CaseIterable {
         }
     }
     
+    var resourceUrl: String {
+        switch self {
+        case .array2D:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Array2D/README.markdown"
+        case .bitSet:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Bit%20Set/README.markdown"
+        case .fixedArraySize:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Fixed%20Size%20Array/README.markdown"
+        case .orderedArray:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Ordered%20Array/README.markdown"
+        case .rootishArrayStack:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Rootish%20Array%20Stack/README.md"
+        case .stack:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Stack/README.markdown"
+        case .queue:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Queue/README.markdown"
+//        case .deque:
+//            <#code#>
+//        case .priorityQueue:
+//            <#code#>
+//        case .ringBuffer:
+//            <#code#>
+//        case .linkedList:
+//            <#code#>
+//        case .skipList:
+//            <#code#>
+//        case .tree:
+//            <#code#>
+//        case .binaryTree:
+//            <#code#>
+//        case .binarySearchTree:
+//            <#code#>
+//        case .redBlackTree:
+//            <#code#>
+//        case .splayTree:
+//            <#code#>
+//        case .threadedBinaryTree:
+//            <#code#>
+//        case .segmentTree:
+//            <#code#>
+//        case .sparseTable:
+//            <#code#>
+//        case .heap:
+//            <#code#>
+//        case .fibonacciHeap:
+//            <#code#>
+//        case .Trie:
+//            <#code#>
+//        case .bTree:
+//            <#code#>
+//        case .quadTree:
+//            <#code#>
+//        case .ocTree:
+//            <#code#>
+//        case .hashTable:
+//            <#code#>
+//        case .hashFunctions:
+//            <#code#>
+//        case .bloomFilter:
+//            <#code#>
+//        case .hashSet:
+//            <#code#>
+//        case .multiSet:
+//            <#code#>
+//        case .orderedSet:
+//            <#code#>
+//        case .graph:
+//            <#code#>
+//        case .breadthFirstSearch:
+//            <#code#>
+//        case .depthFirstSearch:
+//            <#code#>
+//        case .shortestPath:
+//            <#code#>
+//        case .singleSourceShortestPaths:
+//            <#code#>
+//        case .minimumSpanningTreeUnweighted:
+//            <#code#>
+//        case .minimumSpanningTree:
+//            <#code#>
+//        case .allPairShortestPaths:
+//            <#code#>
+//        case .dijkstrasShortestPath:
+//            <#code#>
+            
+        default: return ""
+        }
+    }
+    
     static func category(for dataStructure: DataStructure) -> DataStructure.Category {
         switch dataStructure {
         // Variations on Arrays
@@ -311,13 +400,13 @@ enum DataStructure: CaseIterable {
         var color: UIColor {
             switch self {
             case .array:
-                return .newYellow()
+                return .amethist()
             case .queue:
                 return .newBlue()
             case .list:
                 return .coral()
             case .tree:
-                return .amethist()
+                return .newYellow()
             case .hash:
                 return .newGreen()
             case .set:
@@ -327,8 +416,23 @@ enum DataStructure: CaseIterable {
             }
         }
         
-        var image: UIImage {
-            return UIImage()
+        var image: UIImage? {
+            switch self {
+            case .array:
+                return UIImage(named: "array")
+            case .queue:
+                return UIImage(named: "queue")
+            case .list:
+                return UIImage(named: "list")
+            case .tree:
+                return UIImage(named: "tree")
+            case .hash:
+                return UIImage(named: "hash")
+            case .set:
+                return UIImage(named: "set")
+            case .graph:
+                return UIImage(named: "graph")
+            }
         }
         
         var dataStructures: [DataStructure] {

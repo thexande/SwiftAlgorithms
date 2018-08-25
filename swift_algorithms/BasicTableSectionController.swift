@@ -1,9 +1,12 @@
 import UIKit
 
 final class BasicTableSectionController: NSObject, TableSectionController {
+    
     public var rows: [RowController] = []
+    
     public var sectionTitle: String?
     public var sectionSubtitle: String?
+    public var footerText: String?
     
     var onSelect: ((UUID) -> Void)? {
         didSet {
@@ -15,6 +18,7 @@ final class BasicTableSectionController: NSObject, TableSectionController {
     
     func registerReusableTypes(tableView: UITableView) {
         tableView.register(BasicTableHeaderView.self, forHeaderFooterViewReuseIdentifier: String(describing: BasicTableHeaderView.self))
+        tableView.register(BasicTableFooterView.self, forHeaderFooterViewReuseIdentifier: BasicTableFooterView.reuseIdentifier)
         
         rows.forEach { row in
             row.registerReusableTypes(tableView: tableView)
@@ -35,12 +39,24 @@ extension BasicTableSectionController: UITableViewDelegate, UITableViewDataSourc
         return (sectionTitle != nil) ? UITableViewAutomaticDimension : 0
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return (footerText != nil) ? UITableViewAutomaticDimension : 0
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: BasicTableHeaderView.self)) as? BasicTableHeaderView else {
             return nil
         }
         view.title = sectionTitle
         view.subtitle = sectionSubtitle
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: BasicTableFooterView.self)) as? BasicTableFooterView else {
+            return nil
+        }
+        view.text = footerText
         return view
     }
     

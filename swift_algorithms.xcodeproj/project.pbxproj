@@ -54,6 +54,7 @@
 		B0A4DB3E212A068A000CFC7F /* ConfettilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB3D212A068A000CFC7F /* ConfettilView.swift */; };
 		B0A8FCFB2131DDE2008F82E2 /* DataStructurePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FCFA2131DDE2008F82E2 /* DataStructurePresenter.swift */; };
 		B0A8FCFD2131DEFF008F82E2 /* DataStructureSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FCFC2131DEFF008F82E2 /* DataStructureSearchPresenter.swift */; };
+		B0A8FCFF2131FE26008F82E2 /* BasicTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FCFE2131FE26008F82E2 /* BasicTableFooterView.swift */; };
 		B0E8C16A212FA09000CBE90B /* AlgorithmSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C169212FA09000CBE90B /* AlgorithmSearchPresenter.swift */; };
 		B0E8C16C212FAC1E00CBE90B /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16B212FAC1D00CBE90B /* SearchResultsTableViewController.swift */; };
 		B0E8C16E212FAC4200CBE90B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16D212FAC4200CBE90B /* UIView.swift */; };
@@ -142,6 +143,7 @@
 		B0A4DB3D212A068A000CFC7F /* ConfettilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettilView.swift; sourceTree = "<group>"; };
 		B0A8FCFA2131DDE2008F82E2 /* DataStructurePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructurePresenter.swift; sourceTree = "<group>"; };
 		B0A8FCFC2131DEFF008F82E2 /* DataStructureSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureSearchPresenter.swift; sourceTree = "<group>"; };
+		B0A8FCFE2131FE26008F82E2 /* BasicTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableFooterView.swift; sourceTree = "<group>"; };
 		B0E8C169212FA09000CBE90B /* AlgorithmSearchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlgorithmSearchPresenter.swift; sourceTree = "<group>"; };
 		B0E8C16B212FAC1D00CBE90B /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		B0E8C16D212FAC4200CBE90B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				B0E8C16F2130E41600CBE90B /* DataStructure.swift */,
 				B0A8FCFA2131DDE2008F82E2 /* DataStructurePresenter.swift */,
 				B0A8FCFC2131DEFF008F82E2 /* DataStructureSearchPresenter.swift */,
+				B0A8FCFE2131FE26008F82E2 /* BasicTableFooterView.swift */,
 			);
 			path = swift_algorithms;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				B01733872128CB9500FBEFE5 /* UIColor.swift in Sources */,
 				B017338F2128D02900FBEFE5 /* DataStructuresViewController.swift in Sources */,
 				B01733AD21294C4C00FBEFE5 /* UrlFactory.swift in Sources */,
+				B0A8FCFF2131FE26008F82E2 /* BasicTableFooterView.swift in Sources */,
 				B0E8C16C212FAC1E00CBE90B /* SearchResultsTableViewController.swift in Sources */,
 				B01733AF21294C6E00FBEFE5 /* StringNetworkService.swift in Sources */,
 				B01733AB2129389000FBEFE5 /* PrimaryButton.swift in Sources */,

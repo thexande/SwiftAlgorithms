@@ -62,6 +62,8 @@ final class CategoryTileItemView: UIView {
         layer.cornerRadius = 11
         backgroundColor = .black
         
+        lottie.contentMode = .scaleAspectFit
+        
 //        lottie.heightAnchor == lottie.widthAnchor
 //        lottie.heightAnchor == heightAnchor * 0.5
 //        lottie.bottomAnchor == bottomAnchor - 8

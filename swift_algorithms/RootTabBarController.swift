@@ -201,13 +201,34 @@ final class RootTabCoordinator {
             return
         }
         
+        handleMarkdownResourceSelect(with: url,
+                                     resourceTitle: algorithm.navTitle,
+                                     navigationStack: algorithmNav)
+    }
+    
+    private func handleDataStructureSelect(_ dataStructure: DataStructure) {
+        guard let url = urlFactory.markdownFileUrl(for: dataStructure) else {
+            return 
+        }
+        
+        handleMarkdownResourceSelect(with: url,
+                                     resourceTitle: dataStructure.title,
+                                     navigationStack: dataStructuresNav)
+    }
+    
+    
+    private func handleMarkdownResourceSelect(with url: URL,
+                                              resourceTitle: String,
+                                              navigationStack: UINavigationController?) {
+        
         stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
             switch result {
             case let .success(markdown):
                 
                 DispatchQueue.main.async {
-                    if let controller = self?.makeMarkdownController(with: markdown, title: algorithm.navTitle) {
-                        self?.algorithmNav?.pushViewController(controller, animated: true)
+                    if let controller = self?.makeMarkdownController(with: markdown,
+                                                                     title: resourceTitle) {
+                        navigationStack?.pushViewController(controller, animated: true)
                     }
                 }
                 
@@ -217,6 +238,7 @@ final class RootTabCoordinator {
         }
     }
 }
+
 
 extension RootTabCoordinator: AlgorithmPresenterActionDispatching {
     func dispatch(_ action: AlgorithmPresenter.Action) {
@@ -240,16 +262,22 @@ extension RootTabCoordinator: AlgorithmSearchPresenterDispatching {
 
 extension RootTabCoordinator: DataStructurePresenterActionDispatching {
     func dispatch(_ action: DataStructurePresenter.Action) {
-        switch self {
-        default: return
+        switch action {
+        case let .selectedDataStructure(dataStructure):
+            handleDataStructureSelect(dataStructure)
+        case let .selectedCategory(category):
+            return
+            
         }
     }
 }
 
 extension RootTabCoordinator: DataStructureSearchPresenterDispatching {
     func dispatch(_ action: DataStructureSearchPresenter.Action) {
-        switch self {
-        default: return
+        switch action {
+        case let .selectedDataStructure(dataStructure):
+            handleDataStructureSelect(dataStructure)
+            
         }
     }
 }
