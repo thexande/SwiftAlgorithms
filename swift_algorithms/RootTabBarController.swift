@@ -16,6 +16,11 @@ final class RootTabCoordinator {
     private let dataStructureSearchResultsController = SearchResultsTableViewController(style: .grouped)
     private let dataStructureSearchResultsPresenter = DataStructureSearchPresenter()
     
+    private let puzzlesViewController = PuzzlesViewController()
+    private let puzzlesPresenter = PuzzlesPresenter()
+    
+    private let aboutViewController = AboutViewController()
+    
     private var algorithmNav: UINavigationController?
     private var dataStructuresNav: UINavigationController?
 
@@ -167,9 +172,31 @@ final class RootTabCoordinator {
         let dataNav = makeDataStructureViewController()
         dataStructuresNav = dataNav
         
+        let puzzles = PuzzlesViewController()
+        
+        puzzles.update(with: [puzzlesPresenter.makePuzzleSection()])
+        puzzles.
+        
+        let puzzlesNav = UINavigationController(rootViewController: puzzles)
+        puzzlesNav.navigationBar.prefersLargeTitles = true
+        puzzles.title = "Puzzles"
+        puzzles.tabBarItem = UITabBarItem(title: "Puzzles",
+                                          image: UIImage(named: "puzzle")?.scaledImage(withSize: CGSize(width: 30, height: 30)),
+                                          tag: 0)
+        
+        let about = AboutViewController()
+        let aboutNav = UINavigationController(rootViewController: about)
+        aboutNav.navigationBar.prefersLargeTitles = true
+        about.title = "About"
+        about.tabBarItem = UITabBarItem(title: "About",
+                                               image: UIImage(named: "info")?.scaledImage(withSize: CGSize(width: 30, height: 30)),
+                                               tag: 0)
+        
         controller.viewControllers = [
             algoNav,
-            dataNav
+            dataNav,
+            puzzlesNav,
+            about
         ]
         
         controller.coordinator = self
@@ -208,7 +235,7 @@ final class RootTabCoordinator {
     
     private func handleDataStructureSelect(_ dataStructure: DataStructure) {
         guard let url = urlFactory.markdownFileUrl(for: dataStructure) else {
-            return 
+            return
         }
         
         handleMarkdownResourceSelect(with: url,

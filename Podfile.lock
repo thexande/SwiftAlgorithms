@@ -5,6 +5,7 @@ PODS:
   - lottie-ios (2.5.0)
   - MarkdownView (1.3.0)
   - Result (4.0.0)
+  - UINavigationBar-Transparent (1.2)
 
 DEPENDENCIES:
   - Anchorage
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - lottie-ios
   - MarkdownView
   - Result
+  - UINavigationBar-Transparent
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -22,6 +24,7 @@ SPEC REPOS:
     - lottie-ios
     - MarkdownView
     - Result
+    - UINavigationBar-Transparent
 
 SPEC CHECKSUMS:
   Anchorage: f855157310859280c706cc0b9c9281c21702f515
@@ -30,7 +33,8 @@ SPEC CHECKSUMS:
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   MarkdownView: 6cee6c558eed4a012005405066071ef16a042d17
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
+  UINavigationBar-Transparent: 7461a7dbff53a7b558985812d38bb054717de795
 
-PODFILE CHECKSUM: 78ec422aaa60ec7d06d110ce68adb3a602fd7ac7
+PODFILE CHECKSUM: b25fa11393d7fdfdd126f15578dae7df9dac735f
 
 COCOAPODS: 1.5.3
