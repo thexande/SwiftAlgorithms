@@ -22,12 +22,12 @@ final class AboutViewController: UIViewController {
         blur.edgeAnchors == view.edgeAnchors
         
         view.addSubview(scroll)
-        scroll.edgeAnchors == view.edgeAnchors
+        scroll.edgeAnchors == view.safeAreaLayoutGuide.edgeAnchors
         
         scroll.addSubview(about)
         about.widthAnchor == view.widthAnchor
         about.horizontalAnchors == scroll.horizontalAnchors
-        about.topAnchor == scroll.topAnchor
+        about.topAnchor == scroll.topAnchor + 40
         scroll.bottomAnchor == about.bottomAnchor
         
         
