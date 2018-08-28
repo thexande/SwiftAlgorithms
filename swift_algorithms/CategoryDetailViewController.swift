@@ -84,9 +84,25 @@ final class CategoryDetailViewController: UIViewController {
     
     let detail = CategoryDetailView()
     let back = UIButton()
+    var onSelect: ((UUID) -> Void)?
     
+    var sections: [TableSectionController] = [] {
+        didSet {
+            update(with: sections)
+        }
+    }
     
-    var sections: [TableSectionController] = []
+    private func update(with sections: [TableSectionController]) {
+        sections.forEach { section in
+            section.registerReusableTypes(tableView: detail.tableView)
+            
+            section.onSelect = { [weak self] identifier in
+                self?.onSelect?(identifier)
+            }
+        }
+        
+        detail.tableView.reloadData()
+    }
     
     override func loadView() {
         view = detail
@@ -120,15 +136,6 @@ final class CategoryDetailViewController: UIViewController {
     
     @objc func dismissModal() {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    public func update(with sections: [TableSectionController]) {
-        sections.forEach { section in
-            section.registerReusableTypes(tableView: detail.tableView)
-        }
-        
-        self.sections = sections
-        detail.tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -165,12 +172,8 @@ extension CategoryDetailViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        sections[indexPath.section].tableView?(tableView, didSelectRowAt: indexPath)
-        let vc = UIViewController()
-        vc.navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        vc.title = "Testing"
-        vc.view.backgroundColor = .white
-        navigationController?.pushViewController(vc, animated: true)
+        sections[indexPath.section].tableView?(tableView, didSelectRowAt: indexPath)
+
         //Change the selected background view of the cell after selection.
         tableView.deselectRow(at: indexPath, animated: true)
     }

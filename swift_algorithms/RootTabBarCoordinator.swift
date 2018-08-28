@@ -29,6 +29,8 @@ final class RootTabCoordinator {
     private let stringNetworkService = StringNetworkService()
     private var hasPresentedOnboarding = false
     
+    private var categoryCoordinator: CategoryCoordinator?
+    
     var root: UIViewController?
     
     init() {
@@ -205,14 +207,15 @@ final class RootTabCoordinator {
     
     private func handleCategorySelect(_ category: Algorithm.Category) {
         
-        let vc = CategoryDetailViewController()
-//        let props = algorithmPresenter.makeGettingStartedSection()
-//        vc.update(with: [props])
-//        vc.detail.cardView.render(CategoryTileItemView.Properties(category))
-//
-//        let nav = UINavigationController(rootViewController: vc)
-//        nav.hero.isEnabled = true
-//        algorithmNav?.present(nav, animated: true, completion: nil)
+        let categoryCoordinator = CategoryCoordinator()
+        
+        guard let nav = categoryCoordinator.makeRoot(category) else {
+            return
+        }
+        
+        self.categoryCoordinator = categoryCoordinator
+        
+        algorithmNav?.present(nav, animated: true, completion: nil)
     }
     
     private func handleAlgorithmSelect(_ algorithm: Algorithm) {

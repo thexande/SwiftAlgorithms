@@ -39,6 +39,8 @@
 		B01733AB2129389000FBEFE5 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733AA2129389000FBEFE5 /* PrimaryButton.swift */; };
 		B01733AD21294C4C00FBEFE5 /* UrlFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733AC21294C4C00FBEFE5 /* UrlFactory.swift */; };
 		B01733AF21294C6E00FBEFE5 /* StringNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733AE21294C6E00FBEFE5 /* StringNetworkService.swift */; };
+		B03CEA5D2134CDA100F87760 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CEA5C2134CDA100F87760 /* File.swift */; };
+		B03CEA5F2134E00F00F87760 /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CEA5E2134E00F00F87760 /* CategoryCoordinator.swift */; };
 		B069F1B5212A3E63002FABFB /* SearchEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1B4212A3E63002FABFB /* SearchEmptyStateView.swift */; };
 		B069F1B7212A406E002FABFB /* Rejection.json in Resources */ = {isa = PBXBuildFile; fileRef = B069F1B6212A406E002FABFB /* Rejection.json */; };
 		B069F1BD212A494C002FABFB /* SearchResultsRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1BC212A494C002FABFB /* SearchResultsRowController.swift */; };
@@ -134,6 +136,8 @@
 		B01733AA2129389000FBEFE5 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		B01733AC21294C4C00FBEFE5 /* UrlFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlFactory.swift; sourceTree = "<group>"; };
 		B01733AE21294C6E00FBEFE5 /* StringNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringNetworkService.swift; sourceTree = "<group>"; };
+		B03CEA5C2134CDA100F87760 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		B03CEA5E2134E00F00F87760 /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
 		B069F1B4212A3E63002FABFB /* SearchEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmptyStateView.swift; sourceTree = "<group>"; };
 		B069F1B6212A406E002FABFB /* Rejection.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Rejection.json; sourceTree = "<group>"; };
 		B069F1BC212A494C002FABFB /* SearchResultsRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsRowController.swift; sourceTree = "<group>"; };
@@ -295,6 +299,8 @@
 				B0A8FD0621321787008F82E2 /* PuzzlesPresenter.swift */,
 				B0A8FD0821321EA0008F82E2 /* Puzzle.swift */,
 				B0A8FD0A21321FF6008F82E2 /* RootTabBarCoordinator.swift */,
+				B03CEA5C2134CDA100F87760 /* File.swift */,
+				B03CEA5E2134E00F00F87760 /* CategoryCoordinator.swift */,
 			);
 			path = swift_algorithms;
 			sourceTree = "<group>";
@@ -571,6 +577,7 @@
 				B0E8C16A212FA09000CBE90B /* AlgorithmSearchPresenter.swift in Sources */,
 				B0A4DB342129E781000CFC7F /* AlgorithmPresenter.swift in Sources */,
 				B0F3850E212BB33000779976 /* CategoryDetailViewController.swift in Sources */,
+				B03CEA5F2134E00F00F87760 /* CategoryCoordinator.swift in Sources */,
 				B017339D212934A200FBEFE5 /* BasicTableSectionController.swift in Sources */,
 				B01733852128CB7200FBEFE5 /* QuadrantSelectorView.swift in Sources */,
 				B017339F212934CB00FBEFE5 /* LabelTableFooterView.swift in Sources */,
@@ -608,6 +615,7 @@
 				B069F1C1212A6727002FABFB /* Algorithm.swift in Sources */,
 				B01733A52129351A00FBEFE5 /* BasicTableCell.swift in Sources */,
 				B0A8FD03213208DB008F82E2 /* AboutViewController.swift in Sources */,
+				B03CEA5D2134CDA100F87760 /* File.swift in Sources */,
 				B00B26A32123B5DE00E1DF9C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
