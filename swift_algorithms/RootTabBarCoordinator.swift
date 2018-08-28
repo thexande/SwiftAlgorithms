@@ -101,21 +101,8 @@ final class RootTabCoordinator {
         
         
         // configure sections
-        var controllers: [TableSectionController] = [
-            algorithmPresenter.makeIntroSectionSection(),
-            algorithmPresenter.makeGettingStartedSection(),
-            algorithmPresenter.makeSearchingSection(),
-            algorithmPresenter.makeStringSearchSection(),
-            algorithmPresenter.makeCompressionSection(),
-            algorithmPresenter.makeMiscellaneousSection(),
-            algorithmPresenter.makeMathSection(),
-            algorithmPresenter.makeMachineLearningSection(),
-            ]
-        
-        algorithmPresenter.makeSortingSections().reversed().forEach { section in
-            controllers.insert(section, at: 2)
-        }
-        
+        var controllers: [TableSectionController] = algorithmPresenter.makeAllAlgorithmSections()
+            
         
         algorithmViewController.update(with: controllers)
         
@@ -219,13 +206,13 @@ final class RootTabCoordinator {
     private func handleCategorySelect(_ category: Algorithm.Category) {
         
         let vc = CategoryDetailViewController()
-        let props = algorithmPresenter.makeGettingStartedSection()
-        vc.update(with: [props])
-        vc.detail.cardView.render(CategoryTileItemView.Properties(category))
-        
-        let nav = UINavigationController(rootViewController: vc)
-        nav.hero.isEnabled = true
-        algorithmNav?.present(nav, animated: true, completion: nil)
+//        let props = algorithmPresenter.makeGettingStartedSection()
+//        vc.update(with: [props])
+//        vc.detail.cardView.render(CategoryTileItemView.Properties(category))
+//
+//        let nav = UINavigationController(rootViewController: vc)
+//        nav.hero.isEnabled = true
+//        algorithmNav?.present(nav, animated: true, completion: nil)
     }
     
     private func handleAlgorithmSelect(_ algorithm: Algorithm) {
@@ -284,7 +271,7 @@ final class RootTabCoordinator {
 
 
 extension RootTabCoordinator: AlgorithmPresenterActionDispatching {
-    func dispatch(_ action: AlgorithmPresenter.Action) {
+    func dispatch(_ action: AlgorithmPresentationAction) {
         switch action {
         case let .selectedAlgorithm(algorithm):
             handleAlgorithmSelect(algorithm)

@@ -10,7 +10,7 @@ protocol AlgorithmViewActionDispatching: AnyObject {
     func dispatch(_ action: AlgorithmViewController.Action)
 }
 protocol AlgorithmPresenterActionDispatching: AnyObject {
-    func dispatch(_ action: AlgorithmPresenter.Action)
+    func dispatch(_ action: AlgorithmPresentationAction)
 }
 
 final class ActionTableSectionController: NSObject, TableSectionController {

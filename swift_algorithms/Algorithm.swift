@@ -85,12 +85,51 @@ enum Algorithm: CaseIterable {
     case bubbleSort
     case slowSort
     
-    struct Sorting {
-        static let basic: [Algorithm] = [.insertionSort, .selectionSort, .shellSort]
-        static let fast: [Algorithm] = [.quickSort, .mergeSort, .heapSort]
-        static let hybrid: [Algorithm] = [.introSort]
-        static let specialPurpose: [Algorithm] = [.countingSort, .radixSort, .topologicalSort]
-        static let bad: [Algorithm] = [.bubbleSort, .slowSort]
+    enum Sorting: CaseIterable {
+        case basic
+        case fast
+        case hybrid
+        case specialPurpose
+        case bad
+        
+        var title: String {
+            switch self {
+            case .basic:
+                return "Basic"
+            case .fast:
+                return "Fast"
+            case .hybrid:
+                return "Hybrid"
+            case .specialPurpose:
+                return "Special Purpose"
+            case .bad:
+                return "Bad"
+            }
+        }
+        
+        var subtitle: String? {
+            switch self {
+            case .basic:
+                return  "It's fun to see how sorting algorithms work, but in practice you'll almost never have to provide your own sorting routines. Swift's own sort() is more than up to the job. But if you're curious, read on..."
+            default:
+                return nil
+            }
+        }
+        
+        var algorithms: [Algorithm] {
+            switch self {
+            case .basic:
+                return [.insertionSort, .selectionSort, .shellSort]
+            case .fast:
+                return [.quickSort, .mergeSort, .heapSort]
+            case .hybrid:
+                return [.introSort]
+            case .specialPurpose:
+                return [.countingSort, .radixSort, .topologicalSort]
+            case .bad:
+                return [.bubbleSort, .slowSort]
+            }
+        }
     }
     
     // Compression
@@ -578,6 +617,21 @@ enum Algorithm: CaseIterable {
         case misc
         case math
         case machineLearning
+        
+        var sectionSubtitle: String? {
+            switch self {
+            case .gettingStarted:
+                return "If you're new to algorithms and data structures, here are a few good ones to start out with:"
+            case .searching:
+                return nil
+            case .stringSearch:
+                return nil
+            case .sorting:
+                return  "It's fun to see how sorting algorithms work, but in practice you'll almost never have to provide your own sorting routines. Swift's own sort() is more than up to the job. But if you're curious, read on..."
+            case .compression, .misc, .math, .machineLearning:
+                return nil
+            }
+        }
         
         var title: String {
             switch self {
