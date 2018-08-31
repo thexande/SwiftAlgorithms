@@ -137,16 +137,8 @@ final class RootTabCoordinator {
         dataStructureController.title = "Data Structures"
         dataStructureController.tabBarItem = UITabBarItem(title: "Data Structures", image: dataStructureImage, selectedImage: dataStructureImage)
         
-        let dataStructureSectionControllers: [TableSectionController] = [
-            dataStructurePresenter.makeCatgorySideScrollerSection(),
-            dataStructurePresenter.makeArraySection(),
-            dataStructurePresenter.makeQueueSection(),
-            dataStructurePresenter.makeListSection(),
-            dataStructurePresenter.makeTreeSection(),
-            dataStructurePresenter.makeHashingSection(),
-            dataStructurePresenter.makeSetSection(),
-            dataStructurePresenter.makeGraphSection()
-        ]
+        
+        let dataStructureSectionControllers: [TableSectionController] = dataStructurePresenter.makeAllSectiions()
         
         dataStructureController.update(with: dataStructureSectionControllers)
         

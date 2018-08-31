@@ -19,7 +19,7 @@ final class CategoryCoordinator {
     
     var nav: UINavigationController?
     
-    func smakeRoot(_ category: Algorithm.Category) -> UIViewController? {
+    func makeRoot(_ category: Algorithm.Category) -> UIViewController? {
         if category == .sorting {
             
             let sections = algorithmCategoryFactory.makeAllSortingSections()
