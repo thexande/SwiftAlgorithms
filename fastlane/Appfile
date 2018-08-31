@@ -1,0 +1,8 @@
+app_identifier("com.thexande.swift-algorithms") # The bundle identifier of your app
+apple_id("amurphy345@gmail.com") # Your Apple email address
+
+itc_team_id("117752093") # App Store Connect Team ID
+team_id("9L49SS68XP") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

@@ -278,62 +278,65 @@ enum DataStructure: CaseIterable {
 
         case .tree:
             return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Tree/README.markdown"
-//        case .binaryTree:
-//            <#code#>
-//        case .binarySearchTree:
-//            <#code#>
-//        case .redBlackTree:
-//            <#code#>
-//        case .splayTree:
-//            <#code#>
-//        case .threadedBinaryTree:
-//            <#code#>
-//        case .segmentTree:
-//            <#code#>
-//        case .sparseTable:
-//            <#code#>
-//        case .heap:
-//            <#code#>
-//        case .fibonacciHeap:
-//            <#code#>
-//        case .Trie:
-//            <#code#>
-//        case .bTree:
-//            <#code#>
-//        case .quadTree:
-//            <#code#>
-//        case .ocTree:
-//            <#code#>
-//        case .hashTable:
-//            <#code#>
-//        case .hashFunctions:
-//            <#code#>
-//        case .bloomFilter:
-//            <#code#>
-//        case .hashSet:
-//            <#code#>
-//        case .multiSet:
-//            <#code#>
-//        case .orderedSet:
-//            <#code#>
-//        case .graph:
-//            <#code#>
-//        case .breadthFirstSearch:
-//            <#code#>
-//        case .depthFirstSearch:
-//            <#code#>
-//        case .shortestPath:
-//            <#code#>
-//        case .singleSourceShortestPaths:
-//            <#code#>
-//        case .minimumSpanningTreeUnweighted:
-//            <#code#>
-//        case .minimumSpanningTree:
-//            <#code#>
-//        case .allPairShortestPaths:
-//            <#code#>
-//        case .dijkstrasShortestPath:
-//            <#code#>
+        case .binaryTree:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Binary%20Tree/README.markdown"
+        case .binarySearchTree:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Binary%20Search%20Tree/README.markdown"
+        case .redBlackTree:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Red-Black%20Tree/README.markdown"
+        case .splayTree:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Splay%20Tree/readme.md"
+        case .threadedBinaryTree:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Threaded%20Binary%20Tree/README.markdown"
+        case .segmentTree:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Segment%20Tree/README.markdown"
+        case .sparseTable:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Sparse%20Table/README.markdown"
+        case .heap:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Heap/README.markdown"
+        case .fibonacciHeap:
+            return ""
+        case .Trie:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Trie/ReadMe.md"
+        case .bTree:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/B-Tree/README.md"
+        case .quadTree:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/QuadTree/README.md"
+        case .ocTree:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Octree/README.md"
+        
+        case .hashTable:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Hash%20Table/README.markdown"
+        case .hashFunctions:
+            return ""
+       
+        case .bloomFilter:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Bloom%20Filter/README.markdown"
+        case .hashSet:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Hash%20Set/README.markdown"
+        case .multiSet:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Multiset/README.markdown"
+        case .orderedSet:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Ordered%20Set/README.markdown"
+      
+        case .graph:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Graph/README.markdown"
+        case .breadthFirstSearch:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Breadth-First%20Search/README.markdown"
+        case .depthFirstSearch:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Depth-First%20Search/README.markdown"
+        case .shortestPath:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Shortest%20Path%20(Unweighted)/README.markdown"
+        case .singleSourceShortestPaths:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Single-Source%20Shortest%20Paths%20(Weighted)/README.markdown"
+        case .minimumSpanningTreeUnweighted:
+            return "https://github.com/raywenderlich/swift-algorithm-club/blob/master/Minimum%20Spanning%20Tree%20(Unweighted)/README.markdown"
+        case .minimumSpanningTree:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Minimum%20Spanning%20Tree/README.markdown"
+        case .allPairShortestPaths:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/All-Pairs%20Shortest%20Paths/README.markdown"
+        case .dijkstrasShortestPath:
+            <#code#>
             
         default: return ""
         }
