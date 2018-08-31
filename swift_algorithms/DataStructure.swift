@@ -336,9 +336,7 @@ enum DataStructure: CaseIterable {
         case .allPairShortestPaths:
             return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/All-Pairs%20Shortest%20Paths/README.markdown"
         case .dijkstrasShortestPath:
-            <#code#>
-            
-        default: return ""
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Dijkstra%20Algorithm/README.md"
         }
     }
     

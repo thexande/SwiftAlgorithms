@@ -63,21 +63,20 @@ enum Puzzle: CaseIterable {
         switch self {
         case .twoSumProblem:
             return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Two-Sum%20Problem/README.markdown"
-        default: return ""
-//        case .threeSumFourSumProblem:
-//            <#code#>
-//        case .fizzBuzz:
-//            <#code#>
-//        case .montyHallProblem:
-//            <#code#>
-//        case .findingPalindromes:
-//            <#code#>
-//        case .diningPhilosophers:
-//            <#code#>
-//        case .eggDrop:
-//            <#code#>
-//        case .encodingAndDecodingBinaryTree:
-//            <#code#>
+        case .threeSumFourSumProblem:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/3Sum%20and%204Sum/README.md"
+        case .fizzBuzz:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Fizz%20Buzz/README.markdown"
+        case .montyHallProblem:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Monty%20Hall%20Problem/README.markdown"
+        case .findingPalindromes:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Palindromes/README.markdown"
+        case .diningPhilosophers:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/DiningPhilosophers/README.md"
+        case .eggDrop:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Egg%20Drop%20Problem/README.markdown"
+        case .encodingAndDecodingBinaryTree:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Encode%20and%20Decode%20Tree/readme.md"
         }
     }
 }
