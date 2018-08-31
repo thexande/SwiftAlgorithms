@@ -39,7 +39,7 @@
 		B01733AB2129389000FBEFE5 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733AA2129389000FBEFE5 /* PrimaryButton.swift */; };
 		B01733AD21294C4C00FBEFE5 /* UrlFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733AC21294C4C00FBEFE5 /* UrlFactory.swift */; };
 		B01733AF21294C6E00FBEFE5 /* StringNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733AE21294C6E00FBEFE5 /* StringNetworkService.swift */; };
-		B03CEA5D2134CDA100F87760 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CEA5C2134CDA100F87760 /* File.swift */; };
+		B03CEA5D2134CDA100F87760 /* AlgorithmSectionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CEA5C2134CDA100F87760 /* AlgorithmSectionFactory.swift */; };
 		B03CEA5F2134E00F00F87760 /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CEA5E2134E00F00F87760 /* CategoryCoordinator.swift */; };
 		B069F1B5212A3E63002FABFB /* SearchEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1B4212A3E63002FABFB /* SearchEmptyStateView.swift */; };
 		B069F1B7212A406E002FABFB /* Rejection.json in Resources */ = {isa = PBXBuildFile; fileRef = B069F1B6212A406E002FABFB /* Rejection.json */; };
@@ -48,6 +48,7 @@
 		B069F1C1212A6727002FABFB /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1C0212A6727002FABFB /* Algorithm.swift */; };
 		B069F1C3212B8F72002FABFB /* CollectionSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1C2212B8F72002FABFB /* CollectionSectionController.swift */; };
 		B069F1C5212B987B002FABFB /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1C4212B987B002FABFB /* CALayer.swift */; };
+		B06EB0B42138F6CF0088C86D /* DataStructureSectionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06EB0B32138F6CF0088C86D /* DataStructureSectionFactory.swift */; };
 		B0A4DB342129E781000CFC7F /* AlgorithmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB332129E781000CFC7F /* AlgorithmPresenter.swift */; };
 		B0A4DB362129F21C000CFC7F /* BasicTableHeaderRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB352129F21C000CFC7F /* BasicTableHeaderRowController.swift */; };
 		B0A4DB38212A03B6000CFC7F /* JoinTheClubRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB37212A03B6000CFC7F /* JoinTheClubRowController.swift */; };
@@ -136,7 +137,7 @@
 		B01733AA2129389000FBEFE5 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		B01733AC21294C4C00FBEFE5 /* UrlFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlFactory.swift; sourceTree = "<group>"; };
 		B01733AE21294C6E00FBEFE5 /* StringNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringNetworkService.swift; sourceTree = "<group>"; };
-		B03CEA5C2134CDA100F87760 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		B03CEA5C2134CDA100F87760 /* AlgorithmSectionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmSectionFactory.swift; sourceTree = "<group>"; };
 		B03CEA5E2134E00F00F87760 /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
 		B069F1B4212A3E63002FABFB /* SearchEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmptyStateView.swift; sourceTree = "<group>"; };
 		B069F1B6212A406E002FABFB /* Rejection.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Rejection.json; sourceTree = "<group>"; };
@@ -145,6 +146,7 @@
 		B069F1C0212A6727002FABFB /* Algorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
 		B069F1C2212B8F72002FABFB /* CollectionSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSectionController.swift; sourceTree = "<group>"; };
 		B069F1C4212B987B002FABFB /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		B06EB0B32138F6CF0088C86D /* DataStructureSectionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureSectionFactory.swift; sourceTree = "<group>"; };
 		B0A4DB332129E781000CFC7F /* AlgorithmPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmPresenter.swift; sourceTree = "<group>"; };
 		B0A4DB352129F21C000CFC7F /* BasicTableHeaderRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableHeaderRowController.swift; sourceTree = "<group>"; };
 		B0A4DB37212A03B6000CFC7F /* JoinTheClubRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTheClubRowController.swift; sourceTree = "<group>"; };
@@ -299,8 +301,9 @@
 				B0A8FD0621321787008F82E2 /* PuzzlesPresenter.swift */,
 				B0A8FD0821321EA0008F82E2 /* Puzzle.swift */,
 				B0A8FD0A21321FF6008F82E2 /* RootTabBarCoordinator.swift */,
-				B03CEA5C2134CDA100F87760 /* File.swift */,
+				B03CEA5C2134CDA100F87760 /* AlgorithmSectionFactory.swift */,
 				B03CEA5E2134E00F00F87760 /* CategoryCoordinator.swift */,
+				B06EB0B32138F6CF0088C86D /* DataStructureSectionFactory.swift */,
 			);
 			path = swift_algorithms;
 			sourceTree = "<group>";
@@ -615,7 +618,8 @@
 				B069F1C1212A6727002FABFB /* Algorithm.swift in Sources */,
 				B01733A52129351A00FBEFE5 /* BasicTableCell.swift in Sources */,
 				B0A8FD03213208DB008F82E2 /* AboutViewController.swift in Sources */,
-				B03CEA5D2134CDA100F87760 /* File.swift in Sources */,
+				B06EB0B42138F6CF0088C86D /* DataStructureSectionFactory.swift in Sources */,
+				B03CEA5D2134CDA100F87760 /* AlgorithmSectionFactory.swift in Sources */,
 				B00B26A32123B5DE00E1DF9C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
