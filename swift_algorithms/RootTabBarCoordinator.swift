@@ -210,6 +210,16 @@ final class RootTabCoordinator {
         algorithmNav?.present(nav, animated: true, completion: nil)
     }
     
+    private func handleCategorySelect(_ category: DataStructure.Category) {
+        let categoryCoordinator = CategoryCoordinator()
+        
+        let nav = categoryCoordinator.makeRoot(category)
+        
+        self.categoryCoordinator = categoryCoordinator
+        
+        algorithmNav?.present(nav, animated: true, completion: nil)
+    }
+    
     private func handleAlgorithmSelect(_ algorithm: Algorithm) {
         
         guard let url = urlFactory.markdownFileUrl(for: algorithm) else {
@@ -291,7 +301,7 @@ extension RootTabCoordinator: DataStructurePresenterActionDispatching {
         case let .selectedDataStructure(dataStructure):
             handleDataStructureSelect(dataStructure)
         case let .selectedCategory(category):
-            return
+            handleCategorySelect(category)
             
         }
     }

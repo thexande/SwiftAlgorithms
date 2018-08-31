@@ -12,7 +12,7 @@ final class DataStructureSectionFactory {
         let identifiers: [UUID: DataStructurePresenter.Action]
     }
     
-    func makeSectionController(title: String,
+    private func makeSectionController(title: String,
                                footerText: String?,
                                dataStructures: [DataStructure]) -> IdentifiableSectionController {
         
@@ -46,7 +46,13 @@ final class DataStructureSectionFactory {
                                          identifiers: actionLookup)
     }
     
-    func makeAllDataStructureSections() -> [IdentifiableSectionController] {
+    public func makeDataStructureSection(for category: DataStructure.Category) -> IdentifiableSectionController {
+        return makeSectionController(title: category.title,
+                                     footerText: category.footerText,
+                                     dataStructures: category.dataStructures)
+    }
+    
+    public func makeAllDataStructureSections() -> [IdentifiableSectionController] {
         let allDataStructureCategories = DataStructure.Category.allCases
         
         return allDataStructureCategories.map { category in

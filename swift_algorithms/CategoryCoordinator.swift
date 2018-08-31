@@ -19,6 +19,10 @@ final class CategoryCoordinator {
     
     var nav: UINavigationController?
     
+    func makeRoot(_ category: DataStructure.Category) -> UIViewController {
+        return makeCategoryViewController(for: category)
+    }
+    
     func makeRoot(_ category: Algorithm.Category) -> UIViewController? {
         if category == .sorting {
             
@@ -80,6 +84,38 @@ final class CategoryCoordinator {
         
         self.nav = nav
         
+        return nav
+    }
+    
+    private func makeCategoryViewController(for dataStructureCatgory: DataStructure.Category) -> UIViewController {
+       
+        let sectionFactory = DataStructureSectionFactory()
+        let vc = CategoryDetailViewController()
+        
+        vc.onSelect = { [weak self] identifier in
+            guard let action = self?.actionLookup[identifier] else {
+                return
+            }
+            
+            self?.dispatch(action)
+        }
+        
+        let categorySection = sectionFactory.makeDataStructureSection(for: dataStructureCatgory)
+        
+        categorySection.identifiers.forEach { identifier in
+            
+            switch identifier.value {
+            case let .selectedDataStructure(dataStructure):
+                actionLookup[identifier.key] = .selectedDataStructure(dataStructure)
+            default:
+                return
+            }
+        }
+        
+        vc.sections = [categorySection.seciton]
+        
+        let nav = UINavigationController(rootViewController: vc)
+        self.nav = nav
         return nav
     }
     
