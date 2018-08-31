@@ -103,7 +103,7 @@ final class RootTabCoordinator {
         
         
         // configure sections
-        var controllers: [TableSectionController] = algorithmPresenter.makeAllAlgorithmSections()
+        let controllers: [TableSectionController] = algorithmPresenter.makeAllAlgorithmSections()
             
         
         algorithmViewController.update(with: controllers)

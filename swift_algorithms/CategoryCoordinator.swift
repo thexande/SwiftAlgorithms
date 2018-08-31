@@ -1,23 +1,37 @@
 import UIKit
 
+protocol CategoryCoordinatorDispatching {
+    func dispatch(_ action: CategoryCoordinator.Action)
+}
+
 final class CategoryCoordinator {
+    
+    enum Action {
+        case selectedAlgorithm(Algorithm)
+        case selectedDataStructure(DataStructure)
+    }
     
     private let algorithmCategoryFactory = AlgorithmSectionFactory()
     private let urlFactory = UrlFactory()
     private let stringNetworkService = StringNetworkService()
     
-    var actionLookup: [UUID: AlgorithmPresentationAction] = [:]
+    var actionLookup: [UUID: Action] = [:]
     
     var nav: UINavigationController?
     
-    func makeRoot(_ category: Algorithm.Category) -> UIViewController? {
+    func smakeRoot(_ category: Algorithm.Category) -> UIViewController? {
         if category == .sorting {
             
             let sections = algorithmCategoryFactory.makeAllSortingSections()
             
             sections.forEach { section in
                 section.identifiers.forEach { identifier in
-                    actionLookup[identifier.key] = identifier.value
+                    switch identifier.value {
+                    case let .selectedAlgorithm(algorithm):
+                        actionLookup[identifier.key] = .selectedAlgorithm(algorithm)
+                    default:
+                        return
+                    }
                 }
             }
             
@@ -31,7 +45,12 @@ final class CategoryCoordinator {
             }
             
             section.identifiers.forEach { identifier in
-                actionLookup[identifier.key] = identifier.value
+                switch identifier.value {
+                case let .selectedAlgorithm(algorithm):
+                    actionLookup[identifier.key] = .selectedAlgorithm(algorithm)
+                default:
+                    return
+                }
             }
             
             let vc = makeAlgorithmCategoryViewController(category: category,
@@ -134,6 +153,17 @@ extension CategoryCoordinator: AlgorithmPresenterActionDispatching {
             handleAlgorithmSelect(algorithm)
         default:
             return
+        }
+    }
+}
+
+extension CategoryCoordinator: CategoryCoordinatorDispatching {
+    func dispatch(_ action: CategoryCoordinator.Action) {
+        switch action {
+        case let .selectedAlgorithm(algorithm):
+            handleAlgorithmSelect(algorithm)
+        case let .selectedDataStructure(dataStructure):
+            handleDataStructureSelect(dataStructure)
         }
     }
 }
