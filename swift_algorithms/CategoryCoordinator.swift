@@ -91,6 +91,7 @@ final class CategoryCoordinator {
        
         let sectionFactory = DataStructureSectionFactory()
         let vc = CategoryDetailViewController()
+        vc.detail.cardView.render(CategoryTileItemView.Properties(dataStructureCatgory))
         
         vc.onSelect = { [weak self] identifier in
             guard let action = self?.actionLookup[identifier] else {
@@ -115,6 +116,7 @@ final class CategoryCoordinator {
         vc.sections = [categorySection.seciton]
         
         let nav = UINavigationController(rootViewController: vc)
+        nav.hero.isEnabled = true
         self.nav = nav
         return nav
     }

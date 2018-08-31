@@ -28,6 +28,13 @@ final class CategoryTileItemView: UIView {
             self.backgroundColor = category.color
             self.identifier = UUID()
         }
+        
+        init(_ category: DataStructure.Category) {
+            self.title = category.title
+            self.image = category.image
+            self.backgroundColor = category.color
+            self.identifier = UUID()
+        }
     }
     
     func render(_ properties: Properties) {
