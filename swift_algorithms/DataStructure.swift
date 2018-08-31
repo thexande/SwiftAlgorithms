@@ -264,18 +264,20 @@ enum DataStructure: CaseIterable {
             return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Stack/README.markdown"
         case .queue:
             return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Queue/README.markdown"
-//        case .deque:
-//            <#code#>
-//        case .priorityQueue:
-//            <#code#>
-//        case .ringBuffer:
-//            <#code#>
-//        case .linkedList:
-//            <#code#>
-//        case .skipList:
-//            <#code#>
-//        case .tree:
-//            <#code#>
+        case .deque:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Deque/README.markdown"
+        case .priorityQueue:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Priority%20Queue/README.markdown"
+        case .ringBuffer:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Ring%20Buffer/README.markdown"
+       
+        case .linkedList:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Linked%20List/README.markdown"
+        case .skipList:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Skip-List/README.md"
+
+        case .tree:
+            return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Tree/README.markdown"
 //        case .binaryTree:
 //            <#code#>
 //        case .binarySearchTree:
