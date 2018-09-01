@@ -20,7 +20,7 @@ final class SearchEmptyStateView: UIView {
         
         titleLabel.horizontalAnchors == horizontalAnchors + 24
         titleLabel.bottomAnchor == lottieView.topAnchor
-        titleLabel.text = "No results found, we're whaley sorry."
+        titleLabel.text = "No results found"
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.systemFont(ofSize: 22, weight: .medium)
