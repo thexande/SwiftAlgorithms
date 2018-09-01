@@ -41,6 +41,7 @@
 		B01733AF21294C6E00FBEFE5 /* StringNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733AE21294C6E00FBEFE5 /* StringNetworkService.swift */; };
 		B03CEA5D2134CDA100F87760 /* AlgorithmSectionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CEA5C2134CDA100F87760 /* AlgorithmSectionFactory.swift */; };
 		B03CEA5F2134E00F00F87760 /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CEA5E2134E00F00F87760 /* CategoryCoordinator.swift */; };
+		B0513C32213B4E2C006C0124 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B0513C31213B4E2C006C0124 /* README.md */; };
 		B069F1B5212A3E63002FABFB /* SearchEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1B4212A3E63002FABFB /* SearchEmptyStateView.swift */; };
 		B069F1B7212A406E002FABFB /* Rejection.json in Resources */ = {isa = PBXBuildFile; fileRef = B069F1B6212A406E002FABFB /* Rejection.json */; };
 		B069F1BD212A494C002FABFB /* SearchResultsRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1BC212A494C002FABFB /* SearchResultsRowController.swift */; };
@@ -138,7 +139,7 @@
 		B01733AE21294C6E00FBEFE5 /* StringNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringNetworkService.swift; sourceTree = "<group>"; };
 		B03CEA5C2134CDA100F87760 /* AlgorithmSectionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmSectionFactory.swift; sourceTree = "<group>"; };
 		B03CEA5E2134E00F00F87760 /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
-		B0513C30213B4B83006C0124 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B0513C31213B4E2C006C0124 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		B069F1B4212A3E63002FABFB /* SearchEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmptyStateView.swift; sourceTree = "<group>"; };
 		B069F1B6212A406E002FABFB /* Rejection.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Rejection.json; sourceTree = "<group>"; };
 		B069F1BC212A494C002FABFB /* SearchResultsRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsRowController.swift; sourceTree = "<group>"; };
@@ -250,7 +251,7 @@
 				B0F6D787213B444000E52E71 /* Application */,
 				B0F6D786213B443200E52E71 /* Assets */,
 				B00B26AE2123B5E000E1DF9C /* Info.plist */,
-				B0513C30213B4B83006C0124 /* README.md */,
+				B0513C31213B4E2C006C0124 /* README.md */,
 			);
 			path = swift_algorithms;
 			sourceTree = "<group>";
@@ -528,6 +529,7 @@
 			files = (
 				B00A1DB0212F8AD5007187CF /* legoloader.json in Resources */,
 				B00B26AD2123B5E000E1DF9C /* LaunchScreen.storyboard in Resources */,
+				B0513C32213B4E2C006C0124 /* README.md in Resources */,
 				B069F1B7212A406E002FABFB /* Rejection.json in Resources */,
 				B00B26AA2123B5E000E1DF9C /* Assets.xcassets in Resources */,
 			);
