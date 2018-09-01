@@ -7,7 +7,6 @@ final class AlgorithmViewController: SectionProxyTableViewController {
     }
     
     weak var dispatcher: AlgorithmViewActionDispatching?
-    private let footer = DonateFooterView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 80))
     
     override init(style: UITableViewStyle) {
         super.init(style: .grouped)
@@ -31,9 +30,7 @@ final class AlgorithmViewController: SectionProxyTableViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.tableFooterView = footer
-        
+        super.viewDidLoad()        
         // Setup the Search Controller
         definesPresentationContext = true
         
