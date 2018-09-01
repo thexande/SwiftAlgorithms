@@ -138,6 +138,7 @@
 		B01733AE21294C6E00FBEFE5 /* StringNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringNetworkService.swift; sourceTree = "<group>"; };
 		B03CEA5C2134CDA100F87760 /* AlgorithmSectionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmSectionFactory.swift; sourceTree = "<group>"; };
 		B03CEA5E2134E00F00F87760 /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
+		B0513C30213B4B83006C0124 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B069F1B4212A3E63002FABFB /* SearchEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmptyStateView.swift; sourceTree = "<group>"; };
 		B069F1B6212A406E002FABFB /* Rejection.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Rejection.json; sourceTree = "<group>"; };
 		B069F1BC212A494C002FABFB /* SearchResultsRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsRowController.swift; sourceTree = "<group>"; };
@@ -249,6 +250,7 @@
 				B0F6D787213B444000E52E71 /* Application */,
 				B0F6D786213B443200E52E71 /* Assets */,
 				B00B26AE2123B5E000E1DF9C /* Info.plist */,
+				B0513C30213B4B83006C0124 /* README.md */,
 			);
 			path = swift_algorithms;
 			sourceTree = "<group>";
