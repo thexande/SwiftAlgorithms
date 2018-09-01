@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swift_logo" translatesAutoresizingMaskIntoConstraints="NO" id="AdK-Ys-56d">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swift_algo_club" translatesAutoresizingMaskIntoConstraints="NO" id="AdK-Ys-56d">
                                 <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="JAZ-jg-d5k"/>
@@ -26,7 +26,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.92101210359999997" green="0.37365037200000001" blue="0.32151734830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AdK-Ys-56d" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Tdu-3s-G99"/>
                             <constraint firstItem="AdK-Ys-56d" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="g3I-PW-qwX"/>
@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="swift_logo" width="702" height="628"/>
+        <image name="swift_algo_club" width="380" height="376"/>
     </resources>
 </document>

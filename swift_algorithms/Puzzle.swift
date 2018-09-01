@@ -1,4 +1,5 @@
-enum Puzzle: CaseIterable {
+enum Puzzle {
+    static let allCases: [Puzzle] = [.twoSumProblem, .threeSumFourSumProblem, .fizzBuzz, .montyHallProblem, .findingPalindromes, .diningPhilosophers, .eggDrop, .encodingAndDecodingBinaryTree]
     case twoSumProblem
     case threeSumFourSumProblem
     case fizzBuzz

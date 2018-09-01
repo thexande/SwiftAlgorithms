@@ -58,11 +58,17 @@ final class RootTabCoordinator {
     }
     
     func rootViewDidAppear() {
-        //        if hasPresentedOnboarding == false {
-        //            root?.present(onboardingViewController, animated: true, completion: { [weak self] in
-        //                self?.hasPresentedOnboarding = true
-        //            })
-        //        }
+        
+        // enable for non UserDefaults driven onboarding presentation
+//        if hasPresentedOnboarding == false {
+//            root?.present(onboardingViewController, animated: true, completion: { [weak self] in
+//                self?.hasPresentedOnboarding = true
+//            })
+//        }
+        
+        // UserDefaults driven onboarding presentation
+        configureOnboarding()
+        
     }
     
     private func configureOnboarding() {

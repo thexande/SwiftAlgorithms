@@ -1,7 +1,8 @@
 import UIKit
 
-enum DataStructure: CaseIterable {
-    
+enum DataStructure {
+    static let allCases: [DataStructure] = [.array2D, .bitSet, .fixedArraySize, .orderedArray, .rootishArrayStack, .stack, .queue, .deque, .priorityQueue, .ringBuffer, .linkedList, .skipList, .tree, .binaryTree, .binarySearchTree, .redBlackTree, .splayTree, .threadedBinaryTree, .segmentTree, .sparseTable, .heap, .fibonacciHeap, .Trie, .bTree, .quadTree, .ocTree, .hashTable, .hashFunctions, .bloomFilter, .hashSet, .multiSet, .orderedSet, .graph, .breadthFirstSearch, .depthFirstSearch, .shortestPath, .singleSourceShortestPaths, .minimumSpanningTreeUnweighted, .minimumSpanningTree, .allPairShortestPaths, .dijkstrasShortestPath
+    ]
     // Variations on Arrays
     case array2D
     case bitSet
@@ -372,7 +373,8 @@ enum DataStructure: CaseIterable {
         }
     }
     
-    enum Category: CaseIterable {
+    enum Category {
+        static let allCases: [Category] = [.array, .queue, .list, .tree, .hash, .set, .graph]
         case array
         case queue
         case list

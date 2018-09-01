@@ -1,7 +1,7 @@
 import UIKit
 
-enum Algorithm: CaseIterable {
-    
+enum Algorithm {
+    static let allCases: [Algorithm] = [.whatAreAlgorithms, .whyLearnAlgorithms, .bigO, .designTechniques, .howToContribute, .stack, .queue, .insertionSort, .binarySearch, .binarySearchTree, .mergeSort, .boyerMoore, .linnearSearch, .countOccurences, .selectMinMax, .kthLargestElement, .selectionSampling, .unionFind, .bruteForceStringSearch, .knuthMorrisPratt, .rabinKarp, .longestCommonSubsequence, .zAlgorithm, .selectionSort, .shellSort, .quickSort, .heapSort, .introSort, .countingSort, .radixSort, .topologicalSort, .bubbleSort, .slowSort, .runLengthEncoding, .huffmanCoding, .shuffle, .comboSort, .convexHull, .millerRabin, .minimumCoin, .gcd, .permutationsAndCombinations, .shuntingYard, .karatsubaMultiplication, .haversineDistance, .strassenMultiplicationMatrix, .kMeansClustering, .linnearRegression, .naiveBayesClassifier, .simulatedAnnealing]
     // Introduction
     
     case whatAreAlgorithms
@@ -85,7 +85,9 @@ enum Algorithm: CaseIterable {
     case bubbleSort
     case slowSort
     
-    enum Sorting: CaseIterable {
+    enum Sorting {
+        static let allCases: [Sorting] = [.basic, .fast, .hybrid, .specialPurpose, .bad]
+        
         case basic
         case fast
         case hybrid
@@ -608,7 +610,8 @@ enum Algorithm: CaseIterable {
     }
     
     
-    enum Category: CaseIterable {
+    enum Category {
+        static let allCases: [Category] = [.gettingStarted, .searching, .stringSearch, .sorting, .compression, .misc, .math, .machineLearning]
         case gettingStarted
         case searching
         case stringSearch

@@ -18,7 +18,7 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
-    build_app(workspace: "swift_algorithms.xcworkspace", scheme: "swift_algorithms")
+    build_app(workspace: "swift_algorithms.xcworkspace", scheme: "swift_algorithms", export_xcargs: "-allowProvisioningUpdates")
     upload_to_testflight
   end
 end

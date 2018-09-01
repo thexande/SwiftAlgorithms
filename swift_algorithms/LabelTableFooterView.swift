@@ -11,8 +11,8 @@ final class AboutView: UIView {
         super.init(frame: frame)
         icon.image = UIImage(named: "swift_algo_club")
         addSubview(icon)
-        icon.widthAnchor == icon.heightAnchor
-        icon.horizontalAnchors == horizontalAnchors + 86
+        icon.sizeAnchors == CGSize(width: 200, height: 200)
+        icon.centerXAnchor == centerXAnchor
         icon.topAnchor == topAnchor + 36
         
         let labels = [title, content]
