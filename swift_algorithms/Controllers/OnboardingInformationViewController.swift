@@ -82,7 +82,7 @@ final class OnboardingInformationViewController: UIViewController {
         return OnboardingInformationViewController.Properties(title: attributedTitle, subtitle: "Great documentation for Data Structures and Algorithms in Swift 4.", onboardingItems: [
             OnboardItemView.Properties(content: "View tutorials on over 50 computer science algorithms, as well as implementations.", icon: UIImage(named: "algo")),
             OnboardItemView.Properties(content: "Check out examples of arrays, queues, lists, trees and hashes implemented in Swift!", icon: UIImage(named: "data_structure")),
-            OnboardItemView.Properties(content: "Sourced from Raywenderlich.com's Algorithm Club, these Markdown resources are fetched from the github repository.", icon: UIImage(named: "swift_algo_club")),
+            OnboardItemView.Properties(content: "Sourced from Raywenderlich.com's Algorithm Club, these Markdown resources are fetched from the github repository.", icon: UIImage(named: "math")),
             ])
     }
 }

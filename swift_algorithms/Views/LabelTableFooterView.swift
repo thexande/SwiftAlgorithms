@@ -9,11 +9,11 @@ final class AboutView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        icon.image = UIImage(named: "swift_algo_club")
-        addSubview(icon)
-        icon.sizeAnchors == CGSize(width: 200, height: 200)
-        icon.centerXAnchor == centerXAnchor
-        icon.topAnchor == topAnchor + 36
+//        icon.image = UIImage(named: "swift_algo_club")
+//        addSubview(icon)
+//        icon.sizeAnchors == CGSize(width: 200, height: 200)
+//        icon.centerXAnchor == centerXAnchor
+//        icon.topAnchor == topAnchor + 36
         
         let labels = [title, content]
         labels.forEach { label in
@@ -24,11 +24,13 @@ final class AboutView: UIView {
         labelStack.spacing = 18
         labelStack.axis = .vertical
         addSubview(labelStack)
-        labelStack.topAnchor == icon.bottomAnchor + 36
+        labelStack.topAnchor == safeAreaLayoutGuide.topAnchor + 36
         labelStack.horizontalAnchors == horizontalAnchors + 18
         labelStack.bottomAnchor == bottomAnchor - 18
         
-        title.text = "Welcome to the Swift Algorithm Club!"
+        title.font = UIFont.boldSystemFont(ofSize: 32)
+        
+        title.text = "Welcome to the Algorithm Club!"
         content.text = """
         Here you'll find implementations of popular algorithms and data structures in everyone's favorite new language Swift, with detailed explanations of how they work.
         
@@ -38,7 +40,7 @@ final class AboutView: UIView {
         
         Code is compatible with Xcode 9 and Swift 4. We'll keep this updated with the latest version of Swift.
         
-        😍 Suggestions and contributions are welcome! 😍
+        Suggestions and contributions are welcome! 😍
         """
         
     }

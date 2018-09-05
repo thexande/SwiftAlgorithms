@@ -18,18 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swift_algo_club" translatesAutoresizingMaskIntoConstraints="NO" id="AdK-Ys-56d">
-                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="JAZ-jg-d5k"/>
-                                    <constraint firstAttribute="height" constant="100" id="yuD-1M-8pk"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tree-1" translatesAutoresizingMaskIntoConstraints="NO" id="EIG-LF-9lK">
+                                <rect key="frame" x="100" y="0.0" width="175" height="667"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.35120028257369995" green="0.76564675569534302" blue="0.97649866342544556" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="AdK-Ys-56d" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Tdu-3s-G99"/>
-                            <constraint firstItem="AdK-Ys-56d" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="g3I-PW-qwX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EIG-LF-9lK" secondAttribute="trailing" constant="100" id="4oN-1D-0ZX"/>
+                            <constraint firstItem="EIG-LF-9lK" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Efq-Nr-Un4"/>
+                            <constraint firstItem="EIG-LF-9lK" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="K7L-8F-vCY"/>
+                            <constraint firstItem="EIG-LF-9lK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ME7-48-RXW"/>
+                            <constraint firstItem="EIG-LF-9lK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="SSB-rN-Ir1"/>
+                            <constraint firstAttribute="bottom" secondItem="EIG-LF-9lK" secondAttribute="bottom" id="jeH-he-L5V"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="swift_algo_club" width="380" height="376"/>
+        <image name="tree-1" width="779" height="885"/>
     </resources>
 </document>
