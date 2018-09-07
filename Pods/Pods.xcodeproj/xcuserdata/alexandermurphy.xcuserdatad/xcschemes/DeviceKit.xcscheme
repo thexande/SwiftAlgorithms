@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FB6A3256D3638B7FD7ADF1D9A07D6F8A"
-               BlueprintName = "Anchorage"
+               BlueprintIdentifier = "09631466C088375F12E01002F5F56A73"
+               BlueprintName = "DeviceKit"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Anchorage.framework">
+               BuildableName = "DeviceKit.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

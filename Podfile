@@ -13,6 +13,7 @@ target 'swift_algorithms' do
   pod 'Result'
   pod 'Hero'
   pod 'UINavigationBar-Transparent'
+  pod 'DeviceKit'
   
   target 'swift_algorithmsTests' do
     inherit! :search_paths

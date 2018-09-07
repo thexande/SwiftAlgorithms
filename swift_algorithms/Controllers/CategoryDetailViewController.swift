@@ -1,6 +1,7 @@
 import UIKit
 import Anchorage
 import Hero
+import DeviceKit
 
 class View: UIView {
     override init(frame: CGRect) {
@@ -125,13 +126,21 @@ final class CategoryDetailViewController: UIViewController {
         
         detail.cardView.addSubview(back)
         back.leadingAnchor == detail.cardView.leadingAnchor + 8
-        back.centerYAnchor == detail.cardView.centerYAnchor - 8
+        
         back.sizeAnchors == CGSize(width: 24, height: 24)
         back.addTarget(self, action: #selector(dismissModal), for: .touchUpInside)
         
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
 
-        
+        let device = Device()
+        switch device {
+        case .iPhoneX, .simulator(.iPhoneX):
+            back.centerYAnchor == detail.cardView.centerYAnchor - 8
+            break
+        default:
+            back.bottomAnchor == detail.cardView.title.topAnchor - 14
+            break
+        }
     }
     
     @objc func dismissModal() {

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6D737BBC9C590568C4932FC0D6FC5CF8"
+               BlueprintIdentifier = "F5F34FE637AE9832D8C1B3362A5080E2"
                BlueprintName = "DeckTransition"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "DeckTransition.framework">
