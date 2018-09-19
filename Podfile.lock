@@ -1,8 +1,8 @@
 PODS:
   - Anchorage (4.2.4)
-  - DeckTransition (2.0.0)
-  - DeviceKit (1.7.0)
-  - Hero (1.3.0)
+  - DeckTransition (2.1.0)
+  - DeviceKit (1.8.1)
+  - Hero (1.3.1)
   - lottie-ios (2.5.0)
   - MarkdownView (1.3.0)
   - Result (4.0.0)
@@ -31,9 +31,9 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Anchorage: f855157310859280c706cc0b9c9281c21702f515
-  DeckTransition: 2300694f94fbeca2c103f365dc9dc09ffae14a4f
-  DeviceKit: 6a5bdeb103c03757bb94aef1ccb01e08bc8ef4ee
-  Hero: 3eecd3fd62dd2425cbc7e35505c557b86d5a379e
+  DeckTransition: ca707456e3d83928c895fed6f458cbf68c5cac84
+  DeviceKit: eb29be542f5473b46b1c719011cf7de3ec5264ca
+  Hero: 1c3c625ba05856f305d29f5c270f8766c5ff2df7
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   MarkdownView: 6cee6c558eed4a012005405066071ef16a042d17
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713

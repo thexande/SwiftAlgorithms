@@ -112,6 +112,18 @@ public enum Device {
     ///
     /// ![Image](https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP770/iphonex.png)
     case iPhoneX
+    /// Device is an [iPhone Xs](https://support.apple.com/kb/SP779)
+    ///
+    /// ![Image](https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP779/SP779-iphone-xs.jpg)
+    case iPhoneXs
+    /// Device is an [iPhone Xs Max](https://support.apple.com/kb/SP780)
+    ///
+    /// ![Image](https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP780/SP780-iPhone-Xs-Max.jpg)
+    case iPhoneXsMax
+    /// Device is an [iPhone Xr](https://support.apple.com/kb/SP781)
+    ///
+    /// ![Image](https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP781/SP781-iPhone-xr.jpg)
+    case iPhoneXr
     /// Device is an [iPad 2](https://support.apple.com/kb/SP622)
     ///
     /// ![Image](https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP622/SP622_01-ipad2-mul.png)
@@ -199,11 +211,11 @@ public enum Device {
 
   /// Initializes a `Device` representing the current device this software runs on.
   public init() {
-    self = Device.mapToDevice(identifier: Device.identifier)
+    self = Device.instance
   }
 
   /// Gets the identifier from the system, such as "iPhone7,1".
-  public static var identifier: String {
+  public static var identifier: String = {
     var systemInfo = utsname()
     uname(&systemInfo)
     let mirror = Mirror(reflecting: systemInfo.machine)
@@ -213,7 +225,9 @@ public enum Device {
       return identifier + String(UnicodeScalar(UInt8(value)))
     }
     return identifier
-  }
+  }()
+
+  private static let instance = Device.mapToDevice(identifier: Device.identifier)
 
   /// Maps an identifier to a Device. If the identifier can not be mapped to an existing device, `UnknownDevice(identifier)` is returned.
   ///
@@ -240,6 +254,9 @@ public enum Device {
       case "iPhone10,1", "iPhone10,4": return iPhone8
       case "iPhone10,2", "iPhone10,5": return iPhone8Plus
       case "iPhone10,3", "iPhone10,6": return iPhoneX
+      case "iPhone11,2": return iPhoneXs
+      case "iPhone11,4", "iPhone11,6": return iPhoneXsMax
+      case "iPhone11,8": return iPhoneXr
       case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4": return iPad2
       case "iPad3,1", "iPad3,2", "iPad3,3": return iPad3
       case "iPad3,4", "iPad3,5", "iPad3,6": return iPad4
@@ -269,6 +286,20 @@ public enum Device {
     #endif
   }
 
+  /// Get the real device from a device. If the device is a an iPhone8Plus simulator this function returns .iPhone8Plus (the real device).
+  /// If the parameter is a real device, this function returns just that passed parameter.
+  ///
+  /// - parameter device: A device.
+  ///
+  /// - returns: the underlying device If the `device` is a `simulator`,
+  /// otherwise return the `device`.
+  public static func realDevice(from device: Device) -> Device {
+    if case let .simulator(model) = device {
+      return model
+    }
+    return device
+  }
+
   #if os(iOS)
     /// All iPods
     public static var allPods: [Device] {
@@ -277,12 +308,12 @@ public enum Device {
 
     /// All iPhones
     public static var allPhones: [Device] {
-       return [.iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s, .iPhone6, .iPhone6Plus, .iPhone6s, .iPhone6sPlus, .iPhone7, .iPhone7Plus, .iPhoneSE, .iPhone8, .iPhone8Plus, .iPhoneX]
+      return [.iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s, .iPhone6, .iPhone6Plus, .iPhone6s, .iPhone6sPlus, .iPhone7, .iPhone7Plus, .iPhoneSE, .iPhone8, .iPhone8Plus, .iPhoneX, .iPhoneXs, .iPhoneXsMax, .iPhoneXr]
     }
 
     /// All iPads
     public static var allPads: [Device] {
-       return [.iPad2, .iPad3, .iPad4, .iPadAir, .iPadAir2, .iPad5, .iPad6, .iPadMini, .iPadMini2, .iPadMini3, .iPadMini4, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch]
+      return [.iPad2, .iPad3, .iPad4, .iPadAir, .iPadAir2, .iPad5, .iPad6, .iPadMini, .iPadMini2, .iPadMini3, .iPadMini4, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch]
     }
 
     /// All Plus-Sized Devices
@@ -293,6 +324,11 @@ public enum Device {
     /// All Pro Devices
     public static var allProDevices: [Device] {
       return [.iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch]
+    }
+
+    /// All mini Devices
+    public static var allMiniDevices: [Device] {
+      return [.iPadMini, .iPadMini2, .iPadMini3, .iPadMini4]
     }
 
     /// All simulator iPods
@@ -310,17 +346,22 @@ public enum Device {
       return allPads.map(Device.simulator)
     }
 
-   /// All simulator Plus-Sized Devices
-   public static var allSimulatorPlusSizedDevices: [Device] {
-     return allPlusSizedDevices.map(Device.simulator)
-   }
+    /// All simulator iPad mini
+    public static var allSimulatorMiniDevices: [Device] {
+      return allMiniDevices.map(Device.simulator)
+    }
 
-   /// All simulator Pro Devices
-   public static var allSimulatorProDevices: [Device] {
-     return allProDevices.map(Device.simulator)
-   }
+    /// All simulator Plus-Sized Devices
+    public static var allSimulatorPlusSizedDevices: [Device] {
+      return allPlusSizedDevices.map(Device.simulator)
+    }
 
-   /// Returns whether the device is an iPod (real or simulator)
+    /// All simulator Pro Devices
+    public static var allSimulatorProDevices: [Device] {
+      return allProDevices.map(Device.simulator)
+    }
+
+    /// Returns whether the device is an iPod (real or simulator)
     public var isPod: Bool {
       return isOneOf(Device.allPods) || isOneOf(Device.allSimulatorPods)
     }
@@ -341,9 +382,15 @@ public enum Device {
       return isOneOf(Device.allSimulators)
     }
 
+    /// If this device is a simulator return the underlying device,
+    /// otherwise return `self`.
+    public var realDevice: Device {
+      return Device.realDevice(from: self)
+    }
+
     public var isZoomed: Bool {
       // TODO: Longterm we need a better solution for this!
-      guard self != .iPhoneX else { return false }
+      guard self != .iPhoneX && self != .iPhoneXs else { return false }
       if Int(UIScreen.main.scale.rounded()) == 3 {
         // Plus-sized
         return UIScreen.main.nativeScale > 2.7
@@ -372,6 +419,9 @@ public enum Device {
       case .iPhone8: return 4.7
       case .iPhone8Plus: return 5.5
       case .iPhoneX: return 5.8
+      case .iPhoneXs: return 5.8
+      case .iPhoneXsMax: return 6.5
+      case .iPhoneXr: return 6.1
       case .iPad2: return 9.7
       case .iPad3: return 9.7
       case .iPad4: return 9.7
@@ -413,6 +463,9 @@ public enum Device {
       case .iPhone8: return (width: 9, height: 16)
       case .iPhone8Plus: return (width: 9, height: 16)
       case .iPhoneX: return (width: 9, height: 19.5)
+      case .iPhoneXs: return (width: 9, height: 19.5)
+      case .iPhoneXsMax: return (width: 9, height: 19.5)
+      case .iPhoneXr: return (width: 9, height: 19.5)
       case .iPad2: return (width: 3, height: 4)
       case .iPad3: return (width: 3, height: 4)
       case .iPad4: return (width: 3, height: 4)
@@ -433,6 +486,32 @@ public enum Device {
       case .unknown: return (width: -1, height: -1)
       }
     }
+
+    /// All Touch ID Capable Devices
+    static public var allTouchIDCapableDevices: [Device] {
+      return [.iPhone5s, .iPhone6, .iPhone6Plus, .iPhone6s, .iPhone6sPlus, .iPhone7, .iPhone7Plus, .iPhoneSE, .iPhone8, .iPhone8Plus, .iPadAir2, .iPad5, .iPad6, .iPadMini3, .iPadMini4, .iPadPro9Inch, .iPadPro12Inch, .iPadPro12Inch2, .iPadPro10Inch]
+    }
+
+    /// All Face ID Capable Devices
+    static public var allFaceIDCapableDevices: [Device] {
+      return [.iPhoneX, .iPhoneXs, .iPhoneXsMax, .iPhoneXr]
+    }
+
+    /// Returns whether or not the device has Touch ID
+    public var isTouchIDCapable: Bool {
+      return isOneOf(Device.allTouchIDCapableDevices)
+    }
+
+    /// Returns whether or not the device has Face ID
+    public var isFaceIDCapable: Bool {
+      return isOneOf(Device.allFaceIDCapableDevices)
+    }
+
+    /// Returns whether or not the device has any biometric sensor (i.e. Touch ID or Face ID)
+    public var hasBiometricSensor: Bool {
+      return isTouchIDCapable || isFaceIDCapable
+    }
+
   #elseif os(tvOS)
     /// All TVs
     public static var allTVs: [Device] {
@@ -538,6 +617,9 @@ public enum Device {
       case .iPhone8: return 326
       case .iPhone8Plus: return 401
       case .iPhoneX: return 458
+      case .iPhoneXs: return 458
+      case .iPhoneXsMax: return 458
+      case .iPhoneXr: return 326
       case .iPad2: return 132
       case .iPad3: return 264
       case .iPad4: return 264
@@ -565,9 +647,13 @@ public enum Device {
   /// True when a Guided Access session is currently active; otherwise, false.
   public var isGuidedAccessSessionActive: Bool {
     #if os(iOS)
-    return UIAccessibilityIsGuidedAccessEnabled()
+      #if swift(>=4.2)
+        return UIAccessibility.isGuidedAccessEnabled
+      #else
+        return UIAccessibilityIsGuidedAccessEnabled()
+      #endif
     #else
-    return false
+      return false
     #endif
   }
 
@@ -605,6 +691,9 @@ extension Device: CustomStringConvertible {
       case .iPhone8: return "iPhone 8"
       case .iPhone8Plus: return "iPhone 8 Plus"
       case .iPhoneX: return "iPhone X"
+      case .iPhoneXs: return "iPhone Xs"
+      case .iPhoneXsMax: return "iPhone Xs Max"
+      case .iPhoneXr: return "iPhone Xr"
       case .iPad2: return "iPad 2"
       case .iPad3: return "iPad 3"
       case .iPad4: return "iPad 4"
@@ -785,57 +874,37 @@ extension Device {
 
 #if os(iOS)
 // MARK: - DiskSpace
-@available(iOS 11.0, *)
 extension Device {
 
   /// Return the root url
   ///
   /// - returns: the "/" url
-  private static var rootURL = {
-    return URL(fileURLWithPath: "/")
-  }()
+  private static let rootURL = URL(fileURLWithPath: "/")
 
   /// The volume’s total capacity in bytes.
   public static var volumeTotalCapacity: Int? {
-    do {
-      let values = try Device.rootURL.resourceValues(forKeys: [.volumeTotalCapacityKey])
-      return values.volumeTotalCapacity
-    } catch {
-      return nil
-    }
+    return (try? Device.rootURL.resourceValues(forKeys: [.volumeTotalCapacityKey]))?.volumeTotalCapacity
   }
 
   /// The volume’s available capacity in bytes.
   public static var volumeAvailableCapacity: Int? {
-    do {
-      let values = try rootURL.resourceValues(forKeys: [.volumeAvailableCapacityKey])
-      return values.volumeAvailableCapacity
-    } catch {
-      return nil
-    }
+    return (try? rootURL.resourceValues(forKeys: [.volumeAvailableCapacityKey]))?.volumeAvailableCapacity
   }
 
   /// The volume’s available capacity in bytes for storing important resources.
+  @available(iOS 11.0, *)
   public static var volumeAvailableCapacityForImportantUsage: Int64? {
-    do {
-      let values = try rootURL.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey])
-      return values.volumeAvailableCapacityForImportantUsage
-    } catch {
-      return nil
-    }
+    return (try? rootURL.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey]))?.volumeAvailableCapacityForImportantUsage
   }
 
   /// The volume’s available capacity in bytes for storing nonessential resources.
+  @available(iOS 11.0, *)
   public static var volumeAvailableCapacityForOpportunisticUsage: Int64? { //swiftlint:disable:this identifier_name
-    do {
-      let values = try rootURL.resourceValues(forKeys: [.volumeAvailableCapacityForOpportunisticUsageKey])
-      return values.volumeAvailableCapacityForOpportunisticUsage
-    } catch {
-      return nil
-    }
+    return (try? rootURL.resourceValues(forKeys: [.volumeAvailableCapacityForOpportunisticUsageKey]))?.volumeAvailableCapacityForOpportunisticUsage
   }
 
   /// All volumes capacity information in bytes.
+  @available(iOS 11.0, *)
   public static var volumes: [URLResourceKey: Int64]? {
     do {
       let values = try rootURL.resourceValues(forKeys: [
