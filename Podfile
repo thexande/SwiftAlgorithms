@@ -7,12 +7,10 @@ target 'swift_algorithms' do
 
   # Pods for swift_algorithms
   pod 'MarkdownView'
-  pod 'DeckTransition'
   pod 'Anchorage'
   pod 'lottie-ios'
   pod 'Result'
   pod 'Hero'
-  pod 'UINavigationBar-Transparent'
   pod 'DeviceKit'
   
   target 'swift_algorithmsTests' do

@@ -1,6 +1,0 @@
-framework module UINavigationBar_Transparent {
-  umbrella header "UINavigationBar-Transparent-umbrella.h"
-
-  export *
-  module * { export * }
-}
