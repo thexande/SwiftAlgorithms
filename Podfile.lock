@@ -1,5 +1,5 @@
 PODS:
-  - Anchorage (4.2.4)
+  - Anchorage (4.3)
   - DeviceKit (1.8.1)
   - Hero (1.3.1)
   - lottie-ios (2.5.0)
@@ -24,7 +24,7 @@ SPEC REPOS:
     - Result
 
 SPEC CHECKSUMS:
-  Anchorage: f855157310859280c706cc0b9c9281c21702f515
+  Anchorage: 21a98675245188427f0bcea21404d42a824a766f
   DeviceKit: eb29be542f5473b46b1c719011cf7de3ec5264ca
   Hero: 1c3c625ba05856f305d29f5c270f8766c5ff2df7
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
