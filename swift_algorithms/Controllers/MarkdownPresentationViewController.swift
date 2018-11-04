@@ -33,7 +33,7 @@ final class MarkdownPresentationViewController: UIViewController {
         
         markdownView.onRendered = { [weak self] _ in
             if let `self` = self {
-                self.view.sendSubview(toBack: self.loading)
+                self.view.sendSubviewToBack(self.loading)
             }
         }
     }

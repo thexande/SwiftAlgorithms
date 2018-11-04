@@ -2,7 +2,7 @@ import UIKit
 import Anchorage
 
 final class TableLoadingView: UIView {
-    private let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    private let indicator = UIActivityIndicatorView(style: .gray)
     private let title = UILabel()
     
     override init(frame: CGRect) {

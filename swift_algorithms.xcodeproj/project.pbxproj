@@ -75,6 +75,7 @@
 		B0F3850E212BB33000779976 /* CategoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F3850D212BB33000779976 /* CategoryDetailViewController.swift */; };
 		B0F6D77E213B428E00E52E71 /* DataStructurePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F6D77D213B428E00E52E71 /* DataStructurePresenter.swift */; };
 		CF258018CEDC1C30BBC0CCEB /* Pods_swift_algorithmsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C9489049617C5233D06003 /* Pods_swift_algorithmsUITests.framework */; };
+		EFE9A8F7218F41CA00810740 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A8F6218F41CA00810740 /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +176,7 @@
 		B11B52C8253786514CD57982 /* Pods-swift_algorithmsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsTests/Pods-swift_algorithmsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B607CDB0A6FEE9DA2C6F0695 /* Pods-swift_algorithms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithms.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithms/Pods-swift_algorithms.release.xcconfig"; sourceTree = "<group>"; };
 		EF9A1484C74813E3093C6FBE /* Pods-swift_algorithmsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsUITests/Pods-swift_algorithmsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EFE9A8F6218F41CA00810740 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 		B00B26A12123B5DE00E1DF9C /* swift_algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				EFE9A8F5218F41BF00810740 /* Utils */,
 				B0F6D784213B43EA00E52E71 /* Models */,
 				B0F6D785213B440200E52E71 /* Services */,
 				B0F6D782213B435300E52E71 /* Controllers */,
@@ -419,6 +422,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EFE9A8F5218F41BF00810740 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EFE9A8F6218F41CA00810740 /* Result.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -563,7 +574,6 @@
 				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -572,7 +582,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,6 +650,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE9A8F7218F41CA00810740 /* Result.swift in Sources */,
 				B01733892128CBA900FBEFE5 /* QuadrantItemView.swift in Sources */,
 				B0A4DB3C212A066C000CFC7F /* ConfettiButton.swift in Sources */,
 				B01733972128E8EA00FBEFE5 /* ActionTableSectionController.swift in Sources */,
@@ -802,6 +812,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -855,6 +866,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -874,7 +886,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thexande.swift-algorithms";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -894,7 +906,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thexande.swift-algorithms";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

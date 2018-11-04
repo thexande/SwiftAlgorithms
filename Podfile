@@ -9,7 +9,7 @@ target 'swift_algorithms' do
   pod 'MarkdownView'
   pod 'Anchorage'
   pod 'lottie-ios'
-  pod 'Result'
+  #pod 'Result'
   pod 'Hero'
   pod 'DeviceKit'
   

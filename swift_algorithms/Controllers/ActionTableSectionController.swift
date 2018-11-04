@@ -54,7 +54,7 @@ extension ActionTableSectionController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return rows[indexPath.row].tableView?(tableView, heightForRowAt: indexPath) ?? UITableViewAutomaticDimension
+        return rows[indexPath.row].tableView?(tableView, heightForRowAt: indexPath) ?? UITableView.automaticDimension
     }
 }
 

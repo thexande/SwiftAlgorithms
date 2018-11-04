@@ -1,5 +1,4 @@
 import Foundation
-import Result
 
 enum StringNetworkServiceError: Error {
     case contentLoadingFailure
@@ -7,14 +6,14 @@ enum StringNetworkServiceError: Error {
 
 final class StringNetworkService {
     public func fetchMarkdown(with url: URL,
-                       completion: @escaping ((Result<String, StringNetworkServiceError>) -> Void)) {
+                       completion: @escaping ResultHandler<String>) {
         DispatchQueue.global(qos: .background).async {
             do {
                 let contents = try String(contentsOf: url)
                 completion(.success(contents))
             } catch {
                 // contents could not be loaded
-                completion(.failure(.contentLoadingFailure))
+                completion(.failure(StringNetworkServiceError.contentLoadingFailure))
             }
         }
     }

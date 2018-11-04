@@ -1,8 +1,6 @@
 import UIKit
 
-enum Algorithm {
-    static let allCases: [Algorithm] = [.whatAreAlgorithms, .whyLearnAlgorithms, .bigO, .designTechniques, .howToContribute, .stack, .queue, .insertionSort, .binarySearch, .binarySearchTree, .mergeSort, .boyerMoore, .linnearSearch, .countOccurences, .selectMinMax, .kthLargestElement, .selectionSampling, .unionFind, .bruteForceStringSearch, .knuthMorrisPratt, .rabinKarp, .longestCommonSubsequence, .zAlgorithm, .selectionSort, .shellSort, .quickSort, .heapSort, .introSort, .countingSort, .radixSort, .topologicalSort, .bubbleSort, .slowSort, .runLengthEncoding, .huffmanCoding, .shuffle, .comboSort, .convexHull, .millerRabin, .minimumCoin, .gcd, .permutationsAndCombinations, .shuntingYard, .karatsubaMultiplication, .haversineDistance, .strassenMultiplicationMatrix, .kMeansClustering, .linnearRegression, .naiveBayesClassifier, .simulatedAnnealing]
-    // Introduction
+enum Algorithm: CaseIterable {
     
     case whatAreAlgorithms
     case whyLearnAlgorithms

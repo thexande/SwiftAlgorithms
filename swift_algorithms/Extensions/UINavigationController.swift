@@ -2,11 +2,11 @@ import UIKit
 
 extension UINavigationController {
     func setTitleForgroundTitleColor(_ color: UIColor) {
-        self.navigationBar.titleTextAttributes = [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): color]
+        self.navigationBar.titleTextAttributes = [.foregroundColor: color]
     }
     
     func setLargeTitleColor(_ color: UIColor) {
-        self.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): color]
+        self.navigationBar.largeTitleTextAttributes = [.foregroundColor: color]
     }
     
     func setAllTitleColor(_ color: UIColor) {

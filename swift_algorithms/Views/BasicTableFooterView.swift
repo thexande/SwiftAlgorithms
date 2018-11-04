@@ -15,7 +15,7 @@ final class BasicTableFooterView: UITableViewHeaderFooterView, Reusable {
         super.init(reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
         contentView.addSubview(label)
-        label.edgeAnchors == contentView.edgeAnchors + UIEdgeInsetsMake(18, 18, 18, 18)
+        label.edgeAnchors == contentView.edgeAnchors + UIEdgeInsets(top: 18, left: 18, bottom: 18, right: 18)
         label.font = UIFont.systemFont(ofSize: 12)
         label.numberOfLines = 0
     }

@@ -8,7 +8,7 @@ final class AlgorithmViewController: SectionProxyTableViewController {
     
     weak var dispatcher: AlgorithmViewActionDispatching?
     
-    override init(style: UITableViewStyle) {
+    override init(style: UITableView.Style) {
         super.init(style: .grouped)
     }
     
