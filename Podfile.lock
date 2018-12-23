@@ -1,9 +1,9 @@
 PODS:
   - Anchorage (4.3)
-  - DeviceKit (1.9.0)
+  - DeviceKit (1.11.0)
   - Hero (1.4.0)
-  - lottie-ios (2.5.0)
-  - MarkdownView (1.3.0)
+  - lottie-ios (2.5.2)
+  - MarkdownView (1.5.0)
   - Result (4.0.0)
 
 DEPENDENCIES:
@@ -25,10 +25,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Anchorage: 21a98675245188427f0bcea21404d42a824a766f
-  DeviceKit: a376cb3d0dda0c27c81dcc0d2b7b8600b6802065
+  DeviceKit: a3a86f8dddbe1317a9a243cdf9646858bf135dce
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
-  lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
-  MarkdownView: 6cee6c558eed4a012005405066071ef16a042d17
+  lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
+  MarkdownView: 5bbee438c823db1cd189002d44c84fa909b3a896
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
 
 PODFILE CHECKSUM: 3720e603a6263779489f9b7708cd399f5be0607c

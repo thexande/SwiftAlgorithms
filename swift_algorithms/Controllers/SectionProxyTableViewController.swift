@@ -53,7 +53,7 @@ class SectionProxyTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return sections[indexPath.section].tableView?(tableView, heightForRowAt: indexPath) ?? UITableViewAutomaticDimension
+        return sections[indexPath.section].tableView?(tableView, heightForRowAt: indexPath) ?? UITableView.automaticDimension
     }
 }
 

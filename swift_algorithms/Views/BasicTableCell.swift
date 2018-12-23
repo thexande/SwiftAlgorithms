@@ -2,7 +2,7 @@ import UIKit
 import Anchorage
 
 final class BasicTableCell: UITableViewCell {
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         detailTextLabel?.numberOfLines = 0
         textLabel?.numberOfLines = 0
@@ -14,7 +14,7 @@ final class BasicTableCell: UITableViewCell {
 }
 
 final class BasicTableHeaderCell: UITableViewCell {
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         textLabel?.numberOfLines = 0
         textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
@@ -33,7 +33,7 @@ final class SearchResultsTableCell: UITableViewCell {
     let title = UILabel()
     let indicator = UIView()
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(title)
         title.edgeAnchors == contentView.edgeAnchors + UIEdgeInsets(top: 12, left: 42, bottom: 12, right: 12)

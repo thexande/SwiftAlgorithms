@@ -491,6 +491,7 @@
 				TargetAttributes = {
 					B00B269E2123B5DE00E1DF9C = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1010;
 					};
 					B00B26B22123B5E000E1DF9C = {
 						CreatedOnToolsVersion = 10.0;
@@ -874,7 +875,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thexande.swift-algorithms";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -894,7 +895,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thexande.swift-algorithms";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

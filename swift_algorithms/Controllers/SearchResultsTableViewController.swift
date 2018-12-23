@@ -54,11 +54,11 @@ final class SearchResultsTableViewController: SectionProxyTableViewController {
             tableView.backgroundView?.isHidden = true
         } else {
             empty.isHidden = false
-            view.bringSubview(toFront: empty)
+            view.bringSubviewToFront(empty)
         }
     }
     
-    override init(style: UITableViewStyle) {
+    override init(style: UITableView.Style) {
         super.init(style: .grouped)
     }
     

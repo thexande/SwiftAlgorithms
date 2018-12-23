@@ -36,11 +36,11 @@ extension BasicTableSectionController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return (sectionTitle != nil || sectionSubtitle != nil) ? UITableViewAutomaticDimension : 0
+        return (sectionTitle != nil || sectionSubtitle != nil) ? UITableView.automaticDimension : 0
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return (footerText != nil) ? UITableViewAutomaticDimension : 0
+        return (footerText != nil) ? UITableView.automaticDimension : 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -65,7 +65,7 @@ extension BasicTableSectionController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return rows[indexPath.row].tableView?(tableView, heightForRowAt: indexPath) ?? UITableViewAutomaticDimension
+        return rows[indexPath.row].tableView?(tableView, heightForRowAt: indexPath) ?? UITableView.automaticDimension
     }
 }
 

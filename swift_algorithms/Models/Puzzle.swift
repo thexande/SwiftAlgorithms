@@ -55,8 +55,6 @@ enum Puzzle {
             return "The egg drop problem is an interview question popularized by Google. The premise is simple; You're given a task to evaluate the shatter resistance of unknown objects by dropping them at a certain height. For simplicity, you test this by going inside a multi-story building and performing tests by dropping the objects out the window and onto the ground"
         case .encodingAndDecodingBinaryTree:
             return "Trees are complex structures. Unlike linear collections such as arrays or linked lists, trees are non-linear and each element in a tree has positional information such as the parent-child relationship between nodes. When you want to send a tree structure to your backend, you need to send the data of each node, and a way to represent the parent-child relationship for each node."
-            
-        default: return nil
         }
     }
     

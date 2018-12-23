@@ -62,13 +62,13 @@ final class OnboardingInformationViewController: UIViewController {
         let attributedTitle = NSMutableAttributedString()
         
         let prefixAttributes = [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 42, weight: .black),
-            NSAttributedStringKey.foregroundColor : UIColor.black
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 42, weight: .black),
+            NSAttributedString.Key.foregroundColor : UIColor.black
         ]
         
         let titleAttributes = [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 42, weight: .black),
-            NSAttributedStringKey.foregroundColor : UIColor.coral()
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 42, weight: .black),
+            NSAttributedString.Key.foregroundColor : UIColor.coral()
         ]
         
         let prefix = NSMutableAttributedString(string:"Welcome to ", attributes: prefixAttributes)
