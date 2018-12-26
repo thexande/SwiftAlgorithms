@@ -7,6 +7,11 @@ final class MarkdownPresentationViewController: UIViewController {
     let markdownView = MarkdownView()
     let loading = TableLoadingView()
     
+    func setSetMarkdown(_ markdown: String) {
+        view.bringSubviewToFront(loading)
+        markdownView.load(markdown: markdown)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never

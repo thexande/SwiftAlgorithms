@@ -1,4 +1,5 @@
 import UIKit
+import DeviceKit
 
 final class CategorySideScrollingCollecitonSectionController: NSObject, CollectionSectionController {
     
@@ -29,7 +30,17 @@ final class CategorySideScrollingCollecitonSectionController: NSObject, Collecti
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (self.width / 2.6)
+        
+        let device = Device()
+        let width: CGFloat
+        
+        if device.isPad {
+            width = 112
+        } else {
+            width = (self.width / 2.6)
+        }
+        
+        
         return CGSize(width: width, height: collectionView.frame.height - 40)
     }
     

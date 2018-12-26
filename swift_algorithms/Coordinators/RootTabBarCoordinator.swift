@@ -1,4 +1,36 @@
 import UIKit
+import Anchorage
+
+protocol ViewControllerContainerInterface {
+    var viewController: UIViewController? { get set }
+    mutating func add(_ viewController: UIViewController)
+    mutating func remove()
+}
+
+extension ViewControllerContainerInterface where Self: UIViewController {
+    mutating func add(_ viewController: UIViewController) {
+        remove()
+        self.viewController = viewController
+        
+        guard let viewController = self.viewController else {
+            return
+        }
+        
+        addChild(viewController)
+        view.addSubview(viewController.view)
+        viewController.view.edgeAnchors == view.edgeAnchors
+    }
+    
+    mutating func remove() {
+        viewController?.view.removeFromSuperview()
+        viewController?.removeFromParent()
+        viewController = nil
+    }
+}
+
+final class ContainerViewController: UIViewController, ViewControllerContainerInterface {
+    var viewController: UIViewController?
+}
 
 final class RootTabCoordinator {
     
@@ -6,6 +38,8 @@ final class RootTabCoordinator {
     
     private let algorithmViewController = AlgorithmViewController(style: .plain)
     private let algorithmPresenter = AlgorithmPresenter()
+    private let algorithmMarkdownViewController = MarkdownPresentationViewController()
+    private var algorithmSplitContainerViewController = ContainerViewController()
     
     private let algorithmSearchResultsController = SearchResultsTableViewController(style: .grouped)
     private let algorithmSearchResultsPresenter = AlgorithmSearchPresenter()
@@ -22,7 +56,7 @@ final class RootTabCoordinator {
     
     private let aboutViewController = AboutViewController()
     
-    private var algorithmNav: UINavigationController?
+    private var algorithmNav: UIViewController?
     private var dataStructuresNav: UINavigationController?
     
     private let urlFactory = UrlFactory()
@@ -84,7 +118,7 @@ final class RootTabCoordinator {
         }
     }
     
-    private func makeAlgorithmViewController() -> UINavigationController {
+    private func makeAlgorithmViewController() -> UIViewController {
         let tabBarSize = CGSize(width: 30, height: 30)
         
         algorithmSearchResultsPresenter.deliver = { [weak algorithmSearchResultsController] properties in
@@ -102,10 +136,7 @@ final class RootTabCoordinator {
         algorithmSearchController.searchBar.placeholder = "Search Algorithms"
         
         algorithmViewController.navigationItem.searchController = algorithmSearchController
-        
         algorithmViewController.title = "Algorithms"
-        let algoImage = UIImage(named: "algo")?.scaledImage(withSize: tabBarSize)
-        algorithmViewController.tabBarItem = UITabBarItem(title: "Algorithms", image: algoImage, selectedImage: algoImage)
         
         
         // configure sections
@@ -117,7 +148,17 @@ final class RootTabCoordinator {
         let algoNav = UINavigationController(rootViewController: algorithmViewController)
         algoNav.navigationBar.prefersLargeTitles = true
         
-        return algoNav
+        algorithmSplitContainerViewController.add(AboutViewController())
+        
+        let split = UISplitViewController()
+        split.viewControllers = [algoNav, algorithmSplitContainerViewController]
+        
+        let algoImage = UIImage(named: "algo")?.scaledImage(withSize: tabBarSize)
+        split.tabBarItem = UITabBarItem(title: "Algorithms",
+                                        image: algoImage,
+                                        selectedImage: algoImage)
+        
+        return split
     }
     
     private func makeDataStructureViewController() -> UINavigationController {
@@ -211,6 +252,8 @@ final class RootTabCoordinator {
             return
         }
         
+        
+        
         self.categoryCoordinator = categoryCoordinator
         
         algorithmNav?.present(nav, animated: true, completion: nil)
@@ -232,9 +275,33 @@ final class RootTabCoordinator {
             return
         }
         
-        handleMarkdownResourceSelect(with: url,
-                                     resourceTitle: algorithm.navTitle,
-                                     navigationStack: algorithmNav)
+        
+        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
+            switch result {
+            case let .success(markdown):
+                
+                DispatchQueue.main.async {
+                    self?.algorithmMarkdownViewController.title = algorithm.title
+                    self?.algorithmMarkdownViewController.setSetMarkdown(markdown)
+                    
+                    guard let markdownViewController = self?.algorithmMarkdownViewController else {
+                        return
+                    }
+                    
+                    if self?.algorithmSplitContainerViewController.viewController is MarkdownPresentationViewController == false {
+                        self?.algorithmSplitContainerViewController.add(markdownViewController)
+                    }
+                }
+                
+            case .failure:
+                return
+            }
+        }
+        
+        
+//        handleMarkdownResourceSelect(with: url,
+//                                     resourceTitle: algorithm.navTitle,
+//                                     navigationStack: algorithmNav)
     }
     
     private func handleDataStructureSelect(_ dataStructure: DataStructure) {
