@@ -11,7 +11,11 @@ final class StringNetworkService {
         DispatchQueue.global(qos: .background).async {
             do {
                 let contents = try String(contentsOf: url)
-                completion(.success(contents))
+                
+                let urlFrag = "\("\(url)".components(separatedBy: "/").dropLast().joined(separator: "/"))/Images/"
+                
+                let fixedUrlMarkdown = contents.replacingOccurrences(of: "Images/", with: urlFrag)
+                completion(.success(fixedUrlMarkdown))
             } catch {
                 // contents could not be loaded
                 completion(.failure(.contentLoadingFailure))
