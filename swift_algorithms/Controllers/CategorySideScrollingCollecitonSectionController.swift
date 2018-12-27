@@ -35,7 +35,7 @@ final class CategorySideScrollingCollecitonSectionController: NSObject, Collecti
         let width: CGFloat
         
         if device.isPad {
-            width = 112
+            width = 140
         } else {
             width = (self.width / 2.6)
         }

@@ -1,36 +1,63 @@
 import UIKit
 import Anchorage
 
-protocol ViewControllerContainerInterface {
-    var viewController: UIViewController? { get set }
-    mutating func add(_ viewController: UIViewController)
-    mutating func remove()
-}
-
-extension ViewControllerContainerInterface where Self: UIViewController {
-    mutating func add(_ viewController: UIViewController) {
-        remove()
-        self.viewController = viewController
-        
-        guard let viewController = self.viewController else {
-            return
-        }
-        
-        addChild(viewController)
-        view.addSubview(viewController.view)
-        viewController.view.edgeAnchors == view.edgeAnchors
+final class GlobalSplitViewController: UISplitViewController, UISplitViewControllerDelegate {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.delegate = self
     }
     
-    mutating func remove() {
-        viewController?.view.removeFromSuperview()
-        viewController?.removeFromParent()
-        viewController = nil
+    func splitViewController(_ splitViewController: UISplitViewController,
+                             collapseSecondary secondaryViewController: UIViewController,
+                             onto primaryViewController: UIViewController) -> Bool {
+        return true
     }
+    
 }
 
-final class ContainerViewController: UIViewController, ViewControllerContainerInterface {
-    var viewController: UIViewController?
-}
+//protocol ViewControllerContainerInterface {
+//    var viewController: UIViewController? { get set }
+//    mutating func add(_ viewController: UIViewController)
+//    mutating func remove()
+//}
+//
+//extension ViewControllerContainerInterface where Self: UIViewController {
+//    mutating func add(_ viewController: UIViewController) {
+//        remove()
+//        self.viewController = viewController
+//
+//        guard let viewController = self.viewController else {
+//            return
+//        }
+//
+//        addChild(viewController)
+//        view.addSubview(viewController.view)
+//        viewController.view.edgeAnchors == view.edgeAnchors
+//    }
+//
+//    mutating func remove() {
+//        viewController?.view.removeFromSuperview()
+//        viewController?.removeFromParent()
+//        viewController = nil
+//    }
+//}
+//
+//final class ContainerViewController: UIViewController, ViewControllerContainerInterface {
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+//        navigationItem.leftItemsSupplementBackButton = true
+//        navigationItem.largeTitleDisplayMode = .always
+//        hero.isEnabled = true
+//    }
+//
+//    var viewController: UIViewController? {
+//        didSet {
+//            title = viewController?.title
+//        }
+//    }
+//}
 
 final class RootTabCoordinator {
     
@@ -39,7 +66,7 @@ final class RootTabCoordinator {
     private let algorithmViewController = AlgorithmViewController(style: .plain)
     private let algorithmPresenter = AlgorithmPresenter()
     private let algorithmMarkdownViewController = MarkdownPresentationViewController()
-    private var algorithmSplitContainerViewController = ContainerViewController()
+//    private var algorithmSplitContainerViewController = ContainerViewController()
     
     private let algorithmSearchResultsController = SearchResultsTableViewController(style: .grouped)
     private let algorithmSearchResultsPresenter = AlgorithmSearchPresenter()
@@ -148,10 +175,14 @@ final class RootTabCoordinator {
         let algoNav = UINavigationController(rootViewController: algorithmViewController)
         algoNav.navigationBar.prefersLargeTitles = true
         
-        algorithmSplitContainerViewController.add(AboutViewController())
+        let about = AboutViewController()
+
+        let split = GlobalSplitViewController()
+        split.viewControllers = [algoNav, UINavigationController(rootViewController: about)]
         
-        let split = UISplitViewController()
-        split.viewControllers = [algoNav, algorithmSplitContainerViewController]
+        about.navigationItem.leftBarButtonItem = split.displayModeButtonItem
+        about.navigationItem.leftItemsSupplementBackButton = true
+        
         
         let algoImage = UIImage(named: "algo")?.scaledImage(withSize: tabBarSize)
         split.tabBarItem = UITabBarItem(title: "Algorithms",
@@ -288,9 +319,7 @@ final class RootTabCoordinator {
                         return
                     }
                     
-                    if self?.algorithmSplitContainerViewController.viewController is MarkdownPresentationViewController == false {
-                        self?.algorithmSplitContainerViewController.add(markdownViewController)
-                    }
+                    self?.algorithmViewController.showDetailViewController(markdownViewController, sender: nil)
                 }
                 
             case .failure:
