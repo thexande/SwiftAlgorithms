@@ -84,7 +84,7 @@ final class RootTabCoordinator {
     private let aboutViewController = AboutViewController()
     
     private var algorithmNav: UIViewController?
-    private var dataStructuresNav: UINavigationController?
+    private var dataStructuresNav: UIViewController?
     
     private let urlFactory = UrlFactory()
     private let stringNetworkService = StringNetworkService()
@@ -192,7 +192,7 @@ final class RootTabCoordinator {
         return split
     }
     
-    private func makeDataStructureViewController() -> UINavigationController {
+    private func makeDataStructureViewController() -> UIViewController {
         let tabBarSize = CGSize(width: 30, height: 30)
         
         dataStructureSearchResultsPresenter.deliver = { [weak dataStructureSearchResultsController] properties in
@@ -213,16 +213,28 @@ final class RootTabCoordinator {
         
         let dataStructureImage = UIImage(named: "data_structure")?.scaledImage(withSize: tabBarSize)
         dataStructureController.title = "Data Structures"
-        dataStructureController.tabBarItem = UITabBarItem(title: "Data Structures", image: dataStructureImage, selectedImage: dataStructureImage)
         
         
-        let dataStructureSectionControllers: [TableSectionController] = dataStructurePresenter.makeAllSectiions()
+        
+        let dataStructureSectionControllers = dataStructurePresenter.makeAllSectiions()
         
         dataStructureController.update(with: dataStructureSectionControllers)
         
         let dataNav = UINavigationController(rootViewController: dataStructureController)
         dataNav.navigationBar.prefersLargeTitles = true
-        return dataNav
+        
+        let about = AboutViewController()
+        let split = GlobalSplitViewController()
+        split.tabBarItem = UITabBarItem(title: "Data Structures",
+                                        image: dataStructureImage,
+                                        selectedImage: dataStructureImage)
+        
+        split.viewControllers = [dataNav, UINavigationController(rootViewController: about)]
+        
+        about.navigationItem.leftBarButtonItem = split.displayModeButtonItem
+        about.navigationItem.leftItemsSupplementBackButton = true
+        
+        return split
     }
     
     func makeRootTabBarController() -> RootTabBarController {
@@ -326,21 +338,30 @@ final class RootTabCoordinator {
                 return
             }
         }
-        
-        
-//        handleMarkdownResourceSelect(with: url,
-//                                     resourceTitle: algorithm.navTitle,
-//                                     navigationStack: algorithmNav)
     }
     
     private func handleDataStructureSelect(_ dataStructure: DataStructure) {
+       
         guard let url = urlFactory.markdownFileUrl(for: dataStructure) else {
             return
         }
         
-        handleMarkdownResourceSelect(with: url,
-                                     resourceTitle: dataStructure.title,
-                                     navigationStack: dataStructuresNav)
+        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
+            switch result {
+            case let .success(markdown):
+                
+                DispatchQueue.main.async {
+                    let markdownView = MarkdownPresentationViewController()
+                    markdownView.title = dataStructure.title
+                    markdownView.setSetMarkdown(markdown)
+                    
+                    self?.dataStructuresNav?.showDetailViewController(markdownView, sender: nil)
+                }
+                
+            case .failure:
+                return
+            }
+        }
     }
     
     private func handlePuzzleSelect(_ puzzle: Puzzle) {
