@@ -6,7 +6,7 @@ target 'swift_algorithms' do
   use_frameworks!
 
   # Pods for swift_algorithms
-  pod 'MarkdownView'
+  pod 'MarkdownView', :git => 'https://github.com/thexande/MarkdownView.git', :branch => 'master'
   pod 'Anchorage'
   pod 'lottie-ios'
   pod 'Result'

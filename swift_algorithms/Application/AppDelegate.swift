@@ -13,12 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     UINavigationBar.appearance().tintColor = UIColor.coral()
     UINavigationBar.appearance().isTranslucent = false
-    UINavigationBar.appearance().backgroundColor = .black
+//    UINavigationBar.appearance().backgroundColor = .black
     UINavigationBar.appearance().barStyle = UIBarStyle.black //user global variable
     
     
     UITabBar.appearance().barStyle = .black
     UITabBar.appearance().tintColor = UIColor.coral()
+    
+    UITableView.appearance().backgroundColor = .darkModeTableBackground
     
     
     UITableViewCell.appearance().backgroundColor = .black

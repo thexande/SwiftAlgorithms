@@ -33,7 +33,6 @@ final class CategoryDetailView: View {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         let status = UIApplication.shared.statusBarFrame.height
         cardView.verticalOffset = status + 36
     }
@@ -44,7 +43,8 @@ final class CategoryDetailView: View {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundColor = .white
+        
+        tableView.tableFooterView = UIView()
         
         cardView.layer.cornerRadius = 0
         cardView.layer.shadowColor = UIColor.clear.cgColor
@@ -52,10 +52,15 @@ final class CategoryDetailView: View {
         addSubview(tableView)
         addSubview(cardView)
         
+        tableView.backgroundColor = .darkModeTableBackground
+        
+        
+        
         tableView.hero.modifiers = [.useNoSnapshot, .translate(y: -80), .fade]
         
         cardView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(pan(gr:))))
     }
+    
     @objc func pan(gr: UIPanGestureRecognizer) {
         let translation = gr.translation(in: self)
         switch gr.state {

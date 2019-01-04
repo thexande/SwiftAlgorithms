@@ -38,7 +38,7 @@ final class BasicTableHeaderView: UITableViewHeaderFooterView {
         contentView.addSubview(stack)
         stack.edgeAnchors == contentView.edgeAnchors + UIEdgeInsets(top: 8, left: 18, bottom: 8, right: 18)
         
-        contentView.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.09, alpha:1.0)
+        contentView.backgroundColor = .darkModeTableBackground
     }
     
     required init?(coder aDecoder: NSCoder) {
