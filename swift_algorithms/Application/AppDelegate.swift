@@ -1,35 +1,128 @@
 import UIKit
 
+protocol AppCoordinatorActionsDispatching: AnyObject {
+    func userDidShake()
+}
+
+final class AppCoordinator {
+    
+    private var rootTabCoordinator: RootTabCoordinator? {
+        didSet {
+            root = rootTabCoordinator?.root
+        }
+    }
+    
+    var root: UIViewController? {
+        didSet {
+            if
+                let app = UIApplication.shared.delegate as? AppDelegate,
+                let window = app.window,
+                let root = root {
+                    window.switchRootViewController(root)
+            }
+        }
+    }
+    
+    private var currentTheme: Theme = .dark {
+        didSet {
+            setAppearance(with: currentTheme)
+            rootTabCoordinator = RootTabCoordinator(theme: currentTheme)
+            rootTabCoordinator?.appCoordinatorDispatch = self
+        }
+    }
+    
+    init() {
+        rootTabCoordinator = RootTabCoordinator(theme: currentTheme)
+        rootTabCoordinator?.appCoordinatorDispatch = self
+    }
+    
+    func rootViewController() -> UIViewController? {
+        let coordinator = RootTabCoordinator(theme: currentTheme)
+        coordinator.appCoordinatorDispatch = self
+        rootTabCoordinator = coordinator
+        root = coordinator.root
+        return root
+    }
+    
+    private func setAppearance(with theme: Theme) {
+        
+        let tint: UIColor
+        let background: UIColor
+        let style: UIBarStyle
+        let tableBackground: UIColor
+        
+        switch theme {
+        case .dark:
+            tint = .coral()
+            background = .black
+            style = .black
+            tableBackground = .darkModeTableBackground()
+            UITextField.appearance().keyboardAppearance = .dark
+        case .light:
+            tint = .blue
+            background = .white
+            style = .default
+            tableBackground = .white
+        }
+        
+        
+        UINavigationBar.appearance().tintColor = tint
+        UINavigationBar.appearance().barStyle = style
+        
+        
+        UITabBar.appearance().barStyle = style
+        UITabBar.appearance().tintColor = tint
+        
+        UITableView.appearance().backgroundColor = tableBackground
+        
+        UITextField.appearance().tintColor = tint
+        UISearchBar.appearance().tintColor = tint
+        
+        UITableViewCell.appearance().backgroundColor = background
+    }
+    
+}
+
+extension AppCoordinator: AppCoordinatorActionsDispatching {
+    func userDidShake() {
+        switch currentTheme {
+        case .dark:
+            currentTheme = .light
+        case .light:
+            currentTheme = .dark
+        }
+    }
+}
+
+extension UIWindow {
+    
+    func switchRootViewController(_ viewController: UIViewController,  animated: Bool = true, duration: TimeInterval = 0.5, options: UIView.AnimationOptions = .transitionFlipFromRight, completion: (() -> Void)? = nil) {
+        guard animated else {
+            rootViewController = viewController
+            return
+        }
+        
+        UIView.transition(with: self, duration: duration, options: options, animations: {
+            let oldState = UIView.areAnimationsEnabled
+            UIView.setAnimationsEnabled(false)
+            self.rootViewController = viewController
+            UIView.setAnimationsEnabled(oldState)
+        }) { _ in
+            completion?()
+        }
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let coordinator = RootTabCoordinator()
+    let coordinator = AppCoordinator()
 
  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = coordinator.root
+        window?.rootViewController = coordinator.rootViewController()
         window?.makeKeyAndVisible()
-    
-    UINavigationBar.appearance().tintColor = UIColor.coral()
-    UINavigationBar.appearance().barStyle = UIBarStyle.black //user global variable
-    
-    
-    UITabBar.appearance().barStyle = .black
-    UITabBar.appearance().tintColor = .coral()
-    
-    UITableView.appearance().backgroundColor = .darkModeTableBackground()
-    
-    UITextField.appearance().keyboardAppearance = .dark
-    UITextField.appearance().tintColor = .coral()
-    UISearchBar.appearance().tintColor = .coral()
-    
-    
-    UITableViewCell.appearance().backgroundColor = .black
-//    UITableViewCell.appearance().color
-    //UINavigationBar.appearance().tintColor =
-
-    
         return true
     }
 }

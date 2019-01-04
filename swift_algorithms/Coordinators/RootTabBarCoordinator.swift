@@ -1,12 +1,26 @@
 import UIKit
 import Anchorage
 
+enum Theme {
+    case light
+    case dark
+}
+
 final class GlobalSplitViewController: UISplitViewController, UISplitViewControllerDelegate {
     
-    
+    let theme: Theme
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return theme == .light ? .lightContent : .default
+    }
+    
+    init(theme: Theme) {
+        self.theme = theme
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -68,6 +82,8 @@ final class GlobalSplitViewController: UISplitViewController, UISplitViewControl
 
 final class RootTabCoordinator {
     
+    weak var appCoordinatorDispatch: AppCoordinatorActionsDispatching?
+    
     private let onboardingViewController = OnboardingInformationViewController()
     
     private let algorithmViewController = AlgorithmViewController(style: .plain)
@@ -101,7 +117,10 @@ final class RootTabCoordinator {
     
     var root: UIViewController?
     
-    init() {
+    let theme: Theme
+    
+    init(theme: Theme) {
+        self.theme = theme
         // configure dispatch
         algorithmPresenter.dispatcher = self
         algorithmViewController.dispatcher = algorithmPresenter
@@ -185,7 +204,7 @@ final class RootTabCoordinator {
         
         let about = AboutViewController()
 
-        let split = GlobalSplitViewController()
+        let split = GlobalSplitViewController(theme: theme)
         split.viewControllers = [algoNav, UINavigationController(rootViewController: about)]
         
         about.navigationItem.leftBarButtonItem = split.displayModeButtonItem
@@ -232,7 +251,7 @@ final class RootTabCoordinator {
         dataNav.navigationBar.prefersLargeTitles = true
         
         let about = AboutViewController()
-        let split = GlobalSplitViewController()
+        let split = GlobalSplitViewController(theme: theme)
         split.tabBarItem = UITabBarItem(title: "Data Structures",
                                         image: dataStructureImage,
                                         selectedImage: dataStructureImage)
