@@ -11,6 +11,7 @@ final class RootTabBarController: UITabBarController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         tabBar.tintColor = .coral()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

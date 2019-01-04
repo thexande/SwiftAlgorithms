@@ -11,10 +11,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = coordinator.root
         window?.makeKeyAndVisible()
     
+    UINavigationBar.appearance().tintColor = UIColor.coral()
     UINavigationBar.appearance().isTranslucent = false
     UINavigationBar.appearance().backgroundColor = .black
     UINavigationBar.appearance().barStyle = UIBarStyle.black //user global variable
-    UINavigationBar.appearance().tintColor = UIColor.black //user global variable
+    
+    
+    UITabBar.appearance().barStyle = .black
+    UITabBar.appearance().tintColor = UIColor.coral()
+    
     
     UITableViewCell.appearance().backgroundColor = .black
 //    UITableViewCell.appearance().color
