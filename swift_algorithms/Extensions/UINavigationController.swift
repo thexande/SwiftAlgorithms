@@ -14,4 +14,3 @@ extension UINavigationController {
         setLargeTitleColor(color)
     }
 }
-

@@ -175,6 +175,7 @@ final class RootTabCoordinator {
         let algoNav = UINavigationController(rootViewController: algorithmViewController)
         algoNav.navigationBar.prefersLargeTitles = true
         
+        
         let about = AboutViewController()
 
         let split = GlobalSplitViewController()
@@ -241,6 +242,7 @@ final class RootTabCoordinator {
         let controller = RootTabBarController()
         
         let algoNav = makeAlgorithmViewController()
+        
         algorithmNav = algoNav
         
         let dataNav = makeDataStructureViewController()

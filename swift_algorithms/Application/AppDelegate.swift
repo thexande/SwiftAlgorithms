@@ -10,7 +10,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = coordinator.root
         window?.makeKeyAndVisible()
+    
+    UINavigationBar.appearance().isTranslucent = false
+
+    UINavigationBar.appearance().backgroundColor = .black
+    UINavigationBar.appearance().barStyle = UIBarStyle.black //user global variable
+    UINavigationBar.appearance().tintColor = UIColor.black //user global variable
+    //UINavigationBar.appearance().tintColor =
+
+    
         return true
     }
 }
-
