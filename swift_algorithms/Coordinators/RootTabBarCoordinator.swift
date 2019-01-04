@@ -3,6 +3,8 @@ import Anchorage
 
 final class GlobalSplitViewController: UISplitViewController, UISplitViewControllerDelegate {
     
+    
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

@@ -25,6 +25,7 @@ final class MarkdownPresentationViewController: UIViewController {
         view.backgroundColor = .groupTableViewBackground
         markdownView.backgroundColor = .groupTableViewBackground
         
+        
         markdownView.onTouchLink = { [weak self] request in
             guard let url = request.url else { return false }
             

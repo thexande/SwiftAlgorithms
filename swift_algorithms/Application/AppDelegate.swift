@@ -12,8 +12,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
     
     UINavigationBar.appearance().tintColor = UIColor.coral()
-//    UINavigationBar.appearance().isTranslucent = false
-//    UINavigationBar.appearance().backgroundColor = .black
     UINavigationBar.appearance().barStyle = UIBarStyle.black //user global variable
     
     

@@ -22,8 +22,8 @@ final class BasicTableHeaderView: UITableViewHeaderFooterView {
         contentView.backgroundColor = .groupTableViewBackground
         let labels = [titleLabel, subtitleLabel]
         
-        titleLabel.textColor = .darkGray
-        subtitleLabel.textColor = .darkGray
+        titleLabel.textColor = .lightGray
+        subtitleLabel.textColor = .lightGray
         
         labels.forEach { label in
             label.numberOfLines = 0
