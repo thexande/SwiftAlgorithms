@@ -6,6 +6,7 @@ final class BasicTableCell: UITableViewCell {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         detailTextLabel?.numberOfLines = 0
         textLabel?.numberOfLines = 0
+        textLabel?.textColor = .white
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -21,6 +22,7 @@ final class BasicTableHeaderCell: UITableViewCell {
         separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
         selectionStyle = .none
         contentView.backgroundColor = .groupTableViewBackground
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,6 +48,9 @@ final class SearchResultsTableCell: UITableViewCell {
         indicator.centerYAnchor == title.centerYAnchor
         indicator.leadingAnchor == contentView.leadingAnchor + 18
         indicator.installCardShadow()
+        
+        textLabel?.backgroundColor = .white
+
         
 //        separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -18)
         

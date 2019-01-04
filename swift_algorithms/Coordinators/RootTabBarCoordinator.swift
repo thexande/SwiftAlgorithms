@@ -3,9 +3,14 @@ import Anchorage
 
 final class GlobalSplitViewController: UISplitViewController, UISplitViewControllerDelegate {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        view.backgroundColor = .black
     }
     
     func splitViewController(_ splitViewController: UISplitViewController,
