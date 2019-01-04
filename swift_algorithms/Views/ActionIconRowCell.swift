@@ -56,11 +56,12 @@ final class ActionIconRowCell: UITableViewCell {
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         
         titleLabel.textColor = .white
+        subtitleLabel.textColor = .white
         
         subtitleLabel.numberOfLines = 0
         subtitleLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         
-        subtitleLabel.textColor = .darkModeSubTitle
+        
         
         accessoryType = .disclosureIndicator
         

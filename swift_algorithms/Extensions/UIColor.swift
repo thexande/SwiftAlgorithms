@@ -59,7 +59,11 @@ extension UIColor {
         return UIColor(red:0.56, green:0.56, blue:0.58, alpha:1.0)
     }
     
-    static var darkModeTableBackground: UIColor {
+    static func darkModeTableBackground() -> UIColor {
         return UIColor(red:0.09, green:0.09, blue:0.09, alpha:1.0)
+    }
+    
+    static func darkModeMardown() -> UIColor {
+        return UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
     }
 }

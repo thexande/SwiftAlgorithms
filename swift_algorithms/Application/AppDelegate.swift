@@ -12,15 +12,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
     
     UINavigationBar.appearance().tintColor = UIColor.coral()
-    UINavigationBar.appearance().isTranslucent = false
+//    UINavigationBar.appearance().isTranslucent = false
 //    UINavigationBar.appearance().backgroundColor = .black
     UINavigationBar.appearance().barStyle = UIBarStyle.black //user global variable
     
     
     UITabBar.appearance().barStyle = .black
-    UITabBar.appearance().tintColor = UIColor.coral()
+    UITabBar.appearance().tintColor = .coral()
     
-    UITableView.appearance().backgroundColor = .darkModeTableBackground
+    UITableView.appearance().backgroundColor = .darkModeTableBackground()
+    
+    UITextField.appearance().keyboardAppearance = .dark
+    UITextField.appearance().tintColor = .coral()
+    UISearchBar.appearance().tintColor = .coral()
     
     
     UITableViewCell.appearance().backgroundColor = .black

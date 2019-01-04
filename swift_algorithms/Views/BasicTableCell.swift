@@ -6,7 +6,9 @@ final class BasicTableCell: UITableViewCell {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         detailTextLabel?.numberOfLines = 0
         textLabel?.numberOfLines = 0
+        
         textLabel?.textColor = .white
+        detailTextLabel?.textColor = .white
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,6 +43,8 @@ final class SearchResultsTableCell: UITableViewCell {
         title.edgeAnchors == contentView.edgeAnchors + UIEdgeInsets(top: 12, left: 42, bottom: 12, right: 12)
         title.numberOfLines = 0
         
+        title.textColor = .white
+        
         contentView.addSubview(indicator)
         indicator.sizeAnchors == CGSize(width: 12, height: 12)
         indicator.layer.cornerRadius = 6
@@ -49,7 +53,7 @@ final class SearchResultsTableCell: UITableViewCell {
         indicator.leadingAnchor == contentView.leadingAnchor + 18
         indicator.installCardShadow()
         
-        textLabel?.backgroundColor = .white
+        textLabel?.textColor = .white
 
         
 //        separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -18)

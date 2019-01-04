@@ -4,7 +4,7 @@ PODS:
   - Hero (1.4.0)
   - lottie-ios (2.5.2)
   - MarkdownView (1.5.0)
-  - Result (4.0.0)
+  - Result (4.1.0)
 
 DEPENDENCIES:
   - Anchorage
@@ -29,7 +29,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MarkdownView:
-    :commit: 2f9fe17d9814427d741a503b51d0dc6a2e988742
+    :commit: 447d4fcd3a39de5522357f6bee7c821aa483cf6e
     :git: https://github.com/thexande/MarkdownView.git
 
 SPEC CHECKSUMS:
@@ -38,7 +38,7 @@ SPEC CHECKSUMS:
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   MarkdownView: 5bbee438c823db1cd189002d44c84fa909b3a896
-  Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
 
 PODFILE CHECKSUM: 73603a42365192f20eff51e4fdfabeea33a707f2
 

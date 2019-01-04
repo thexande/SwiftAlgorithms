@@ -29,7 +29,7 @@ class View: UIView {
 final class CategoryDetailView: View {
     
     let cardView = CategoryTileItemView()
-    let tableView = UITableView(frame: .zero, style: .grouped)
+    let tableView = UITableView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,8 +52,11 @@ final class CategoryDetailView: View {
         addSubview(tableView)
         addSubview(cardView)
         
-        tableView.backgroundColor = .darkModeTableBackground
+        tableView.backgroundColor = .darkModeTableBackground()
         
+        tableView.backgroundView = nil
+        
+        backgroundColor = .darkModeTableBackground()
         
         
         tableView.hero.modifiers = [.useNoSnapshot, .translate(y: -80), .fade]

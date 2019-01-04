@@ -30,6 +30,9 @@ final class AboutView: UIView {
         
         title.font = UIFont.boldSystemFont(ofSize: 32)
         
+        title.textColor = .white
+        content.textColor = .white
+        
         title.text = "Welcome to the Algorithms & Data Structures!"
         content.text = """
         Here you'll find implementations of popular algorithms and data structures in everyone's favorite new language Swift, with detailed explanations of how they work.

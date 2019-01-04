@@ -2,6 +2,11 @@ import UIKit
 import Anchorage
 
 final class AboutViewController: UIViewController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     private let confetti = ConfettiView()
     private let scroll = UIScrollView()
     private let about = AboutView()
@@ -30,8 +35,11 @@ final class AboutViewController: UIViewController {
         scroll.bottomAnchor == about.bottomAnchor
         
         confetti.startConfetti()
+        confetti.backgroundColor = .darkModeTableBackground()
        
-        blur.alpha = 0.5
+        confetti.alpha = 0.8
+        
+        blur.alpha = 0.0
     }
 }
 
