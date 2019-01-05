@@ -4,6 +4,11 @@ protocol AppCoordinatorActionsDispatching: AnyObject {
     func userDidShake()
 }
 
+final class Themer {
+    static let shared = Themer()
+    var currentTheme: Theme = .dark
+}
+
 final class AppCoordinator {
     
     private var rootTabCoordinator: RootTabCoordinator? {
@@ -26,18 +31,19 @@ final class AppCoordinator {
     private var currentTheme: Theme = .dark {
         didSet {
             setAppearance(with: currentTheme)
+            Themer.shared.currentTheme = currentTheme
             rootTabCoordinator = RootTabCoordinator(theme: currentTheme)
             rootTabCoordinator?.appCoordinatorDispatch = self
         }
     }
     
     init() {
-        rootTabCoordinator = RootTabCoordinator(theme: currentTheme)
-        rootTabCoordinator?.appCoordinatorDispatch = self
+
     }
     
     func rootViewController() -> UIViewController? {
         let coordinator = RootTabCoordinator(theme: currentTheme)
+        setAppearance(with: currentTheme)
         coordinator.appCoordinatorDispatch = self
         rootTabCoordinator = coordinator
         root = coordinator.root
@@ -63,6 +69,7 @@ final class AppCoordinator {
             background = .white
             style = .default
             tableBackground = .white
+            UITextField.appearance().keyboardAppearance = .light
         }
         
         

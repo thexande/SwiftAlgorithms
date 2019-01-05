@@ -11,7 +11,7 @@ final class GlobalSplitViewController: UISplitViewController, UISplitViewControl
     let theme: Theme
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return theme == .light ? .lightContent : .default
+        return theme == .light ? .default : .lightContent
     }
     
     init(theme: Theme) {

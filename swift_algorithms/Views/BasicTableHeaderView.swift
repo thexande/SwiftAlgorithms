@@ -22,9 +22,6 @@ final class BasicTableHeaderView: UITableViewHeaderFooterView {
         contentView.backgroundColor = .groupTableViewBackground
         let labels = [titleLabel, subtitleLabel]
         
-        titleLabel.textColor = .lightGray
-        subtitleLabel.textColor = .lightGray
-        
         labels.forEach { label in
             label.numberOfLines = 0
         }
@@ -38,7 +35,17 @@ final class BasicTableHeaderView: UITableViewHeaderFooterView {
         contentView.addSubview(stack)
         stack.edgeAnchors == contentView.edgeAnchors + UIEdgeInsets(top: 8, left: 18, bottom: 8, right: 18)
         
-        contentView.backgroundColor = .darkModeTableBackground()
+        
+        switch Themer.shared.currentTheme {
+        case .dark:
+            titleLabel.textColor = .lightGray
+            subtitleLabel.textColor = .lightGray
+            contentView.backgroundColor = .darkModeTableBackground()
+        case .light:
+            titleLabel.textColor = .darkGray
+            subtitleLabel.textColor = .darkGray
+            contentView.backgroundColor = .groupTableViewBackground
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

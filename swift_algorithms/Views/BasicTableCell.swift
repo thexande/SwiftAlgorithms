@@ -7,8 +7,18 @@ final class BasicTableCell: UITableViewCell {
         detailTextLabel?.numberOfLines = 0
         textLabel?.numberOfLines = 0
         
-        textLabel?.textColor = .white
-        detailTextLabel?.textColor = .white
+        switch Themer.shared.currentTheme {
+        case .dark:
+            backgroundColor = .black
+            textLabel?.textColor = .white
+            detailTextLabel?.textColor = .darkModeSubTitle
+        case .light:
+            contentView.backgroundColor = .white
+            
+            textLabel?.textColor = .white
+            detailTextLabel?.textColor = .white
+        }
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -20,10 +30,18 @@ final class BasicTableHeaderCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         textLabel?.numberOfLines = 0
-        textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        textLabel?.font = .systemFont(ofSize: 14, weight: .medium)
         separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
         selectionStyle = .none
-        contentView.backgroundColor = .groupTableViewBackground
+       
+        
+        
+        switch Themer.shared.currentTheme {
+        case .dark:
+            contentView.backgroundColor = .groupTableViewBackground
+        case .light:
+            contentView.backgroundColor = .white
+        }
         
     }
     
