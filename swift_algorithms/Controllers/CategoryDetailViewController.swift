@@ -46,18 +46,20 @@ final class CategoryDetailView: View {
         
         tableView.tableFooterView = UIView()
         
+        
+        
         cardView.layer.cornerRadius = 0
         cardView.layer.shadowColor = UIColor.clear.cgColor
         
         addSubview(tableView)
         addSubview(cardView)
         
-        tableView.backgroundColor = .darkModeTableBackground()
-        
-        tableView.backgroundView = nil
-        
-        backgroundColor = .darkModeTableBackground()
-        
+        switch Themer.shared.currentTheme {
+        case .dark:
+            tableView.backgroundColor = .darkModeTableBackground()
+        case .light:
+            tableView.backgroundColor = .groupTableViewBackground
+        }
         
         tableView.hero.modifiers = [.useNoSnapshot, .translate(y: -80), .fade]
         
@@ -138,6 +140,13 @@ final class CategoryDetailViewController: UIViewController {
         back.addTarget(self, action: #selector(dismissModal), for: .touchUpInside)
         
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
+        switch Themer.shared.currentTheme {
+        case .dark:
+            view.backgroundColor = .darkModeTableBackground()
+        case .light:
+            view.backgroundColor = .groupTableViewBackground
+        }
 
         let device = Device()
         switch device {
