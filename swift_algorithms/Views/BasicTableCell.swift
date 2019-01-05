@@ -1,7 +1,7 @@
 import UIKit
 import Anchorage
 
-final class BasicTableCell: UITableViewCell {
+final class BasicTableCell: ThemableTableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         detailTextLabel?.numberOfLines = 0
@@ -25,7 +25,7 @@ final class BasicTableCell: UITableViewCell {
     }
 }
 
-final class BasicTableHeaderCell: UITableViewCell {
+final class BasicTableHeaderCell: ThemableTableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         textLabel?.numberOfLines = 0
@@ -54,7 +54,7 @@ final class BasicTableHeaderCell: UITableViewCell {
 }
 
 
-final class SearchResultsTableCell: UITableViewCell {
+final class SearchResultsTableCell: ThemableTableViewCell {
     let title = UILabel()
     let indicator = UIView()
     

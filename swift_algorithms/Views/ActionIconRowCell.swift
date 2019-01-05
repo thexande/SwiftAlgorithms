@@ -1,7 +1,20 @@
 import UIKit
 import Anchorage
 
-final class ActionIconRowCell: UITableViewCell {
+class ThemableTableViewCell: UITableViewCell {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        let view = UIView()
+        view.backgroundColor = Themer.shared.currentTheme == .dark ? UIColor.darkGray : UIColor.lightGray
+        selectedBackgroundView = view
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+final class ActionIconRowCell: ThemableTableViewCell {
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
     let icon = UIImageView()
