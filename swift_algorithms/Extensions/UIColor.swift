@@ -66,4 +66,8 @@ extension UIColor {
     static func darkModeMardown() -> UIColor {
         return UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
     }
+    
+    static func appleBlue() -> UIColor {
+        return UIColor.init(red: 14.0/255, green: 122.0/255, blue: 254.0/255, alpha: 1.0)
+    }
 }

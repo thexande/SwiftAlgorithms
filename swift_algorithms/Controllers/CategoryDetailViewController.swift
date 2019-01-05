@@ -126,7 +126,6 @@ final class CategoryDetailViewController: UIViewController {
         hero.isEnabled = true
         detail.tableView.delegate = self
         detail.tableView.dataSource = self
-        detail.tableView.backgroundColor = UIColor.groupTableViewBackground
         
         back.setImage(UIImage(named: "back")?.withRenderingMode(.alwaysTemplate), for: .normal)
         back.tintColor = .white

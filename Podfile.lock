@@ -29,7 +29,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MarkdownView:
-    :commit: 447d4fcd3a39de5522357f6bee7c821aa483cf6e
+    :commit: c20bc31416860ea484fbdf11fce8851e84df1e83
     :git: https://github.com/thexande/MarkdownView.git
 
 SPEC CHECKSUMS:

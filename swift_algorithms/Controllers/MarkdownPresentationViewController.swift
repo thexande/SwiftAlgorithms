@@ -8,6 +8,14 @@ final class MarkdownPresentationViewController: UIViewController {
     let loading = TableLoadingView()
     
     func setSetMarkdown(_ markdown: String) {
+        
+        switch Themer.shared.currentTheme {
+        case .dark:
+            markdownView.visualMode = .dark
+        case .light:
+            markdownView.visualMode = .light
+        }
+        
         view.bringSubviewToFront(loading)
         markdownView.load(markdown: markdown)
     }
@@ -21,10 +29,6 @@ final class MarkdownPresentationViewController: UIViewController {
         
         view.addSubview(loading)
         loading.edgeAnchors == view.edgeAnchors
-        
-        view.backgroundColor = .groupTableViewBackground
-        markdownView.backgroundColor = .groupTableViewBackground
-        
         
         markdownView.onTouchLink = { [weak self] request in
             guard let url = request.url else { return false }

@@ -2,7 +2,7 @@ import UIKit
 import Anchorage
 
 final class TableLoadingView: UIView {
-    private let indicator = UIActivityIndicatorView(style: .white)
+    private let indicator = UIActivityIndicatorView()
     private let title = UILabel()
     
     override init(frame: CGRect) {
@@ -17,9 +17,17 @@ final class TableLoadingView: UIView {
         title.topAnchor == indicator.centerYAnchor + 18
         title.font = UIFont.systemFont(ofSize: 10)
         title.text = "Loading"
-        title.textColor = UIColor.lightGray
         
-        backgroundColor = UIColor.darkModeMardown()
+        switch Themer.shared.currentTheme {
+        case .dark:
+            title.textColor = UIColor.darkGray
+            backgroundColor = .darkModeMardown()
+            indicator.style = .white
+        case .light:
+            backgroundColor = .white
+            title.textColor = UIColor.lightGray
+            indicator.style = .gray
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

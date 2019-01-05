@@ -65,7 +65,7 @@ final class AppCoordinator {
             tableBackground = .darkModeTableBackground()
             UITextField.appearance().keyboardAppearance = .dark
         case .light:
-            tint = .blue
+            tint = .appleBlue()
             background = .white
             style = .default
             tableBackground = .white

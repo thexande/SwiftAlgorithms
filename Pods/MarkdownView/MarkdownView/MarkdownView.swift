@@ -7,6 +7,19 @@ import WebKit
  - Note: [How to get height of entire document with javascript](https://stackoverflow.com/questions/1145850/how-to-get-height-of-entire-document-with-javascript)
  */
 open class MarkdownView: UIView {
+    public enum VisualMode {
+        case dark
+        case light
+        
+        var html: String {
+            switch self {
+            case .dark:
+                return "index_dark"
+            case .light:
+                return "index_light"
+            }
+        }
+    }
 
   private var webView: WKWebView?
   
@@ -47,6 +60,8 @@ open class MarkdownView: UIView {
       return CGSize.zero
     }
   }
+    
+    open var visualMode: VisualMode = .light
 
   public func load(markdown: String?, enableImage: Bool = true) {
     guard let markdown = markdown else { return }
@@ -54,9 +69,9 @@ open class MarkdownView: UIView {
     let bundle = Bundle(for: MarkdownView.self)
 
     let htmlURL: URL? =
-      bundle.url(forResource: "index",
+      bundle.url(forResource: visualMode.html,
                  withExtension: "html") ??
-      bundle.url(forResource: "index",
+      bundle.url(forResource: visualMode.html,
                  withExtension: "html",
                  subdirectory: "MarkdownView.bundle")
 
