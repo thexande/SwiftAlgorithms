@@ -34,9 +34,11 @@ final class AlgorithmPresenter {
         
         let identifiableProperties: [ActionTableRowController.Properties] = Algorithm.introduction.map { action in
             let identifier = UUID()
+            let icon = action.actionImage
+            icon?.accessibilityIdentifier = action.title
             let properties = ActionTableRowController.Properties(title: action.title,
                                                                  subtitle: action.subtitle,
-                                                                 icon: action.actionImage,
+                                                                 icon: icon,
                                                                  identifier: identifier)
             actionLookup[identifier] = .selectedAlgorithm(action)
             return properties

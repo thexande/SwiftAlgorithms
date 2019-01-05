@@ -21,7 +21,18 @@ final class ActionIconRowCell: UITableViewCell {
     
     var iconImage: UIImage? {
         didSet {
-            icon.image = iconImage
+            
+            guard
+                Themer.shared.currentTheme == .dark,
+                iconImage?.accessibilityIdentifier == "How to contribute" ||
+                iconImage?.accessibilityIdentifier == "Algorithm design techniques"
+            else {
+                icon.image = iconImage
+                return
+            }
+            
+            icon.image = iconImage?.withRenderingMode(.alwaysTemplate)
+            icon.tintColor = .white
         }
     }
     
