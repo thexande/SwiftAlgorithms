@@ -55,7 +55,7 @@ extension UIColor {
         return UIColor(hex: "3cabdb")
     }
     
-    static var darkModeSubTitle: UIColor {
+    static func darkModeSubTitle() -> UIColor {
         return UIColor(red:0.56, green:0.56, blue:0.58, alpha:1.0)
     }
     

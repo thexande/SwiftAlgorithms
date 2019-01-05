@@ -16,7 +16,6 @@ final class ActionIconRowCell: UITableViewCell {
     var subTitle: String? {
         didSet {
             subtitleLabel.text = subTitle
-            
         }
     }
     
@@ -55,17 +54,22 @@ final class ActionIconRowCell: UITableViewCell {
         titleLabel.numberOfLines = 0
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         
-        titleLabel.textColor = .white
-        subtitleLabel.textColor = .white
+        
         
         subtitleLabel.numberOfLines = 0
         subtitleLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         
-        
-        
         accessoryType = .disclosureIndicator
         
-        
+        switch Themer.shared.currentTheme {
+        case .dark:
+            titleLabel.textColor = .white
+            subtitleLabel.textColor = .darkModeSubTitle()
+            
+        case .light:
+            titleLabel.textColor = .black
+            subtitleLabel.textColor = .darkGray
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

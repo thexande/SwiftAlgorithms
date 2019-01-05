@@ -41,6 +41,7 @@ final class BasicTableHeaderView: UITableViewHeaderFooterView {
             titleLabel.textColor = .lightGray
             subtitleLabel.textColor = .lightGray
             contentView.backgroundColor = .darkModeTableBackground()
+            
         case .light:
             titleLabel.textColor = .darkGray
             subtitleLabel.textColor = .darkGray
@@ -52,5 +53,4 @@ final class BasicTableHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 

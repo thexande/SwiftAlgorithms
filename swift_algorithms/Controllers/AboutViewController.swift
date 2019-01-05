@@ -35,11 +35,17 @@ final class AboutViewController: UIViewController {
         scroll.bottomAnchor == about.bottomAnchor
         
         confetti.startConfetti()
-        confetti.backgroundColor = .darkModeTableBackground()
-       
-        confetti.alpha = 0.8
         
-        blur.alpha = 0.0
+       
+        switch Themer.shared.currentTheme {
+        case .dark:
+            confetti.alpha = 0.8
+            blur.alpha = 0.0
+            confetti.backgroundColor = .darkModeTableBackground()
+        case .light:
+            blur.alpha = 0.5
+            confetti.backgroundColor = .white
+        }
     }
 }
 

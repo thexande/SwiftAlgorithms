@@ -10,7 +10,12 @@ final class CategoryRowTableCell: UITableViewCell, Reusable {
         contentView.addSubview(colleciton)
         colleciton.edgeAnchors == contentView.edgeAnchors
         
-        colleciton.backgroundColor = .black
+        switch Themer.shared.currentTheme {
+        case .dark:
+            colleciton.backgroundColor = .black
+        case .light:
+            colleciton.backgroundColor = .white
+        }
         
         selectionStyle = .none
         

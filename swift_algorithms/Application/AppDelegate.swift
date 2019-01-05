@@ -80,14 +80,13 @@ final class AppCoordinator {
         UITabBar.appearance().barStyle = style
         UITabBar.appearance().tintColor = tint
         
-        UITableView.appearance().backgroundColor = tableBackground
+//        UITableView.appearance().backgroundColor = tableBackground
         
         UITextField.appearance().tintColor = tint
         UISearchBar.appearance().tintColor = tint
         
         UITableViewCell.appearance().backgroundColor = background
     }
-    
 }
 
 extension AppCoordinator: AppCoordinatorActionsDispatching {
@@ -103,7 +102,11 @@ extension AppCoordinator: AppCoordinatorActionsDispatching {
 
 extension UIWindow {
     
-    func switchRootViewController(_ viewController: UIViewController,  animated: Bool = true, duration: TimeInterval = 0.5, options: UIView.AnimationOptions = .transitionFlipFromRight, completion: (() -> Void)? = nil) {
+    func switchRootViewController(_ viewController: UIViewController,
+                                  animated: Bool = true,
+                                  duration: TimeInterval = 0.5,
+                                  options: UIView.AnimationOptions = .transitionFlipFromRight,
+                                  completion: (() -> Void)? = nil) {
         guard animated else {
             rootViewController = viewController
             return
@@ -126,7 +129,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let coordinator = AppCoordinator()
 
- func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+ func application(_ application: UIApplication,
+                  didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = coordinator.rootViewController()
         window?.makeKeyAndVisible()

@@ -12,7 +12,13 @@ class SectionProxyTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = UIColor.darkModeTableBackground()
+        
+        switch Themer.shared.currentTheme {
+        case .dark:
+            tableView.backgroundColor = .darkModeTableBackground()
+        case .light:
+            tableView.backgroundColor = .white
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

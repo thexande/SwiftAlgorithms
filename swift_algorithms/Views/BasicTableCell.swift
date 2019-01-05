@@ -11,12 +11,11 @@ final class BasicTableCell: UITableViewCell {
         case .dark:
             backgroundColor = .black
             textLabel?.textColor = .white
-            detailTextLabel?.textColor = .darkModeSubTitle
+            detailTextLabel?.textColor = .darkModeSubTitle()
         case .light:
             contentView.backgroundColor = .white
-            
-            textLabel?.textColor = .white
-            detailTextLabel?.textColor = .white
+            textLabel?.textColor = .black
+            detailTextLabel?.textColor = .darkGray
         }
         
     }
@@ -39,8 +38,12 @@ final class BasicTableHeaderCell: UITableViewCell {
         switch Themer.shared.currentTheme {
         case .dark:
             contentView.backgroundColor = .groupTableViewBackground
+            textLabel?.textColor = .white
+            detailTextLabel?.textColor = .darkModeSubTitle()
         case .light:
             contentView.backgroundColor = .white
+            textLabel?.textColor = .black
+            detailTextLabel?.textColor = .darkGray
         }
         
     }
@@ -60,9 +63,7 @@ final class SearchResultsTableCell: UITableViewCell {
         contentView.addSubview(title)
         title.edgeAnchors == contentView.edgeAnchors + UIEdgeInsets(top: 12, left: 42, bottom: 12, right: 12)
         title.numberOfLines = 0
-        
-        title.textColor = .white
-        
+                
         contentView.addSubview(indicator)
         indicator.sizeAnchors == CGSize(width: 12, height: 12)
         indicator.layer.cornerRadius = 6
@@ -71,11 +72,14 @@ final class SearchResultsTableCell: UITableViewCell {
         indicator.leadingAnchor == contentView.leadingAnchor + 18
         indicator.installCardShadow()
         
-        textLabel?.textColor = .white
-
-        
-//        separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -18)
-        
+        switch Themer.shared.currentTheme {
+        case .dark:
+            backgroundColor = .black
+            title.textColor = .white
+        case .light:
+            backgroundColor = .white
+            title.textColor = .black
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

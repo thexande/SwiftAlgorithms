@@ -60,14 +60,12 @@ final class CategoryTileItemView: UIView {
 //        title.bottomAnchor <= lottie.topAnchor
 //
         title.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
-        title.text = "Woot"
         title.textColor = .white
         title.numberOfLines = 0
         title.adjustsFontSizeToFitWidth = true
         title.minimumScaleFactor = 0.3
         
         layer.cornerRadius = 11
-        backgroundColor = .black
         
         lottie.contentMode = .scaleAspectFit
         
