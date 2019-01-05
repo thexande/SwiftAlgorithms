@@ -55,32 +55,25 @@ final class AppCoordinator {
         let tint: UIColor
         let background: UIColor
         let style: UIBarStyle
-        let tableBackground: UIColor
         
         switch theme {
         case .dark:
             tint = .coral()
             background = .black
             style = .black
-            tableBackground = .darkModeTableBackground()
             UITextField.appearance().keyboardAppearance = .dark
         case .light:
             tint = .appleBlue()
             background = .white
             style = .default
-            tableBackground = .white
             UITextField.appearance().keyboardAppearance = .light
         }
-        
         
         UINavigationBar.appearance().tintColor = tint
         UINavigationBar.appearance().barStyle = style
         
-        
         UITabBar.appearance().barStyle = style
         UITabBar.appearance().tintColor = tint
-        
-//        UITableView.appearance().backgroundColor = tableBackground
         
         UITextField.appearance().tintColor = tint
         UISearchBar.appearance().tintColor = tint
