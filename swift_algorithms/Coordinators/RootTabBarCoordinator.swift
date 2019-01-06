@@ -36,49 +36,6 @@ final class GlobalSplitViewController: UISplitViewController, UISplitViewControl
     
 }
 
-//protocol ViewControllerContainerInterface {
-//    var viewController: UIViewController? { get set }
-//    mutating func add(_ viewController: UIViewController)
-//    mutating func remove()
-//}
-//
-//extension ViewControllerContainerInterface where Self: UIViewController {
-//    mutating func add(_ viewController: UIViewController) {
-//        remove()
-//        self.viewController = viewController
-//
-//        guard let viewController = self.viewController else {
-//            return
-//        }
-//
-//        addChild(viewController)
-//        view.addSubview(viewController.view)
-//        viewController.view.edgeAnchors == view.edgeAnchors
-//    }
-//
-//    mutating func remove() {
-//        viewController?.view.removeFromSuperview()
-//        viewController?.removeFromParent()
-//        viewController = nil
-//    }
-//}
-//
-//final class ContainerViewController: UIViewController, ViewControllerContainerInterface {
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-//        navigationItem.leftItemsSupplementBackButton = true
-//        navigationItem.largeTitleDisplayMode = .always
-//        hero.isEnabled = true
-//    }
-//
-//    var viewController: UIViewController? {
-//        didSet {
-//            title = viewController?.title
-//        }
-//    }
-//}
-
 final class RootTabCoordinator {
     
     weak var appCoordinatorDispatch: AppCoordinatorActionsDispatching?
@@ -88,7 +45,6 @@ final class RootTabCoordinator {
     private let algorithmViewController = AlgorithmViewController(style: .plain)
     private let algorithmPresenter = AlgorithmPresenter()
     private let algorithmMarkdownViewController = MarkdownPresentationViewController()
-//    private var algorithmSplitContainerViewController = ContainerViewController()
     
     private let algorithmSearchResultsController = SearchResultsTableViewController(style: .grouped)
     private let algorithmSearchResultsPresenter = AlgorithmSearchPresenter()
