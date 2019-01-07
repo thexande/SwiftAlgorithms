@@ -6,7 +6,8 @@ protocol AppCoordinatorActionsDispatching: AnyObject {
 
 final class Themer {
     static let shared = Themer()
-    var currentTheme: Theme = .dark
+    // default theme
+    var currentTheme: Theme = .light
 }
 
 final class AppCoordinator {
@@ -28,7 +29,8 @@ final class AppCoordinator {
         }
     }
     
-    private var currentTheme: Theme = .dark {
+    // default theme
+    private var currentTheme: Theme = .light {
         didSet {
             setAppearance(with: currentTheme)
             Themer.shared.currentTheme = currentTheme
@@ -37,13 +39,13 @@ final class AppCoordinator {
         }
     }
     
-    init() {
-
-    }
-    
     func rootViewController() -> UIViewController? {
         let coordinator = RootTabCoordinator(theme: currentTheme)
+        
+        // configure with default theme
         setAppearance(with: currentTheme)
+        Themer.shared.currentTheme = currentTheme
+        
         coordinator.appCoordinatorDispatch = self
         rootTabCoordinator = coordinator
         root = coordinator.root

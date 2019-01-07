@@ -26,6 +26,13 @@ final class GlobalSplitViewController: UISplitViewController, UISplitViewControl
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        
+        switch theme {
+        case .light:
+            view.backgroundColor = .white
+        case .dark:
+            view.backgroundColor = .darkModeTableBackground()
+        }
     }
     
     func splitViewController(_ splitViewController: UISplitViewController,
