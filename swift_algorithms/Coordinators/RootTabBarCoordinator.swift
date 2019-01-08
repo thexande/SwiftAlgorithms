@@ -272,8 +272,8 @@ final class RootTabCoordinator {
                                         title: String) -> MarkdownPresentationViewController {
         
         let controller = MarkdownPresentationViewController()
-        controller.title = title
-        controller.markdownView.load(markdown: markdown, enableImage: true)
+   
+        controller.setMarkdown(markdown)
         return controller
     }
     
@@ -315,7 +315,7 @@ final class RootTabCoordinator {
                 
                 DispatchQueue.main.async {
                     self?.algorithmMarkdownViewController.title = algorithm.title
-                    self?.algorithmMarkdownViewController.setSetMarkdown(markdown)
+                    self?.algorithmMarkdownViewController.setMarkdown(markdown)
                     
                     guard let markdownViewController = self?.algorithmMarkdownViewController else {
                         return
@@ -343,7 +343,7 @@ final class RootTabCoordinator {
                 DispatchQueue.main.async {
                     let markdownView = MarkdownPresentationViewController()
                     markdownView.title = dataStructure.title
-                    markdownView.setSetMarkdown(markdown)
+                    markdownView.setMarkdown(markdown)
                     
                     self?.dataStructuresNav?.showDetailViewController(markdownView, sender: nil)
                 }

@@ -126,7 +126,7 @@ final class CategoryCoordinator {
         
         let controller = MarkdownPresentationViewController()
         controller.title = title
-        controller.setSetMarkdown(markdown)
+        controller.setMarkdown(markdown)
         return controller
     }
     

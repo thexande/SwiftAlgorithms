@@ -7,7 +7,7 @@ final class MarkdownPresentationViewController: UIViewController {
     let markdownView = MarkdownView()
     let loading = TableLoadingView()
     
-    func setSetMarkdown(_ markdown: String) {
+    public func setMarkdown(_ markdown: String) {
         
         switch Themer.shared.currentTheme {
         case .dark:
