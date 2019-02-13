@@ -7,6 +7,7 @@ final class OnboardingInformationViewController: UIViewController {
     private let action = PrimaryButton()
     private let actionContainer = UIView()
     public var onDismiss: (() -> Void)?
+    private let hint = UILabel()
     
     struct Properties {
         let title: NSAttributedString
@@ -56,6 +57,16 @@ final class OnboardingInformationViewController: UIViewController {
         stack.horizontalAnchors == view.horizontalAnchors + 48
         stack.verticalAnchors >= view.verticalAnchors + 32
         stack.centerYAnchor == view.centerYAnchor
+        
+        view.addSubview(hint)
+        hint.horizontalAnchors == view.horizontalAnchors + 18
+        hint.topAnchor == stack.bottomAnchor + 18
+        
+        hint.font = UIFont.preferredFont(forTextStyle: .callout)
+        hint.text = "👋 While using the app, shake your device to enable dark mode!"
+        hint.textAlignment = .center
+        hint.textColor = .darkGray
+        hint.numberOfLines = 0
     }
     
     private func makeOnboardingProperties() -> Properties {
