@@ -1,0 +1,45 @@
+PODS:
+  - Anchorage (4.3)
+  - DeviceKit (1.11.0)
+  - Hero (1.4.0)
+  - lottie-ios (2.5.2)
+  - MarkdownView (1.5.0)
+  - Result (4.1.0)
+
+DEPENDENCIES:
+  - Anchorage
+  - DeviceKit
+  - Hero
+  - lottie-ios
+  - MarkdownView (from `https://github.com/thexande/MarkdownView.git`, branch `master`)
+  - Result
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Anchorage
+    - DeviceKit
+    - Hero
+    - lottie-ios
+    - Result
+
+EXTERNAL SOURCES:
+  MarkdownView:
+    :branch: master
+    :git: https://github.com/thexande/MarkdownView.git
+
+CHECKOUT OPTIONS:
+  MarkdownView:
+    :commit: c20bc31416860ea484fbdf11fce8851e84df1e83
+    :git: https://github.com/thexande/MarkdownView.git
+
+SPEC CHECKSUMS:
+  Anchorage: 21a98675245188427f0bcea21404d42a824a766f
+  DeviceKit: a3a86f8dddbe1317a9a243cdf9646858bf135dce
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
+  lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
+  MarkdownView: 5bbee438c823db1cd189002d44c84fa909b3a896
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+
+PODFILE CHECKSUM: 73603a42365192f20eff51e4fdfabeea33a707f2
+
+COCOAPODS: 1.5.3
