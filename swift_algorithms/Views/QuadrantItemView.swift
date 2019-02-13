@@ -86,6 +86,7 @@ final class CategoryTileItemView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         let inset: CGFloat = 12
         title.frame = CGRect(x: inset, y: inset + verticalOffset, width: bounds.width - 40, height: 30)
         let imageWidth = bounds.height * 0.4

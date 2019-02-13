@@ -26,6 +26,8 @@ class View: UIView {
     
 }
 
+
+
 final class CategoryDetailView: View {
     
     let cardView = CategoryTileItemView()
