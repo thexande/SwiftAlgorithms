@@ -4,7 +4,7 @@ import Anchorage
 final class AboutViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
+        return Themer.shared.currentTheme == .dark ? .lightContent : .default
     }
     
     private let confetti = ConfettiView()

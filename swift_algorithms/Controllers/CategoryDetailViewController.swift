@@ -122,7 +122,7 @@ final class CategoryDetailViewController: UIViewController {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return Themer.shared.currentTheme == .dark ? .lightContent : .default
     }
     
     override func viewDidLoad() {
