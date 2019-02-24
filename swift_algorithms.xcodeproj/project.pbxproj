@@ -10,6 +10,7 @@
 		1A1068B62222D4A1008CC444 /* IntroductionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1068B52222D4A1008CC444 /* IntroductionAlgorithm.swift */; };
 		1A1068B82222DD37008CC444 /* AlgorithmCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1068B72222DD37008CC444 /* AlgorithmCategory.swift */; };
 		1A1068BA2222E0B9008CC444 /* SortingLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1068B92222E0B9008CC444 /* SortingLevel.swift */; };
+		1A1068BC2222E16A008CC444 /* GettingStartedAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1068BB2222E16A008CC444 /* GettingStartedAlgorithm.swift */; };
 		9DCBAA8A5C987C789843427F /* Pods_swift_algorithms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D522BF7BAF3E150F9CCCFD /* Pods_swift_algorithms.framework */; };
 		A047A9EC54180CBA5FC69D3E /* Pods_swift_algorithmsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA706CACE80D15D9F2E76A6C /* Pods_swift_algorithmsUITests.framework */; };
 		A2D272B3DAFD868E2F71F48A /* Pods_swift_algorithmsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270B493059A6D7185F03AF9C /* Pods_swift_algorithmsTests.framework */; };
@@ -102,6 +103,7 @@
 		1A1068B52222D4A1008CC444 /* IntroductionAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionAlgorithm.swift; sourceTree = "<group>"; };
 		1A1068B72222DD37008CC444 /* AlgorithmCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmCategory.swift; sourceTree = "<group>"; };
 		1A1068B92222E0B9008CC444 /* SortingLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingLevel.swift; sourceTree = "<group>"; };
+		1A1068BB2222E16A008CC444 /* GettingStartedAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingStartedAlgorithm.swift; sourceTree = "<group>"; };
 		270B493059A6D7185F03AF9C /* Pods_swift_algorithmsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_algorithmsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C59D4B0B7D88D835003076D /* Pods-swift_algorithms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithms/Pods-swift_algorithms.debug.xcconfig"; sourceTree = "<group>"; };
 		43E9CEB21F979302108A0517 /* Pods-swift_algorithmsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsUITests/Pods-swift_algorithmsUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				B0A8FD0821321EA0008F82E2 /* Puzzle.swift */,
 				1A1068B52222D4A1008CC444 /* IntroductionAlgorithm.swift */,
 				1A1068B72222DD37008CC444 /* AlgorithmCategory.swift */,
+				1A1068BB2222E16A008CC444 /* GettingStartedAlgorithm.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				B0A4DB38212A03B6000CFC7F /* JoinTheClubRowController.swift in Sources */,
 				B01733A1212934DE00FBEFE5 /* BasicTableHeaderView.swift in Sources */,
 				B017339B2129347600FBEFE5 /* ActionTableRowController.swift in Sources */,
+				1A1068BC2222E16A008CC444 /* GettingStartedAlgorithm.swift in Sources */,
 				B0A8FD0B21321FF6008F82E2 /* RootTabBarCoordinator.swift in Sources */,
 				B0E8C16E212FAC4200CBE90B /* UIView.swift in Sources */,
 				B069F1B5212A3E63002FABFB /* SearchEmptyStateView.swift in Sources */,
