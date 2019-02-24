@@ -227,6 +227,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A1068CC22231EB0008CC444 /* Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				B069F1C0212A6727002FABFB /* Algorithm.swift */,
+				1A1068B72222DD37008CC444 /* AlgorithmCategory.swift */,
+				1A1068C32222E553008CC444 /* CompressionAlgorithm.swift */,
+				1A1068BB2222E16A008CC444 /* GettingStartedAlgorithm.swift */,
+				1A1068B52222D4A1008CC444 /* IntroductionAlgorithm.swift */,
+				1A1068C92222E73A008CC444 /* MachineLearningAlgorithm.swift */,
+				1A1068C72222E67B008CC444 /* MathematicsAlgorithm.swift */,
+				1A1068C52222E5F3008CC444 /* MiscAlgorithm.swift */,
+				1A1068BD2222E226008CC444 /* SearchingAlgorithm.swift */,
+				1A1068C12222E448008CC444 /* SortingAlgorithm.swift */,
+				1A1068B92222E0B9008CC444 /* SortingLevel.swift */,
+				1A1068BF2222E394008CC444 /* StringSearchAlgorithm.swift */,
+			);
+			path = Algorithm;
+			sourceTree = "<group>";
+		};
 		6A4B721553CD037E2A650550 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,20 +416,9 @@
 		B0F6D784213B43EA00E52E71 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B069F1C0212A6727002FABFB /* Algorithm.swift */,
-				1A1068B92222E0B9008CC444 /* SortingLevel.swift */,
+				1A1068CC22231EB0008CC444 /* Algorithm */,
 				B0E8C16F2130E41600CBE90B /* DataStructure.swift */,
 				B0A8FD0821321EA0008F82E2 /* Puzzle.swift */,
-				1A1068B52222D4A1008CC444 /* IntroductionAlgorithm.swift */,
-				1A1068B72222DD37008CC444 /* AlgorithmCategory.swift */,
-				1A1068BB2222E16A008CC444 /* GettingStartedAlgorithm.swift */,
-				1A1068BD2222E226008CC444 /* SearchingAlgorithm.swift */,
-				1A1068BF2222E394008CC444 /* StringSearchAlgorithm.swift */,
-				1A1068C12222E448008CC444 /* SortingAlgorithm.swift */,
-				1A1068C32222E553008CC444 /* CompressionAlgorithm.swift */,
-				1A1068C52222E5F3008CC444 /* MiscAlgorithm.swift */,
-				1A1068C72222E67B008CC444 /* MathematicsAlgorithm.swift */,
-				1A1068C92222E73A008CC444 /* MachineLearningAlgorithm.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
