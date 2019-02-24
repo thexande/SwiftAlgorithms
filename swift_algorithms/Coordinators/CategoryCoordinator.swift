@@ -23,7 +23,7 @@ final class CategoryCoordinator {
         return makeCategoryViewController(for: category)
     }
     
-    func makeRoot(_ category: Algorithm.Category) -> UIViewController? {
+    func makeRoot(_ category: AlgorithmCategory) -> UIViewController? {
         if category == .sorting {
             
             let sections = algorithmCategoryFactory.makeAllSortingSections()
@@ -64,7 +64,7 @@ final class CategoryCoordinator {
         
     }
     
-    private func makeAlgorithmCategoryViewController(category: Algorithm.Category,
+    private func makeAlgorithmCategoryViewController(category: AlgorithmCategory,
                                                      with sections: [TableSectionController]) -> UIViewController {
         let vc = CategoryDetailViewController()
         

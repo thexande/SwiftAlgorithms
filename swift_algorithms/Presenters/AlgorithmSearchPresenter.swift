@@ -26,7 +26,7 @@ final class AlgorithmSearchPresenter {
     }
 
     func makeSearchableAlgorithmProperties() {
-        let allAlgorithmProperties = Algorithm.allCases
+        let allAlgorithmProperties = AlgorithmType.allCases()
         algorithms = allAlgorithmProperties
         searchedProperties = makeCategorySections(for: algorithms)
     }
@@ -35,15 +35,14 @@ final class AlgorithmSearchPresenter {
         // reset action hash map
         actionLookup = [:]
         
-        let categories = Algorithm.Category.allCases
+        let categories = AlgorithmCategory.allCases
         
         let categoryProps: [SearchResultsTableViewController.Properties] = categories.compactMap { category in
             
             let categoryAlgorithms = algorithms.filter { algorithm in
                 
                 guard
-                    let algorithmCategory = Algorithm.category(for: algorithm),
-                    algorithmCategory == category else {
+                    algorithm.category == category else {
                         return false
                 }
                 
@@ -68,7 +67,7 @@ final class AlgorithmSearchPresenter {
     private func makeIdentifiableAction(for algorithm: Algorithm) -> SearchResultsRowController.Properties {
         let identifier = UUID()
         let prop = SearchResultsRowController.Properties(title: algorithm.title,
-                                                         indicatorColor: (algorithm.category?.color ?? .black),
+                                                         indicatorColor: (algorithm.category.color),
                                                          identifier: identifier)
         
         actionLookup[identifier] = .selectedAlgorithm(algorithm)
