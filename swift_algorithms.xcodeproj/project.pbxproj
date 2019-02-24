@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A1068B62222D4A1008CC444 /* IntroductionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1068B52222D4A1008CC444 /* IntroductionAlgorithm.swift */; };
 		1A1068B82222DD37008CC444 /* AlgorithmCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1068B72222DD37008CC444 /* AlgorithmCategory.swift */; };
 		1A1068BA2222E0B9008CC444 /* SortingLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1068B92222E0B9008CC444 /* SortingLevel.swift */; };
 		9DCBAA8A5C987C789843427F /* Pods_swift_algorithms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D522BF7BAF3E150F9CCCFD /* Pods_swift_algorithms.framework */; };
@@ -98,6 +99,7 @@
 
 /* Begin PBXFileReference section */
 		11D522BF7BAF3E150F9CCCFD /* Pods_swift_algorithms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_algorithms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A1068B52222D4A1008CC444 /* IntroductionAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionAlgorithm.swift; sourceTree = "<group>"; };
 		1A1068B72222DD37008CC444 /* AlgorithmCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmCategory.swift; sourceTree = "<group>"; };
 		1A1068B92222E0B9008CC444 /* SortingLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingLevel.swift; sourceTree = "<group>"; };
 		270B493059A6D7185F03AF9C /* Pods_swift_algorithmsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_algorithmsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -383,6 +385,7 @@
 				1A1068B92222E0B9008CC444 /* SortingLevel.swift */,
 				B0E8C16F2130E41600CBE90B /* DataStructure.swift */,
 				B0A8FD0821321EA0008F82E2 /* Puzzle.swift */,
+				1A1068B52222D4A1008CC444 /* IntroductionAlgorithm.swift */,
 				1A1068B72222DD37008CC444 /* AlgorithmCategory.swift */,
 			);
 			path = Models;
@@ -718,6 +721,7 @@
 				B0F3850C212BB29200779976 /* CategoryCollectionCell.swift in Sources */,
 				B0A4DB362129F21C000CFC7F /* BasicTableHeaderRowController.swift in Sources */,
 				B069F1C1212A6727002FABFB /* Algorithm.swift in Sources */,
+				1A1068B62222D4A1008CC444 /* IntroductionAlgorithm.swift in Sources */,
 				B0F6D77E213B428E00E52E71 /* DataStructurePresenter.swift in Sources */,
 				B01733A52129351A00FBEFE5 /* BasicTableCell.swift in Sources */,
 				B0A8FD03213208DB008F82E2 /* AboutViewController.swift in Sources */,
