@@ -17,6 +17,7 @@
 		1A1068C42222E553008CC444 /* CompressionAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1068C32222E553008CC444 /* CompressionAlgorithm.swift */; };
 		1A1068C62222E5F3008CC444 /* MiscAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1068C52222E5F3008CC444 /* MiscAlgorithm.swift */; };
 		1A1068C82222E67B008CC444 /* MathematicsAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1068C72222E67B008CC444 /* MathematicsAlgorithm.swift */; };
+		1A1068CA2222E73A008CC444 /* MachineLearningAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1068C92222E73A008CC444 /* MachineLearningAlgorithm.swift */; };
 		9DCBAA8A5C987C789843427F /* Pods_swift_algorithms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D522BF7BAF3E150F9CCCFD /* Pods_swift_algorithms.framework */; };
 		A047A9EC54180CBA5FC69D3E /* Pods_swift_algorithmsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA706CACE80D15D9F2E76A6C /* Pods_swift_algorithmsUITests.framework */; };
 		A2D272B3DAFD868E2F71F48A /* Pods_swift_algorithmsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270B493059A6D7185F03AF9C /* Pods_swift_algorithmsTests.framework */; };
@@ -116,6 +117,7 @@
 		1A1068C32222E553008CC444 /* CompressionAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressionAlgorithm.swift; sourceTree = "<group>"; };
 		1A1068C52222E5F3008CC444 /* MiscAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscAlgorithm.swift; sourceTree = "<group>"; };
 		1A1068C72222E67B008CC444 /* MathematicsAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathematicsAlgorithm.swift; sourceTree = "<group>"; };
+		1A1068C92222E73A008CC444 /* MachineLearningAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineLearningAlgorithm.swift; sourceTree = "<group>"; };
 		270B493059A6D7185F03AF9C /* Pods_swift_algorithmsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_algorithmsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C59D4B0B7D88D835003076D /* Pods-swift_algorithms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithms/Pods-swift_algorithms.debug.xcconfig"; sourceTree = "<group>"; };
 		43E9CEB21F979302108A0517 /* Pods-swift_algorithmsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsUITests/Pods-swift_algorithmsUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 				1A1068C32222E553008CC444 /* CompressionAlgorithm.swift */,
 				1A1068C52222E5F3008CC444 /* MiscAlgorithm.swift */,
 				1A1068C72222E67B008CC444 /* MathematicsAlgorithm.swift */,
+				1A1068C92222E73A008CC444 /* MachineLearningAlgorithm.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -740,6 +743,7 @@
 				B00B26A52123B5DE00E1DF9C /* MarkdownPresentationViewController.swift in Sources */,
 				B069F1BD212A494C002FABFB /* SearchResultsRowController.swift in Sources */,
 				B01733A92129387100FBEFE5 /* OnboardItemView.swift in Sources */,
+				1A1068CA2222E73A008CC444 /* MachineLearningAlgorithm.swift in Sources */,
 				B0A8FD0921321EA0008F82E2 /* Puzzle.swift in Sources */,
 				B01733992128E92400FBEFE5 /* ActionIconRowCell.swift in Sources */,
 				B01733912128D04500FBEFE5 /* AlgorithmViewController.swift in Sources */,
