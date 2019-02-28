@@ -1,7 +1,7 @@
 import UIKit
 
 enum AlgorithmPresentationAction {
-    case selectedCategory(Algorithm.Category)
+    case selectedCategory(AlgorithmCategory)
     case selectedAlgorithm(Algorithm)
 }
 
@@ -32,7 +32,7 @@ final class AlgorithmPresenter {
 
         let actionSection = ActionTableSectionController()
         
-        let identifiableProperties: [ActionTableRowController.Properties] = Algorithm.introduction.map { action in
+        let identifiableProperties: [ActionTableRowController.Properties] = IntroductionAlgorithm.allCases.map { action in
             let identifier = UUID()
             let icon = action.actionImage
             icon?.accessibilityIdentifier = action.title
@@ -54,7 +54,7 @@ final class AlgorithmPresenter {
     func makeCatgorySideScrollerSection() -> CategoryRowTableRowController {
         let section = CategoryRowTableRowController()
 
-        let categories: [Algorithm.Category] = [
+        let categories: [AlgorithmCategory] = [
             .gettingStarted, .searching, .machineLearning, .math, .stringSearch, .sorting, .compression, .misc
         ]
         
@@ -77,7 +77,7 @@ final class AlgorithmPresenter {
         
         sections.append(makeIntroSectionSection())
         
-        let categories: [TableSectionController] = Algorithm.Category.allCases.compactMap { category in
+        let categories: [TableSectionController] = AlgorithmCategory.allCases.compactMap { category in
             
             guard let controller = sectionFactory.makeSection(for: category) else {
                 return nil

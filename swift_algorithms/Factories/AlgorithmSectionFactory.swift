@@ -12,7 +12,7 @@ final class AlgorithmSectionFactory {
         let identifiers: [UUID: AlgorithmPresentationAction]
     }
     
-    public func makeSection(for category: Algorithm.Category) -> IdentifiableSectionController? {
+    public func makeSection(for category: AlgorithmCategory) -> IdentifiableSectionController? {
         switch category {
         case .gettingStarted:
             return makeGettingStartedSection()
@@ -33,7 +33,7 @@ final class AlgorithmSectionFactory {
         }
     }
     
-    public func makeSection(for sortingCategory: Algorithm.Sorting) -> IdentifiableSectionController {
+    public func makeSection(for sortingCategory: SortingLevel) -> IdentifiableSectionController {
         switch sortingCategory {
         case .basic:
             return makeBasicSortingSection()
@@ -49,7 +49,7 @@ final class AlgorithmSectionFactory {
     }
     
     public func makeAllSortingSections() -> [IdentifiableSectionController] {
-        return Algorithm.Sorting.allCases.map(makeSection(for:))
+        return SortingLevel.allCases.map(makeSection(for:))
     }
     
     private func makeIdentifiableProperties(for algorithms: [Algorithm]) -> IdentifiableRowProperties {
@@ -87,23 +87,23 @@ final class AlgorithmSectionFactory {
     
     public func makeGettingStartedSection() -> IdentifiableSectionController {
         
-        let category = Algorithm.Category.gettingStarted
+        let category = AlgorithmCategory.gettingStarted
         return makeSectionController(title: category.title,
                                      subtitle: category.sectionSubtitle,
-                                     algorithms: Algorithm.gettingStarted)
+                                     algorithms: GettingStartedAlgorithm.allCases)
     }
     
     public func makeBasicSortingSection() -> IdentifiableSectionController {
         
-        let category = Algorithm.Category.sorting
+        let category = AlgorithmCategory.sorting
         return makeSectionController(title: category.title,
                                      subtitle: category.sectionSubtitle,
-                                     algorithms: Algorithm.Sorting.basic.algorithms)
+                                     algorithms: SortingLevel.basic.algorithms)
     }
     
     public func makeFastSortingSection() -> IdentifiableSectionController {
         
-        let category = Algorithm.Sorting.fast
+        let category = SortingLevel.fast
         return makeSectionController(title: category.title,
                                      subtitle: nil,
                                      algorithms: category.algorithms)
@@ -111,15 +111,15 @@ final class AlgorithmSectionFactory {
     
     public func makeBadSortingSection() -> IdentifiableSectionController {
         
-        let category = Algorithm.Sorting.bad
+        let category = SortingLevel.bad
         return makeSectionController(title: category.title,
                                      subtitle: category.subtitle,
-                                     algorithms: Algorithm.Sorting.bad.algorithms)
+                                     algorithms: SortingLevel.bad.algorithms)
     }
     
     public func makeHybridSortingSection() -> IdentifiableSectionController {
         
-        let category = Algorithm.Sorting.hybrid
+        let category = SortingLevel.hybrid
         return makeSectionController(title: category.title,
                                      subtitle: nil,
                                      algorithms: category.algorithms)
@@ -127,7 +127,7 @@ final class AlgorithmSectionFactory {
     
     public func makeSpecialPurposeSortingSection() -> IdentifiableSectionController {
         
-        let category = Algorithm.Sorting.specialPurpose
+        let category = SortingLevel.specialPurpose
         return makeSectionController(title: category.title,
                                      subtitle: nil,
                                      algorithms: category.algorithms)
@@ -135,49 +135,49 @@ final class AlgorithmSectionFactory {
     
     public func makeSearchingSection() -> IdentifiableSectionController {
         
-        let category = Algorithm.Category.searching
+        let category = AlgorithmCategory.searching
         return makeSectionController(title: category.title,
                                      subtitle: category.sectionSubtitle,
-                                     algorithms: Algorithm.searching)
+                                     algorithms: SearchingAlgorithm.allCases)
     }
     
     public func makeStringSearchSection() -> IdentifiableSectionController {
         
-        let category = Algorithm.Category.stringSearch
+        let category = AlgorithmCategory.stringSearch
         return makeSectionController(title: category.title,
                                      subtitle: category.sectionSubtitle,
-                                     algorithms: Algorithm.stringSearch)
+                                     algorithms: StringSearchAlgorithm.allCases)
     }
     
     public func makeCompressionSection() -> IdentifiableSectionController {
         
-        let category = Algorithm.Category.compression
+        let category = AlgorithmCategory.compression
         return makeSectionController(title: category.title,
                                      subtitle: category.sectionSubtitle,
-                                     algorithms: Algorithm.compression)
+                                     algorithms: CompressionAlgorithm.allCases)
     }
     
     public func makeMiscellaneousSection() -> IdentifiableSectionController {
         
-        let category = Algorithm.Category.misc
+        let category = AlgorithmCategory.misc
         return makeSectionController(title: category.title,
                                      subtitle: category.sectionSubtitle,
-                                     algorithms: Algorithm.miscellaneous)
+                                     algorithms: MiscAlgorithm.allCases)
     }
     
     public func makeMathematicsSection() -> IdentifiableSectionController {
         
-        let category = Algorithm.Category.math
+        let category = AlgorithmCategory.math
         return makeSectionController(title: category.title,
                                      subtitle: category.sectionSubtitle,
-                                     algorithms: Algorithm.mathematics)
+                                     algorithms: MathematicsAlgorithm.allCases)
     }
     
     public func makeMachineLearningSection() -> IdentifiableSectionController {
         
-        let category = Algorithm.Category.machineLearning
+        let category = AlgorithmCategory.machineLearning
         return makeSectionController(title: category.title,
                                      subtitle: category.sectionSubtitle,
-                                     algorithms: Algorithm.machineLearning)
+                                     algorithms: MachineLearningAlgorithm.allCases)
     }
 }

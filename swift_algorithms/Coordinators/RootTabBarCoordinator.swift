@@ -277,7 +277,7 @@ final class RootTabCoordinator {
         return controller
     }
     
-    private func handleCategorySelect(_ category: Algorithm.Category) {
+    private func handleCategorySelect(_ category: AlgorithmCategory) {
         
         let categoryCoordinator = CategoryCoordinator()
         

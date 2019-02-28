@@ -22,7 +22,7 @@ final class CategoryTileItemView: UIView {
             self.identifier = identifier
         }
         
-        init(_ category: Algorithm.Category) {
+        init(_ category: AlgorithmCategory) {
             self.title = category.title
             self.image = category.image
             self.backgroundColor = category.color

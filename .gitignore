@@ -1,2 +1,7 @@
 swift_algorithms.app.dSYM.zip
 swift_algorithms.ipa
+
+# Xcode local settings
+**/*.xcworkspace/xcuserdata
+**/*.xcworkspace/xcshareddata
+**/*.xcodeproj/xcuserdata
