@@ -40,18 +40,20 @@ final class OnboardingInformationViewController: UIViewController {
             return view
         }
         
+        let genericHeight = view.frame.height / 50
+        
         let onboardStack = UIStackView(arrangedSubviews: onboardItemViews)
         onboardStack.axis = .vertical
-        onboardStack.spacing = 24
+        onboardStack.spacing = genericHeight
         
         actionContainer.addSubview(action)
         action.heightAnchor == 50
         action.setTitle("Continue", for: .normal)
-        action.edgeAnchors == actionContainer.edgeAnchors + UIEdgeInsets(top: 36, left: 0, bottom: 0, right: 0)
+        action.edgeAnchors == actionContainer.edgeAnchors + UIEdgeInsets(top: genericHeight, left: 0, bottom: 0, right: 0)
         
         let stack = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel, onboardStack, actionContainer])
         stack.axis = .vertical
-        stack.spacing = 36
+        stack.spacing = genericHeight
         
         view.addSubview(stack)
         stack.horizontalAnchors == view.horizontalAnchors + 48
@@ -72,13 +74,18 @@ final class OnboardingInformationViewController: UIViewController {
     private func makeOnboardingProperties() -> Properties {
         let attributedTitle = NSMutableAttributedString()
         
+        var fontSize = CGFloat(42)
+        if view.frame.height < 600 {
+            fontSize = 30
+        }
+        
         let prefixAttributes = [
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 42, weight: .black),
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize, weight: .black),
             NSAttributedString.Key.foregroundColor : UIColor.black
         ]
         
         let titleAttributes = [
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 42, weight: .black),
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize, weight: .black),
             NSAttributedString.Key.foregroundColor : UIColor.coral()
         ]
         
