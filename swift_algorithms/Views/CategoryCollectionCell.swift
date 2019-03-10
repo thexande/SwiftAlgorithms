@@ -9,6 +9,7 @@ final class CategoryCollectionCell: UICollectionViewCell, Reusable {
         super.init(frame: frame)
         contentView.addSubview(card)
         card.frame = contentView.bounds
+        isAccessibilityElement = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -18,5 +19,6 @@ final class CategoryCollectionCell: UICollectionViewCell, Reusable {
     public func render(_ properties: CategoryTileItemView.Properties) {
         tile.render(properties)
         card.cardView.render(properties)
+        accessibilityLabel = properties.title
     }
 }

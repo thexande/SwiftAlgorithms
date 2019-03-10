@@ -85,6 +85,12 @@ final class CategoryDetailView: View {
         }
     }
     
+    // When the user performs Z gesture while the VoiceOver is on
+    override func accessibilityPerformEscape() -> Bool {
+        parentViewController?.dismiss(animated: true, completion: nil)
+        return true
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         let headerHeight: CGFloat = 140
