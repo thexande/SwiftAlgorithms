@@ -1,22 +1,39 @@
-<img src="https://cdn.rawgit.com/dennisweissmann/DeviceKit/master/DeviceKit.svg" height="128">
+<img src="/DeviceKit.svg" height="128">
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/dennisweissmann/DeviceKit/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/devicekit/DeviceKit/master/LICENSE)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/DeviceKit.svg)](https://cocoapods.org/pods/DeviceKit)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![codecov](https://codecov.io/gh/dennisweissmann/DeviceKit/branch/master/graph/badge.svg)](https://codecov.io/gh/dennisweissmann/DeviceKit)
+[![codecov](https://codecov.io/gh/devicekit/DeviceKit/branch/master/graph/badge.svg)](https://codecov.io/gh/devicekit/DeviceKit)
 [![CocoaPods](https://img.shields.io/cocoapods/dt/DeviceKit.svg)](https://cocoapods.org/pods/DeviceKit)
-[![Maintainability](https://api.codeclimate.com/v1/badges/844e23a17bde71ff6be1/maintainability)](https://codeclimate.com/github/dennisweissmann/DeviceKit/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/844e23a17bde71ff6be1/maintainability)](https://codeclimate.com/github/devicekit/DeviceKit/maintainability)
 [![Platform](https://img.shields.io/cocoapods/p/DeviceKit.svg?style=flat)](http://cocoadocs.org/docsets/DeviceKit)
 
 
 | Branch | Build Status | Versions |
 |:---------|:--------------:|:----------:|
-| **master** |[![Build Status](https://travis-ci.org/dennisweissmann/DeviceKit.svg?branch=master)](https://travis-ci.org/dennisweissmann/DeviceKit)| - |
-| **Swift 4 - 4.2** |[![Build Status](https://travis-ci.org/dennisweissmann/DeviceKit.svg?branch=swift-4)](https://travis-ci.org/dennisweissmann/DeviceKit)| ≥ 1.3 |
-| **Swift 3** |[![Build Status](https://travis-ci.org/dennisweissmann/DeviceKit.svg?branch=swift-3)](https://travis-ci.org/dennisweissmann/DeviceKit)| ≥ 1.0 < 1.3 |
-| **Swift 2.3** |[![Build Status](https://travis-ci.org/dennisweissmann/DeviceKit.svg?branch=swift-2.3-unsupported)](https://travis-ci.org/dennisweissmann/DeviceKit)| < 1.0 |
+| **master** |[![Build Status](https://travis-ci.org/devicekit/DeviceKit.svg?branch=master)](https://travis-ci.org/devicekit/DeviceKit)| ≥ 2.0 |
+| **Swift 4 - 4.2** |[![Build Status](https://travis-ci.org/devicekit/DeviceKit.svg?branch=swift-4)](https://travis-ci.org/devicekit/DeviceKit)| ≥ 1.3 < 1.13 |
+| **Swift 3** |[![Build Status](https://travis-ci.org/devicekit/DeviceKit.svg?branch=swift-3)](https://travis-ci.org/devicekit/DeviceKit)| ≥ 1.0 < 1.3 |
+| **Swift 2.3** |[![Build Status](https://travis-ci.org/devicekit/DeviceKit.svg?branch=swift-2.3-unsupported)](https://travis-ci.org/devicekit/DeviceKit)| < 1.0 |
 
 `DeviceKit` is a value-type replacement of [`UIDevice`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDevice_Class/).
+
+## Changelog
+Here you find an overview about all the latest features, bugfixes and breaking changes shipped with version 2.0 which was released on 10<sup>th</sup> April 2019.
+### Breaking changes version 2.0
+- The original `Device()` constructor has been made private in favour of using `Device.current` to match `UIDevice.current`.
+- The enum values for the iPhone Xs, iPhone Xs Max and iPhone Xʀ have been renamed to be `.iPhoneXS`, `.iPhoneXSMax` and `.iPhoneXR` to match proper formatting.
+- `.description` for the iPhone Xs, iPhone Xs Max and iPhone Xʀ have been changed to contain small caps formatting for the s and the ʀ part.
+- `.description` for the iPad 5 and iPad 6 have been changed to the proper names; iPad (5<sup>th</sup> generation) and iPad (6<sup>th</sup> generation).
+- `.name`, `.systemName`, `.systemVersion`, `.model`, `.localizedModel`, `.batteryState` and `.batteryLevel` will now all return nil when you try to get its value when the device you are getting it from isn't the current one. (eg. `Device.iPad6.name` while running on iPad 5)
+
+### New features
+- Updated to Swift 5!
+- New `.allDevicesWithRoundedDisplayCorners` and `.hasRoundedDisplayCorners` values to check if a device has rounded display corners. (eg. iPhone Xs and iPad Pro (3<sup>rd</sup> generation))
+- new `.allDevicesWithSensorHousing` and `.hasSensorHousing` values to check if a device has a screen cutout for the sensor housing. (eg. iPhone Xs)
+
+### Bugfixes
+- `.isPad` and `.isPhone` are now giving correct outputs again.
 
 ## Features
 
@@ -47,6 +64,10 @@ DeviceKit can be installed in various ways.
 
 ### CocoaPods
 
+#### Swift 5
+```ruby
+pod 'DeviceKit', '~> 2.0'
+```
 #### Swift 4.0 - Swift 4.2
 ```ruby
 pod 'DeviceKit', '~> 1.3'
@@ -57,28 +78,32 @@ pod 'DeviceKit', '~> 1.2.3'
 ```
 #### Swift 2.3 (Unsupported)
 ```ruby
-pod 'DeviceKit', :git => 'https://github.com/dennisweissmann/DeviceKit.git', :branch => 'swift-2.3-unsupported'
+pod 'DeviceKit', :git => 'https://github.com/devicekit/DeviceKit.git', :branch => 'swift-2.3-unsupported'
 ```
 
 ### Carthage
 
+#### Swift 5
+```ogdl
+github "devicekit/DeviceKit" ~> 2.0
+```
 #### Swift 4.0 - Swift 4.2
 ```ogdl
-github "dennisweissmann/DeviceKit" ~> 1.3
+github "devicekit/DeviceKit" ~> 1.3
 ```
 #### Swift 3
 ```ogdl
-github "dennisweissmann/DeviceKit" ~> 1.2.3
+github "devicekit/DeviceKit" ~> 1.2.3
 ```
 #### Swift 2.3 (Unsupported)
 ```ogdl
-github "dennisweissmann/DeviceKit" "swift-2.3-unsupported"
+github "devicekit/DeviceKit" "swift-2.3-unsupported"
 ```
 
 ### Manually
 To install it manually, drag the `DeviceKit` project into your app project in Xcode. Or add it as a git submodule by running:
 ```bash
-$ git submodule add https://github.com/dennisweissmann/DeviceKit.git
+$ git submodule add https://github.com/devicekit/DeviceKit.git
 ```
 
 ## Usage
@@ -101,7 +126,7 @@ You can try these examples in Playground.
 
 ### Get the Device You're Running On
 ```swift
-let device = Device()
+let device = Device.current
 
 print(device)     // prints, for example, "iPhone 6 Plus"
 
@@ -114,7 +139,7 @@ if device == .iPhone6Plus {
 
 ### Get the Device Family
 ```swift
-let device = Device()
+let device = Device.current
 if device.isPod {
   // iPods (real or simulator)
 } else if device.isPhone {
@@ -126,7 +151,7 @@ if device.isPod {
 
 ### Check If Running on Simulator
 ```swift
-let device = Device()
+let device = Device.current
 if device.isSimulator {
   // Running on one of the simulators(iPod/iPhone/iPad)
   // Skip doing something irrelevant for Simulator
@@ -135,7 +160,7 @@ if device.isSimulator {
 
 ### Get the Simulator Device
 ```swift
-let device = Device()
+let device = Device.current
 switch device {
 case .simulator(.iPhone6s): break // You're running on the iPhone 6s simulator
 case .simulator(.iPadAir2): break // You're running on the iPad Air 2 simulator
@@ -145,8 +170,9 @@ default: break
  
 ### Make Sure the Device Is Contained in a Preconfigured Group
 ```swift
-let groupOfAllowedDevices: [Device] = [.iPhone6, .iPhone6Plus, .iPhone6s, .iPhone6sPlus, .simulator(.iPhone6), .simulator(.iPhone6Plus), .simulator(.iPhone6s), .simulator(.iPhone6sPlus)]
-let device = Device()
+let groupOfAllowedDevices: [Device] = [.iPhone6, .iPhone6Plus, .iPhone6s, .iPhone6sPlus, .simulator(.iPhone6), .simulator(.iPhone6Plus),.simulator(.iPhone6s),.simulator(.iPhone6sPlus).simulator(.iPhone8),.simulator(.iPhone8Plus),.simulator(.iPhoneX),.simulator(.iPhoneXS),.simulator(.iPhoneXSMax),.simulator(.iPhoneXR)]
+
+let device = Device.current
  
 if device.isOneOf(groupOfAllowedDevices) {
   // Do your action
@@ -217,4 +243,4 @@ If you have the need for a specific feature that you want implemented or if you 
 If you extended the functionality of DeviceKit yourself and want others to use it too, please submit a pull request.
 
 ## Contributors
-The complete list of people who contributed to this project is available [here](https://github.com/dennisweissmann/DeviceKit/graphs/contributors). DeviceKit wouldn't be what it is without you! Thank you very much! 🙏
+The complete list of people who contributed to this project is available [here](https://github.com/devicekit/DeviceKit/graphs/contributors). DeviceKit wouldn't be what it is without you! Thank you very much! 🙏

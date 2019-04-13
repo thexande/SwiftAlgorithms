@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "22F853355655144BE095847FF988A0E5"
+               BlueprintIdentifier = "BEB29B20E00E6E580E3A78C9C944752F"
+               BuildableName = "MarkdownView.framework"
                BlueprintName = "MarkdownView"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "MarkdownView.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

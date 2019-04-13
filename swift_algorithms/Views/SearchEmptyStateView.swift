@@ -4,18 +4,17 @@ import Lottie
 
 final class SearchEmptyStateView: UIView {
     let titleLabel = UILabel()
-    let lottieView: LOTAnimationView
+    let lottieView: AnimationView
     
     init() {
-        lottieView = LOTAnimationView()
-        lottieView.setAnimation(named: "Rejection")
+        lottieView = AnimationView(name: "legoloader")
         super.init(frame: .zero)
         
         [titleLabel, lottieView].forEach { addSubview($0) }
         
         lottieView.sizeAnchors == CGSize(width: 200, height: 200)
         lottieView.centerAnchors == centerAnchors
-        lottieView.loopAnimation = true
+        lottieView.loopMode = .loop
         lottieView.play()
         
         titleLabel.horizontalAnchors == horizontalAnchors + 24
