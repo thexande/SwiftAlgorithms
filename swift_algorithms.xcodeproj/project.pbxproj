@@ -532,14 +532,16 @@
 				TargetAttributes = {
 					B00B269E2123B5DE00E1DF9C = {
 						CreatedOnToolsVersion = 10.0;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					B00B26B22123B5E000E1DF9C = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = B00B269E2123B5DE00E1DF9C;
 					};
 					B00B26BD2123B5E000E1DF9C = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = B00B269E2123B5DE00E1DF9C;
 					};
 				};
@@ -944,7 +946,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thexande.swift-algorithms";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -965,7 +967,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thexande.swift-algorithms";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -986,7 +988,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "thexande.swift-algorithmsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swift_algorithms.app/swift_algorithms";
 			};
@@ -1008,7 +1010,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "thexande.swift-algorithmsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swift_algorithms.app/swift_algorithms";
 			};
@@ -1029,7 +1031,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "thexande.swift-algorithmsUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = swift_algorithms;
 			};
@@ -1050,7 +1052,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "thexande.swift-algorithmsUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = swift_algorithms;
 			};
