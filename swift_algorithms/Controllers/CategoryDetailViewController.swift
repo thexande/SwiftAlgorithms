@@ -156,7 +156,7 @@ final class CategoryDetailViewController: UIViewController {
             view.backgroundColor = .groupTableViewBackground
         }
 
-        let device = Device()
+        let device = Device.current
         switch device {
         case .iPhoneX, .simulator(.iPhoneX):
             back.centerYAnchor == detail.cardView.centerYAnchor - 8

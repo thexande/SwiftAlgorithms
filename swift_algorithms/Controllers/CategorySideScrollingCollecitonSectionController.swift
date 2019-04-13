@@ -31,7 +31,7 @@ final class CategorySideScrollingCollecitonSectionController: NSObject, Collecti
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let device = Device()
+        let device = Device.current
         let width: CGFloat
         
         if device.isPad {
