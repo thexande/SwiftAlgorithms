@@ -1,9 +1,0 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Anchorage" "${PODS_CONFIGURATION_BUILD_DIR}/DeviceKit" "${PODS_CONFIGURATION_BUILD_DIR}/Hero" "${PODS_CONFIGURATION_BUILD_DIR}/MarkdownView" "${PODS_CONFIGURATION_BUILD_DIR}/Result" "${PODS_CONFIGURATION_BUILD_DIR}/lottie-ios"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Anchorage/Anchorage.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/DeviceKit/DeviceKit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Hero/Hero.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MarkdownView/MarkdownView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Result/Result.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/lottie-ios/Lottie.framework/Headers"
-LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "Anchorage" -framework "CoreGraphics" -framework "DeviceKit" -framework "Foundation" -framework "Hero" -framework "Lottie" -framework "MarkdownView" -framework "QuartzCore" -framework "Result" -framework "UIKit"
-PODS_BUILD_DIR = ${BUILD_DIR}
-PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
-PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
-PODS_ROOT = ${SRCROOT}/Pods

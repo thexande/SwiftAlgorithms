@@ -5,3 +5,5 @@ swift_algorithms.ipa
 **/*.xcworkspace/xcuserdata
 **/*.xcworkspace/xcshareddata
 **/*.xcodeproj/xcuserdata
+
+**/Pods/
