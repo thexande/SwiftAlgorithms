@@ -9,11 +9,9 @@ final class BasicTableCell: ThemableTableViewCell {
         
         switch Themer.shared.currentTheme {
         case .dark:
-            backgroundColor = .black
             textLabel?.textColor = .white
             detailTextLabel?.textColor = .darkModeSubTitle()
         case .light:
-            contentView.backgroundColor = .white
             textLabel?.textColor = .black
             detailTextLabel?.textColor = .darkGray
         }
