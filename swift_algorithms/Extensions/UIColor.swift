@@ -60,7 +60,8 @@ extension UIColor {
     }
     
     static func darkModeTableBackground() -> UIColor {
-        return UIColor(red:0.09, green:0.09, blue:0.09, alpha:1.0)
+        return UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+//        return UIColor(red:0.09, green:0.09, blue:0.09, alpha:1.0)
     }
     
     static func darkModeMardown() -> UIColor {
@@ -69,5 +70,10 @@ extension UIColor {
     
     static func appleBlue() -> UIColor {
         return UIColor.init(red: 14.0/255, green: 122.0/255, blue: 254.0/255, alpha: 1.0)
+    }
+    
+    static func darkModeOne() -> UIColor {
+        return UIColor(red:0.09, green:0.09, blue:0.09, alpha:1.0)
+//        return UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
     }
 }

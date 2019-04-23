@@ -61,7 +61,7 @@ final class AppCoordinator {
         switch theme {
         case .dark:
             tint = .coral()
-            background = .black
+            background = .darkModeOne()
             style = .black
             UITextField.appearance().keyboardAppearance = .dark
         case .light:

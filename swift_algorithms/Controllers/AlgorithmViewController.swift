@@ -10,6 +10,13 @@ final class AlgorithmViewController: SectionProxyTableViewController {
     
     override init(style: UITableView.Style) {
         super.init(style: .grouped)
+        
+        switch Themer.shared.currentTheme {
+        case .light:
+            tableView.indicatorStyle = .black
+        case .dark:
+            tableView.indicatorStyle = .white
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
