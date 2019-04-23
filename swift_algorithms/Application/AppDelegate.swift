@@ -6,8 +6,7 @@ protocol AppCoordinatorActionsDispatching: AnyObject {
 
 final class Themer {
     static let shared = Themer()
-    // default theme
-    var currentTheme: Theme = .light
+    var currentTheme: Theme = .dark
 }
 
 final class AppCoordinator {
@@ -30,7 +29,7 @@ final class AppCoordinator {
     }
     
     // default theme
-    private var currentTheme: Theme = .light {
+    private var currentTheme: Theme = .dark {
         didSet {
             setAppearance(with: currentTheme)
             Themer.shared.currentTheme = currentTheme
