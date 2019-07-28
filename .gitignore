@@ -7,3 +7,6 @@ swift_algorithms.ipa
 **/*.xcodeproj/xcuserdata
 
 **/Pods/
+
+# Fastlane
+*/fastlane/report.xml
