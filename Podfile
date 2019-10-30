@@ -9,7 +9,6 @@ target 'swift_algorithms' do
   pod 'MarkdownView', :git => 'https://github.com/thexande/MarkdownView.git', :branch => 'master'
   pod 'Anchorage'
   pod 'lottie-ios'
-  pod 'Result'
   pod 'Hero'
   pod 'DeviceKit'
   

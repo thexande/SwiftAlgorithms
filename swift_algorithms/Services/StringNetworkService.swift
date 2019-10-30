@@ -1,5 +1,4 @@
 import Foundation
-import Result
 
 enum StringNetworkServiceError: Error {
     case contentLoadingFailure
