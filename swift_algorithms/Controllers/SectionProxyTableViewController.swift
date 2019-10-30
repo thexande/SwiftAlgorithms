@@ -10,17 +10,6 @@ protocol TableSectionController: UITableViewDelegate, UITableViewDataSource {
 class SectionProxyTableViewController: UITableViewController {
     var sections: [TableSectionController] = []
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        switch Themer.shared.currentTheme {
-        case .dark:
-            tableView.backgroundColor = .darkModeTableBackground()
-        case .light:
-            tableView.backgroundColor = .white
-        }
-    }
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }

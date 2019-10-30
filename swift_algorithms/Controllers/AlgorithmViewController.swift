@@ -8,21 +8,6 @@ final class AlgorithmViewController: SectionProxyTableViewController {
     
     weak var dispatcher: AlgorithmViewActionDispatching?
     
-    override init(style: UITableView.Style) {
-        super.init(style: .grouped)
-        
-        switch Themer.shared.currentTheme {
-        case .light:
-            tableView.indicatorStyle = .black
-        case .dark:
-            tableView.indicatorStyle = .white
-        }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     public func update(with sections: [TableSectionController]) {
         sections.forEach { section in
             section.registerReusableTypes(tableView: tableView)

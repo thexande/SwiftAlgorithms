@@ -1,11 +1,6 @@
 import UIKit
 import Anchorage
 
-enum Theme {
-    case light
-    case dark
-}
-
 final class GlobalSplitViewController: UISplitViewController, UISplitViewControllerDelegate {
     
     override func viewDidLoad() {

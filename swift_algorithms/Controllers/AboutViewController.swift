@@ -14,7 +14,6 @@ final class AboutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
         
         confetti.backgroundColor = .white
         
@@ -37,15 +36,15 @@ final class AboutViewController: UIViewController {
         confetti.startConfetti()
         
        
-        switch Themer.shared.currentTheme {
-        case .dark:
-            confetti.alpha = 0.8
-            blur.alpha = 0.0
-            confetti.backgroundColor = .darkModeTableBackground()
-        case .light:
-            blur.alpha = 0.5
-            confetti.backgroundColor = .white
-        }
+//        switch Themer.shared.currentTheme {
+//        case .dark:
+//            confetti.alpha = 0.8
+//            blur.alpha = 0.0
+//            confetti.backgroundColor = .darkModeTableBackground()
+//        case .light:
+//            blur.alpha = 0.5
+//            confetti.backgroundColor = .white
+//        }
     }
 }
 

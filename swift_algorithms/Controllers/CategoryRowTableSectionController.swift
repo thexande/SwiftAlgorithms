@@ -32,9 +32,9 @@ final class CategoryRowTableRowController: NSObject, RowController {
             return UITableViewCell()
         }
         
-        collectionSectionController.registerForReusableTypes(with: cell.colleciton)
-        cell.colleciton.delegate = collectionSectionController
-        cell.colleciton.dataSource = collectionSectionController
+        collectionSectionController.registerForReusableTypes(with: cell.collection)
+        cell.collection.delegate = collectionSectionController
+        cell.collection.dataSource = collectionSectionController
         
         return cell
     }

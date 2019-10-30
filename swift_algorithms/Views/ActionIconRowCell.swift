@@ -5,7 +5,6 @@ class ThemableTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         let view = UIView()
-        view.backgroundColor = Themer.shared.currentTheme == .dark ? UIColor.darkGray : UIColor.lightGray
         selectedBackgroundView = view
     }
     
@@ -35,13 +34,19 @@ final class ActionIconRowCell: ThemableTableViewCell {
     var iconImage: UIImage? {
         didSet {
             
-            guard
-                Themer.shared.currentTheme == .dark,
-                iconImage?.accessibilityIdentifier == "How to contribute" ||
-                iconImage?.accessibilityIdentifier == "Algorithm design techniques"
-            else {
+            
+            
+            if #available(iOS 12.0, *) {
+                guard
+                    traitCollection.userInterfaceStyle == .dark,
+                    iconImage?.accessibilityIdentifier == "How to contribute" ||
+                        iconImage?.accessibilityIdentifier == "Algorithm design techniques"
+                    else {
+                        icon.image = iconImage
+                        return
+                }
+            } else {
                 icon.image = iconImage
-                return
             }
             
             icon.image = iconImage?.withRenderingMode(.alwaysTemplate)
@@ -78,22 +83,10 @@ final class ActionIconRowCell: ThemableTableViewCell {
         titleLabel.numberOfLines = 0
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         
-        
-        
         subtitleLabel.numberOfLines = 0
         subtitleLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         
         accessoryType = .disclosureIndicator
-        
-        switch Themer.shared.currentTheme {
-        case .dark:
-            titleLabel.textColor = .white
-            subtitleLabel.textColor = .darkModeSubTitle()
-            
-        case .light:
-            titleLabel.textColor = .black
-            subtitleLabel.textColor = .darkGray
-        }
     }
     
     required init?(coder aDecoder: NSCoder) {

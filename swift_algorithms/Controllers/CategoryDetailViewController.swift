@@ -56,13 +56,6 @@ final class CategoryDetailView: View {
         addSubview(tableView)
         addSubview(cardView)
         
-        switch Themer.shared.currentTheme {
-        case .dark:
-            tableView.backgroundColor = .darkModeTableBackground()
-        case .light:
-            tableView.backgroundColor = .groupTableViewBackground
-        }
-        
         tableView.hero.modifiers = [.useNoSnapshot, .translate(y: -80), .fade]
         
         cardView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(pan(gr:))))
@@ -148,13 +141,6 @@ final class CategoryDetailViewController: UIViewController {
         back.addTarget(self, action: #selector(dismissModal), for: .touchUpInside)
         
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        
-        switch Themer.shared.currentTheme {
-        case .dark:
-            view.backgroundColor = .darkModeTableBackground()
-        case .light:
-            view.backgroundColor = .groupTableViewBackground
-        }
 
         let device = Device.current
         switch device {

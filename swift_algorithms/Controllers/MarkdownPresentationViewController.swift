@@ -9,10 +9,13 @@ final class MarkdownPresentationViewController: UIViewController {
     
     public func setMarkdown(_ markdown: String) {
         
-        switch Themer.shared.currentTheme {
-        case .dark:
-            markdownView.visualMode = .dark
-        case .light:
+        if #available(iOS 12.0, *) {
+            if traitCollection.userInterfaceStyle == .light {
+                markdownView.visualMode = .light
+            } else {
+                markdownView.visualMode = .dark
+            }
+        } else {
             markdownView.visualMode = .light
         }
         

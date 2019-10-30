@@ -1,13 +1,10 @@
 import UIKit
 
-final class Themer {
-    static let shared = Themer()
-    var currentTheme: Theme = .dark
-}
 
 final class AppCoordinator {
     
     private var rootTabCoordinator: RootTabCoordinator?
+    
     var root: UIViewController?
     
     func rootViewController() -> UIViewController? {
@@ -31,7 +28,6 @@ final class AppCoordinator {
 }
 
 extension UIWindow {
-    
     func switchRootViewController(_ viewController: UIViewController,
                                   animated: Bool = true,
                                   duration: TimeInterval = 0.5,

@@ -17,17 +17,6 @@ final class TableLoadingView: UIView {
         title.topAnchor == indicator.centerYAnchor + 18
         title.font = UIFont.systemFont(ofSize: 10)
         title.text = "Loading"
-        
-        switch Themer.shared.currentTheme {
-        case .dark:
-            title.textColor = UIColor.darkGray
-            backgroundColor = .darkModeMardown()
-            indicator.style = .white
-        case .light:
-            backgroundColor = .white
-            title.textColor = UIColor.lightGray
-            indicator.style = .gray
-        }
     }
     
     required init?(coder aDecoder: NSCoder) {

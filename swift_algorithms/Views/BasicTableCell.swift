@@ -6,16 +6,6 @@ final class BasicTableCell: ThemableTableViewCell {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         detailTextLabel?.numberOfLines = 0
         textLabel?.numberOfLines = 0
-        
-        switch Themer.shared.currentTheme {
-        case .dark:
-            textLabel?.textColor = .white
-            detailTextLabel?.textColor = .darkModeSubTitle()
-        case .light:
-            textLabel?.textColor = .black
-            detailTextLabel?.textColor = .darkGray
-        }
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -30,20 +20,6 @@ final class BasicTableHeaderCell: ThemableTableViewCell {
         textLabel?.font = .systemFont(ofSize: 14, weight: .medium)
         separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
         selectionStyle = .none
-       
-        
-        
-        switch Themer.shared.currentTheme {
-        case .dark:
-            contentView.backgroundColor = .groupTableViewBackground
-            textLabel?.textColor = .white
-            detailTextLabel?.textColor = .darkModeSubTitle()
-        case .light:
-            contentView.backgroundColor = .white
-            textLabel?.textColor = .black
-            detailTextLabel?.textColor = .darkGray
-        }
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -69,15 +45,6 @@ final class SearchResultsTableCell: ThemableTableViewCell {
         indicator.centerYAnchor == title.centerYAnchor
         indicator.leadingAnchor == contentView.leadingAnchor + 18
         indicator.installCardShadow()
-        
-        switch Themer.shared.currentTheme {
-        case .dark:
-            backgroundColor = .black
-            title.textColor = .white
-        case .light:
-            backgroundColor = .white
-            title.textColor = .black
-        }
     }
     
     required init?(coder aDecoder: NSCoder) {

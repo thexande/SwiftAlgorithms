@@ -24,13 +24,6 @@ final class SearchEmptyStateView: UIView {
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.systemFont(ofSize: 22, weight: .medium)
         backgroundColor = .clear
-        
-        switch Themer.shared.currentTheme {
-        case .light:
-            titleLabel.textColor = . black
-        case .dark:
-            titleLabel.textColor = .white
-        }
     }
     
     required init?(coder aDecoder: NSCoder) {

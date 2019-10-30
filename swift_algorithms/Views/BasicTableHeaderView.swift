@@ -34,19 +34,6 @@ final class BasicTableHeaderView: UITableViewHeaderFooterView {
         stack.spacing = 4
         contentView.addSubview(stack)
         stack.edgeAnchors == contentView.edgeAnchors + UIEdgeInsets(top: 8, left: 18, bottom: 8, right: 18)
-        
-        
-        switch Themer.shared.currentTheme {
-        case .dark:
-            titleLabel.textColor = .lightGray
-            subtitleLabel.textColor = .lightGray
-            contentView.backgroundColor = .darkModeTableBackground()
-            
-        case .light:
-            titleLabel.textColor = .darkGray
-            subtitleLabel.textColor = .darkGray
-            contentView.backgroundColor = .groupTableViewBackground
-        }
     }
     
     required init?(coder aDecoder: NSCoder) {
