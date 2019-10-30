@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -76,6 +76,7 @@
 		B0A8FD0721321787008F82E2 /* PuzzlesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FD0621321787008F82E2 /* PuzzlesPresenter.swift */; };
 		B0A8FD0921321EA0008F82E2 /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FD0821321EA0008F82E2 /* Puzzle.swift */; };
 		B0A8FD0B21321FF6008F82E2 /* RootTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FD0A21321FF6008F82E2 /* RootTabBarCoordinator.swift */; };
+		B0C7F04F236933BF00F9B5BF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7F04E236933BF00F9B5BF /* AppCoordinator.swift */; };
 		B0E8C16A212FA09000CBE90B /* AlgorithmSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C169212FA09000CBE90B /* AlgorithmSearchPresenter.swift */; };
 		B0E8C16C212FAC1E00CBE90B /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16B212FAC1D00CBE90B /* SearchResultsTableViewController.swift */; };
 		B0E8C16E212FAC4200CBE90B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16D212FAC4200CBE90B /* UIView.swift */; };
@@ -184,6 +185,7 @@
 		B0A8FD0621321787008F82E2 /* PuzzlesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzlesPresenter.swift; sourceTree = "<group>"; };
 		B0A8FD0821321EA0008F82E2 /* Puzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle.swift; sourceTree = "<group>"; };
 		B0A8FD0A21321FF6008F82E2 /* RootTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarCoordinator.swift; sourceTree = "<group>"; };
+		B0C7F04E236933BF00F9B5BF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B0E8C169212FA09000CBE90B /* AlgorithmSearchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlgorithmSearchPresenter.swift; sourceTree = "<group>"; };
 		B0E8C16B212FAC1D00CBE90B /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		B0E8C16D212FAC4200CBE90B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 			children = (
 				B0A8FD0A21321FF6008F82E2 /* RootTabBarCoordinator.swift */,
 				B03CEA5E2134E00F00F87760 /* CategoryCoordinator.swift */,
+				B0C7F04E236933BF00F9B5BF /* AppCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				B069F1C1212A6727002FABFB /* Algorithm.swift in Sources */,
 				1A1068B62222D4A1008CC444 /* IntroductionAlgorithm.swift in Sources */,
 				B0F6D77E213B428E00E52E71 /* DataStructurePresenter.swift in Sources */,
+				B0C7F04F236933BF00F9B5BF /* AppCoordinator.swift in Sources */,
 				B01733A52129351A00FBEFE5 /* BasicTableCell.swift in Sources */,
 				1A1068C02222E394008CC444 /* StringSearchAlgorithm.swift in Sources */,
 				B0A8FD03213208DB008F82E2 /* AboutViewController.swift in Sources */,
