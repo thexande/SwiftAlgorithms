@@ -1,9 +1,5 @@
 import UIKit
 
-protocol AppCoordinatorActionsDispatching: AnyObject {
-    func userDidShake()
-}
-
 final class Themer {
     static let shared = Themer()
     var currentTheme: Theme = .dark
@@ -11,86 +7,26 @@ final class Themer {
 
 final class AppCoordinator {
     
-    private var rootTabCoordinator: RootTabCoordinator? {
-        didSet {
-            root = rootTabCoordinator?.root
-        }
-    }
-    
-    var root: UIViewController? {
-        didSet {
-            if
-                let app = UIApplication.shared.delegate as? AppDelegate,
-                let window = app.window,
-                let root = root {
-                    window.switchRootViewController(root)
-            }
-        }
-    }
-    
-    // default theme
-    private var currentTheme: Theme = .dark {
-        didSet {
-            setAppearance(with: currentTheme)
-            Themer.shared.currentTheme = currentTheme
-            rootTabCoordinator = RootTabCoordinator(theme: currentTheme)
-            rootTabCoordinator?.appCoordinatorDispatch = self
-        }
-    }
+    private var rootTabCoordinator: RootTabCoordinator?
+    var root: UIViewController?
     
     func rootViewController() -> UIViewController? {
-        let coordinator = RootTabCoordinator(theme: currentTheme)
-        
-        // configure with default theme
-        setAppearance(with: currentTheme)
-        Themer.shared.currentTheme = currentTheme
-        
-        coordinator.appCoordinatorDispatch = self
+        let coordinator = RootTabCoordinator()
         rootTabCoordinator = coordinator
         root = coordinator.root
         return root
     }
     
-    private func setAppearance(with theme: Theme) {
-        
-        let tint: UIColor
-        let background: UIColor
-        let style: UIBarStyle
-        
-        switch theme {
-        case .dark:
-            tint = .coral()
-            background = .darkModeOne()
-            style = .black
-            UITextField.appearance().keyboardAppearance = .dark
-        case .light:
-            tint = .appleBlue()
-            background = .white
-            style = .default
-            UITextField.appearance().keyboardAppearance = .light
-        }
-        
-        UINavigationBar.appearance().tintColor = tint
-        UINavigationBar.appearance().barStyle = style
-        
-        UITabBar.appearance().barStyle = style
-        UITabBar.appearance().tintColor = tint
-        
-        UITextField.appearance().tintColor = tint
-        UISearchBar.appearance().tintColor = tint
-        
-        UITableViewCell.appearance().backgroundColor = background
+    init() {
+        setAppearance()
     }
-}
-
-extension AppCoordinator: AppCoordinatorActionsDispatching {
-    func userDidShake() {
-        switch currentTheme {
-        case .dark:
-            currentTheme = .light
-        case .light:
-            currentTheme = .dark
-        }
+    
+    private func setAppearance() {
+        UINavigationBar.appearance().tintColor = .coral()
+        UITabBar.appearance().tintColor = .coral()
+        UITextField.appearance().tintColor = .coral()
+        UISearchBar.appearance().tintColor = .coral()
+        
     }
 }
 
