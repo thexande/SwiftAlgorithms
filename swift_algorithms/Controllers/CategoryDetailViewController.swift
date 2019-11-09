@@ -31,9 +31,14 @@ class View: UIView {
 final class CategoryDetailView: View {
     
     let cardView = CategoryTileItemView()
-    let tableView = UITableView()
+    let tableView: UITableView
     
     override init(frame: CGRect) {
+        if #available(iOS 13.0, *) {
+            tableView = UITableView(frame: .zero, style: .insetGrouped)
+        } else {
+            tableView = UITableView(frame: .zero, style: .grouped)
+        }
         super.init(frame: frame)
         let status = UIApplication.shared.statusBarFrame.height
         cardView.verticalOffset = status + 36
@@ -47,8 +52,6 @@ final class CategoryDetailView: View {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
-        
-        
         
         cardView.layer.cornerRadius = 0
         cardView.layer.shadowColor = UIColor.clear.cgColor
@@ -129,7 +132,7 @@ final class CategoryDetailViewController: UIViewController {
         hero.isEnabled = true
         detail.tableView.delegate = self
         detail.tableView.dataSource = self
-        
+                
         back.setImage(UIImage(named: "back")?.withRenderingMode(.alwaysTemplate), for: .normal)
         back.tintColor = .white
         back.imageView?.contentMode = .scaleAspectFit

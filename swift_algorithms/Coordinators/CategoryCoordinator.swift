@@ -81,8 +81,10 @@ final class CategoryCoordinator {
         
         let nav = UINavigationController(rootViewController: vc)
         nav.hero.isEnabled = true
+        nav.view.backgroundColor = .clear
         
         self.nav = nav
+        nav.modalPresentationStyle = .overFullScreen
         
         return nav
     }
@@ -116,7 +118,9 @@ final class CategoryCoordinator {
         vc.sections = [categorySection.seciton]
         
         let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .overFullScreen
         nav.hero.isEnabled = true
+        nav.view.backgroundColor = .clear
         self.nav = nav
         return nav
     }
