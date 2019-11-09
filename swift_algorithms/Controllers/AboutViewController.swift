@@ -3,10 +3,6 @@ import Anchorage
 
 final class AboutViewController: UIViewController {
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     private let confetti = ConfettiView()
     private let scroll = UIScrollView()
     private let about = AboutView()
@@ -17,11 +13,12 @@ final class AboutViewController: UIViewController {
         
         confetti.backgroundColor = .white
         
+        
+        
         view.addSubview(confetti)
         confetti.edgeAnchors == view.edgeAnchors
         
         view.addSubview(blur)
-        blur.backgroundColor = .white
         blur.edgeAnchors == view.edgeAnchors
         
         view.addSubview(scroll)
@@ -34,17 +31,6 @@ final class AboutViewController: UIViewController {
         scroll.bottomAnchor == about.bottomAnchor
         
         confetti.startConfetti()
-        
-       
-//        switch Themer.shared.currentTheme {
-//        case .dark:
-//            confetti.alpha = 0.8
-//            blur.alpha = 0.0
-//            confetti.backgroundColor = .darkModeTableBackground()
-//        case .light:
-//            blur.alpha = 0.5
-//            confetti.backgroundColor = .white
-//        }
     }
 }
 

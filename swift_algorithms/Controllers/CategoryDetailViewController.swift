@@ -23,10 +23,7 @@ class View: UIView {
         }
         return responder as? UIViewController
     }
-    
 }
-
-
 
 final class CategoryDetailView: View {
     
