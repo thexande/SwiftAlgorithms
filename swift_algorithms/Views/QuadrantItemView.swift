@@ -3,7 +3,7 @@ import Anchorage
 import Lottie
 
 final class CategoryTileItemView: UIView {
- 
+    
     let title = UILabel()
     let lottie = UIImageView()
     var verticalOffset: CGFloat = 0
@@ -53,12 +53,12 @@ final class CategoryTileItemView: UIView {
         
         addSubview(title)
         addSubview(lottie)
-
         
-//        title.topAnchor == topAnchor + 8
-//        title.horizontalAnchors == horizontalAnchors + 15
-//        title.bottomAnchor <= lottie.topAnchor
-//
+        
+        //        title.topAnchor == topAnchor + 8
+        //        title.horizontalAnchors == horizontalAnchors + 15
+        //        title.bottomAnchor <= lottie.topAnchor
+        //
         title.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
         title.textColor = .white
         title.numberOfLines = 0
@@ -69,19 +69,20 @@ final class CategoryTileItemView: UIView {
         
         lottie.contentMode = .scaleAspectFit
         
-//        lottie.heightAnchor == lottie.widthAnchor
-//        lottie.heightAnchor == heightAnchor * 0.5
-//        lottie.bottomAnchor == bottomAnchor - 8
-//        lottie.trailingAnchor == trailingAnchor - 8
+        //        lottie.heightAnchor == lottie.widthAnchor
+        //        lottie.heightAnchor == heightAnchor * 0.5
+        //        lottie.bottomAnchor == bottomAnchor - 8
+        //        lottie.trailingAnchor == trailingAnchor - 8
         
         lottie.tintColor = .white
         
-     installCardShadow()
-
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        if #available(iOS 12.0, *) {
+            if traitCollection.userInterfaceStyle == .light {
+                installCardShadow()
+            } else {
+                removeCardShadow()
+            }
+        }
     }
     
     override func layoutSubviews() {
@@ -91,5 +92,10 @@ final class CategoryTileItemView: UIView {
         title.frame = CGRect(x: inset, y: inset + verticalOffset, width: bounds.width - 40, height: 30)
         let imageWidth = bounds.height * 0.4
         lottie.frame = CGRect(x: bounds.width - inset - imageWidth, y: bounds.height - inset - imageWidth, width: imageWidth, height: imageWidth)
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

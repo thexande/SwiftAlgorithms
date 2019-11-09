@@ -7,4 +7,11 @@ extension UIView {
         layer.shadowOpacity = 0.7
         layer.shadowColor =  UIColor.lightGray.cgColor
     }
+    
+    func removeCardShadow() {
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 0
+        layer.shadowOpacity = 0
+        layer.shadowColor =  UIColor.clear.cgColor
+    }
 }
