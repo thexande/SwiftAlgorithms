@@ -11,10 +11,6 @@ final class AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        confetti.backgroundColor = .white
-        
-        
-        
         view.addSubview(confetti)
         confetti.edgeAnchors == view.edgeAnchors
         
@@ -31,6 +27,12 @@ final class AboutViewController: UIViewController {
         scroll.bottomAnchor == about.bottomAnchor
         
         confetti.startConfetti()
+        
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            view.backgroundColor = .white
+        }
     }
 }
 
