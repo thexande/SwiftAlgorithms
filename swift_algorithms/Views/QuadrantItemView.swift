@@ -54,11 +54,6 @@ final class CategoryTileItemView: UIView {
         addSubview(title)
         addSubview(lottie)
         
-        
-        //        title.topAnchor == topAnchor + 8
-        //        title.horizontalAnchors == horizontalAnchors + 15
-        //        title.bottomAnchor <= lottie.topAnchor
-        //
         title.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
         title.textColor = .white
         title.numberOfLines = 0
@@ -68,21 +63,8 @@ final class CategoryTileItemView: UIView {
         layer.cornerRadius = 11
         
         lottie.contentMode = .scaleAspectFit
-        
-        //        lottie.heightAnchor == lottie.widthAnchor
-        //        lottie.heightAnchor == heightAnchor * 0.5
-        //        lottie.bottomAnchor == bottomAnchor - 8
-        //        lottie.trailingAnchor == trailingAnchor - 8
-        
+
         lottie.tintColor = .white
-        
-        if #available(iOS 12.0, *) {
-            if traitCollection.userInterfaceStyle == .light {
-                installCardShadow()
-            } else {
-                removeCardShadow()
-            }
-        }
     }
     
     override func layoutSubviews() {

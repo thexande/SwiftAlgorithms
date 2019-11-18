@@ -59,7 +59,11 @@ final class SearchResultsTableViewController: SectionProxyTableViewController {
     }
     
     override init(style: UITableView.Style) {
-        super.init(style: .grouped)
+        if #available(iOS 13.0, *) {
+            super.init(style: .insetGrouped)
+        } else {
+            super.init(style: .grouped)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

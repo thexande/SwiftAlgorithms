@@ -81,6 +81,7 @@
 		B0E8C16C212FAC1E00CBE90B /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16B212FAC1D00CBE90B /* SearchResultsTableViewController.swift */; };
 		B0E8C16E212FAC4200CBE90B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16D212FAC4200CBE90B /* UIView.swift */; };
 		B0E8C1702130E41600CBE90B /* DataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16F2130E41600CBE90B /* DataStructure.swift */; };
+		B0F379A32381FCD100E4768A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F379A22381FCD100E4768A /* SettingsViewController.swift */; };
 		B0F38506212BB21A00779976 /* CategoryRowTableSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F38505212BB21A00779976 /* CategoryRowTableSectionController.swift */; };
 		B0F38508212BB23000779976 /* CategoryRowTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F38507212BB23000779976 /* CategoryRowTableCell.swift */; };
 		B0F3850A212BB26A00779976 /* CategorySideScrollingCollecitonSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F38509212BB26A00779976 /* CategorySideScrollingCollecitonSectionController.swift */; };
@@ -190,6 +191,7 @@
 		B0E8C16B212FAC1D00CBE90B /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		B0E8C16D212FAC4200CBE90B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B0E8C16F2130E41600CBE90B /* DataStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructure.swift; sourceTree = "<group>"; };
+		B0F379A22381FCD100E4768A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B0F38505212BB21A00779976 /* CategoryRowTableSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRowTableSectionController.swift; sourceTree = "<group>"; };
 		B0F38507212BB23000779976 /* CategoryRowTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRowTableCell.swift; sourceTree = "<group>"; };
 		B0F38509212BB26A00779976 /* CategorySideScrollingCollecitonSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySideScrollingCollecitonSectionController.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				B0A4DB37212A03B6000CFC7F /* JoinTheClubRowController.swift */,
 				B0A8FD00213208B6008F82E2 /* PuzzlesViewController.swift */,
 				B0A8FD02213208DB008F82E2 /* AboutViewController.swift */,
+				B0F379A22381FCD100E4768A /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				B01733A72129385900FBEFE5 /* OnboardingInformationViewController.swift in Sources */,
 				B0E8C16A212FA09000CBE90B /* AlgorithmSearchPresenter.swift in Sources */,
 				B0A4DB342129E781000CFC7F /* AlgorithmPresenter.swift in Sources */,
+				B0F379A32381FCD100E4768A /* SettingsViewController.swift in Sources */,
 				B0F3850E212BB33000779976 /* CategoryDetailViewController.swift in Sources */,
 				B03CEA5F2134E00F00F87760 /* CategoryCoordinator.swift in Sources */,
 				B017339D212934A200FBEFE5 /* BasicTableSectionController.swift in Sources */,
