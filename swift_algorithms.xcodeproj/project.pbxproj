@@ -83,6 +83,9 @@
 		B0CDE2FE23E906C40091E8E2 /* main_dark.css in Resources */ = {isa = PBXBuildFile; fileRef = B0A6B11B23E6B60C00EDA1E0 /* main_dark.css */; };
 		B0CDE2FF23E906C40091E8E2 /* main_light.css in Resources */ = {isa = PBXBuildFile; fileRef = B0A6B11A23E6B60C00EDA1E0 /* main_light.css */; };
 		B0CDE30223E9090D0091E8E2 /* MarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDE30123E9090D0091E8E2 /* MarkdownView.swift */; };
+		B0CDE30523E90AFA0091E8E2 /* CategoryArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDE30423E90AFA0091E8E2 /* CategoryArticleListViewController.swift */; };
+		B0CDE30723E90B450091E8E2 /* SideMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDE30623E90B450091E8E2 /* SideMenuItemCell.swift */; };
+		B0CDE30923E90B660091E8E2 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDE30823E90B660091E8E2 /* SideMenuTableViewController.swift */; };
 		B0E8C16A212FA09000CBE90B /* AlgorithmSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C169212FA09000CBE90B /* AlgorithmSearchPresenter.swift */; };
 		B0E8C16C212FAC1E00CBE90B /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16B212FAC1D00CBE90B /* SearchResultsTableViewController.swift */; };
 		B0E8C16E212FAC4200CBE90B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16D212FAC4200CBE90B /* UIView.swift */; };
@@ -200,6 +203,9 @@
 		B0A8FD0A21321FF6008F82E2 /* RootTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarCoordinator.swift; sourceTree = "<group>"; };
 		B0C7F04E236933BF00F9B5BF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B0CDE30123E9090D0091E8E2 /* MarkdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownView.swift; path = swift_algorithms/web/MarkdownView.swift; sourceTree = SOURCE_ROOT; };
+		B0CDE30423E90AFA0091E8E2 /* CategoryArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryArticleListViewController.swift; sourceTree = "<group>"; };
+		B0CDE30623E90B450091E8E2 /* SideMenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItemCell.swift; sourceTree = "<group>"; };
+		B0CDE30823E90B660091E8E2 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		B0E8C169212FA09000CBE90B /* AlgorithmSearchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlgorithmSearchPresenter.swift; sourceTree = "<group>"; };
 		B0E8C16B212FAC1D00CBE90B /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		B0E8C16D212FAC4200CBE90B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -362,6 +368,16 @@
 			path = web_markdown;
 			sourceTree = "<group>";
 		};
+		B0CDE30323E90ACD0091E8E2 /* Catalyst */ = {
+			isa = PBXGroup;
+			children = (
+				B0CDE30423E90AFA0091E8E2 /* CategoryArticleListViewController.swift */,
+				B0CDE30623E90B450091E8E2 /* SideMenuItemCell.swift */,
+				B0CDE30823E90B660091E8E2 /* SideMenuTableViewController.swift */,
+			);
+			path = Catalyst;
+			sourceTree = "<group>";
+		};
 		B0F6D77F213B42A000E52E71 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +404,7 @@
 		B0F6D781213B430D00E52E71 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B0CDE30323E90ACD0091E8E2 /* Catalyst */,
 				B01733AA2129389000FBEFE5 /* PrimaryButton.swift */,
 				B01733842128CB7200FBEFE5 /* QuadrantSelectorView.swift */,
 				B01733882128CBA900FBEFE5 /* QuadrantItemView.swift */,
@@ -729,10 +746,12 @@
 				B0A4DB3C212A066C000CFC7F /* ConfettiButton.swift in Sources */,
 				B01733972128E8EA00FBEFE5 /* ActionTableSectionController.swift in Sources */,
 				B0CDE30223E9090D0091E8E2 /* MarkdownView.swift in Sources */,
+				B0CDE30923E90B660091E8E2 /* SideMenuTableViewController.swift in Sources */,
 				1A1068BA2222E0B9008CC444 /* SortingLevel.swift in Sources */,
 				1A1068C22222E448008CC444 /* SortingAlgorithm.swift in Sources */,
 				1A1068B82222DD37008CC444 /* AlgorithmCategory.swift in Sources */,
 				B0A4DB3A212A0648000CFC7F /* DonateFooterView.swift in Sources */,
+				B0CDE30523E90AFA0091E8E2 /* CategoryArticleListViewController.swift in Sources */,
 				B0F38506212BB21A00779976 /* CategoryRowTableSectionController.swift in Sources */,
 				B01733952128E44500FBEFE5 /* UIImage.swift in Sources */,
 				B017338B2128CC9800FBEFE5 /* RootTabBarController.swift in Sources */,
@@ -790,6 +809,7 @@
 				1A1068B62222D4A1008CC444 /* IntroductionAlgorithm.swift in Sources */,
 				B0F6D77E213B428E00E52E71 /* DataStructurePresenter.swift in Sources */,
 				B0C7F04F236933BF00F9B5BF /* AppCoordinator.swift in Sources */,
+				B0CDE30723E90B450091E8E2 /* SideMenuItemCell.swift in Sources */,
 				B01733A52129351A00FBEFE5 /* BasicTableCell.swift in Sources */,
 				1A1068C02222E394008CC444 /* StringSearchAlgorithm.swift in Sources */,
 				B0A8FD03213208DB008F82E2 /* AboutViewController.swift in Sources */,
