@@ -6,7 +6,7 @@ target 'swift_algorithms' do
   use_frameworks!
 
   # Pods for swift_algorithms
-  pod 'MarkdownView', :git => 'https://github.com/thexande/MarkdownView.git', :branch => 'master'
+#  pod 'MarkdownView', :git => 'https://github.com/thexande/MarkdownView.git', :branch => 'master'
   pod 'Anchorage'
   pod 'lottie-ios'
   pod 'Hero'
@@ -24,13 +24,3 @@ target 'swift_algorithms' do
   end
 end
 
-post_install do |installer|
-    installer.pods_project.targets.each do |target|
-        # Fix bundle targets' 'Signing Certificate' to 'Sign to Run Locally'
-        if target.respond_to?(:product_type) and target.product_type == "com.apple.product-type.bundle"
-            target.build_configurations.each do |config|
-                config.build_settings['CODE_SIGN_IDENTITY[sdk=macosx*]'] = '-'
-            end
-        end
-    end
-end

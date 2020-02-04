@@ -1,5 +1,4 @@
 import UIKit
-import MarkdownView
 import Anchorage
 import SafariServices
 

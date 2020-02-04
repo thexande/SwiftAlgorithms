@@ -4,7 +4,6 @@ PODS:
   - DeviceKit (3.0.0)
   - Hero (1.5.0)
   - lottie-ios (3.1.6)
-  - MarkdownView (1.5.0)
 
 DEPENDENCIES:
   - Anchorage
@@ -12,7 +11,6 @@ DEPENDENCIES:
   - DeviceKit
   - Hero
   - lottie-ios
-  - MarkdownView (from `https://github.com/thexande/MarkdownView.git`, branch `master`)
 
 SPEC REPOS:
   trunk:
@@ -22,23 +20,12 @@ SPEC REPOS:
     - Hero
     - lottie-ios
 
-EXTERNAL SOURCES:
-  MarkdownView:
-    :branch: master
-    :git: https://github.com/thexande/MarkdownView.git
-
-CHECKOUT OPTIONS:
-  MarkdownView:
-    :commit: 9f74fc9276c36290d747497bd022eaff9808b55b
-    :git: https://github.com/thexande/MarkdownView.git
-
 SPEC CHECKSUMS:
   Anchorage: d7f02c4f9425b537053237aab11ae97e59b55f36
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
   DeviceKit: fc3c2bd361a8d68d8a91eb715e453aede57317e5
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   lottie-ios: 85ce835dd8c53e02509f20729fc7d6a4e6645a0a
-  MarkdownView: 5bbee438c823db1cd189002d44c84fa909b3a896
 
 PODFILE CHECKSUM: 8ceae33790d9de903edd3ba853c80c67d96a610a
 
