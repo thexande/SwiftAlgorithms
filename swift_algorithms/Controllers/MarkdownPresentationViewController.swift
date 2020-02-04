@@ -88,10 +88,24 @@ final class MarkdownPresentationViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         
+<<<<<<< HEAD
         if #available(iOS 13.0, *) {
             view.backgroundColor = .systemBackground
         } else {
             view.backgroundColor = .white
+=======
+        stringNetworkService.fetchMarkdown(with: UrlFactory().markdownFileUrl(for: .stack)!) { [weak self] result in
+            switch result {
+            case let .success(md):
+                
+                DispatchQueue.main.async {
+                    self?.setMarkdown(md)
+                }
+                
+            case .failure:
+                return
+            }
+>>>>>>> markdown controller test
         }
         
         view.addSubview(markdownView)

@@ -68,6 +68,7 @@
 		B0A4DB3A212A0648000CFC7F /* DonateFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB39212A0648000CFC7F /* DonateFooterView.swift */; };
 		B0A4DB3C212A066C000CFC7F /* ConfettiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB3B212A066C000CFC7F /* ConfettiButton.swift */; };
 		B0A4DB3E212A068A000CFC7F /* ConfettilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB3D212A068A000CFC7F /* ConfettilView.swift */; };
+		B0A6B11D23E6B60C00EDA1E0 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = B0A6B11C23E6B60C00EDA1E0 /* main.js */; };
 		B0A8FCFD2131DEFF008F82E2 /* DataStructureSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FCFC2131DEFF008F82E2 /* DataStructureSearchPresenter.swift */; };
 		B0A8FCFF2131FE26008F82E2 /* BasicTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FCFE2131FE26008F82E2 /* BasicTableFooterView.swift */; };
 		B0A8FD01213208B6008F82E2 /* PuzzlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FD00213208B6008F82E2 /* PuzzlesViewController.swift */; };
@@ -77,6 +78,10 @@
 		B0A8FD0921321EA0008F82E2 /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FD0821321EA0008F82E2 /* Puzzle.swift */; };
 		B0A8FD0B21321FF6008F82E2 /* RootTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FD0A21321FF6008F82E2 /* RootTabBarCoordinator.swift */; };
 		B0C7F04F236933BF00F9B5BF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7F04E236933BF00F9B5BF /* AppCoordinator.swift */; };
+		B0CDE2FC23E9069D0091E8E2 /* index_dark.html in Resources */ = {isa = PBXBuildFile; fileRef = B0A6B11823E6B60C00EDA1E0 /* index_dark.html */; };
+		B0CDE2FD23E9069D0091E8E2 /* index_light.html in Resources */ = {isa = PBXBuildFile; fileRef = B0A6B11923E6B60C00EDA1E0 /* index_light.html */; };
+		B0CDE2FE23E906C40091E8E2 /* main_dark.css in Resources */ = {isa = PBXBuildFile; fileRef = B0A6B11B23E6B60C00EDA1E0 /* main_dark.css */; };
+		B0CDE2FF23E906C40091E8E2 /* main_light.css in Resources */ = {isa = PBXBuildFile; fileRef = B0A6B11A23E6B60C00EDA1E0 /* main_light.css */; };
 		B0E8C16A212FA09000CBE90B /* AlgorithmSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C169212FA09000CBE90B /* AlgorithmSearchPresenter.swift */; };
 		B0E8C16C212FAC1E00CBE90B /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16B212FAC1D00CBE90B /* SearchResultsTableViewController.swift */; };
 		B0E8C16E212FAC4200CBE90B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16D212FAC4200CBE90B /* UIView.swift */; };
@@ -179,6 +184,11 @@
 		B0A4DB39212A0648000CFC7F /* DonateFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateFooterView.swift; sourceTree = "<group>"; };
 		B0A4DB3B212A066C000CFC7F /* ConfettiButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiButton.swift; sourceTree = "<group>"; };
 		B0A4DB3D212A068A000CFC7F /* ConfettilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettilView.swift; sourceTree = "<group>"; };
+		B0A6B11823E6B60C00EDA1E0 /* index_dark.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = index_dark.html; path = web/index_dark.html; sourceTree = "<group>"; };
+		B0A6B11923E6B60C00EDA1E0 /* index_light.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = index_light.html; path = web/index_light.html; sourceTree = "<group>"; };
+		B0A6B11A23E6B60C00EDA1E0 /* main_light.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = main_light.css; path = web/main_light.css; sourceTree = "<group>"; };
+		B0A6B11B23E6B60C00EDA1E0 /* main_dark.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = main_dark.css; path = web/main_dark.css; sourceTree = "<group>"; };
+		B0A6B11C23E6B60C00EDA1E0 /* main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = main.js; path = web/main.js; sourceTree = "<group>"; };
 		B0A8FCFC2131DEFF008F82E2 /* DataStructureSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureSearchPresenter.swift; sourceTree = "<group>"; };
 		B0A8FCFE2131FE26008F82E2 /* BasicTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableFooterView.swift; sourceTree = "<group>"; };
 		B0A8FD00213208B6008F82E2 /* PuzzlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzlesViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +299,11 @@
 		B00B26A12123B5DE00E1DF9C /* swift_algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				B0A6B11823E6B60C00EDA1E0 /* index_dark.html */,
+				B0A6B11923E6B60C00EDA1E0 /* index_light.html */,
+				B0A6B11B23E6B60C00EDA1E0 /* main_dark.css */,
+				B0A6B11A23E6B60C00EDA1E0 /* main_light.css */,
+				B0A6B11C23E6B60C00EDA1E0 /* main.js */,
 				B051086E23E69A9B00A1B802 /* swift_algorithms.entitlements */,
 				B0F6D784213B43EA00E52E71 /* Models */,
 				B0F6D785213B440200E52E71 /* Services */,
@@ -579,9 +594,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0CDE2FE23E906C40091E8E2 /* main_dark.css in Resources */,
+				B0CDE2FF23E906C40091E8E2 /* main_light.css in Resources */,
+				B0CDE2FC23E9069D0091E8E2 /* index_dark.html in Resources */,
+				B0CDE2FD23E9069D0091E8E2 /* index_light.html in Resources */,
 				B00A1DB0212F8AD5007187CF /* legoloader.json in Resources */,
 				B00B26AD2123B5E000E1DF9C /* LaunchScreen.storyboard in Resources */,
 				B0513C32213B4E2C006C0124 /* README.md in Resources */,
+				B0A6B11D23E6B60C00EDA1E0 /* main.js in Resources */,
 				B069F1B7212A406E002FABFB /* Rejection.json in Resources */,
 				B00B26AA2123B5E000E1DF9C /* Assets.xcassets in Resources */,
 			);

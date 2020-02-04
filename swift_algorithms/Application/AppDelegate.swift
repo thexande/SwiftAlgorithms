@@ -18,10 +18,13 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     split.primaryBackgroundStyle = .sidebar
     
     let sideTable = SideMenuTableViewController()
-    
-    split.viewControllers = [sideTable, UITableViewController()]
+    let markdown = MarkdownPresentationViewController()
+
+    split.viewControllers = [sideTable, markdown]
     window?.rootViewController = split
     window?.makeKeyAndVisible()
+
+
     
     #else
         print("Your regular code")
@@ -96,7 +99,7 @@ final class SideMenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 64
+        return 44
     }
 }
 
@@ -114,7 +117,7 @@ final class SideMenuItemCell: UITableViewCell, Reusable {
     
     var properties = Properties.default {
         didSet {
-            textLabel?.text = "               \(properties.name)"
+            textLabel?.text = "          \(properties.name)"
             icon.image = properties.icon?.withRenderingMode(.alwaysTemplate)
             card.backgroundColor = properties.background
         }
@@ -123,8 +126,8 @@ final class SideMenuItemCell: UITableViewCell, Reusable {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(card)
-        card.sizeAnchors == CGSize(width: 50, height: 50)
-        card.leadingAnchor == safeAreaLayoutGuide.leadingAnchor + 18
+        card.sizeAnchors == CGSize(width: 36, height: 36)
+        card.leadingAnchor == safeAreaLayoutGuide.leadingAnchor + 12
         card.centerYAnchor == centerYAnchor
         card.layer.cornerRadius = 6
         
