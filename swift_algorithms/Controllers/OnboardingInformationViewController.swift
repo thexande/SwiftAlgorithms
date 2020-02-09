@@ -18,7 +18,11 @@ final class OnboardingInformationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemBackground
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            // Fallback on earlier versions
+        }
         
         titleLabel.numberOfLines = 0
         titleLabel.minimumScaleFactor = 0.35
@@ -72,10 +76,17 @@ final class OnboardingInformationViewController: UIViewController {
     
     private func makeOnboardingProperties() -> Properties {
         let attributedTitle = NSMutableAttributedString()
+        let color: UIColor
+        
+        if #available(iOS 13.0, *) {
+           color = UIColor.systemGray2
+        } else {
+            color = .black
+        }
         
         let prefixAttributes = [
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 42, weight: .black),
-            NSAttributedString.Key.foregroundColor : UIColor.systemGray2
+            NSAttributedString.Key.foregroundColor : color
         ]
         
         let titleAttributes = [

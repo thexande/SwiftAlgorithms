@@ -19,11 +19,11 @@ final class MainCatalystViewController: UISplitViewController {
         super.viewDidAppear(animated)
         
         // enable for non UserDefaults driven onboarding presentation
-        if hasPresentedOnboarding == false {
-            present(onboarding, animated: true, completion: { [weak self] in
-                self?.hasPresentedOnboarding = true
-            })
-        }
+//        if hasPresentedOnboarding == false {
+//            present(onboarding, animated: true, completion: { [weak self] in
+//                self?.hasPresentedOnboarding = true
+//            })
+//        }
         
         //                 UserDefaults driven onboarding presentation
         //                configureOnboarding()
@@ -67,8 +67,8 @@ final class RootCatalystCoordinator: Coordinating {
         let otherSplit = UISplitViewController()
         otherSplit.viewControllers = [UINavigationController(rootViewController: category), markdown]
 
-        split.viewControllers = [sideMenuView, otherSplit]
-        root = split        
+        split.viewControllers = [sideMenuView, AboutViewController()]
+        root = split
     }
     
     deinit {
