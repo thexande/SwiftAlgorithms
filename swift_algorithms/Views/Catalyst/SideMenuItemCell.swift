@@ -1,6 +1,7 @@
 import UIKit
 import Anchorage
 
+@available(iOS 13.0, *)
 final class SideMenuItemCell: UITableViewCell, Reusable {
     
     struct Properties {

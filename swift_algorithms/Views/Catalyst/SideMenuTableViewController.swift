@@ -1,14 +1,17 @@
 import UIKit
 
+@available(iOS 13.0, *)
 protocol SideMenuViewDelegate: AnyObject {
     func didSelectItem(with identifier: UUID)
     func viewDidLoad()
 }
 
+@available(iOS 13.0, *)
 protocol SideMenuTableViewRendering: AnyObject {
     var properties: SideMenuTableViewController.Properties { get set }
 }
 
+@available(iOS 13.0, *)
 final class SideMenuTableViewController: UITableViewController, SideMenuTableViewRendering {
     
     struct Properties {

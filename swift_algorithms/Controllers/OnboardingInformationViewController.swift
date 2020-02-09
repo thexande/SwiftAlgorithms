@@ -17,7 +17,8 @@ final class OnboardingInformationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        
+        view.backgroundColor = .systemBackground
         
         titleLabel.numberOfLines = 0
         titleLabel.minimumScaleFactor = 0.35
@@ -74,7 +75,7 @@ final class OnboardingInformationViewController: UIViewController {
         
         let prefixAttributes = [
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 42, weight: .black),
-            NSAttributedString.Key.foregroundColor : UIColor.black
+            NSAttributedString.Key.foregroundColor : UIColor.systemGray2
         ]
         
         let titleAttributes = [

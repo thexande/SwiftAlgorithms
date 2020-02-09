@@ -1,17 +1,11 @@
 import Foundation
 
-protocol SideMenuPresenterDelegate {
-    func didSelect(algorithmCatgory: AlgorithmCategory)
-    func didSelect(dataStructureCategory: DataStructure.Category)
-    func didSelect(puzzle: Puzzle)
-}
-
+@available(iOS 13.0, *)
 final class SideMenuPresenter {
     
     private var puzzleLookup = [UUID: Puzzle]()
     private var dataStructureCategoryLookup = [UUID: DataStructure.Category]()
     private var algorithmCategoryLookup = [UUID: AlgorithmCategory]()
-    var delegate: SideMenuPresenterDelegate?
     weak var renderer: SideMenuTableViewRendering?
     weak var categoryRenderer: CategoryArticleListViewRendering?
     weak var markdownRenderer: MarkdownPresentationViewRendering?
@@ -29,6 +23,7 @@ final class SideMenuPresenter {
     }
 }
 
+@available(iOS 13.0, *)
 extension SideMenuPresenter: CategoryArticleListViewDelegate {
     func didSelectArticle(with identifier: UUID){
         if case let .selectedAlgorithm(algorithm) = algorithmLookup[identifier] {
@@ -39,10 +34,11 @@ extension SideMenuPresenter: CategoryArticleListViewDelegate {
     }
 }
 
+@available(iOS 13.0, *)
 extension SideMenuPresenter: SideMenuViewDelegate {
     func didSelectItem(with identifier: UUID) {
         if let puzzle = puzzleLookup[identifier] {
-            delegate?.didSelect(puzzle: puzzle)
+            
         } else if let dataStructure = dataStructureCategoryLookup[identifier] {
             let section = DataStructureSectionFactory().makeDataStructureSection(for: dataStructure)
             for (key, value) in section.identifiers {
