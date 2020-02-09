@@ -277,59 +277,15 @@ final class RootTabCoordinator {
     }
     
     private func handleDataStructureSelect(_ dataStructure: DataStructure) {
-       
-        guard let url = urlFactory.markdownFileUrl(for: dataStructure) else {
-            return
-        }
-        
-        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
-            switch result {
-            case let .success(markdown):
-                
-                DispatchQueue.main.async {
-                    let markdownView = MarkdownPresentationViewController()
-                    markdownView.title = dataStructure.title
-                    markdownView.setMarkdown(markdown)
-                    
-                    self?.dataStructuresNav?.showDetailViewController(markdownView, sender: nil)
-                }
-                
-            case .failure:
-                return
-            }
-        }
+        let view = MarkdownPresentationViewController()
+        view.setMarkdown(for: dataStructure)
+        dataStructureController.showDetailViewController(view, sender: nil)
     }
     
     private func handlePuzzleSelect(_ puzzle: Puzzle) {
-        
-        guard let url = urlFactory.markdownFileUrl(for: puzzle) else {
-            return
-        }
-        
-        handleMarkdownResourceSelect(with: url,
-                                     resourceTitle: puzzle.title,
-                                     navigationStack: puzzleNavigation)
-    }
-    
-    private func handleMarkdownResourceSelect(with url: URL,
-                                              resourceTitle: String,
-                                              navigationStack: UINavigationController?) {
-        
-        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
-            switch result {
-            case let .success(markdown):
-                
-                DispatchQueue.main.async {
-                    if let controller = self?.makeMarkdownController(with: markdown,
-                                                                     title: resourceTitle) {
-                        navigationStack?.pushViewController(controller, animated: true)
-                    }
-                }
-                
-            case .failure:
-                return
-            }
-        }
+        let view = MarkdownPresentationViewController()
+        view.setMarkdown(for: puzzle)
+        puzzlesViewController.navigationController?.pushViewController(view, animated: true)
     }
 }
 
