@@ -2,33 +2,6 @@ import UIKit
 import Anchorage
 
 @available(iOS 13.0, *)
-final class CategoryContainerViewController: UIViewController {
-    let markdownView = MarkdownPresentationViewController()
-    let categoryArticleList = UINavigationController(rootViewController: CategoryArticleListViewController())
-    
-    private let stack = UIStackView()
-    
-    override func loadView() {
-        view = stack
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        categoryArticleList.willMove(toParent: self)
-        view.addSubview(categoryArticleList.view)
-        stack.addArrangedSubview(categoryArticleList.view)
-        categoryArticleList.didMove(toParent: self)
-        
-        markdownView.willMove(toParent: self)
-        view.addSubview(markdownView.view)
-        stack.addArrangedSubview(markdownView.view)
-        markdownView.didMove(toParent: self)
-        categoryArticleList.view.widthAnchor == view.widthAnchor * 0.25 ~ .high
-        categoryArticleList.view.widthAnchor >= 320
-    }
-}
-
-@available(iOS 13.0, *)
 protocol CategoryArticleListViewRendering: AnyObject {
     var sections: [TableSectionController] { get set }
     var title: String? { get set }

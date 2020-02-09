@@ -8,7 +8,7 @@ protocol MarkdownPresentationViewRendering: AnyObject {
     func setMarkdown(for puzzle: Puzzle)
 }
 
-final class MarkdownPresentationViewController: UIViewController, MarkdownPresentationViewRendering {
+final class MarkdownPresentationViewController: UIViewController {
     
     let markdownView = MarkdownView()
     let loading = TableLoadingView()
@@ -27,69 +27,6 @@ final class MarkdownPresentationViewController: UIViewController, MarkdownPresen
         }
         
         markdownView.load(markdown: markdown)
-    }
-    
-    public func setMarkdown(for algorithm: Algorithm) {
-        title = algorithm.title
-        view.bringSubviewToFront(loading)
-        
-        guard let url = UrlFactory().markdownFileUrl(for: algorithm) else {
-            return
-        }
-        
-        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
-            switch result {
-            case let .success(markdown):
-                
-                DispatchQueue.main.async {
-                    self?.setMarkdown(markdown)
-                }
-            case .failure:
-                return
-            }
-        }
-    }
-    
-    public func setMarkdown(for dataStructure: DataStructure) {
-        title = dataStructure.title
-        view.bringSubviewToFront(loading)
-        
-        guard let url = UrlFactory().markdownFileUrl(for: dataStructure) else {
-            return
-        }
-        
-        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
-            switch result {
-            case let .success(markdown):
-                
-                DispatchQueue.main.async {
-                    self?.setMarkdown(markdown)
-                }
-            case .failure:
-                return
-            }
-        }
-    }
-    
-    public func setMarkdown(for puzzle: Puzzle) {
-        title = puzzle.title
-        view.bringSubviewToFront(loading)
-
-        guard let url = UrlFactory().markdownFileUrl(for: puzzle) else {
-            return
-        }
-        
-        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
-            switch result {
-            case let .success(markdown):
-                
-                DispatchQueue.main.async {
-                    self?.setMarkdown(markdown)
-                }
-            case .failure:
-                return
-            }
-        }
     }
     
     override func viewDidLoad() {
@@ -124,6 +61,71 @@ final class MarkdownPresentationViewController: UIViewController, MarkdownPresen
         
         if #available(iOS 13.0, *) {
             view.backgroundColor = .systemBackground
+        }
+    }
+}
+
+extension MarkdownPresentationViewController: MarkdownPresentationViewRendering {
+    func setMarkdown(for algorithm: Algorithm) {
+        title = algorithm.title
+        view.bringSubviewToFront(loading)
+        
+        guard let url = UrlFactory().markdownFileUrl(for: algorithm) else {
+            return
+        }
+        
+        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
+            switch result {
+            case let .success(markdown):
+                
+                DispatchQueue.main.async {
+                    self?.setMarkdown(markdown)
+                }
+            case .failure:
+                return
+            }
+        }
+    }
+    
+    func setMarkdown(for dataStructure: DataStructure) {
+        title = dataStructure.title
+        view.bringSubviewToFront(loading)
+        
+        guard let url = UrlFactory().markdownFileUrl(for: dataStructure) else {
+            return
+        }
+        
+        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
+            switch result {
+            case let .success(markdown):
+                
+                DispatchQueue.main.async {
+                    self?.setMarkdown(markdown)
+                }
+            case .failure:
+                return
+            }
+        }
+    }
+    
+    func setMarkdown(for puzzle: Puzzle) {
+        title = puzzle.title
+        view.bringSubviewToFront(loading)
+
+        guard let url = UrlFactory().markdownFileUrl(for: puzzle) else {
+            return
+        }
+        
+        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
+            switch result {
+            case let .success(markdown):
+                
+                DispatchQueue.main.async {
+                    self?.setMarkdown(markdown)
+                }
+            case .failure:
+                return
+            }
         }
     }
 }
