@@ -271,87 +271,21 @@ final class RootTabCoordinator {
     }
     
     private func handleAlgorithmSelect(_ algorithm: Algorithm) {
-        
-        guard let url = urlFactory.markdownFileUrl(for: algorithm) else {
-            return
-        }
-        
-        
-        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
-            switch result {
-            case let .success(markdown):
-                
-                DispatchQueue.main.async {
-                    self?.algorithmMarkdownViewController.title = algorithm.title
-                    self?.algorithmMarkdownViewController.setMarkdown(markdown)
-                    
-                    guard let markdownViewController = self?.algorithmMarkdownViewController else {
-                        return
-                    }
-                    
-                    self?.algorithmViewController.showDetailViewController(markdownViewController, sender: nil)
-                }
-                
-            case .failure:
-                return
-            }
-        }
+        let view = MarkdownPresentationViewController()
+        view.setMarkdown(for: algorithm)
+        algorithmViewController.showDetailViewController(view, sender: nil)
     }
     
     private func handleDataStructureSelect(_ dataStructure: DataStructure) {
-       
-        guard let url = urlFactory.markdownFileUrl(for: dataStructure) else {
-            return
-        }
-        
-        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
-            switch result {
-            case let .success(markdown):
-                
-                DispatchQueue.main.async {
-                    let markdownView = MarkdownPresentationViewController()
-                    markdownView.title = dataStructure.title
-                    markdownView.setMarkdown(markdown)
-                    
-                    self?.dataStructuresNav?.showDetailViewController(markdownView, sender: nil)
-                }
-                
-            case .failure:
-                return
-            }
-        }
+        let view = MarkdownPresentationViewController()
+        view.setMarkdown(for: dataStructure)
+        dataStructureController.showDetailViewController(view, sender: nil)
     }
     
     private func handlePuzzleSelect(_ puzzle: Puzzle) {
-        
-        guard let url = urlFactory.markdownFileUrl(for: puzzle) else {
-            return
-        }
-        
-        handleMarkdownResourceSelect(with: url,
-                                     resourceTitle: puzzle.title,
-                                     navigationStack: puzzleNavigation)
-    }
-    
-    private func handleMarkdownResourceSelect(with url: URL,
-                                              resourceTitle: String,
-                                              navigationStack: UINavigationController?) {
-        
-        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
-            switch result {
-            case let .success(markdown):
-                
-                DispatchQueue.main.async {
-                    if let controller = self?.makeMarkdownController(with: markdown,
-                                                                     title: resourceTitle) {
-                        navigationStack?.pushViewController(controller, animated: true)
-                    }
-                }
-                
-            case .failure:
-                return
-            }
-        }
+        let view = MarkdownPresentationViewController()
+        view.setMarkdown(for: puzzle)
+        puzzlesViewController.navigationController?.pushViewController(view, animated: true)
     }
 }
 

@@ -1,5 +1,5 @@
 PODS:
-  - Anchorage (4.3.1)
+  - Anchorage (4.4.0)
   - DeviceKit (3.0.0)
   - Hero (1.5.0)
   - lottie-ios (3.1.6)
@@ -30,7 +30,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/thexande/MarkdownView.git
 
 SPEC CHECKSUMS:
-  Anchorage: a187da0bc9b07440637d42c8744b8c82a4490295
+  Anchorage: d7f02c4f9425b537053237aab11ae97e59b55f36
   DeviceKit: fc3c2bd361a8d68d8a91eb715e453aede57317e5
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   lottie-ios: 85ce835dd8c53e02509f20729fc7d6a4e6645a0a
