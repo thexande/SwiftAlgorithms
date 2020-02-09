@@ -10,9 +10,8 @@ protocol MainCatalystPresenterDelegate: AnyObject {
 @available(iOS 13.0, *)
 final class MainCatalystPresenter {
     
-    private var puzzleLookup = [UUID: Puzzle]()
-    private var dataStructureCategoryLookup = [UUID: DataStructure.Category]()
-    private var algorithmCategoryLookup = [UUID: AlgorithmCategory]()
+    private var state = State.initial
+    
     weak var renderer: SideMenuTableViewRendering?
     weak var categoryRenderer: CategoryArticleListViewRendering?
     weak var markdownRenderer: MarkdownPresentationViewRendering?
@@ -23,6 +22,20 @@ final class MainCatalystPresenter {
     
     private var isDisplayingCategory = false
 }
+
+
+// MARK: - State
+
+fileprivate extension MainCatalystPresenter {
+    struct State {
+        var puzzleLookup: [UUID: Puzzle]
+        var dataStructureCategoryLookup: [UUID: DataStructure.Category]
+        var algorithmCategoryLookup: [UUID: AlgorithmCategory]
+        static let initial = State(puzzleLookup: [:], dataStructureCategoryLookup: [:], algorithmCategoryLookup: [:])
+    }
+}
+
+// MARK: - CategoryArticleListViewDelegate
 
 @available(iOS 13.0, *)
 extension MainCatalystPresenter: CategoryArticleListViewDelegate {
@@ -35,6 +48,8 @@ extension MainCatalystPresenter: CategoryArticleListViewDelegate {
     }
 }
 
+// MARK: - SideMenuViewDelegate
+
 @available(iOS 13.0, *)
 extension MainCatalystPresenter: SideMenuViewDelegate {
     func didSelectItem(with identifier: UUID) {
@@ -42,16 +57,16 @@ extension MainCatalystPresenter: SideMenuViewDelegate {
             delegate?.showCategorySelectorView()
         }
         
-        if let puzzle = puzzleLookup[identifier] {
+        if let puzzle = state.puzzleLookup[identifier] {
             delegate?.show(puzzle: puzzle)
-        } else if let dataStructure = dataStructureCategoryLookup[identifier] {
+        } else if let dataStructure = state.dataStructureCategoryLookup[identifier] {
             let section = DataStructureSectionFactory().makeDataStructureSection(for: dataStructure)
             for (key, value) in section.identifiers {
                 dataStructureLookup[key] = value
             }
             categoryRenderer?.sections = [section.seciton]
             categoryRenderer?.title = dataStructure.title
-        } else if let algorithm = algorithmCategoryLookup[identifier] {
+        } else if let algorithm = state.algorithmCategoryLookup[identifier] {
             let sections = AlgorithmSectionFactory().makeSections(for: algorithm)
             
             categoryRenderer?.sections = sections.map {
@@ -66,9 +81,21 @@ extension MainCatalystPresenter: SideMenuViewDelegate {
     }
     
     func viewDidLoad() {
+        let (state, properties) = MainCatalystPresenter.reduceSideMenuItems(state: self.state)
+        self.state = state
+        renderer?.properties = properties
+    }
+}
+
+// MARK: - Reducers
+
+extension MainCatalystPresenter {
+    private static func reduceSideMenuItems(state: State) -> (state: State, viewProperties: SideMenuTableViewController.Properties) {
+        var state = state
+        
         let category: [SideMenuItemCell.Properties] = AlgorithmCategory.allCases.map {
             let id = UUID()
-            algorithmCategoryLookup[id] = $0
+            state.algorithmCategoryLookup[id] = $0
             
             return SideMenuItemCell.Properties(iconProperties: .init(background: $0.color,
                                                                      icon: $0.image),
@@ -78,7 +105,7 @@ extension MainCatalystPresenter: SideMenuViewDelegate {
         
         let ds: [SideMenuItemCell.Properties] = DataStructure.Category.allCases.map {
             let id = UUID()
-            dataStructureCategoryLookup[id] = $0
+            state.dataStructureCategoryLookup[id] = $0
             return SideMenuItemCell.Properties(iconProperties: .init(background: $0.color,
                                                                      icon: $0.image),
                                                name: $0.title,
@@ -87,7 +114,7 @@ extension MainCatalystPresenter: SideMenuViewDelegate {
         
         let puzzles: [SideMenuItemCell.Properties] = Puzzle.allCases.map {
             let id = UUID()
-            puzzleLookup[id] = $0
+            state.puzzleLookup[id] = $0
             return SideMenuItemCell.Properties(iconProperties: nil, name: $0.title, identifier: id)
         }
         
@@ -97,6 +124,6 @@ extension MainCatalystPresenter: SideMenuViewDelegate {
             .init(items: puzzles, title: "Puzzles")
         ])
         
-        renderer?.properties = properties
+        return (state, properties)
     }
 }
