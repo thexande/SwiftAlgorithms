@@ -86,6 +86,8 @@
 		B0CDE30523E90AFA0091E8E2 /* CategoryArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDE30423E90AFA0091E8E2 /* CategoryArticleListViewController.swift */; };
 		B0CDE30723E90B450091E8E2 /* SideMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDE30623E90B450091E8E2 /* SideMenuItemCell.swift */; };
 		B0CDE30923E90B660091E8E2 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDE30823E90B660091E8E2 /* SideMenuTableViewController.swift */; };
+		B0D2FAAE23EFC742001ADACA /* RootCatalystCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D2FAAD23EFC742001ADACA /* RootCatalystCoordinator.swift */; };
+		B0D2FAB123EFC779001ADACA /* Coordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D2FAB023EFC779001ADACA /* Coordinating.swift */; };
 		B0E8C16A212FA09000CBE90B /* AlgorithmSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C169212FA09000CBE90B /* AlgorithmSearchPresenter.swift */; };
 		B0E8C16C212FAC1E00CBE90B /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16B212FAC1D00CBE90B /* SearchResultsTableViewController.swift */; };
 		B0E8C16E212FAC4200CBE90B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E8C16D212FAC4200CBE90B /* UIView.swift */; };
@@ -207,6 +209,8 @@
 		B0CDE30423E90AFA0091E8E2 /* CategoryArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryArticleListViewController.swift; sourceTree = "<group>"; };
 		B0CDE30623E90B450091E8E2 /* SideMenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItemCell.swift; sourceTree = "<group>"; };
 		B0CDE30823E90B660091E8E2 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
+		B0D2FAAD23EFC742001ADACA /* RootCatalystCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCatalystCoordinator.swift; sourceTree = "<group>"; };
+		B0D2FAB023EFC779001ADACA /* Coordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinating.swift; sourceTree = "<group>"; };
 		B0E8C169212FA09000CBE90B /* AlgorithmSearchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlgorithmSearchPresenter.swift; sourceTree = "<group>"; };
 		B0E8C16B212FAC1D00CBE90B /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		B0E8C16D212FAC4200CBE90B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -311,6 +315,7 @@
 		B00B26A12123B5DE00E1DF9C /* swift_algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				B0D2FAAF23EFC770001ADACA /* Protocols */,
 				B0CDE30023E908E50091E8E2 /* web_markdown */,
 				B051086E23E69A9B00A1B802 /* swift_algorithms.entitlements */,
 				B0F6D784213B43EA00E52E71 /* Models */,
@@ -378,8 +383,17 @@
 				B0CDE30423E90AFA0091E8E2 /* CategoryArticleListViewController.swift */,
 				B0CDE30623E90B450091E8E2 /* SideMenuItemCell.swift */,
 				B0CDE30823E90B660091E8E2 /* SideMenuTableViewController.swift */,
+				B0D2FAAD23EFC742001ADACA /* RootCatalystCoordinator.swift */,
 			);
 			path = Catalyst;
+			sourceTree = "<group>";
+		};
+		B0D2FAAF23EFC770001ADACA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B0D2FAB023EFC779001ADACA /* Coordinating.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		B0F6D77F213B42A000E52E71 /* Coordinators */ = {
@@ -761,6 +775,7 @@
 				B017338B2128CC9800FBEFE5 /* RootTabBarController.swift in Sources */,
 				B0A8FD0721321787008F82E2 /* PuzzlesPresenter.swift in Sources */,
 				B069F1C3212B8F72002FABFB /* CollectionSectionController.swift in Sources */,
+				B0D2FAB123EFC779001ADACA /* Coordinating.swift in Sources */,
 				B017338D2128CDC700FBEFE5 /* SectionProxyTableViewController.swift in Sources */,
 				B0F38508212BB23000779976 /* CategoryRowTableCell.swift in Sources */,
 				B069F1C5212B987B002FABFB /* CALayer.swift in Sources */,
@@ -783,6 +798,7 @@
 				B0A8FCFF2131FE26008F82E2 /* BasicTableFooterView.swift in Sources */,
 				B0E8C16C212FAC1E00CBE90B /* SearchResultsTableViewController.swift in Sources */,
 				B01733AF21294C6E00FBEFE5 /* StringNetworkService.swift in Sources */,
+				B0D2FAAE23EFC742001ADACA /* RootCatalystCoordinator.swift in Sources */,
 				B01733AB2129389000FBEFE5 /* PrimaryButton.swift in Sources */,
 				B0A4DB38212A03B6000CFC7F /* JoinTheClubRowController.swift in Sources */,
 				B01733A1212934DE00FBEFE5 /* BasicTableHeaderView.swift in Sources */,
