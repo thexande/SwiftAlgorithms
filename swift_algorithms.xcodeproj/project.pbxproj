@@ -136,7 +136,7 @@
 		80420DF83CC2A4693487FB21 /* Pods-swift_algorithmsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsUITests/Pods-swift_algorithmsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B00A1DAF212F8AD5007187CF /* legoloader.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = legoloader.json; sourceTree = "<group>"; };
 		B00A1DB1212F8C67007187CF /* LottieLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoaderView.swift; sourceTree = "<group>"; };
-		B00B269F2123B5DE00E1DF9C /* swift_algorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swift_algorithms.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B00B269F2123B5DE00E1DF9C /* Swift Algorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Algorithms.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00B26A22123B5DE00E1DF9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B00B26A42123B5DE00E1DF9C /* MarkdownPresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownPresentationViewController.swift; sourceTree = "<group>"; };
 		B00B26A92123B5E000E1DF9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 		B00B26A02123B5DE00E1DF9C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B00B269F2123B5DE00E1DF9C /* swift_algorithms.app */,
+				B00B269F2123B5DE00E1DF9C /* Swift Algorithms.app */,
 				B00B26B32123B5E000E1DF9C /* swift_algorithmsTests.xctest */,
 				B00B26BE2123B5E000E1DF9C /* swift_algorithmsUITests.xctest */,
 			);
@@ -514,9 +514,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B00B269E2123B5DE00E1DF9C /* swift_algorithms */ = {
+		B00B269E2123B5DE00E1DF9C /* Swift Algorithms */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B00B26C72123B5E000E1DF9C /* Build configuration list for PBXNativeTarget "swift_algorithms" */;
+			buildConfigurationList = B00B26C72123B5E000E1DF9C /* Build configuration list for PBXNativeTarget "Swift Algorithms" */;
 			buildPhases = (
 				0075FCEF338FB8682DF035D4 /* [CP] Check Pods Manifest.lock */,
 				B00B269B2123B5DE00E1DF9C /* Sources */,
@@ -528,9 +528,9 @@
 			);
 			dependencies = (
 			);
-			name = swift_algorithms;
+			name = "Swift Algorithms";
 			productName = swift_algorithms;
-			productReference = B00B269F2123B5DE00E1DF9C /* swift_algorithms.app */;
+			productReference = B00B269F2123B5DE00E1DF9C /* Swift Algorithms.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B00B26B22123B5E000E1DF9C /* swift_algorithmsTests */ = {
@@ -610,7 +610,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B00B269E2123B5DE00E1DF9C /* swift_algorithms */,
+				B00B269E2123B5DE00E1DF9C /* Swift Algorithms */,
 				B00B26B22123B5E000E1DF9C /* swift_algorithmsTests */,
 				B00B26BD2123B5E000E1DF9C /* swift_algorithmsUITests */,
 			);
@@ -841,12 +841,12 @@
 /* Begin PBXTargetDependency section */
 		B00B26B52123B5E000E1DF9C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B00B269E2123B5DE00E1DF9C /* swift_algorithms */;
+			target = B00B269E2123B5DE00E1DF9C /* Swift Algorithms */;
 			targetProxy = B00B26B42123B5E000E1DF9C /* PBXContainerItemProxy */;
 		};
 		B00B26C02123B5E000E1DF9C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B00B269E2123B5DE00E1DF9C /* swift_algorithms */;
+			target = B00B269E2123B5DE00E1DF9C /* Swift Algorithms */;
 			targetProxy = B00B26BF2123B5E000E1DF9C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1125,7 +1125,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B00B26C72123B5E000E1DF9C /* Build configuration list for PBXNativeTarget "swift_algorithms" */ = {
+		B00B26C72123B5E000E1DF9C /* Build configuration list for PBXNativeTarget "Swift Algorithms" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B00B26C82123B5E000E1DF9C /* Debug */,

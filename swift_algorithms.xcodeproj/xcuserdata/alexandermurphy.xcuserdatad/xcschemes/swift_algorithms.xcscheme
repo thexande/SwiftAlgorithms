@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B00B269E2123B5DE00E1DF9C"
-               BuildableName = "swift_algorithms.app"
-               BlueprintName = "swift_algorithms"
+               BuildableName = "Swift Algorithms.app"
+               BlueprintName = "Swift Algorithms"
                ReferencedContainer = "container:swift_algorithms.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,6 +27,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B00B269E2123B5DE00E1DF9C"
+            BuildableName = "Swift Algorithms.app"
+            BlueprintName = "Swift Algorithms"
+            ReferencedContainer = "container:swift_algorithms.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -49,17 +58,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B00B269E2123B5DE00E1DF9C"
-            BuildableName = "swift_algorithms.app"
-            BlueprintName = "swift_algorithms"
-            ReferencedContainer = "container:swift_algorithms.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -76,13 +74,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B00B269E2123B5DE00E1DF9C"
-            BuildableName = "swift_algorithms.app"
-            BlueprintName = "swift_algorithms"
+            BuildableName = "Swift Algorithms.app"
+            BlueprintName = "Swift Algorithms"
             ReferencedContainer = "container:swift_algorithms.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -95,8 +91,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B00B269E2123B5DE00E1DF9C"
-            BuildableName = "swift_algorithms.app"
-            BlueprintName = "swift_algorithms"
+            BuildableName = "Swift Algorithms.app"
+            BlueprintName = "Swift Algorithms"
             ReferencedContainer = "container:swift_algorithms.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

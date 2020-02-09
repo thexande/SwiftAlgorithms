@@ -22,47 +22,57 @@ final class CategoryContainerViewController: UIViewController {
         view.addSubview(markdownView.view)
         stack.addArrangedSubview(markdownView.view)
         markdownView.didMove(toParent: self)
-        categoryArticleList.view.widthAnchor == view.widthAnchor * 0.25
+        categoryArticleList.view.widthAnchor == view.widthAnchor * 0.25 ~ .high
+        categoryArticleList.view.widthAnchor >= 320
     }
 }
 
 final class CategoryArticleListViewController: UIViewController {
     
-    let tableView = UITableView(frame: .zero, style: .insetGrouped)
+    private let tableView = UITableView(frame: .zero, style: .insetGrouped)
+    private var identifiers = [UUID: AlgorithmPresentationAction]()
     
     override func loadView() {
         view = tableView
     }
     
     var sections: [TableSectionController] = [] {
-           didSet {
-               update(with: sections)
-           }
-       }
-       
-       private func update(with sections: [TableSectionController]) {
-           sections.forEach { section in
-               section.registerReusableTypes(tableView: tableView)
-               
-               section.onSelect = { [weak self] identifier in
-//                   self?.onSelect?(identifier)
-               }
-           }
-           
-           tableView.reloadData()
-       }
-
+        didSet {
+            update(with: sections)
+        }
+    }
+    
+    private func update(with sections: [TableSectionController]) {
+        sections.forEach { section in
+            section.registerReusableTypes(tableView: tableView)
+            
+            section.onSelect = { [weak self] identifier in
+                print(self?.identifiers[identifier])
+//                                   self?.onSelect?(identifier)
+            }
+        }
+        
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Getting Started"
-        self.sections =  AlgorithmSectionFactory().makeAllSortingSections().map { $0.seciton }
+        title = "Sorting"
+        
+        self.sections =  AlgorithmSectionFactory().makeAllSortingSections().map {
+            
+            for (key, value) in $0.identifiers {
+                identifiers[key] = value
+            }
+            
+            return $0.seciton
+        }
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
         
-        
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.searchController = .init()
     }
 }
 
