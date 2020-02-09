@@ -4,10 +4,13 @@ import Anchorage
 final class SideMenuItemCell: UITableViewCell, Reusable {
     
     struct Properties {
-        let background: UIColor
-        let icon: UIImage?
+        let iconProperties: IconProperties?
         let name: String
-        static let `default` = Properties(background: .green, icon: nil, name: "")
+        static let `default` = Properties(iconProperties: nil, name: "")
+        struct IconProperties {
+            let background: UIColor
+            let icon: UIImage?
+        }
     }
     
     private let icon = UIImageView()
@@ -15,9 +18,13 @@ final class SideMenuItemCell: UITableViewCell, Reusable {
     
     var properties = Properties.default {
         didSet {
-            textLabel?.text = "          \(properties.name)"
-            icon.image = properties.icon?.withRenderingMode(.alwaysTemplate)
-            card.backgroundColor = properties.background
+            if let iconProperties = properties.iconProperties {
+                icon.image = iconProperties.icon?.withRenderingMode(.alwaysTemplate)
+                card.backgroundColor = iconProperties.background
+                textLabel?.text = "          \(properties.name)"
+            } else {
+                textLabel?.text = properties.name
+            }
         }
     }
     

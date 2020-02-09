@@ -25,16 +25,25 @@ final class SideMenuTableViewController: UITableViewController {
         
         
         let category = AlgorithmCategory.allCases.map {
-            SideMenuItemCell.Properties(background: $0.color, icon: $0.image, name: $0.title)
+            SideMenuItemCell.Properties(iconProperties: .init(background: $0.color,
+                                                              icon: $0.image),
+                                        name: $0.title)
         }
         
         let ds = DataStructure.Category.allCases.map {
-            SideMenuItemCell.Properties(background: $0.color, icon: $0.image, name: $0.title)
+            SideMenuItemCell.Properties(iconProperties: .init(background: $0.color,
+                                                              icon: $0.image),
+                                        name: $0.title)
+        }
+        
+        let puzzles = Puzzle.allCases.map {
+            SideMenuItemCell.Properties(iconProperties: nil, name: $0.title)
         }
         
         properties = .init(sections: [
             .init(items: category, title: "Algorithms"),
-            .init(items: ds, title: "Data Structures")
+            .init(items: ds, title: "Data Structures"),
+            .init(items: puzzles, title: "Puzzles")
         ])
     }
     
