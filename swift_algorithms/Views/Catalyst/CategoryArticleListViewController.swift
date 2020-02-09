@@ -1,6 +1,7 @@
 import UIKit
 import Anchorage
 
+@available(iOS 13.0, *)
 final class CategoryContainerViewController: UIViewController {
     let markdownView = MarkdownPresentationViewController()
     let categoryArticleList = UINavigationController(rootViewController: CategoryArticleListViewController())
@@ -27,6 +28,7 @@ final class CategoryContainerViewController: UIViewController {
     }
 }
 
+@available(iOS 13.0, *)
 final class CategoryArticleListViewController: UIViewController {
     
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)

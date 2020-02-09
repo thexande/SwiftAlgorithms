@@ -90,30 +90,31 @@ final class MarkdownPresentationViewController: UIViewController {
         if #available(iOS 13.0, *) {
             view.backgroundColor = .systemBackground
         } else {
-
-        view.addSubview(markdownView)
-        markdownView.edgeAnchors == view.edgeAnchors
-        
-        view.addSubview(loading)
-        loading.edgeAnchors == view.edgeAnchors
-        
-        markdownView.onTouchLink = { [weak self] request in
-            guard let url = request.url else { return false }
             
-            if url.scheme == "file" {
-                return false
-            } else if url.scheme == "http" || url.scheme == "https" {
-                let safari = SFSafariViewController(url: url)
-                self?.present(safari, animated: true, completion: nil)
-                return false
-            } else {
-                return false
+            view.addSubview(markdownView)
+            markdownView.edgeAnchors == view.edgeAnchors
+            
+            view.addSubview(loading)
+            loading.edgeAnchors == view.edgeAnchors
+            
+            markdownView.onTouchLink = { [weak self] request in
+                guard let url = request.url else { return false }
+                
+                if url.scheme == "file" {
+                    return false
+                } else if url.scheme == "http" || url.scheme == "https" {
+                    let safari = SFSafariViewController(url: url)
+                    self?.present(safari, animated: true, completion: nil)
+                    return false
+                } else {
+                    return false
+                }
             }
-        }
-        
-        markdownView.onRendered = { [weak self] _ in
-            if let `self` = self {
-                self.view.sendSubviewToBack(self.loading)
+            
+            markdownView.onRendered = { [weak self] _ in
+                if let `self` = self {
+                    self.view.sendSubviewToBack(self.loading)
+                }
             }
         }
     }
