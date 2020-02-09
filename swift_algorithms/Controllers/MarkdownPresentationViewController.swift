@@ -26,6 +26,8 @@ final class MarkdownPresentationViewController: UIViewController {
     }
     
     public func setMarkdown(for algorithm: Algorithm) {
+        title = algorithm.title
+        
         guard let url = UrlFactory().markdownFileUrl(for: algorithm) else {
             return
         }
@@ -35,7 +37,6 @@ final class MarkdownPresentationViewController: UIViewController {
             case let .success(markdown):
                 
                 DispatchQueue.main.async {
-                    self?.title = algorithm.title
                     self?.setMarkdown(markdown)
                 }
             case .failure:
@@ -45,6 +46,8 @@ final class MarkdownPresentationViewController: UIViewController {
     }
     
     public func setMarkdown(for dataStructure: DataStructure) {
+        title = dataStructure.title
+        
         guard let url = UrlFactory().markdownFileUrl(for: dataStructure) else {
             return
         }
@@ -54,7 +57,6 @@ final class MarkdownPresentationViewController: UIViewController {
             case let .success(markdown):
                 
                 DispatchQueue.main.async {
-                    self?.title = dataStructure.title
                     self?.setMarkdown(markdown)
                 }
             case .failure:
@@ -64,6 +66,7 @@ final class MarkdownPresentationViewController: UIViewController {
     }
     
     public func setMarkdown(for puzzle: Puzzle) {
+        title = puzzle.title
         guard let url = UrlFactory().markdownFileUrl(for: puzzle) else {
             return
         }
@@ -73,7 +76,6 @@ final class MarkdownPresentationViewController: UIViewController {
             case let .success(markdown):
                 
                 DispatchQueue.main.async {
-                    self?.title = puzzle.title
                     self?.setMarkdown(markdown)
                 }
             case .failure:
