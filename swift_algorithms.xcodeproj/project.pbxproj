@@ -18,7 +18,7 @@
 		1A1068C62222E5F3008CC444 /* MiscAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1068C52222E5F3008CC444 /* MiscAlgorithm.swift */; };
 		1A1068C82222E67B008CC444 /* MathematicsAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1068C72222E67B008CC444 /* MathematicsAlgorithm.swift */; };
 		1A1068CA2222E73A008CC444 /* MachineLearningAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1068C92222E73A008CC444 /* MachineLearningAlgorithm.swift */; };
-		9DCBAA8A5C987C789843427F /* Pods_swift_algorithms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D522BF7BAF3E150F9CCCFD /* Pods_swift_algorithms.framework */; };
+		30257DEEEA6D53B98F52A73D /* Pods_Swift_Algorithms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE7196DB44481460DE46058 /* Pods_Swift_Algorithms.framework */; };
 		A047A9EC54180CBA5FC69D3E /* Pods_swift_algorithmsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA706CACE80D15D9F2E76A6C /* Pods_swift_algorithmsUITests.framework */; };
 		A2D272B3DAFD868E2F71F48A /* Pods_swift_algorithmsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270B493059A6D7185F03AF9C /* Pods_swift_algorithmsTests.framework */; };
 		B00A1DB0212F8AD5007187CF /* legoloader.json in Resources */ = {isa = PBXBuildFile; fileRef = B00A1DAF212F8AD5007187CF /* legoloader.json */; };
@@ -117,7 +117,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		11D522BF7BAF3E150F9CCCFD /* Pods_swift_algorithms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_algorithms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A1068B52222D4A1008CC444 /* IntroductionAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionAlgorithm.swift; sourceTree = "<group>"; };
 		1A1068B72222DD37008CC444 /* AlgorithmCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmCategory.swift; sourceTree = "<group>"; };
 		1A1068B92222E0B9008CC444 /* SortingLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingLevel.swift; sourceTree = "<group>"; };
@@ -132,7 +131,9 @@
 		270B493059A6D7185F03AF9C /* Pods_swift_algorithmsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_algorithmsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C59D4B0B7D88D835003076D /* Pods-swift_algorithms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithms/Pods-swift_algorithms.debug.xcconfig"; sourceTree = "<group>"; };
 		43E9CEB21F979302108A0517 /* Pods-swift_algorithmsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsUITests/Pods-swift_algorithmsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		529FF965803B831A01694606 /* Pods-Swift Algorithms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift Algorithms.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swift Algorithms/Pods-Swift Algorithms.release.xcconfig"; sourceTree = "<group>"; };
 		53FAD4E9DB81ADD81659894E /* Pods-swift_algorithms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithms.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithms/Pods-swift_algorithms.release.xcconfig"; sourceTree = "<group>"; };
+		78229BB56556A163094B062C /* Pods-Swift Algorithms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift Algorithms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swift Algorithms/Pods-Swift Algorithms.debug.xcconfig"; sourceTree = "<group>"; };
 		80420DF83CC2A4693487FB21 /* Pods-swift_algorithmsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsUITests/Pods-swift_algorithmsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B00A1DAF212F8AD5007187CF /* legoloader.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = legoloader.json; sourceTree = "<group>"; };
 		B00A1DB1212F8C67007187CF /* LottieLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoaderView.swift; sourceTree = "<group>"; };
@@ -219,6 +220,7 @@
 		B0F6D77D213B428E00E52E71 /* DataStructurePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStructurePresenter.swift; sourceTree = "<group>"; };
 		CE2C916CA1E26A1540EF4A7B /* Pods-swift_algorithmsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsTests/Pods-swift_algorithmsTests.release.xcconfig"; sourceTree = "<group>"; };
 		DA706CACE80D15D9F2E76A6C /* Pods_swift_algorithmsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_algorithmsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEE7196DB44481460DE46058 /* Pods_Swift_Algorithms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_Algorithms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C1D994F013BE2CFEE1B988 /* Pods-swift_algorithmsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsTests/Pods-swift_algorithmsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -227,7 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DCBAA8A5C987C789843427F /* Pods_swift_algorithms.framework in Frameworks */,
+				30257DEEEA6D53B98F52A73D /* Pods_Swift_Algorithms.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +280,8 @@
 				CE2C916CA1E26A1540EF4A7B /* Pods-swift_algorithmsTests.release.xcconfig */,
 				80420DF83CC2A4693487FB21 /* Pods-swift_algorithmsUITests.debug.xcconfig */,
 				43E9CEB21F979302108A0517 /* Pods-swift_algorithmsUITests.release.xcconfig */,
+				78229BB56556A163094B062C /* Pods-Swift Algorithms.debug.xcconfig */,
+				529FF965803B831A01694606 /* Pods-Swift Algorithms.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -504,9 +508,9 @@
 		BECE2E0AED4B2BEDF256682C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				11D522BF7BAF3E150F9CCCFD /* Pods_swift_algorithms.framework */,
 				270B493059A6D7185F03AF9C /* Pods_swift_algorithmsTests.framework */,
 				DA706CACE80D15D9F2E76A6C /* Pods_swift_algorithmsUITests.framework */,
+				DEE7196DB44481460DE46058 /* Pods_Swift_Algorithms.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -667,7 +671,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-swift_algorithms-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Swift Algorithms-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -724,15 +728,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swift_algorithms/Pods-swift_algorithms-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Swift Algorithms/Pods-Swift Algorithms-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swift_algorithms/Pods-swift_algorithms-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Swift Algorithms/Pods-Swift Algorithms-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swift_algorithms/Pods-swift_algorithms-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swift Algorithms/Pods-Swift Algorithms-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -979,7 +983,7 @@
 		};
 		B00B26C82123B5E000E1DF9C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C59D4B0B7D88D835003076D /* Pods-swift_algorithms.debug.xcconfig */;
+			baseConfigurationReference = 78229BB56556A163094B062C /* Pods-Swift Algorithms.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = swift_algorithms/swift_algorithms.entitlements;
@@ -1004,7 +1008,7 @@
 		};
 		B00B26C92123B5E000E1DF9C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53FAD4E9DB81ADD81659894E /* Pods-swift_algorithms.release.xcconfig */;
+			baseConfigurationReference = 529FF965803B831A01694606 /* Pods-Swift Algorithms.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = swift_algorithms/swift_algorithms.entitlements;
