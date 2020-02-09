@@ -29,10 +29,21 @@ final class CategoryContainerViewController: UIViewController {
 }
 
 @available(iOS 13.0, *)
-final class CategoryArticleListViewController: UIViewController {
+protocol CategoryArticleListViewRendering: AnyObject {
+    var sections: [TableSectionController] { get set }
+    var title: String? { get set }
+}
+
+@available(iOS 13.0, *)
+protocol CategoryArticleListViewDelegate: AnyObject {
+    func didSelectArticle(with identifier: UUID)
+}
+
+@available(iOS 13.0, *)
+final class CategoryArticleListViewController: UIViewController, CategoryArticleListViewRendering {
     
     private let tableView = UITableView(frame: .zero, style: .insetGrouped)
-    private var identifiers = [UUID: AlgorithmPresentationAction]()
+    weak var delegate: CategoryArticleListViewDelegate?
     
     override func loadView() {
         view = tableView
@@ -49,8 +60,7 @@ final class CategoryArticleListViewController: UIViewController {
             section.registerReusableTypes(tableView: tableView)
             
             section.onSelect = { [weak self] identifier in
-                print(self?.identifiers[identifier])
-//                                   self?.onSelect?(identifier)
+                self?.delegate?.didSelectArticle(with: identifier)
             }
         }
         
@@ -63,9 +73,9 @@ final class CategoryArticleListViewController: UIViewController {
         
         self.sections =  AlgorithmSectionFactory().makeAllSortingSections().map {
             
-            for (key, value) in $0.identifiers {
-                identifiers[key] = value
-            }
+//            for (key, value) in $0.identifiers {
+//                identifiers[key] = value
+//            }
             
             return $0.seciton
         }

@@ -1,7 +1,15 @@
 import UIKit
 
+protocol SideMenuViewDelegate: AnyObject {
+    func didSelectItem(with identifier: UUID)
+    func viewDidLoad()
+}
 
-final class SideMenuTableViewController: UITableViewController {
+protocol SideMenuTableViewRendering: AnyObject {
+    var properties: SideMenuTableViewController.Properties { get set }
+}
+
+final class SideMenuTableViewController: UITableViewController, SideMenuTableViewRendering {
     
     struct Properties {
         let sections: [Section]
@@ -18,33 +26,13 @@ final class SideMenuTableViewController: UITableViewController {
         }
     }
     
+    weak var delegate: SideMenuViewDelegate?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(SideMenuItemCell.self, forCellReuseIdentifier: SideMenuItemCell.reuseIdentifier)
-        
-        
-        
-        let category = AlgorithmCategory.allCases.map {
-            SideMenuItemCell.Properties(iconProperties: .init(background: $0.color,
-                                                              icon: $0.image),
-                                        name: $0.title)
-        }
-        
-        let ds = DataStructure.Category.allCases.map {
-            SideMenuItemCell.Properties(iconProperties: .init(background: $0.color,
-                                                              icon: $0.image),
-                                        name: $0.title)
-        }
-        
-        let puzzles = Puzzle.allCases.map {
-            SideMenuItemCell.Properties(iconProperties: nil, name: $0.title)
-        }
-        
-        properties = .init(sections: [
-            .init(items: category, title: "Algorithms"),
-            .init(items: ds, title: "Data Structures"),
-            .init(items: puzzles, title: "Puzzles")
-        ])
+        delegate?.viewDidLoad()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -70,6 +58,10 @@ final class SideMenuTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.didSelectItem(with: properties.sections[indexPath.section].items[indexPath.item].identifier)
     }
 }
 

@@ -6,7 +6,8 @@ final class SideMenuItemCell: UITableViewCell, Reusable {
     struct Properties {
         let iconProperties: IconProperties?
         let name: String
-        static let `default` = Properties(iconProperties: nil, name: "")
+        let identifier: UUID
+        static let `default` = Properties(iconProperties: nil, name: "", identifier: UUID())
         struct IconProperties {
             let background: UIColor
             let icon: UIImage?
