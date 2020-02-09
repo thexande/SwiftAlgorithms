@@ -33,6 +33,12 @@ final class RootCatalystCoordinator: Coordinating {
 }
 
 extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
+    func show(puzzle: Puzzle) {
+        let markdown = MarkdownPresentationViewController()
+        markdown.setMarkdown(for: puzzle)
+        mainMenuSplitView.viewControllers = [sideMenuView, markdown]
+    }
+    
     func showCategorySelectorView() {
         mainMenuSplitView.viewControllers = [sideMenuView, categoryDisplaySplitView]
     }

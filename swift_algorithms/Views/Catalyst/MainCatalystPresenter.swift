@@ -4,6 +4,7 @@ import Foundation
 protocol MainCatalystPresenterDelegate: AnyObject {
     func showCategorySelectorView()
     func showAboutView()
+    func show(puzzle: Puzzle)
 }
 
 @available(iOS 13.0, *)
@@ -42,13 +43,14 @@ extension MainCatalystPresenter: SideMenuViewDelegate {
         }
         
         if let puzzle = puzzleLookup[identifier] {
-            
+            delegate?.show(puzzle: puzzle)
         } else if let dataStructure = dataStructureCategoryLookup[identifier] {
             let section = DataStructureSectionFactory().makeDataStructureSection(for: dataStructure)
             for (key, value) in section.identifiers {
                 dataStructureLookup[key] = value
             }
             categoryRenderer?.sections = [section.seciton]
+            categoryRenderer?.title = dataStructure.title
         } else if let algorithm = algorithmCategoryLookup[identifier] {
             let sections = AlgorithmSectionFactory().makeSections(for: algorithm)
             
