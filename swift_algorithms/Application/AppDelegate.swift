@@ -19,8 +19,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let sideTable = SideMenuTableViewController()
     let markdown = MarkdownPresentationViewController()
+    
+    let otherSplit = UISplitViewController()
+    otherSplit.viewControllers = [UINavigationController(rootViewController: CategoryArticleListViewController()), markdown]
 
-    split.viewControllers = [sideTable, CategoryContainerViewController()]
+    split.viewControllers = [sideTable, otherSplit]
+
     window?.rootViewController = split
     window?.makeKeyAndVisible()
 
