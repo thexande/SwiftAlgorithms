@@ -11,6 +11,7 @@ target 'swift_algorithms' do
   pod 'lottie-ios'
   pod 'Hero'
   pod 'DeviceKit'
+  pod 'Cache'
   
   target 'swift_algorithmsTests' do
     inherit! :search_paths
