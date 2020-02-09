@@ -1,6 +1,6 @@
 import UIKit
 
-final class MainCatalystViewController: UISplitViewController {
+final class MainCatalystSplitViewController: UISplitViewController {
     let onboarding = OnboardingInformationViewController()
     private var hasPresentedOnboarding = false
 
@@ -47,32 +47,41 @@ final class MainCatalystViewController: UISplitViewController {
 final class RootCatalystCoordinator: Coordinating {
     
     let root: UIViewController?
-    private let sideMenuPresenter = SideMenuPresenter()
+    private let sideMenuPresenter = MainCatalystPresenter()
+    private let categoryDisplaySplitView = UISplitViewController()
+    private let mainMenuSplitView = MainCatalystSplitViewController()
+    private let sideMenuView = SideMenuTableViewController()
+
     
     init() {
-        let split = MainCatalystViewController()
-        split.primaryBackgroundStyle = .sidebar
+        mainMenuSplitView.primaryBackgroundStyle = .sidebar
         
-        let sideMenuView = SideMenuTableViewController()
+        sideMenuView.delegate = sideMenuPresenter
         sideMenuPresenter.renderer = sideMenuView
+        
         let category = CategoryArticleListViewController()
         category.delegate = sideMenuPresenter
-        
         sideMenuPresenter.categoryRenderer = category
-        sideMenuView.delegate = sideMenuPresenter
         
         let markdown = MarkdownPresentationViewController()
         sideMenuPresenter.markdownRenderer = markdown
         
-        let otherSplit = UISplitViewController()
-        otherSplit.viewControllers = [UINavigationController(rootViewController: category), markdown]
+        categoryDisplaySplitView.viewControllers = [UINavigationController(rootViewController: category), markdown]
+                
+        mainMenuSplitView.viewControllers = [sideMenuView, AboutViewController()]
+        root = mainMenuSplitView
+        
+        sideMenuPresenter.delegate = self
+    }
+}
 
-        split.viewControllers = [sideMenuView, AboutViewController()]
-        root = split
+extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
+    func showCategorySelectorView() {
+        mainMenuSplitView.viewControllers = [sideMenuView, categoryDisplaySplitView]
     }
     
-    deinit {
-        
+    func showAboutView() {
+        mainMenuSplitView.viewControllers = [sideMenuView, AboutViewController()]
     }
 }
 

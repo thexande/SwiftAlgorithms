@@ -1,7 +1,13 @@
 import Foundation
 
 @available(iOS 13.0, *)
-final class SideMenuPresenter {
+protocol MainCatalystPresenterDelegate: AnyObject {
+    func showCategorySelectorView()
+    func showAboutView()
+}
+
+@available(iOS 13.0, *)
+final class MainCatalystPresenter {
     
     private var puzzleLookup = [UUID: Puzzle]()
     private var dataStructureCategoryLookup = [UUID: DataStructure.Category]()
@@ -12,19 +18,13 @@ final class SideMenuPresenter {
     
     var algorithmLookup = [UUID: AlgorithmPresentationAction]()
     var dataStructureLookup = [UUID: DataStructurePresenter.Action]()
+    weak var delegate: MainCatalystPresenterDelegate?
     
-    
-    init() {
-
-    }
-    
-    deinit {
-        
-    }
+    private var isDisplayingCategory = false
 }
 
 @available(iOS 13.0, *)
-extension SideMenuPresenter: CategoryArticleListViewDelegate {
+extension MainCatalystPresenter: CategoryArticleListViewDelegate {
     func didSelectArticle(with identifier: UUID){
         if case let .selectedAlgorithm(algorithm) = algorithmLookup[identifier] {
             markdownRenderer?.setMarkdown(for: algorithm)
@@ -35,8 +35,12 @@ extension SideMenuPresenter: CategoryArticleListViewDelegate {
 }
 
 @available(iOS 13.0, *)
-extension SideMenuPresenter: SideMenuViewDelegate {
+extension MainCatalystPresenter: SideMenuViewDelegate {
     func didSelectItem(with identifier: UUID) {
+        if isDisplayingCategory == false {
+            delegate?.showCategorySelectorView()
+        }
+        
         if let puzzle = puzzleLookup[identifier] {
             
         } else if let dataStructure = dataStructureCategoryLookup[identifier] {
