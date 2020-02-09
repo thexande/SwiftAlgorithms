@@ -78,6 +78,7 @@ final class CategoryArticleListViewController: UIViewController {
     }
 }
 
+@available(iOS 13.0, *)
 extension CategoryArticleListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
