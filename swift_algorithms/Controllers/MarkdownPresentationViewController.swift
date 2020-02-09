@@ -4,8 +4,10 @@ import Anchorage
 import SafariServices
 
 final class MarkdownPresentationViewController: UIViewController {
+    
     let markdownView = MarkdownView()
     let loading = TableLoadingView()
+    private let stringNetworkService = StringNetworkService()
     
     public func setMarkdown(_ markdown: String) {
         
@@ -23,21 +25,47 @@ final class MarkdownPresentationViewController: UIViewController {
         markdownView.load(markdown: markdown)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.largeTitleDisplayMode = .never
+    public func setMarkdown(for algorithm: Algorithm) {
+        guard let url = UrlFactory().markdownFileUrl(for: algorithm) else {
+            return
+        }
         
-        view.addSubview(markdownView)
-        markdownView.edgeAnchors == view.edgeAnchors
         
-        view.addSubview(loading)
-        loading.edgeAnchors == view.edgeAnchors
+        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
+            switch result {
+            case let .success(markdown):
+                
+                DispatchQueue.main.async {
+                    self?.title = algorithm.title
+                    self?.setMarkdown(markdown)
+                }
+            case .failure:
+                return
+            }
+        }
+    }
         
-        markdownView.onTouchLink = { [weak self] request in
-            guard let url = request.url else { return false }
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            navigationItem.largeTitleDisplayMode = .never
             
-            if url.scheme == "file" {
-                return false
+            if #available(iOS 13.0, *) {
+                view.backgroundColor = .systemBackground
+            } else {
+                view.backgroundColor = .white
+            }
+            
+            view.addSubview(markdownView)
+            markdownView.edgeAnchors == view.edgeAnchors
+            
+            view.addSubview(loading)
+            loading.edgeAnchors == view.edgeAnchors
+            
+            markdownView.onTouchLink = { [weak self] request in
+                guard let url = request.url else { return false }
+                
+                if url.scheme == "file" {
+                    return false
             } else if url.scheme == "http" || url.scheme == "https" {
                 let safari = SFSafariViewController(url: url)
                 self?.present(safari, animated: true, completion: nil)

@@ -271,31 +271,9 @@ final class RootTabCoordinator {
     }
     
     private func handleAlgorithmSelect(_ algorithm: Algorithm) {
-        
-        guard let url = urlFactory.markdownFileUrl(for: algorithm) else {
-            return
-        }
-        
-        
-        stringNetworkService.fetchMarkdown(with: url) { [weak self] result in
-            switch result {
-            case let .success(markdown):
-                
-                DispatchQueue.main.async {
-                    self?.algorithmMarkdownViewController.title = algorithm.title
-                    self?.algorithmMarkdownViewController.setMarkdown(markdown)
-                    
-                    guard let markdownViewController = self?.algorithmMarkdownViewController else {
-                        return
-                    }
-                    
-                    self?.algorithmViewController.showDetailViewController(markdownViewController, sender: nil)
-                }
-                
-            case .failure:
-                return
-            }
-        }
+        let view = MarkdownPresentationViewController()
+        view.setMarkdown(for: algorithm)
+        algorithmViewController.showDetailViewController(view, sender: nil)
     }
     
     private func handleDataStructureSelect(_ dataStructure: DataStructure) {
