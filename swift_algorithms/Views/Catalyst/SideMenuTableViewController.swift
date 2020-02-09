@@ -63,7 +63,7 @@ final class SideMenuTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuItemCell.reuseIdentifier) as? SideMenuItemCell else {
             return UITableViewCell()
         }
-        
+
         cell.properties = properties.sections[indexPath.section].items[indexPath.row]
         return cell
     }
