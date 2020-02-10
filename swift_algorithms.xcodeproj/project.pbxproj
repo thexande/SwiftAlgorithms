@@ -69,6 +69,8 @@
 		B0A4DB3A212A0648000CFC7F /* DonateFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB39212A0648000CFC7F /* DonateFooterView.swift */; };
 		B0A4DB3C212A066C000CFC7F /* ConfettiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB3B212A066C000CFC7F /* ConfettiButton.swift */; };
 		B0A4DB3E212A068A000CFC7F /* ConfettilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB3D212A068A000CFC7F /* ConfettilView.swift */; };
+		B0A69B2C23F103D000CC9B4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A69B2B23F103D000CC9B4D /* SceneDelegate.swift */; };
+		B0A69B2E23F103F100CC9B4D /* CatalystSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A69B2D23F103F100CC9B4D /* CatalystSearchViewController.swift */; };
 		B0A6B11D23E6B60C00EDA1E0 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = B0A6B11C23E6B60C00EDA1E0 /* main.js */; };
 		B0A8FCFD2131DEFF008F82E2 /* DataStructureSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FCFC2131DEFF008F82E2 /* DataStructureSearchPresenter.swift */; };
 		B0A8FCFF2131FE26008F82E2 /* BasicTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FCFE2131FE26008F82E2 /* BasicTableFooterView.swift */; };
@@ -194,6 +196,8 @@
 		B0A4DB39212A0648000CFC7F /* DonateFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateFooterView.swift; sourceTree = "<group>"; };
 		B0A4DB3B212A066C000CFC7F /* ConfettiButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiButton.swift; sourceTree = "<group>"; };
 		B0A4DB3D212A068A000CFC7F /* ConfettilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettilView.swift; sourceTree = "<group>"; };
+		B0A69B2B23F103D000CC9B4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B0A69B2D23F103F100CC9B4D /* CatalystSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystSearchViewController.swift; sourceTree = "<group>"; };
 		B0A6B11823E6B60C00EDA1E0 /* index_dark.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index_dark.html; sourceTree = "<group>"; };
 		B0A6B11923E6B60C00EDA1E0 /* index_light.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index_light.html; sourceTree = "<group>"; };
 		B0A6B11A23E6B60C00EDA1E0 /* main_light.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = main_light.css; sourceTree = "<group>"; };
@@ -390,6 +394,7 @@
 				B0D2FAAD23EFC742001ADACA /* RootCatalystCoordinator.swift */,
 				B0D2FAB223EFCDD5001ADACA /* MainCatalystPresenter.swift */,
 				B08D5E8B23F0CA7100296CFD /* MainCatalystSplitViewController.swift */,
+				B0A69B2D23F103F100CC9B4D /* CatalystSearchViewController.swift */,
 			);
 			path = Catalyst;
 			sourceTree = "<group>";
@@ -521,6 +526,7 @@
 			children = (
 				B00B26A22123B5DE00E1DF9C /* AppDelegate.swift */,
 				B00B26AB2123B5E000E1DF9C /* LaunchScreen.storyboard */,
+				B0A69B2B23F103D000CC9B4D /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -821,6 +827,7 @@
 				B01733A3212934F400FBEFE5 /* BasicTableRowController.swift in Sources */,
 				B069F1BF212A5E83002FABFB /* TableLoadingView.swift in Sources */,
 				B0A8FCFD2131DEFF008F82E2 /* DataStructureSearchPresenter.swift in Sources */,
+				B0A69B2C23F103D000CC9B4D /* SceneDelegate.swift in Sources */,
 				1A1068C82222E67B008CC444 /* MathematicsAlgorithm.swift in Sources */,
 				B00B26A52123B5DE00E1DF9C /* MarkdownPresentationViewController.swift in Sources */,
 				B069F1BD212A494C002FABFB /* SearchResultsRowController.swift in Sources */,
@@ -842,6 +849,7 @@
 				1A1068C02222E394008CC444 /* StringSearchAlgorithm.swift in Sources */,
 				B0A8FD03213208DB008F82E2 /* AboutViewController.swift in Sources */,
 				B06EB0B42138F6CF0088C86D /* DataStructureSectionFactory.swift in Sources */,
+				B0A69B2E23F103F100CC9B4D /* CatalystSearchViewController.swift in Sources */,
 				1A1068BE2222E226008CC444 /* SearchingAlgorithm.swift in Sources */,
 				B03CEA5D2134CDA100F87760 /* AlgorithmSectionFactory.swift in Sources */,
 				B00B26A32123B5DE00E1DF9C /* AppDelegate.swift in Sources */,
