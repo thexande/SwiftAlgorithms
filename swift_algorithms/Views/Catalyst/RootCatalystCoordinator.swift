@@ -36,6 +36,7 @@ final class RootCatalystCoordinator: Coordinating {
 
 // MARK: - MainCatalystPresenterDelegate
 
+@available(iOS 13.0, *)
 extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
     func show(puzzle: Puzzle) {
         let markdown = MarkdownPresentationViewController()

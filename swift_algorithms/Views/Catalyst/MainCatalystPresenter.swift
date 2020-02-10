@@ -40,6 +40,7 @@ final class MainCatalystPresenter {
 
 // MARK: - State
 
+@available(iOS 13.0, *)
 fileprivate extension MainCatalystPresenter {
     struct State {
         enum Presentation {
@@ -111,6 +112,7 @@ extension MainCatalystPresenter: SideMenuViewDelegate {
 
 // MARK: - Reducers
 
+@available(iOS 13.0, *)
 extension MainCatalystPresenter {
     private static func reduceSideMenuItems(state: State) -> (state: State, viewProperties: SideMenuTableViewController.Properties) {
         var state = state
