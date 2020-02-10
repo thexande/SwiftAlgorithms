@@ -1,7 +1,7 @@
 import UIKit
 import Anchorage
 
-final class OnboardingInformationViewController: UIViewController {
+public final class OnboardingInformationViewController: UIViewController {
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let action = PrimaryButton()
@@ -15,7 +15,7 @@ final class OnboardingInformationViewController: UIViewController {
         let onboardingItems: [OnboardItemView.Properties]
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         if #available(iOS 13.0, *) {
@@ -33,6 +33,14 @@ final class OnboardingInformationViewController: UIViewController {
         action.addAction { [weak self] in
             self?.onDismiss?()
         }
+    }
+    
+    public init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func configure(_ properties: Properties) {
@@ -109,3 +117,4 @@ final class OnboardingInformationViewController: UIViewController {
             ])
     }
 }
+

@@ -59,11 +59,11 @@ public extension SideMenuItemCell {
         public struct IconProperties {
             let background: UIColor
             let icon: UIImage?
-            public init(background: UIColor, icon: UIImage?) {
+            public init(background: UIColor, icon: UIImage) {
                 self.background = background
                 self.icon = icon
             }
         }
-    }
-    
+    }    
 }
+

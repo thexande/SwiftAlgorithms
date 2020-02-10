@@ -1,17 +1,25 @@
 import UIKit
 
-final class MainCatalystSplitViewController: UISplitViewController {
+public final class MainCatalystSplitViewController: UISplitViewController {
     let onboarding = OnboardingInformationViewController()
     private var hasPresentedOnboarding = false
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         onboarding.onDismiss = { [weak self] in
             self?.onboarding.dismiss(animated: true, completion: nil)
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         // enable for non UserDefaults driven onboarding presentation

@@ -30,7 +30,6 @@
 		B00B26B82123B5E000E1DF9C /* swift_algorithmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B26B72123B5E000E1DF9C /* swift_algorithmsTests.swift */; };
 		B00B26C32123B5E000E1DF9C /* swift_algorithmsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B26C22123B5E000E1DF9C /* swift_algorithmsUITests.swift */; };
 		B01733852128CB7200FBEFE5 /* QuadrantSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733842128CB7200FBEFE5 /* QuadrantSelectorView.swift */; };
-		B01733872128CB9500FBEFE5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733862128CB9500FBEFE5 /* UIColor.swift */; };
 		B01733892128CBA900FBEFE5 /* QuadrantItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733882128CBA900FBEFE5 /* QuadrantItemView.swift */; };
 		B017338B2128CC9800FBEFE5 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B017338A2128CC9800FBEFE5 /* RootTabBarController.swift */; };
 		B017338D2128CDC700FBEFE5 /* SectionProxyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B017338C2128CDC700FBEFE5 /* SectionProxyTableViewController.swift */; };
@@ -46,8 +45,6 @@
 		B01733A1212934DE00FBEFE5 /* BasicTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733A0212934DE00FBEFE5 /* BasicTableHeaderView.swift */; };
 		B01733A3212934F400FBEFE5 /* BasicTableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733A2212934F400FBEFE5 /* BasicTableRowController.swift */; };
 		B01733A52129351A00FBEFE5 /* BasicTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733A42129351A00FBEFE5 /* BasicTableCell.swift */; };
-		B01733A72129385900FBEFE5 /* OnboardingInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733A62129385900FBEFE5 /* OnboardingInformationViewController.swift */; };
-		B01733A92129387100FBEFE5 /* OnboardItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733A82129387100FBEFE5 /* OnboardItemView.swift */; };
 		B01733AB2129389000FBEFE5 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733AA2129389000FBEFE5 /* PrimaryButton.swift */; };
 		B01733AD21294C4C00FBEFE5 /* UrlFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733AC21294C4C00FBEFE5 /* UrlFactory.swift */; };
 		B01733AF21294C6E00FBEFE5 /* StringNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01733AE21294C6E00FBEFE5 /* StringNetworkService.swift */; };
@@ -62,7 +59,6 @@
 		B069F1C3212B8F72002FABFB /* CollectionSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1C2212B8F72002FABFB /* CollectionSectionController.swift */; };
 		B069F1C5212B987B002FABFB /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1C4212B987B002FABFB /* CALayer.swift */; };
 		B06EB0B42138F6CF0088C86D /* DataStructureSectionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06EB0B32138F6CF0088C86D /* DataStructureSectionFactory.swift */; };
-		B08D5E8C23F0CA7100296CFD /* MainCatalystSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08D5E8B23F0CA7100296CFD /* MainCatalystSplitViewController.swift */; };
 		B0A4DB342129E781000CFC7F /* AlgorithmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB332129E781000CFC7F /* AlgorithmPresenter.swift */; };
 		B0A4DB362129F21C000CFC7F /* BasicTableHeaderRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB352129F21C000CFC7F /* BasicTableHeaderRowController.swift */; };
 		B0A4DB38212A03B6000CFC7F /* JoinTheClubRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB37212A03B6000CFC7F /* JoinTheClubRowController.swift */; };
@@ -156,7 +152,6 @@
 		B00B26C22123B5E000E1DF9C /* swift_algorithmsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_algorithmsUITests.swift; sourceTree = "<group>"; };
 		B00B26C42123B5E000E1DF9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B01733842128CB7200FBEFE5 /* QuadrantSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadrantSelectorView.swift; sourceTree = "<group>"; };
-		B01733862128CB9500FBEFE5 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B01733882128CBA900FBEFE5 /* QuadrantItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadrantItemView.swift; sourceTree = "<group>"; };
 		B017338A2128CC9800FBEFE5 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		B017338C2128CDC700FBEFE5 /* SectionProxyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionProxyTableViewController.swift; sourceTree = "<group>"; };
@@ -172,8 +167,6 @@
 		B01733A0212934DE00FBEFE5 /* BasicTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableHeaderView.swift; sourceTree = "<group>"; };
 		B01733A2212934F400FBEFE5 /* BasicTableRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableRowController.swift; sourceTree = "<group>"; };
 		B01733A42129351A00FBEFE5 /* BasicTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableCell.swift; sourceTree = "<group>"; };
-		B01733A62129385900FBEFE5 /* OnboardingInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInformationViewController.swift; sourceTree = "<group>"; };
-		B01733A82129387100FBEFE5 /* OnboardItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardItemView.swift; sourceTree = "<group>"; };
 		B01733AA2129389000FBEFE5 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		B01733AC21294C4C00FBEFE5 /* UrlFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlFactory.swift; sourceTree = "<group>"; };
 		B01733AE21294C6E00FBEFE5 /* StringNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringNetworkService.swift; sourceTree = "<group>"; };
@@ -189,7 +182,6 @@
 		B069F1C2212B8F72002FABFB /* CollectionSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSectionController.swift; sourceTree = "<group>"; };
 		B069F1C4212B987B002FABFB /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		B06EB0B32138F6CF0088C86D /* DataStructureSectionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureSectionFactory.swift; sourceTree = "<group>"; };
-		B08D5E8B23F0CA7100296CFD /* MainCatalystSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCatalystSplitViewController.swift; sourceTree = "<group>"; };
 		B0A4DB332129E781000CFC7F /* AlgorithmPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmPresenter.swift; sourceTree = "<group>"; };
 		B0A4DB352129F21C000CFC7F /* BasicTableHeaderRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableHeaderRowController.swift; sourceTree = "<group>"; };
 		B0A4DB37212A03B6000CFC7F /* JoinTheClubRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTheClubRowController.swift; sourceTree = "<group>"; };
@@ -393,7 +385,6 @@
 				B0CDE30823E90B660091E8E2 /* SideMenuTableViewController.swift */,
 				B0D2FAAD23EFC742001ADACA /* RootCatalystCoordinator.swift */,
 				B0D2FAB223EFCDD5001ADACA /* MainCatalystPresenter.swift */,
-				B08D5E8B23F0CA7100296CFD /* MainCatalystSplitViewController.swift */,
 				B0A69B2D23F103F100CC9B4D /* CatalystSearchViewController.swift */,
 			);
 			path = Catalyst;
@@ -421,7 +412,6 @@
 			isa = PBXGroup;
 			children = (
 				B01733922128D1F600FBEFE5 /* ClosureProxy.swift */,
-				B01733862128CB9500FBEFE5 /* UIColor.swift */,
 				B01733942128E44500FBEFE5 /* UIImage.swift */,
 				B069F1C4212B987B002FABFB /* CALayer.swift */,
 				B0E8C16D212FAC4200CBE90B /* UIView.swift */,
@@ -441,7 +431,6 @@
 				B017339E212934CB00FBEFE5 /* LabelTableFooterView.swift */,
 				B01733A0212934DE00FBEFE5 /* BasicTableHeaderView.swift */,
 				B01733A42129351A00FBEFE5 /* BasicTableCell.swift */,
-				B01733A82129387100FBEFE5 /* OnboardItemView.swift */,
 				B0A4DB3B212A066C000CFC7F /* ConfettiButton.swift */,
 				B0A4DB3D212A068A000CFC7F /* ConfettilView.swift */,
 				B0A4DB39212A0648000CFC7F /* DonateFooterView.swift */,
@@ -469,7 +458,6 @@
 				B017339A2129347600FBEFE5 /* ActionTableRowController.swift */,
 				B017339C212934A200FBEFE5 /* BasicTableSectionController.swift */,
 				B01733A2212934F400FBEFE5 /* BasicTableRowController.swift */,
-				B01733A62129385900FBEFE5 /* OnboardingInformationViewController.swift */,
 				B069F1BC212A494C002FABFB /* SearchResultsRowController.swift */,
 				B069F1C2212B8F72002FABFB /* CollectionSectionController.swift */,
 				B0F38505212BB21A00779976 /* CategoryRowTableSectionController.swift */,
@@ -792,7 +780,6 @@
 				B0F38508212BB23000779976 /* CategoryRowTableCell.swift in Sources */,
 				B069F1C5212B987B002FABFB /* CALayer.swift in Sources */,
 				B0A8FD05213210E0008F82E2 /* UINavigationController.swift in Sources */,
-				B01733A72129385900FBEFE5 /* OnboardingInformationViewController.swift in Sources */,
 				B0E8C16A212FA09000CBE90B /* AlgorithmSearchPresenter.swift in Sources */,
 				B0A4DB342129E781000CFC7F /* AlgorithmPresenter.swift in Sources */,
 				B0F379A32381FCD100E4768A /* SettingsViewController.swift in Sources */,
@@ -805,7 +792,6 @@
 				B0D2FAB323EFCDD5001ADACA /* MainCatalystPresenter.swift in Sources */,
 				B0F3850A212BB26A00779976 /* CategorySideScrollingCollecitonSectionController.swift in Sources */,
 				B01733932128D1F600FBEFE5 /* ClosureProxy.swift in Sources */,
-				B01733872128CB9500FBEFE5 /* UIColor.swift in Sources */,
 				B017338F2128D02900FBEFE5 /* DataStructuresViewController.swift in Sources */,
 				B01733AD21294C4C00FBEFE5 /* UrlFactory.swift in Sources */,
 				B0A8FCFF2131FE26008F82E2 /* BasicTableFooterView.swift in Sources */,
@@ -831,8 +817,6 @@
 				1A1068C82222E67B008CC444 /* MathematicsAlgorithm.swift in Sources */,
 				B00B26A52123B5DE00E1DF9C /* MarkdownPresentationViewController.swift in Sources */,
 				B069F1BD212A494C002FABFB /* SearchResultsRowController.swift in Sources */,
-				B01733A92129387100FBEFE5 /* OnboardItemView.swift in Sources */,
-				B08D5E8C23F0CA7100296CFD /* MainCatalystSplitViewController.swift in Sources */,
 				1A1068CA2222E73A008CC444 /* MachineLearningAlgorithm.swift in Sources */,
 				B0A8FD0921321EA0008F82E2 /* Puzzle.swift in Sources */,
 				B01733992128E92400FBEFE5 /* ActionIconRowCell.swift in Sources */,

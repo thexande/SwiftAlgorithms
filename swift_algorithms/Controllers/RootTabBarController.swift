@@ -1,4 +1,5 @@
 import UIKit
+import SwiftAlgorithmsUserInterface
 
 final class RootTabBarController: UITabBarController {
     weak var coordinator: RootTabCoordinator?

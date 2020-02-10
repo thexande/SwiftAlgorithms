@@ -1,4 +1,5 @@
 import UIKit
+import SwiftAlgorithmsUserInterface
 
 final class AppCoordinator: Coordinating {
 

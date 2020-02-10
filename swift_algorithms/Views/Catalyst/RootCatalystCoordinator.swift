@@ -1,5 +1,6 @@
 import UIKit
 import Anchorage
+import SwiftAlgorithmsUserInterface
 
 @available(iOS 13.0, *)
 final class RootCatalystCoordinator: Coordinating {

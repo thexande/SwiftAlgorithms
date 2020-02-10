@@ -22,7 +22,7 @@ extension UIColor {
     
 }
 
-extension UIColor {
+public extension UIColor {
     static func newGreen() -> UIColor {
         return UIColor(hex: "53D86A")
     }
