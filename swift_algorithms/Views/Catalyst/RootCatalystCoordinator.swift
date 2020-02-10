@@ -8,7 +8,7 @@ final class RootCatalystCoordinator: Coordinating {
     private let categoryDisplaySplitView = UISplitViewController()
     private let mainMenuSplitView = MainCatalystSplitViewController()
     private let sideMenuView = SideMenuTableViewController()
-    private let categoryNav = UINavigationController()
+    private let categoryNavigationView = UINavigationController()
     private let about = AboutViewController()
 
     
@@ -21,7 +21,7 @@ final class RootCatalystCoordinator: Coordinating {
         let category = CategoryArticleListViewController()
         category.delegate = sideMenuPresenter
         sideMenuPresenter.categoryRenderer = category
-        categoryNav.setViewControllers([category], animated: false)
+        categoryNavigationView.setViewControllers([category], animated: false)
         
         let markdown = MarkdownPresentationViewController()
         sideMenuPresenter.markdownRenderer = markdown
@@ -46,7 +46,7 @@ extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
     
     func showCategorySelectorViewWithAbout() {
         mainMenuSplitView.showDetailViewController(categoryDisplaySplitView, sender: nil)
-        categoryDisplaySplitView.viewControllers = [categoryNav, about]
+        categoryDisplaySplitView.viewControllers = [categoryNavigationView, about]
     }
     
     func showCategorySelectorViewWithMarkdown() {
@@ -54,7 +54,7 @@ extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
         let markdown = MarkdownPresentationViewController()
         sideMenuPresenter.markdownRenderer = markdown
         
-        categoryDisplaySplitView.viewControllers = [categoryNav, markdown]
+        categoryDisplaySplitView.viewControllers = [categoryNavigationView, markdown]
     }
     
     func showAboutView() {
