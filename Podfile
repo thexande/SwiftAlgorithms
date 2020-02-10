@@ -12,6 +12,8 @@ target 'Swift Algorithms' do
   pod 'Hero'
   pod 'DeviceKit'
   pod 'Cache'
+
+  pod 'SwiftAlgorithmsUserInterface', :path => 'modules/SwiftAlgorithmsUserInterface'
   
   target 'swift_algorithmsTests' do
     inherit! :search_paths
