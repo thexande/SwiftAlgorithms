@@ -2,7 +2,8 @@ import Foundation
 
 @available(iOS 13.0, *)
 protocol MainCatalystPresenterDelegate: AnyObject {
-    func showCategorySelectorView()
+    func showCategorySelectorViewWithAbout()
+    func showCategorySelectorViewWithMarkdown()
     func showAboutView()
     func show(puzzle: Puzzle)
 }
@@ -10,7 +11,20 @@ protocol MainCatalystPresenterDelegate: AnyObject {
 @available(iOS 13.0, *)
 final class MainCatalystPresenter {
     
-    private var state = State.initial
+    private var state = State.initial {
+        didSet {
+            switch state.presentation {
+            case.sideAndAbout:
+                break
+            case .sideAndCategoryWithMarkdown:
+                delegate?.showCategorySelectorViewWithMarkdown()
+            case .sideAndCategoryWithAbout:
+                delegate?.showCategorySelectorViewWithAbout()
+            case .sideAndPuzzle(let puzzle):
+                delegate?.show(puzzle: puzzle)
+            }
+        }
+    }
     
     weak var renderer: SideMenuTableViewRendering?
     weak var categoryRenderer: CategoryArticleListViewRendering?
@@ -28,6 +42,13 @@ final class MainCatalystPresenter {
 
 fileprivate extension MainCatalystPresenter {
     struct State {
+        enum Presentation {
+            case sideAndAbout
+            case sideAndPuzzle(Puzzle)
+            case sideAndCategoryWithAbout
+            case sideAndCategoryWithMarkdown
+        }
+        var presentation = Presentation.sideAndAbout
         var puzzleLookup: [UUID: Puzzle]
         var dataStructureCategoryLookup: [UUID: DataStructure.Category]
         var algorithmCategoryLookup: [UUID: AlgorithmCategory]
@@ -40,6 +61,7 @@ fileprivate extension MainCatalystPresenter {
 @available(iOS 13.0, *)
 extension MainCatalystPresenter: CategoryArticleListViewDelegate {
     func didSelectArticle(with identifier: UUID){
+        state = MainCatalystPresenter.reduce(presentationChange: .sideAndCategoryWithMarkdown, from: state)
         if case let .selectedAlgorithm(algorithm) = algorithmLookup[identifier] {
             markdownRenderer?.setMarkdown(for: algorithm)
         } else if case let .selectedDataStructure(`struct`) = dataStructureLookup[identifier] {
@@ -53,20 +75,20 @@ extension MainCatalystPresenter: CategoryArticleListViewDelegate {
 @available(iOS 13.0, *)
 extension MainCatalystPresenter: SideMenuViewDelegate {
     func didSelectItem(with identifier: UUID) {
-        if isDisplayingCategory == false {
-            delegate?.showCategorySelectorView()
-        }
-        
         if let puzzle = state.puzzleLookup[identifier] {
-            delegate?.show(puzzle: puzzle)
+            state = Self.reduce(presentationChange: .sideAndPuzzle(puzzle), from: state)
         } else if let dataStructure = state.dataStructureCategoryLookup[identifier] {
+            state = Self.reduce(presentationChange: .sideAndCategoryWithAbout, from: state)
             let section = DataStructureSectionFactory().makeDataStructureSection(for: dataStructure)
+            
             for (key, value) in section.identifiers {
                 dataStructureLookup[key] = value
             }
             categoryRenderer?.sections = [section.seciton]
             categoryRenderer?.title = dataStructure.title
         } else if let algorithm = state.algorithmCategoryLookup[identifier] {
+            state = Self.reduce(presentationChange: .sideAndCategoryWithAbout, from: state)
+            
             let sections = AlgorithmSectionFactory().makeSections(for: algorithm)
             
             categoryRenderer?.sections = sections.map {
@@ -125,5 +147,11 @@ extension MainCatalystPresenter {
         ])
         
         return (state, properties)
+    }
+    
+    private static func reduce(presentationChange: State.Presentation, from state: State) -> State {
+        var state = state
+        state.presentation = presentationChange
+        return state
     }
 }

@@ -42,17 +42,6 @@ final class CategoryArticleListViewController: UIViewController, CategoryArticle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Sorting"
-        
-        self.sections =  AlgorithmSectionFactory().makeAllSortingSections().map {
-            
-//            for (key, value) in $0.identifiers {
-//                identifiers[key] = value
-//            }
-            
-            return $0.seciton
-        }
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()

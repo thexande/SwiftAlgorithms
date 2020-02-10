@@ -8,6 +8,8 @@ final class RootCatalystCoordinator: Coordinating {
     private let categoryDisplaySplitView = UISplitViewController()
     private let mainMenuSplitView = MainCatalystSplitViewController()
     private let sideMenuView = SideMenuTableViewController()
+    private let categoryNav = UINavigationController()
+    private let about = AboutViewController()
 
     
     init() {
@@ -19,11 +21,11 @@ final class RootCatalystCoordinator: Coordinating {
         let category = CategoryArticleListViewController()
         category.delegate = sideMenuPresenter
         sideMenuPresenter.categoryRenderer = category
+        categoryNav.setViewControllers([category], animated: false)
         
         let markdown = MarkdownPresentationViewController()
         sideMenuPresenter.markdownRenderer = markdown
         
-        categoryDisplaySplitView.viewControllers = [UINavigationController(rootViewController: category), markdown]
                 
         mainMenuSplitView.viewControllers = [sideMenuView, AboutViewController()]
         root = mainMenuSplitView
@@ -32,19 +34,30 @@ final class RootCatalystCoordinator: Coordinating {
     }
 }
 
+// MARK: - MainCatalystPresenterDelegate
+
 extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
     func show(puzzle: Puzzle) {
         let markdown = MarkdownPresentationViewController()
         markdown.setMarkdown(for: puzzle)
-        mainMenuSplitView.viewControllers = [sideMenuView, markdown]
+        mainMenuSplitView.showDetailViewController(markdown, sender: nil)
     }
     
-    func showCategorySelectorView() {
-        mainMenuSplitView.viewControllers = [sideMenuView, categoryDisplaySplitView]
+    func showCategorySelectorViewWithAbout() {
+        mainMenuSplitView.showDetailViewController(categoryDisplaySplitView, sender: nil)
+        categoryDisplaySplitView.viewControllers = [categoryNav, about]
+    }
+    
+    func showCategorySelectorViewWithMarkdown() {
+        mainMenuSplitView.showDetailViewController(categoryDisplaySplitView, sender: nil)
+        let markdown = MarkdownPresentationViewController()
+        sideMenuPresenter.markdownRenderer = markdown
+        
+        categoryDisplaySplitView.viewControllers = [categoryNav, markdown]
     }
     
     func showAboutView() {
-        mainMenuSplitView.viewControllers = [sideMenuView, AboutViewController()]
+        mainMenuSplitView.showDetailViewController(about, sender: nil)
     }
 }
 
