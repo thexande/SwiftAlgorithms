@@ -34,9 +34,9 @@ final class RootCatalystCoordinator: Coordinating {
     
         let view = UINavigationController(rootViewController: CatalystSearchViewController())
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.root?.present(view, animated: false, completion: nil)
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//            self.root?.present(view, animated: false, completion: nil)
+//        }
     }
 }
 
@@ -71,12 +71,12 @@ final class CatalystSearchViewController: UIViewController {
         algorithmSearchResultsController.view.edgeAnchors == view.edgeAnchors
         algorithmSearchResultsController.didMove(toParent: self)
         
-        algorithmSearchResultsController.tableView.contentInset = .init(top: 56, left: 0, bottom: 0, right: 0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         algorithmSearchController.isActive = true
+        algorithmSearchResultsController.tableView.contentInset = .init(top: 100, left: 0, bottom: 0, right: 0)
     }
 }
 

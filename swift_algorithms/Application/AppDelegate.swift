@@ -41,7 +41,7 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
         
         #if targetEnvironment(macCatalyst)
         if let titlebar = windowScene.titlebar {
-            titlebar.titleVisibility = .hidden
+//            titlebar.titleVisibility = .visible
             titlebar.toolbar = makeToolbar()
         }
         
@@ -88,7 +88,7 @@ extension SceneDelegate: NSToolbarDelegate {
     }
 
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        return [.init("show_sidebar"), NSToolbarItem.Identifier.flexibleSpace, .init("search")]
+        return [] // [.init("show_sidebar"), NSToolbarItem.Identifier.flexibleSpace, .init("search")]
     }
 
     func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
