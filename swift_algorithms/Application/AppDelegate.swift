@@ -42,7 +42,7 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
         #if targetEnvironment(macCatalyst)
         if let titlebar = windowScene.titlebar {
             titlebar.titleVisibility = .hidden
-            titlebar.toolbar = makeMyFancyToolbar()
+            titlebar.toolbar = makeToolbar()
         }
         
         let rootCoordinator = RootCatalystCoordinator()
@@ -55,11 +55,11 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
         #endif
     }
     
-    @objc private func myFancyAction(sender: UIBarButtonItem) {
+    @objc private func searchButtonPressed(sender: UIBarButtonItem) {
         print("Button Pressed")
     }
     
-    private func makeMyFancyToolbar() -> NSToolbar {
+    private func makeToolbar() -> NSToolbar {
         let toolbar = NSToolbar(identifier: "MyToolbar")
         toolbar.delegate = self
         return toolbar
@@ -73,7 +73,7 @@ extension SceneDelegate: NSToolbarDelegate {
                  willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
         
         if itemIdentifier == .init("search") {
-            let barButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(myFancyAction(sender:)))
+            let barButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonPressed(sender:)))
             let button = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButton)
             button.title = "Search         "
             return button
