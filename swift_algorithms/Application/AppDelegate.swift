@@ -30,11 +30,21 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
     private var coordinator: Coordinating?
     var window: UIWindow?
     
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    func scene(_ scene: UIScene,
+               willConnectTo session: UISceneSession,
+               options connectionOptions: UIScene.ConnectionOptions) {
+        
         guard let windowScene = scene as? UIWindowScene else { return }
+        
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
+        
         #if targetEnvironment(macCatalyst)
+        if let titlebar = windowScene.titlebar {
+            titlebar.titleVisibility = .hidden
+            titlebar.toolbar = makeMyFancyToolbar()
+        }
+        
         let rootCoordinator = RootCatalystCoordinator()
         coordinator = rootCoordinator
         rootCoordinator.launch(in: window)
@@ -44,4 +54,45 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
         rootCoordinator.launch(in: window)
         #endif
     }
+    
+    @objc private func myFancyAction(sender: UIBarButtonItem) {
+        print("Button Pressed")
+    }
+    
+    private func makeMyFancyToolbar() -> NSToolbar {
+        let toolbar = NSToolbar(identifier: "MyToolbar")
+        toolbar.delegate = self
+        return toolbar
+    }
 }
+
+#if targetEnvironment(macCatalyst)
+extension SceneDelegate: NSToolbarDelegate {
+    func toolbar(_ toolbar: NSToolbar,
+                 itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier,
+                 willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
+        
+        if itemIdentifier == .init("search") {
+            let barButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(myFancyAction(sender:)))
+            let button = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButton)
+            button.title = "Search         "
+            return button
+        } else if itemIdentifier == .init("show_sidebar") {
+//            let barButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(myFancyAction(sender:)))
+//            let button = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButton)
+//            return button
+            return nil
+        } else {
+            return nil
+        }
+    }
+
+    func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        return [.init("show_sidebar"), NSToolbarItem.Identifier.flexibleSpace, .init("search")]
+    }
+
+    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        return toolbarDefaultItemIdentifiers(toolbar)
+    }
+}
+#endif
