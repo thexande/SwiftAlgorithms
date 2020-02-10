@@ -1,0 +1,6 @@
+use_frameworks!
+target 'SwiftAlgorithmsUserInterface_Tests' do
+  pod 'SwiftAlgorithmsUserInterface', :path => '../'
+  
+  
+end
