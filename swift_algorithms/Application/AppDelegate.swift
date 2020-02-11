@@ -23,4 +23,17 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         return UISceneConfiguration(name: "Default Configuration",
                                     sessionRole: connectingSceneSession.role)
     }
+    
+    @objc private func showHelp(_ sender: Any) {
+        UIApplication.shared.open(URL(string: "https://github.com/raywenderlich/swift-algorithm-club")!)
+    }
+    
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        
+        if action == #selector(self.showHelp(_:)) {
+            return true
+        } else {
+            return super.canPerformAction(action, withSender: sender)
+        }
+    }
 }
