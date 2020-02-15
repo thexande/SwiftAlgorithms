@@ -33,6 +33,27 @@ final class AlgorithmSectionFactory {
         }
     }
     
+    public func makeSections(for category: AlgorithmCategory) -> [IdentifiableSectionController] {
+        switch category {
+        case .gettingStarted:
+            return [makeGettingStartedSection()]
+        case .searching:
+            return [makeSearchingSection()]
+        case .stringSearch:
+            return [makeStringSearchSection()]
+        case .sorting:
+            return makeAllSortingSections()
+        case .compression:
+            return [makeCompressionSection()]
+        case .misc:
+            return [makeMiscellaneousSection()]
+        case .math:
+            return [makeMathematicsSection()]
+        case .machineLearning:
+            return [makeMachineLearningSection()]
+        }
+    }
+    
     public func makeSection(for sortingCategory: SortingLevel) -> IdentifiableSectionController {
         switch sortingCategory {
         case .basic:

@@ -1,0 +1,16 @@
+PODS:
+  - SwiftAlgorithmsUserInterface (0.1.0)
+
+DEPENDENCIES:
+  - SwiftAlgorithmsUserInterface (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftAlgorithmsUserInterface:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftAlgorithmsUserInterface: dddb189a67b3cb6b106251d0ecad7d89538af87e
+
+PODFILE CHECKSUM: 40a317ec11bb7db42d712220b2a520983998c4da
+
+COCOAPODS: 1.8.4

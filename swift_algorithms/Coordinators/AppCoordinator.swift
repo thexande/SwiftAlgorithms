@@ -1,19 +1,15 @@
 import UIKit
+import SwiftAlgorithmsUserInterface
 
-final class AppCoordinator {
-    
-    private var rootTabCoordinator: RootTabCoordinator?
-    
-    var root: UIViewController?
-    
-    func rootViewController() -> UIViewController? {
-        let coordinator = RootTabCoordinator()
-        rootTabCoordinator = coordinator
-        root = coordinator.root
-        return root
-    }
+final class AppCoordinator: Coordinating {
+
+    let root: UIViewController?
+    var tabCoordinator: RootTabCoordinator?
     
     init() {
+        let coordinator = RootTabCoordinator()
+        tabCoordinator = coordinator
+        root = coordinator.root
         setAppearance()
     }
     

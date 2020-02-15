@@ -1,5 +1,6 @@
 import UIKit
 import Anchorage
+import SwiftAlgorithmsUserInterface
 
 final class GlobalSplitViewController: UISplitViewController, UISplitViewControllerDelegate {
     

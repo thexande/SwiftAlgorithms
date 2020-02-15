@@ -1,5 +1,6 @@
 import UIKit
 import Anchorage
+import SwiftAlgorithmsUserInterface
 
 class ThemableTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
