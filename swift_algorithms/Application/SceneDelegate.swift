@@ -15,10 +15,14 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
         window?.makeKeyAndVisible()
         
         #if targetEnvironment(macCatalyst)
-        if let titlebar = windowScene.titlebar {
-//            titlebar.titleVisibility = .visible
-            titlebar.toolbar = makeToolbar()
+        
+        func makeToolbar() -> NSToolbar {
+            let toolbar = NSToolbar(identifier: "MyToolbar")
+            toolbar.delegate = self
+            return toolbar
         }
+        
+        windowScene.titlebar?.toolbar = makeToolbar()
         
         let rootCoordinator = RootCatalystCoordinator()
         coordinator = rootCoordinator
@@ -32,12 +36,6 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
     
     @objc private func searchButtonPressed(sender: UIBarButtonItem) {
         print("Button Pressed")
-    }
-    
-    private func makeToolbar() -> NSToolbar {
-        let toolbar = NSToolbar(identifier: "MyToolbar")
-        toolbar.delegate = self
-        return toolbar
     }
 }
 

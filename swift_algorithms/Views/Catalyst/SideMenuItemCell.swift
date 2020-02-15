@@ -45,6 +45,7 @@ public final class SideMenuItemCell: UITableViewCell, Reusable {
     }
 }
 
+@available(iOS 13.0, *)
 public extension SideMenuItemCell {
     struct Properties {
         let iconProperties: IconProperties?
