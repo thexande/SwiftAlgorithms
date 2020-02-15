@@ -76,7 +76,7 @@ public final class OnboardingInformationViewController: UIViewController {
         hint.topAnchor == stack.bottomAnchor + 18
         
         hint.font = UIFont.preferredFont(forTextStyle: .callout)
-        hint.text = "👋 While using the app, shake your device to enable dark mode!"
+        // hint.text = "👋 While using the app, shake your device to enable dark mode!"
         hint.textAlignment = .center
         hint.textColor = .darkGray
         hint.numberOfLines = 0
@@ -110,7 +110,7 @@ public final class OnboardingInformationViewController: UIViewController {
             attributedTitle.append(string)
         }
         
-        return OnboardingInformationViewController.Properties(title: attributedTitle, subtitle: "Great documentation for Data Structures and Algorithms in Swift 4.", onboardingItems: [
+        return OnboardingInformationViewController.Properties(title: attributedTitle, subtitle: "Great documentation for Data Structures and Algorithms in Swift 5.", onboardingItems: [
             OnboardItemView.Properties(content: "View tutorials on over 50 computer science algorithms, as well as implementations.", icon: UIImage(named: "algo")),
             OnboardItemView.Properties(content: "Check out examples of arrays, queues, lists, trees and hashes implemented in Swift!", icon: UIImage(named: "data_structure")),
             OnboardItemView.Properties(content: "Sourced from Raywenderlich.com's Algorithm Club, these Markdown resources are fetched from the github repository.", icon: UIImage(named: "math")),
