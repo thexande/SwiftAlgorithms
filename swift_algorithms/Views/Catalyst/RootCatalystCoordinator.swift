@@ -32,12 +32,6 @@ final class RootCatalystCoordinator: Coordinating {
         root = mainMenuSplitView
         
         sideMenuPresenter.delegate = self
-    
-        let view = UINavigationController(rootViewController: CatalystSearchViewController())
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//            self.root?.present(view, animated: false, completion: nil)
-//        }
     }
 }
 

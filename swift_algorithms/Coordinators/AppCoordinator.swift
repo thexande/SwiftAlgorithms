@@ -18,6 +18,5 @@ final class AppCoordinator: Coordinating {
         UITabBar.appearance().tintColor = .coral()
         UITextField.appearance().tintColor = .coral()
         UISearchBar.appearance().tintColor = .coral()
-        
     }
 }

@@ -35,7 +35,8 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
     }
     
     @objc private func searchButtonPressed(sender: UIBarButtonItem) {
-        print("Button Pressed")
+        let view = UINavigationController(rootViewController: CatalystSearchViewController())
+        UIApplication.shared.windows.first?.rootViewController?.present(view, animated: true, completion: nil)
     }
 }
 
@@ -50,18 +51,20 @@ extension SceneDelegate: NSToolbarDelegate {
             let button = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButton)
             button.title = "Search         "
             return button
-        } else if itemIdentifier == .init("show_sidebar") {
+        }
+//        else if itemIdentifier == .init("show_sidebar") {
 //            let barButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(myFancyAction(sender:)))
 //            let button = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButton)
 //            return button
-            return nil
-        } else {
+//            return nil
+//        }
+    else {
             return nil
         }
     }
 
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        return [] // [.init("show_sidebar"), NSToolbarItem.Identifier.flexibleSpace, .init("search")]
+        return [.init("show_sidebar"), NSToolbarItem.Identifier.flexibleSpace, .init("search")]
     }
 
     func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
