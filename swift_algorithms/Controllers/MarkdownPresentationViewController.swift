@@ -1,6 +1,7 @@
 import UIKit
 import Anchorage
 import SafariServices
+import SwiftAlgorithmsDataLayer
 
 protocol MarkdownPresentationViewRendering: AnyObject {
     func setMarkdown(for algorithm: Algorithm)
@@ -12,7 +13,7 @@ final class MarkdownPresentationViewController: UIViewController {
     
     let markdownView = MarkdownView()
     let loading = TableLoadingView()
-    private let stringNetworkService = StringNetworkService()
+    private let stringNetworkService: StringNetworkServiceInterface
     
     public func setMarkdown(_ markdown: String) {
         
@@ -28,6 +29,16 @@ final class MarkdownPresentationViewController: UIViewController {
         
         markdownView.load(markdown: markdown)
     }
+    
+    init(stringNetworkService: StringNetworkServiceInterface = StringNetworkService()) {
+        self.stringNetworkService = stringNetworkService
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

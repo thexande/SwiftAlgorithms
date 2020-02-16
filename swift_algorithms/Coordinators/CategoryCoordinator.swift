@@ -1,4 +1,5 @@
 import UIKit
+import SwiftAlgorithmsDataLayer
 
 protocol CategoryCoordinatorDispatching {
     func dispatch(_ action: CategoryCoordinator.Action)

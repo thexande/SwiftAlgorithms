@@ -1,11 +1,19 @@
 import Foundation
 import Cache
 
-enum StringNetworkServiceError: Error {
+public enum StringNetworkServiceError: Error {
     case contentLoadingFailure
 }
 
-final class StringNetworkService {
+public protocol StringNetworkServiceInterface {
+    func fetchMarkdown(with url: URL,
+                       completion: @escaping ((Swift.Result<String, StringNetworkServiceError>) -> Void))
+}
+
+public final class StringNetworkService: StringNetworkServiceInterface {
+    
+    public init() { }
+    
     public func fetchMarkdown(with url: URL,
                               completion: @escaping ((Swift.Result<String, StringNetworkServiceError>) -> Void)) {
         DispatchQueue.global(qos: .background).async { [weak self] in

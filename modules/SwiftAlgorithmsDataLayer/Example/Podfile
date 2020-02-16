@@ -1,0 +1,6 @@
+use_frameworks!
+target 'SwiftAlgorithmsDataLayer_Tests' do
+  pod 'SwiftAlgorithmsDataLayer', :path => '../'
+  
+  
+end
