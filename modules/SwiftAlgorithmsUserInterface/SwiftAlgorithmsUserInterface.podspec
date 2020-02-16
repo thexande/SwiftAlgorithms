@@ -32,11 +32,10 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'SwiftAlgorithmsUserInterface/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'SwiftAlgorithmsUserInterface' => ['SwiftAlgorithmsUserInterface/Assets/*.png']
-  # }
+   s.resources = 'SwiftAlgorithmsUserInterface/Assets/*.json'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
+  s.dependency 'lottie-ios'
   s.dependency 'Anchorage'
 end

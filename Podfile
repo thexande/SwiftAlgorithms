@@ -8,7 +8,6 @@ target 'Algorithms & Data Structures' do
   # Pods for swift_algorithms
 #  pod 'MarkdownView', :git => 'https://github.com/thexande/MarkdownView.git', :branch => 'master'
   pod 'Anchorage'
-  pod 'lottie-ios'
   pod 'Hero'
   pod 'DeviceKit'
   pod 'Cache'

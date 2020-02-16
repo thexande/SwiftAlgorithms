@@ -21,7 +21,6 @@
 		1A1068CA2222E73A008CC444 /* MachineLearningAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1068C92222E73A008CC444 /* MachineLearningAlgorithm.swift */; };
 		A047A9EC54180CBA5FC69D3E /* Pods_swift_algorithmsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA706CACE80D15D9F2E76A6C /* Pods_swift_algorithmsUITests.framework */; };
 		A2D272B3DAFD868E2F71F48A /* Pods_swift_algorithmsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270B493059A6D7185F03AF9C /* Pods_swift_algorithmsTests.framework */; };
-		B00A1DB0212F8AD5007187CF /* legoloader.json in Resources */ = {isa = PBXBuildFile; fileRef = B00A1DAF212F8AD5007187CF /* legoloader.json */; };
 		B00A1DB2212F8C67007187CF /* LottieLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A1DB1212F8C67007187CF /* LottieLoaderView.swift */; };
 		B00B26A32123B5DE00E1DF9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B26A22123B5DE00E1DF9C /* AppDelegate.swift */; };
 		B00B26A52123B5DE00E1DF9C /* MarkdownPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B26A42123B5DE00E1DF9C /* MarkdownPresentationViewController.swift */; };
@@ -51,8 +50,6 @@
 		B03CEA5D2134CDA100F87760 /* AlgorithmSectionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CEA5C2134CDA100F87760 /* AlgorithmSectionFactory.swift */; };
 		B03CEA5F2134E00F00F87760 /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CEA5E2134E00F00F87760 /* CategoryCoordinator.swift */; };
 		B0513C32213B4E2C006C0124 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B0513C31213B4E2C006C0124 /* README.md */; };
-		B069F1B5212A3E63002FABFB /* SearchEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1B4212A3E63002FABFB /* SearchEmptyStateView.swift */; };
-		B069F1B7212A406E002FABFB /* Rejection.json in Resources */ = {isa = PBXBuildFile; fileRef = B069F1B6212A406E002FABFB /* Rejection.json */; };
 		B069F1BD212A494C002FABFB /* SearchResultsRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1BC212A494C002FABFB /* SearchResultsRowController.swift */; };
 		B069F1BF212A5E83002FABFB /* TableLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1BE212A5E83002FABFB /* TableLoadingView.swift */; };
 		B069F1C1212A6727002FABFB /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B069F1C0212A6727002FABFB /* Algorithm.swift */; };
@@ -138,7 +135,6 @@
 		7FFC57D1C94F832F8E234C17 /* Pods_Algorithms___Data_Structures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Algorithms___Data_Structures.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80420DF83CC2A4693487FB21 /* Pods-swift_algorithmsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsUITests/Pods-swift_algorithmsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A47DECABA15EBECA27E1A640 /* Pods-Algorithms & Data Structures.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Algorithms & Data Structures.release.xcconfig"; path = "Pods/Target Support Files/Pods-Algorithms & Data Structures/Pods-Algorithms & Data Structures.release.xcconfig"; sourceTree = "<group>"; };
-		B00A1DAF212F8AD5007187CF /* legoloader.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = legoloader.json; sourceTree = "<group>"; };
 		B00A1DB1212F8C67007187CF /* LottieLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoaderView.swift; sourceTree = "<group>"; };
 		B00B269F2123B5DE00E1DF9C /* Algorithms & Data Structures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Algorithms & Data Structures.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00B26A22123B5DE00E1DF9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,8 +171,6 @@
 		B03CEA5E2134E00F00F87760 /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
 		B051086E23E69A9B00A1B802 /* swift_algorithms.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = swift_algorithms.entitlements; sourceTree = "<group>"; };
 		B0513C31213B4E2C006C0124 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		B069F1B4212A3E63002FABFB /* SearchEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmptyStateView.swift; sourceTree = "<group>"; };
-		B069F1B6212A406E002FABFB /* Rejection.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Rejection.json; sourceTree = "<group>"; };
 		B069F1BC212A494C002FABFB /* SearchResultsRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsRowController.swift; sourceTree = "<group>"; };
 		B069F1BE212A5E83002FABFB /* TableLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLoadingView.swift; sourceTree = "<group>"; };
 		B069F1C0212A6727002FABFB /* Algorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
@@ -434,7 +428,6 @@
 				B0A4DB39212A0648000CFC7F /* DonateFooterView.swift */,
 				B0F38507212BB23000779976 /* CategoryRowTableCell.swift */,
 				B0F3850B212BB29200779976 /* CategoryCollectionCell.swift */,
-				B069F1B4212A3E63002FABFB /* SearchEmptyStateView.swift */,
 				B069F1BE212A5E83002FABFB /* TableLoadingView.swift */,
 				B00A1DB1212F8C67007187CF /* LottieLoaderView.swift */,
 				B0A8FCFE2131FE26008F82E2 /* BasicTableFooterView.swift */,
@@ -501,8 +494,6 @@
 			isa = PBXGroup;
 			children = (
 				B00B26A92123B5E000E1DF9C /* Assets.xcassets */,
-				B069F1B6212A406E002FABFB /* Rejection.json */,
-				B00A1DAF212F8AD5007187CF /* legoloader.json */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -642,11 +633,9 @@
 				B0CDE2FF23E906C40091E8E2 /* main_light.css in Resources */,
 				B0CDE2FC23E9069D0091E8E2 /* index_dark.html in Resources */,
 				B0CDE2FD23E9069D0091E8E2 /* index_light.html in Resources */,
-				B00A1DB0212F8AD5007187CF /* legoloader.json in Resources */,
 				B00B26AD2123B5E000E1DF9C /* LaunchScreen.storyboard in Resources */,
 				B0513C32213B4E2C006C0124 /* README.md in Resources */,
 				B0A6B11D23E6B60C00EDA1E0 /* main.js in Resources */,
-				B069F1B7212A406E002FABFB /* Rejection.json in Resources */,
 				B00B26AA2123B5E000E1DF9C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -803,7 +792,6 @@
 				1A1068BC2222E16A008CC444 /* GettingStartedAlgorithm.swift in Sources */,
 				B0A8FD0B21321FF6008F82E2 /* RootTabBarCoordinator.swift in Sources */,
 				B0E8C16E212FAC4200CBE90B /* UIView.swift in Sources */,
-				B069F1B5212A3E63002FABFB /* SearchEmptyStateView.swift in Sources */,
 				B0A4DB3E212A068A000CFC7F /* ConfettilView.swift in Sources */,
 				B0A8FD01213208B6008F82E2 /* PuzzlesViewController.swift in Sources */,
 				B00A1DB2212F8C67007187CF /* LottieLoaderView.swift in Sources */,

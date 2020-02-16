@@ -6,13 +6,13 @@ PODS:
   - lottie-ios (3.1.6)
   - SwiftAlgorithmsUserInterface (0.1.0):
     - Anchorage
+    - lottie-ios
 
 DEPENDENCIES:
   - Anchorage
   - Cache
   - DeviceKit
   - Hero
-  - lottie-ios
   - SwiftAlgorithmsUserInterface (from `modules/SwiftAlgorithmsUserInterface`)
 
 SPEC REPOS:
@@ -33,8 +33,8 @@ SPEC CHECKSUMS:
   DeviceKit: fc3c2bd361a8d68d8a91eb715e453aede57317e5
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   lottie-ios: 85ce835dd8c53e02509f20729fc7d6a4e6645a0a
-  SwiftAlgorithmsUserInterface: 742f7c0fb58a463d1e5f57a490c230dbbd633655
+  SwiftAlgorithmsUserInterface: 6a482d25352ceffe9d3ebe3926ad7f3fe1e05ccc
 
-PODFILE CHECKSUM: 23ef25dfe84d313b202e74a3bf24f884ad892ef8
+PODFILE CHECKSUM: 1abde66fa369648ebbdc3ca538211aed38972e54
 
 COCOAPODS: 1.8.4

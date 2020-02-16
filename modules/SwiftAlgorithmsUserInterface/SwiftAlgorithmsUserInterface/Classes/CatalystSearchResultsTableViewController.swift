@@ -53,7 +53,7 @@ public extension CatalystSearchResultsTableViewController {
 @available(macCatalyst 10.15, iOS 13, *)
 public final class CatalystSearchResultsTableViewController: UIViewController, CatalystSearchResultsTableViewRendering {
     public weak var delegate: CatalystSearchResultsTableViewDelegate?
-    private let empty = UIVisualEffectView(effect: UIBlurEffect(style: .regular)) // SearchEmptyStateView()
+    private let empty = SearchEmptyStateView()
     private let algorithmSearchController = UISearchController(searchResultsController: nil)
     private var hasFirstRender = false
     private let tableView = UITableView()
@@ -97,9 +97,9 @@ public final class CatalystSearchResultsTableViewController: UIViewController, C
                 
         
         if properties.sections.count > 0 {
-//            empty.isAnimationHidden = true
+            empty.isAnimationHidden = true
         } else {
-//            empty.isAnimationHidden = false
+            empty.isAnimationHidden = false
             view.bringSubviewToFront(empty)
         }
         
@@ -123,7 +123,7 @@ public final class CatalystSearchResultsTableViewController: UIViewController, C
         
         tableView.tableFooterView = UIView()
         tableView.backgroundView = empty
-//        empty.isAnimationHidden = true
+        empty.isAnimationHidden = true
         
         algorithmSearchController.searchResultsUpdater = self
         algorithmSearchController.delegate = self
