@@ -13,7 +13,8 @@ target 'Algorithms & Data Structures' do
   pod 'Cache'
 
   pod 'SwiftAlgorithmsUserInterface', :path => 'modules/SwiftAlgorithmsUserInterface'
-  
+  pod 'SwiftAlgorithmsDataLayer', :path => 'modules/SwiftAlgorithmsDataLayer'
+
   target 'swift_algorithmsTests' do
     inherit! :search_paths
     # Pods for testing
