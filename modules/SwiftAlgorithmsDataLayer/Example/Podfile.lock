@@ -1,0 +1,16 @@
+PODS:
+  - SwiftAlgorithmsDataLayer (0.1.0)
+
+DEPENDENCIES:
+  - SwiftAlgorithmsDataLayer (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftAlgorithmsDataLayer:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftAlgorithmsDataLayer: 4a518013c7bc1abc78e40682cacf91eaaf8807ee
+
+PODFILE CHECKSUM: 8885bfb12432f8421ad4aeb086f5254c0b9b8cea
+
+COCOAPODS: 1.8.4
