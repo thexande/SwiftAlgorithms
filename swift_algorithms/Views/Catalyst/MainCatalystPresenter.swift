@@ -1,14 +1,16 @@
 import Foundation
+import SwiftAlgorithmsUserInterface
 
-@available(iOS 13.0, *)
+@available(macCatalyst 10.15, iOS 13, *)
 protocol MainCatalystPresenterDelegate: AnyObject {
     func showCategorySelectorViewWithAbout()
     func showCategorySelectorViewWithMarkdown()
     func showAboutView()
     func show(puzzle: Puzzle)
+    func presentSearch()
 }
 
-@available(iOS 13.0, *)
+@available(macCatalyst 10.15, iOS 13, *)
 final class MainCatalystPresenter {
     
     private var state = State.initial {
@@ -40,7 +42,7 @@ final class MainCatalystPresenter {
 
 // MARK: - State
 
-@available(iOS 13.0, *)
+@available(macCatalyst 10.15, iOS 13, *)
 fileprivate extension MainCatalystPresenter {
     struct State {
         enum Presentation {
@@ -59,7 +61,7 @@ fileprivate extension MainCatalystPresenter {
 
 // MARK: - CategoryArticleListViewDelegate
 
-@available(iOS 13.0, *)
+@available(macCatalyst 10.15, iOS 13, *)
 extension MainCatalystPresenter: CategoryArticleListViewDelegate {
     func didSelectArticle(with identifier: UUID){
         state = MainCatalystPresenter.reduce(presentationChange: .sideAndCategoryWithMarkdown, from: state)
@@ -73,7 +75,7 @@ extension MainCatalystPresenter: CategoryArticleListViewDelegate {
 
 // MARK: - SideMenuViewDelegate
 
-@available(iOS 13.0, *)
+@available(macCatalyst 10.15, iOS 13, *)
 extension MainCatalystPresenter: SideMenuViewDelegate {
     func didSelectItem(with identifier: UUID) {
         if let puzzle = state.puzzleLookup[identifier] {
@@ -108,11 +110,15 @@ extension MainCatalystPresenter: SideMenuViewDelegate {
         self.state = state
         renderer?.properties = properties
     }
+    
+    func presentSearch() {
+        delegate?.presentSearch()
+    }
 }
 
 // MARK: - Reducers
 
-@available(iOS 13.0, *)
+@available(macCatalyst 10.15, iOS 13, *)
 extension MainCatalystPresenter {
     private static func reduceSideMenuItems(state: State) -> (state: State, viewProperties: SideMenuTableViewController.Properties) {
         var state = state

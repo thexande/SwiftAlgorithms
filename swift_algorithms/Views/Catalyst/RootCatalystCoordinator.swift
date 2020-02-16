@@ -2,9 +2,8 @@ import UIKit
 import Anchorage
 import SwiftAlgorithmsUserInterface
 
-@available(iOS 13.0, *)
+@available(macCatalyst 10.15, iOS 13, *)
 final class RootCatalystCoordinator: Coordinating {
-    
     let root: UIViewController?
     private let sideMenuPresenter = MainCatalystPresenter()
     private let categoryDisplaySplitView = UISplitViewController()
@@ -12,13 +11,14 @@ final class RootCatalystCoordinator: Coordinating {
     private let sideMenuView = SideMenuTableViewController()
     private let categoryNavigationView = UINavigationController()
     private let about = AboutViewController()
-    
+    private let searchPresenter = CatalystAlgorithmSearchPresenter()
+
     init() {
         mainMenuSplitView.primaryBackgroundStyle = .sidebar
         
         sideMenuView.delegate = sideMenuPresenter
         sideMenuPresenter.renderer = sideMenuView
-        
+
         let category = CategoryArticleListViewController()
         category.delegate = sideMenuPresenter
         sideMenuPresenter.categoryRenderer = category
@@ -26,22 +26,16 @@ final class RootCatalystCoordinator: Coordinating {
         
         let markdown = MarkdownPresentationViewController()
         sideMenuPresenter.markdownRenderer = markdown
-        
-                
         mainMenuSplitView.viewControllers = [sideMenuView, AboutViewController()]
         root = mainMenuSplitView
         
         sideMenuPresenter.delegate = self
-    
-        let view = UINavigationController(rootViewController: CatalystSearchViewController())
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//            self.root?.present(view, animated: false, completion: nil)
-//        }
     }
 }
 
-@available(iOS 13.0, *)
+// MARK: - MainCatalystPresenterDelegate
+
+@available(macCatalyst 10.15, iOS 13, *)
 extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
     func show(puzzle: Puzzle) {
         let markdown = MarkdownPresentationViewController()
@@ -65,5 +59,48 @@ extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
     func showAboutView() {
         mainMenuSplitView.showDetailViewController(about, sender: nil)
     }
+    
+    func presentSearch() {
+        root?.present(makeSearchView(), animated: true)
+    }
+    
+    private func makeSearchView() -> UIViewController {
+        let view = CatalystSearchResultsTableViewController()
+        view.delegate = searchPresenter
+        searchPresenter.renderer = view
+        searchPresenter.delegate = self
+        return UINavigationController(rootViewController: view)
+    }
 }
 
+// MARK: - CatalystAlgorithmSearchPresenterDispatching
+
+@available(macCatalyst 10.15, iOS 13, *)
+extension RootCatalystCoordinator: CatalystAlgorithmSearchPresenterDispatching {
+    func didSelect(algorithm: Algorithm) {
+        let markdown = MarkdownPresentationViewController()
+        markdown.setMarkdown(for: algorithm)
+        mainMenuSplitView.showDetailViewController(markdown, sender: nil)
+    }
+    
+    func didSelect(dataStructure: DataStructure) {
+        let markdown = MarkdownPresentationViewController()
+        markdown.setMarkdown(for: dataStructure)
+        mainMenuSplitView.showDetailViewController(markdown, sender: nil)
+    }
+    
+    func didSelect(puzzle: Puzzle) {
+        let markdown = MarkdownPresentationViewController()
+        markdown.setMarkdown(for: puzzle)
+        mainMenuSplitView.showDetailViewController(markdown, sender: nil)
+    }
+}
+
+// MARK: - AppToolBarDelegate
+
+@available(macCatalyst 10.15, iOS 13, *)
+extension RootCatalystCoordinator: AppToolBarDelegate {
+    func didPressSearchButton() {
+        root?.present(makeSearchView(), animated: true)
+    }
+}

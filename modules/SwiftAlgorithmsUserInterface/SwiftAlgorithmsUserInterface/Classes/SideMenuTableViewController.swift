@@ -1,17 +1,18 @@
 import UIKit
 
-@available(iOS 13.0, *)
+@available(macCatalyst 10.15, iOS 13, *)
 public protocol SideMenuViewDelegate: AnyObject {
     func didSelectItem(with identifier: UUID)
     func viewDidLoad()
+    func presentSearch()
 }
 
-@available(iOS 13.0, *)
+@available(macCatalyst 10.15, iOS 13, *)
 public protocol SideMenuTableViewRendering: AnyObject {
     var properties: SideMenuTableViewController.Properties { get set }
 }
 
-@available(iOS 13.0, *)
+@available(macCatalyst 10.15, iOS 13, *)
 public final class SideMenuTableViewController: UITableViewController, SideMenuTableViewRendering {
     
     public struct Properties {
@@ -33,9 +34,23 @@ public final class SideMenuTableViewController: UITableViewController, SideMenuT
         static let `default` = Properties(sections: [])
     }
     
+    public override var keyCommands: [UIKeyCommand]? {
+        [
+            UIKeyCommand(input: " ", modifierFlags: [], action: #selector(presentSearch))
+        ]
+    }
+    
+    @objc private func presentSearch() {
+        delegate?.presentSearch()
+    }
+    
+    public override var canBecomeFirstResponder: Bool { true }
+    
     public var properties = Properties.default {
         didSet {
             tableView.reloadData()
+            tableView.becomeFirstResponder()
+            tableView.selectRow(at: .init(item: 0, section: 0), animated: false, scrollPosition: .top)
         }
     }
     
@@ -77,4 +92,5 @@ public final class SideMenuTableViewController: UITableViewController, SideMenuT
         delegate?.didSelectItem(with: properties.sections[indexPath.section].items[indexPath.item].identifier)
     }
 }
+
 

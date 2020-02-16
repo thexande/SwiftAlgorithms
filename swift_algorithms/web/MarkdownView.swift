@@ -47,6 +47,11 @@ open class MarkdownView: UIView {
 
   override init (frame: CGRect) {
     super.init(frame : frame)
+    
+    self.webView?.isOpaque = false
+    self.webView?.backgroundColor = UIColor.clear
+    self.webView?.scrollView.backgroundColor = UIColor.clear
+    
   }
 
   public required init?(coder aDecoder: NSCoder) {
@@ -99,6 +104,10 @@ open class MarkdownView: UIView {
       wv.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
       wv.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
       wv.backgroundColor = self.backgroundColor
+        
+        #if targetEnvironment(macCatalyst)
+            wv.scrollView.contentInset = .init(top: 100, left: 0, bottom: 0, right: 0)
+        #endif
 
       self.webView = wv
 

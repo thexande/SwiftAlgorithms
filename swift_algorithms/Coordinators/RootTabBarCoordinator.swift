@@ -45,7 +45,7 @@ final class RootTabCoordinator {
     private let urlFactory = UrlFactory()
     private let stringNetworkService = StringNetworkService()
     private var hasPresentedOnboarding = false
-    
+
     private var categoryCoordinator: CategoryCoordinator?
     
     var root: UIViewController?
