@@ -12,6 +12,8 @@ final class RootCatalystCoordinator: Coordinating {
     private let sideMenuView = SideMenuTableViewController()
     private let categoryNavigationView = UINavigationController()
     private let about = AboutViewController()
+    let searchPresenter = CatalystAlgorithmSearchPresenter()
+
     
     init() {
         mainMenuSplitView.primaryBackgroundStyle = .sidebar
@@ -61,9 +63,37 @@ extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
     }
     
     func presentSearch() {
-        root?.present(UINavigationController(rootViewController: CatalystSearchResultsTableViewController(style: .grouped)),
-                animated: true,
-                completion: nil)
+        root?.present(makeSearchView(), animated: true)
+    }
+    
+    private func makeSearchView() -> UIViewController {
+        let view = CatalystSearchResultsTableViewController(style: .grouped)
+        searchPresenter.makeSearchableAlgorithmProperties()
+        view.delegate = searchPresenter
+        searchPresenter.renderer = view
+        searchPresenter.delegate = self
+        return UINavigationController(rootViewController: view)
+    }
+}
+
+@available(iOS 13.0, *)
+extension RootCatalystCoordinator: CatalystAlgorithmSearchPresenterDispatching {
+    func didSelect(algorithm: Algorithm) {
+        let markdown = MarkdownPresentationViewController()
+        markdown.setMarkdown(for: algorithm)
+        mainMenuSplitView.showDetailViewController(markdown, sender: nil)
+    }
+    
+    func didSelect(dataStructure: DataStructure) {
+        let markdown = MarkdownPresentationViewController()
+        markdown.setMarkdown(for: dataStructure)
+        mainMenuSplitView.showDetailViewController(markdown, sender: nil)
+    }
+    
+    func didSelect(puzzle: Puzzle) {
+        let markdown = MarkdownPresentationViewController()
+        markdown.setMarkdown(for: puzzle)
+        mainMenuSplitView.showDetailViewController(markdown, sender: nil)
     }
 }
 

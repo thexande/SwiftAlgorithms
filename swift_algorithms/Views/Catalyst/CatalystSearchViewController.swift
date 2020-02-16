@@ -30,14 +30,9 @@ extension CatalystSearchResultsTableViewController {
 }
 
 final class CatalystSearchResultsTableViewController: UITableViewController, CatalystSearchResultsTableViewRendering {
-        
     weak var delegate: CatalystSearchResultsTableViewDelegate?
-    
     private let empty = SearchEmptyStateView()
-    
-    private let algorithmSearchResultsPresenter = CatalystAlgorithmSearchPresenter()
     private let algorithmSearchController = UISearchController(searchResultsController: nil)
-    
     private var hasFirstRender = false
     
     var properties: Properties = .default {
@@ -102,14 +97,6 @@ final class CatalystSearchResultsTableViewController: UITableViewController, Cat
         tableView.backgroundView = empty
         empty.isAnimationHidden = true
         
-        algorithmSearchResultsPresenter.renderer = self
-        
-        
-        algorithmSearchResultsPresenter.makeSearchableAlgorithmProperties()
-        //        algorithmSearchResultsPresenter.dispatcher = self
-        
-        self.delegate = algorithmSearchResultsPresenter
-        
         algorithmSearchController.searchResultsUpdater = self
         algorithmSearchController.delegate = self
         algorithmSearchController.obscuresBackgroundDuringPresentation = false
@@ -155,7 +142,12 @@ final class CatalystSearchResultsTableViewController: UITableViewController, Cat
     }
     
     @objc private func enterPress() {
-        print("pressed enter on index \(tableView.indexPathForSelectedRow!)")
+        guard let index = tableView.indexPathForSelectedRow else { return }
+        print("pressed enter on index \(index)")
+        DispatchQueue.main.async {
+            self.delegate?.selectedItem(with: self.properties.sections[index.section].rows[index.row].identifier)
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc private func escape() {

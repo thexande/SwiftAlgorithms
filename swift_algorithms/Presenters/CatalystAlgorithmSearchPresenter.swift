@@ -89,19 +89,18 @@ final class CatalystAlgorithmSearchPresenter {
     }
     
     private func handleSelected(with identifier: UUID) {
-        guard let action = actionLookup[identifier] else {
-            return
+        guard let action = actionLookup[identifier] else { return }
+        
+        switch action {
+        case.selectedAlgorithm(let algorithm):
+            delegate?.didSelect(algorithm: algorithm)
         }
-        
-        
-//        dispatcher?.dispatch(action)
     }
 }
 
 extension CatalystAlgorithmSearchPresenter: CatalystSearchResultsTableViewDelegate {
     func searched(for term: String) {
         handleSearch(term)
-        
     }
     
     func selectedItem(with identifier: UUID) {
