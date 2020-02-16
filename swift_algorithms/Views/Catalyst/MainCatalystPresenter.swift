@@ -6,6 +6,7 @@ protocol MainCatalystPresenterDelegate: AnyObject {
     func showCategorySelectorViewWithMarkdown()
     func showAboutView()
     func show(puzzle: Puzzle)
+    func presentSearch()
 }
 
 @available(iOS 13.0, *)
@@ -107,6 +108,10 @@ extension MainCatalystPresenter: SideMenuViewDelegate {
         let (state, properties) = MainCatalystPresenter.reduceSideMenuItems(state: self.state)
         self.state = state
         renderer?.properties = properties
+    }
+    
+    func presentSearch() {
+        delegate?.presentSearch()
     }
 }
 

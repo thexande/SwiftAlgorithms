@@ -1,10 +1,6 @@
 import UIKit
 import Anchorage
 
-protocol CatalystSearchActionDispatching: AnyObject {
-    func dispatch(_ action: CatalystSearchResultsTableViewController.Action)
-}
-
 protocol CatalystSearchResultsTableViewDelegate: AnyObject {
     func searched(for term: String)
     func selectedItem(with identifier: UUID)
@@ -14,8 +10,7 @@ protocol CatalystSearchResultsTableViewRendering: AnyObject {
     var properties: CatalystSearchResultsTableViewController.Properties { get set }
 }
 
-final class CatalystSearchResultsTableViewController: UITableViewController, CatalystSearchResultsTableViewRendering {
-    
+extension CatalystSearchResultsTableViewController {
     struct Properties {
         let sections: [SectionProperties]
         static let `default` = Properties(sections: [])
@@ -32,12 +27,10 @@ final class CatalystSearchResultsTableViewController: UITableViewController, Cat
             }
         }
     }
-    
-    enum Action {
-        case searchedTerm(String)
-        case selectedTerm(UUID)
-    }
-    
+}
+
+final class CatalystSearchResultsTableViewController: UITableViewController, CatalystSearchResultsTableViewRendering {
+        
     weak var delegate: CatalystSearchResultsTableViewDelegate?
     
     private let empty = SearchEmptyStateView()
@@ -181,6 +174,8 @@ final class CatalystSearchResultsTableViewController: UITableViewController, Cat
     }
 }
 
+// MARK: - UISearchControllerDelegate
+
 extension CatalystSearchResultsTableViewController: UISearchControllerDelegate {
     func didPresentSearchController(_ searchController: UISearchController) {
         DispatchQueue.main.async {
@@ -212,10 +207,6 @@ extension CatalystSearchResultsTableViewController {
         icon.centerYAnchor == cell.contentView.centerYAnchor
         return cell
     }
-    
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return properties[section].sectionTitle
-//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return properties.sections[section].rows.count

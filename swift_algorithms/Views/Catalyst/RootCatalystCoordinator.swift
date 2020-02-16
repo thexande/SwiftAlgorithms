@@ -59,5 +59,11 @@ extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
     func showAboutView() {
         mainMenuSplitView.showDetailViewController(about, sender: nil)
     }
+    
+    func presentSearch() {
+        root?.present(UINavigationController(rootViewController: CatalystSearchResultsTableViewController(style: .grouped)),
+                animated: true,
+                completion: nil)
+    }
 }
 

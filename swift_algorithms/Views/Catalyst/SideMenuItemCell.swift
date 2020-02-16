@@ -1,29 +1,22 @@
 import UIKit
 import Anchorage
 
-@available(iOS 13.0, *)
-public final class SideMenuItemCell: UITableViewCell, Reusable {
+public final class CategoryIconView: UIView {
+    
     private let icon = UIImageView()
     private let card = UIView()
     
     public var properties = Properties.default {
         didSet {
-            if let iconProperties = properties.iconProperties {
-                icon.image = iconProperties.icon?.withRenderingMode(.alwaysTemplate)
-                card.backgroundColor = iconProperties.background
-                textLabel?.text = "          \(properties.name)"
-            } else {
-                textLabel?.text = properties.name
-            }
+            icon.image = properties.icon?.withRenderingMode(.alwaysTemplate)
+            card.backgroundColor = properties.background
         }
     }
     
-    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
         addSubview(card)
-        card.sizeAnchors == CGSize(width: 36, height: 36)
-        card.leadingAnchor == safeAreaLayoutGuide.leadingAnchor + 12
-        card.centerYAnchor == centerYAnchor
+        card.edgeAnchors == edgeAnchors
         card.layer.cornerRadius = 6
         
         card.addSubview(icon)

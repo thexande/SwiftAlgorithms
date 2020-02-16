@@ -4,6 +4,7 @@ import UIKit
 public protocol SideMenuViewDelegate: AnyObject {
     func didSelectItem(with identifier: UUID)
     func viewDidLoad()
+    func presentSearch()
 }
 
 @available(iOS 13.0, *)
@@ -40,8 +41,7 @@ public final class SideMenuTableViewController: UITableViewController, SideMenuT
         }
         
         @objc private func presentSearch() {
-            print("present search")
-            present(UINavigationController(rootViewController: CatalystSearchResultsTableViewController(style: .grouped)), animated: true, completion: nil)
+            delegate?.presentSearch()
         }
             
         public override var canBecomeFirstResponder: Bool { true }
