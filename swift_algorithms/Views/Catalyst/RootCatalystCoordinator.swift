@@ -2,9 +2,8 @@ import UIKit
 import Anchorage
 import SwiftAlgorithmsUserInterface
 
-@available(iOS 13.0, *)
+@available(macCatalyst 10.15, *)
 final class RootCatalystCoordinator: Coordinating {
-    
     let root: UIViewController?
     private let sideMenuPresenter = MainCatalystPresenter()
     private let categoryDisplaySplitView = UISplitViewController()
@@ -37,7 +36,9 @@ final class RootCatalystCoordinator: Coordinating {
     }
 }
 
-@available(iOS 13.0, *)
+// MARK: - MainCatalystPresenterDelegate
+
+@available(macCatalyst 10.15, *)
 extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
     func show(puzzle: Puzzle) {
         let markdown = MarkdownPresentationViewController()
@@ -75,7 +76,9 @@ extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
     }
 }
 
-@available(iOS 13.0, *)
+// MARK: - CatalystAlgorithmSearchPresenterDispatching
+
+@available(macCatalyst 10.15, *)
 extension RootCatalystCoordinator: CatalystAlgorithmSearchPresenterDispatching {
     func didSelect(algorithm: Algorithm) {
         let markdown = MarkdownPresentationViewController()

@@ -33,7 +33,7 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
     }
 }
 
-#if targetEnvironment(macCatalyst)
+@available(macCatalyst 10.15, *)
 fileprivate extension SceneDelegate {
     private func makeTool() -> NSToolbar {
         let toolbar = NSToolbar(identifier: "MyToolbar")
@@ -42,6 +42,9 @@ fileprivate extension SceneDelegate {
     }
 }
 
+// MARK: - MainCatalystPresenterDelegate
+
+@available(macCatalyst 10.15, *)
 extension SceneDelegate: NSToolbarDelegate {
     func toolbar(_ toolbar: NSToolbar,
                  itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier,
@@ -72,4 +75,3 @@ extension SceneDelegate: NSToolbarDelegate {
         return toolbarDefaultItemIdentifiers(toolbar)
     }
 }
-#endif
