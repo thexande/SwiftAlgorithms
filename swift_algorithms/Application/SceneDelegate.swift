@@ -52,7 +52,6 @@ fileprivate extension SceneDelegate {
 
 // MARK: - MainCatalystPresenterDelegate
 
-@available(macCatalyst 10.15, *)
 extension SceneDelegate: NSToolbarDelegate {
     func toolbar(_ toolbar: NSToolbar,
                  itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier,

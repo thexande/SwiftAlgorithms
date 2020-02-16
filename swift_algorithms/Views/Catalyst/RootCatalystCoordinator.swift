@@ -105,14 +105,13 @@ extension RootCatalystCoordinator: AppToolBarDelegate {
         
         if (UserDefaults.standard.object(forKey: "has_seen_search_hint") == nil) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+                UserDefaults.standard.set(true, forKey: "has_seen_search_hint")
                 let alert = UIAlertController(title: "👋 Quick Tip",
                                               message: "Looking for something? Skip the tool bar button and just press the space key next time!",
                                               preferredStyle: .alert)
-                alert.addAction(.init(title: "OK", style: .default, handler: nil))
                 
-                self?.root?.present(alert, animated: true, completion: {
-                    UserDefaults.standard.set(true, forKey: "has_seen_search_hint")
-                })
+                alert.addAction(.init(title: "OK", style: .default, handler: nil))
+                self?.root?.present(alert, animated: true)
             }
         }
     }
