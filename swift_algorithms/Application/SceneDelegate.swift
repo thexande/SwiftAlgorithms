@@ -15,14 +15,7 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
         window?.makeKeyAndVisible()
         
         #if targetEnvironment(macCatalyst)
-        
-        func makeToolbar() -> NSToolbar {
-            let toolbar = NSToolbar(identifier: "MyToolbar")
-            toolbar.delegate = self
-            return toolbar
-        }
-        
-        windowScene.titlebar?.toolbar = makeToolbar()
+        windowScene.titlebar?.toolbar = makeTool()
         
         let rootCoordinator = RootCatalystCoordinator()
         coordinator = rootCoordinator
@@ -41,6 +34,14 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
 }
 
 #if targetEnvironment(macCatalyst)
+fileprivate extension SceneDelegate {
+    private func makeTool() -> NSToolbar {
+        let toolbar = NSToolbar(identifier: "MyToolbar")
+        toolbar.delegate = self
+        return toolbar
+    }
+}
+
 extension SceneDelegate: NSToolbarDelegate {
     func toolbar(_ toolbar: NSToolbar,
                  itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier,
