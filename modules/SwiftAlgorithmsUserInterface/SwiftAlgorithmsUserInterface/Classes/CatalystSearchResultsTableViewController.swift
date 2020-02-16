@@ -57,6 +57,7 @@ public final class CatalystSearchResultsTableViewController: UIViewController, C
     private let algorithmSearchController = UISearchController(searchResultsController: nil)
     private var hasFirstRender = false
     private let tableView = UITableView()
+    private var selectedIndex: IndexPath?
     
     public override func loadView() {
         view = tableView
@@ -148,15 +149,6 @@ public final class CatalystSearchResultsTableViewController: UIViewController, C
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         algorithmSearchController.isActive = true
-//        presentAlert()
-    }
-    
-    func presentAlert() {
-        let alert = UIAlertController(title: "👋 Quick Tip",
-                                      message: "Looking for something? Skip the tool bar button and just press the space key next time!",
-                                      preferredStyle: .alert)
-        alert.addAction(.init(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
     
     public override var keyCommands: [UIKeyCommand]? {
@@ -236,6 +228,14 @@ extension CatalystSearchResultsTableViewController: UITableViewDelegate, UITable
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected cell \(indexPath)")
         let item = properties.sections[indexPath.section].rows[indexPath.item]
+        
+        if let selectedIndexPath = selectedIndex, selectedIndexPath == indexPath {
+            delegate?.selectedItem(with: item.identifier)
+            self.navigationController?.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        self.selectedIndex = indexPath
         title = item.title
         let icon = CategoryIconView()
         icon.sizeAnchors == CGSize(width: 36, height: 36)

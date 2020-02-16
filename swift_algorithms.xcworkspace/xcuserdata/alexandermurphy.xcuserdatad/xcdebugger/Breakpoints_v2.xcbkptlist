@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C4478F72-719E-4111-A853-172D6D492AF6"
+            uuid = "2BB3D4A5-7304-4F71-9CBA-C6F531A8C8B5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "modules/SwiftAlgorithmsUserInterface/SwiftAlgorithmsUserInterface/Classes/SearchEmptyStateView.swift"
+            filePath = "modules/SwiftAlgorithmsUserInterface/SwiftAlgorithmsUserInterface/Classes/CatalystSearchResultsTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "init()"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -14,6 +14,7 @@ final class MarkdownPresentationViewController: UIViewController {
     let markdownView = MarkdownView()
     let loading = TableLoadingView()
     private let stringNetworkService: StringNetworkServiceInterface
+    override var canBecomeFirstResponder: Bool { false }
     
     public func setMarkdown(_ markdown: String) {
         

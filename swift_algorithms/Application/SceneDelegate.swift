@@ -44,7 +44,7 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
 fileprivate extension SceneDelegate {
     private func makeTool() -> NSToolbar {
         let toolbar = NSToolbar(identifier: "MyToolbar")
-        toolbar.displayMode = .iconOnly
+//        toolbar.displayMode = .iconOnly
         toolbar.delegate = self
         return toolbar
     }
@@ -52,7 +52,6 @@ fileprivate extension SceneDelegate {
 
 // MARK: - MainCatalystPresenterDelegate
 
-@available(macCatalyst 10.15, *)
 extension SceneDelegate: NSToolbarDelegate {
     func toolbar(_ toolbar: NSToolbar,
                  itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier,
@@ -76,29 +75,32 @@ extension SceneDelegate: NSToolbarDelegate {
                                        barButtonItem: title)
             return button
         }
-            //        else if itemIdentifier == .init("show_sidebar") {
-            //            let barButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(myFancyAction(sender:)))
-            //            let button = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButton)
-            //            return button
-            //            return nil
-            //        }
+        else if itemIdentifier == .toggleSidebar {
+            let button = NSToolbarItem(itemIdentifier: .toggleSidebar)
+            button.isEnabled = true
+            return button
+        }
         else {
             return nil
         }
     }
     
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        toolbarAllowedItemIdentifiers(toolbar)
+    }
+    
+    func toolbarSelectableItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        toolbarAllowedItemIdentifiers(toolbar)
+    }
+    
+    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
         [
-            .init("show_sidebar"),
+//            NSToolbarItem.Identifier.toggleSidebar,
             NSToolbarItem.Identifier.flexibleSpace,
             .init("title"),
             NSToolbarItem.Identifier.flexibleSpace,
             .init("search")
         ]
-    }
-    
-    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        toolbarDefaultItemIdentifiers(toolbar)
     }
 }
 #endif
