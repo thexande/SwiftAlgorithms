@@ -1,9 +1,15 @@
 import UIKit
 
+@available(macCatalyst 10.15, *)
+protocol AppToolBarDelegate: AnyObject {
+    func didPressSearchButton()
+}
+
 @available(iOS 13, *)
 final class SceneDelegate: UIResponder, UISceneDelegate {
     private var coordinator: Coordinating?
     var window: UIWindow?
+    private weak var toolBarDelegate: AppToolBarDelegate?
     
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
@@ -18,6 +24,7 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
         windowScene.titlebar?.toolbar = makeTool()
         
         let rootCoordinator = RootCatalystCoordinator()
+        toolBarDelegate = rootCoordinator
         coordinator = rootCoordinator
         rootCoordinator.launch(in: window)
         #else
@@ -28,8 +35,7 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
     }
     
     @objc private func searchButtonPressed(sender: UIBarButtonItem) {
-        let view = UINavigationController(rootViewController: CatalystSearchResultsTableViewController(style: .plain))
-        UIApplication.shared.windows.first?.rootViewController?.present(view, animated: true, completion: nil)
+        toolBarDelegate?.didPressSearchButton()
     }
 }
 

@@ -99,3 +99,10 @@ extension RootCatalystCoordinator: CatalystAlgorithmSearchPresenterDispatching {
     }
 }
 
+// MARK: - AppToolBarDelegate
+
+extension RootCatalystCoordinator: AppToolBarDelegate {
+    func didPressSearchButton() {
+        root?.present(makeSearchView(), animated: true)
+    }
+}
