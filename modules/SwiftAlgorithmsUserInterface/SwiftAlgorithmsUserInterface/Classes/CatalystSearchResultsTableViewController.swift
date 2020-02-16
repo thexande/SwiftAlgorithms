@@ -148,15 +148,6 @@ public final class CatalystSearchResultsTableViewController: UIViewController, C
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         algorithmSearchController.isActive = true
-//        presentAlert()
-    }
-    
-    func presentAlert() {
-        let alert = UIAlertController(title: "👋 Quick Tip",
-                                      message: "Looking for something? Skip the tool bar button and just press the space key next time!",
-                                      preferredStyle: .alert)
-        alert.addAction(.init(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
     
     public override var keyCommands: [UIKeyCommand]? {
