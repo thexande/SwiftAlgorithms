@@ -105,9 +105,9 @@ open class MarkdownView: UIView {
       wv.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
       wv.backgroundColor = self.backgroundColor
         
-        if #available(macCatalyst 10.15, *) {
+        #if targetEnvironment(macCatalyst)
             wv.scrollView.contentInset = .init(top: 100, left: 0, bottom: 0, right: 0)
-        }
+        #endif
 
       self.webView = wv
 
