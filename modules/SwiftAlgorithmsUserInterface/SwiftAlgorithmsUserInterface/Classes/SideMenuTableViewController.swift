@@ -1,19 +1,18 @@
 import UIKit
-import SwiftAlgorithmsUserInterface
 
-@available(iOS 13.0, *)
+@available(macCatalyst 10.15, *)
 public protocol SideMenuViewDelegate: AnyObject {
     func didSelectItem(with identifier: UUID)
     func viewDidLoad()
     func presentSearch()
 }
 
-@available(iOS 13.0, *)
+@available(macCatalyst 10.15, *)
 public protocol SideMenuTableViewRendering: AnyObject {
     var properties: SideMenuTableViewController.Properties { get set }
 }
 
-@available(iOS 13.0, *)
+@available(macCatalyst 10.15, *)
 public final class SideMenuTableViewController: UITableViewController, SideMenuTableViewRendering {
     
     public struct Properties {
@@ -93,4 +92,5 @@ public final class SideMenuTableViewController: UITableViewController, SideMenuT
         delegate?.didSelectItem(with: properties.sections[indexPath.section].items[indexPath.item].identifier)
     }
 }
+
 

@@ -83,7 +83,6 @@
 		B0CDE2FF23E906C40091E8E2 /* main_light.css in Resources */ = {isa = PBXBuildFile; fileRef = B0A6B11A23E6B60C00EDA1E0 /* main_light.css */; };
 		B0CDE30223E9090D0091E8E2 /* MarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDE30123E9090D0091E8E2 /* MarkdownView.swift */; };
 		B0CDE30523E90AFA0091E8E2 /* CategoryArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDE30423E90AFA0091E8E2 /* CategoryArticleListViewController.swift */; };
-		B0CDE30923E90B660091E8E2 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDE30823E90B660091E8E2 /* SideMenuTableViewController.swift */; };
 		B0D2FAAE23EFC742001ADACA /* RootCatalystCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D2FAAD23EFC742001ADACA /* RootCatalystCoordinator.swift */; };
 		B0D2FAB123EFC779001ADACA /* Coordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D2FAB023EFC779001ADACA /* Coordinating.swift */; };
 		B0D2FAB323EFCDD5001ADACA /* MainCatalystPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D2FAB223EFCDD5001ADACA /* MainCatalystPresenter.swift */; };
@@ -208,7 +207,6 @@
 		B0C7F04E236933BF00F9B5BF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B0CDE30123E9090D0091E8E2 /* MarkdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownView.swift; path = swift_algorithms/web/MarkdownView.swift; sourceTree = SOURCE_ROOT; };
 		B0CDE30423E90AFA0091E8E2 /* CategoryArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryArticleListViewController.swift; sourceTree = "<group>"; };
-		B0CDE30823E90B660091E8E2 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		B0D2FAAD23EFC742001ADACA /* RootCatalystCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCatalystCoordinator.swift; sourceTree = "<group>"; };
 		B0D2FAB023EFC779001ADACA /* Coordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinating.swift; sourceTree = "<group>"; };
 		B0D2FAB223EFCDD5001ADACA /* MainCatalystPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCatalystPresenter.swift; sourceTree = "<group>"; };
@@ -384,7 +382,6 @@
 			isa = PBXGroup;
 			children = (
 				B0CDE30423E90AFA0091E8E2 /* CategoryArticleListViewController.swift */,
-				B0CDE30823E90B660091E8E2 /* SideMenuTableViewController.swift */,
 				B0D2FAAD23EFC742001ADACA /* RootCatalystCoordinator.swift */,
 				B0D2FAB223EFCDD5001ADACA /* MainCatalystPresenter.swift */,
 			);
@@ -765,7 +762,6 @@
 				B0A4DB3C212A066C000CFC7F /* ConfettiButton.swift in Sources */,
 				B01733972128E8EA00FBEFE5 /* ActionTableSectionController.swift in Sources */,
 				B0CDE30223E9090D0091E8E2 /* MarkdownView.swift in Sources */,
-				B0CDE30923E90B660091E8E2 /* SideMenuTableViewController.swift in Sources */,
 				1A1068BA2222E0B9008CC444 /* SortingLevel.swift in Sources */,
 				1A1068C22222E448008CC444 /* SortingAlgorithm.swift in Sources */,
 				1A1068B82222DD37008CC444 /* AlgorithmCategory.swift in Sources */,
