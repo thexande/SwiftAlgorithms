@@ -76,6 +76,7 @@
 		B0A8FD0721321787008F82E2 /* PuzzlesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FD0621321787008F82E2 /* PuzzlesPresenter.swift */; };
 		B0A8FD0921321EA0008F82E2 /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FD0821321EA0008F82E2 /* Puzzle.swift */; };
 		B0A8FD0B21321FF6008F82E2 /* RootTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FD0A21321FF6008F82E2 /* RootTabBarCoordinator.swift */; };
+		B0BEE2DD23F8E1F100D20DE9 /* CatalystAlgorithmSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BEE2DC23F8E1F100D20DE9 /* CatalystAlgorithmSearchPresenter.swift */; };
 		B0C7F04F236933BF00F9B5BF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7F04E236933BF00F9B5BF /* AppCoordinator.swift */; };
 		B0CDE2FC23E9069D0091E8E2 /* index_dark.html in Resources */ = {isa = PBXBuildFile; fileRef = B0A6B11823E6B60C00EDA1E0 /* index_dark.html */; };
 		B0CDE2FD23E9069D0091E8E2 /* index_light.html in Resources */ = {isa = PBXBuildFile; fileRef = B0A6B11923E6B60C00EDA1E0 /* index_light.html */; };
@@ -137,7 +138,7 @@
 		529FF965803B831A01694606 /* Pods-Swift Algorithms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift Algorithms.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swift Algorithms/Pods-Swift Algorithms.release.xcconfig"; sourceTree = "<group>"; };
 		53FAD4E9DB81ADD81659894E /* Pods-swift_algorithms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithms.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithms/Pods-swift_algorithms.release.xcconfig"; sourceTree = "<group>"; };
 		78229BB56556A163094B062C /* Pods-Swift Algorithms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift Algorithms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swift Algorithms/Pods-Swift Algorithms.debug.xcconfig"; sourceTree = "<group>"; };
-		7FFC57D1C94F832F8E234C17 /* Pods_Algorithms___Data_Structures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Algorithms___Data_Structures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FFC57D1C94F832F8E234C17 /* Pods_Algorithms___Data_Structures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Algorithms___Data_Structures.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80420DF83CC2A4693487FB21 /* Pods-swift_algorithmsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_algorithmsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_algorithmsUITests/Pods-swift_algorithmsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A47DECABA15EBECA27E1A640 /* Pods-Algorithms & Data Structures.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Algorithms & Data Structures.release.xcconfig"; path = "Pods/Target Support Files/Pods-Algorithms & Data Structures/Pods-Algorithms & Data Structures.release.xcconfig"; sourceTree = "<group>"; };
 		B00A1DAF212F8AD5007187CF /* legoloader.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = legoloader.json; sourceTree = "<group>"; };
@@ -206,6 +207,7 @@
 		B0A8FD0621321787008F82E2 /* PuzzlesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzlesPresenter.swift; sourceTree = "<group>"; };
 		B0A8FD0821321EA0008F82E2 /* Puzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle.swift; sourceTree = "<group>"; };
 		B0A8FD0A21321FF6008F82E2 /* RootTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarCoordinator.swift; sourceTree = "<group>"; };
+		B0BEE2DC23F8E1F100D20DE9 /* CatalystAlgorithmSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystAlgorithmSearchPresenter.swift; sourceTree = "<group>"; };
 		B0C7F04E236933BF00F9B5BF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B0CDE30123E9090D0091E8E2 /* MarkdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownView.swift; path = swift_algorithms/web/MarkdownView.swift; sourceTree = SOURCE_ROOT; };
 		B0CDE30423E90AFA0091E8E2 /* CategoryArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryArticleListViewController.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				B0A4DB332129E781000CFC7F /* AlgorithmPresenter.swift */,
 				B0A8FCFC2131DEFF008F82E2 /* DataStructureSearchPresenter.swift */,
 				B0A8FD0621321787008F82E2 /* PuzzlesPresenter.swift */,
+				B0BEE2DC23F8E1F100D20DE9 /* CatalystAlgorithmSearchPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -829,6 +832,7 @@
 				1A1068C42222E553008CC444 /* CompressionAlgorithm.swift in Sources */,
 				B0A4DB362129F21C000CFC7F /* BasicTableHeaderRowController.swift in Sources */,
 				B069F1C1212A6727002FABFB /* Algorithm.swift in Sources */,
+				B0BEE2DD23F8E1F100D20DE9 /* CatalystAlgorithmSearchPresenter.swift in Sources */,
 				1A1068B62222D4A1008CC444 /* IntroductionAlgorithm.swift in Sources */,
 				B0F6D77E213B428E00E52E71 /* DataStructurePresenter.swift in Sources */,
 				B0C7F04F236933BF00F9B5BF /* AppCoordinator.swift in Sources */,

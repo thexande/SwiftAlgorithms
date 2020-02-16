@@ -33,9 +33,24 @@ public final class SideMenuTableViewController: UITableViewController, SideMenuT
         static let `default` = Properties(sections: [])
     }
     
+        public override var keyCommands: [UIKeyCommand]? {
+            [
+                UIKeyCommand(input: " ", modifierFlags: [], action: #selector(presentSearch))
+            ]
+        }
+        
+        @objc private func presentSearch() {
+            print("present search")
+            present(UINavigationController(rootViewController: CatalystSearchResultsTableViewController(style: .grouped)), animated: true, completion: nil)
+        }
+            
+        public override var canBecomeFirstResponder: Bool { true }
+    
     public var properties = Properties.default {
         didSet {
             tableView.reloadData()
+            tableView.becomeFirstResponder()
+            tableView.selectRow(at: .init(item: 0, section: 0), animated: false, scrollPosition: .top)
         }
     }
     

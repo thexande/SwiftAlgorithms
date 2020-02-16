@@ -5,12 +5,19 @@ import Lottie
 final class SearchEmptyStateView: UIView {
     let titleLabel = UILabel()
     let lottieView: AnimationView
+    let background = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+    
+    var isAnimationHidden: Bool = false {
+        didSet {
+            [titleLabel, lottieView].forEach { $0.isHidden = isAnimationHidden }
+        }
+    }
     
     init() {
         lottieView = AnimationView(name: "legoloader")
         super.init(frame: .zero)
         
-        [titleLabel, lottieView].forEach { addSubview($0) }
+        [background, titleLabel, lottieView].forEach { addSubview($0) }
         
         lottieView.sizeAnchors == CGSize(width: 200, height: 200)
         lottieView.centerAnchors == centerAnchors
@@ -24,6 +31,8 @@ final class SearchEmptyStateView: UIView {
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.systemFont(ofSize: 22, weight: .medium)
         backgroundColor = .clear
+        
+        background.edgeAnchors == edgeAnchors
     }
     
     required init?(coder aDecoder: NSCoder) {

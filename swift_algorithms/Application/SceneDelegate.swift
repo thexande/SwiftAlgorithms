@@ -35,7 +35,7 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
     }
     
     @objc private func searchButtonPressed(sender: UIBarButtonItem) {
-        let view = UINavigationController(rootViewController: CatalystSearchViewController())
+        let view = UINavigationController(rootViewController: CatalystSearchResultsTableViewController(style: .plain))
         UIApplication.shared.windows.first?.rootViewController?.present(view, animated: true, completion: nil)
     }
 }
