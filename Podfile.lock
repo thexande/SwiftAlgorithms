@@ -12,7 +12,6 @@ PODS:
 
 DEPENDENCIES:
   - Anchorage
-  - Cache
   - DeviceKit
   - Hero
   - SwiftAlgorithmsDataLayer (from `modules/SwiftAlgorithmsDataLayer`)
@@ -41,6 +40,6 @@ SPEC CHECKSUMS:
   SwiftAlgorithmsDataLayer: 7b569782881def516bc81ef5b244587d81e4f045
   SwiftAlgorithmsUserInterface: 6a482d25352ceffe9d3ebe3926ad7f3fe1e05ccc
 
-PODFILE CHECKSUM: 3bdb41e4230d278bee697beecb20b4f4364b2c40
+PODFILE CHECKSUM: ad80d11ac9e84dc28c84ec21968ca857995d1095
 
 COCOAPODS: 1.8.4

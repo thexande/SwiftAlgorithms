@@ -10,7 +10,6 @@ target 'Algorithms & Data Structures' do
   pod 'Anchorage'
   pod 'Hero'
   pod 'DeviceKit'
-  pod 'Cache'
 
   pod 'SwiftAlgorithmsUserInterface', :path => 'modules/SwiftAlgorithmsUserInterface'
   pod 'SwiftAlgorithmsDataLayer', :path => 'modules/SwiftAlgorithmsDataLayer'
