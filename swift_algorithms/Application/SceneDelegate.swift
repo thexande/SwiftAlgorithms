@@ -59,14 +59,21 @@ extension SceneDelegate: NSToolbarDelegate {
                  willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
         
         if itemIdentifier == .init("search") {
-            let barButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonPressed(sender:)))
-            let button = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButton)
+            let barButton = UIBarButtonItem(barButtonSystemItem: .search,
+                                            target: self,
+                                            action: #selector(searchButtonPressed(sender:)))
+            let button = NSToolbarItem(itemIdentifier: itemIdentifier,
+                                       barButtonItem: barButton)
             button.title = "Search                       "
             return button
         }
         else if itemIdentifier == .init("title") {
-            let title = UIBarButtonItem(title: "Algorithms And Data Structures", style: .plain, target: nil, action: nil)
-            let button = NSToolbarItem(itemIdentifier: .init("title"), barButtonItem: title)
+            let title = UIBarButtonItem(title: "Algorithms And Data Structures",
+                                        style: .plain,
+                                        target: nil,
+                                        action: nil)
+            let button = NSToolbarItem(itemIdentifier: .init("title"),
+                                       barButtonItem: title)
             return button
         }
             //        else if itemIdentifier == .init("show_sidebar") {
