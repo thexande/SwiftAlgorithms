@@ -1,4 +1,5 @@
 import UIKit
+import SwiftAlgorithmsUserInterface
 
 @available(iOS 13.0, *)
 public protocol SideMenuViewDelegate: AnyObject {
@@ -34,17 +35,17 @@ public final class SideMenuTableViewController: UITableViewController, SideMenuT
         static let `default` = Properties(sections: [])
     }
     
-        public override var keyCommands: [UIKeyCommand]? {
-            [
-                UIKeyCommand(input: " ", modifierFlags: [], action: #selector(presentSearch))
-            ]
-        }
-        
-        @objc private func presentSearch() {
-            delegate?.presentSearch()
-        }
-            
-        public override var canBecomeFirstResponder: Bool { true }
+    public override var keyCommands: [UIKeyCommand]? {
+        [
+            UIKeyCommand(input: " ", modifierFlags: [], action: #selector(presentSearch))
+        ]
+    }
+    
+    @objc private func presentSearch() {
+        delegate?.presentSearch()
+    }
+    
+    public override var canBecomeFirstResponder: Bool { true }
     
     public var properties = Properties.default {
         didSet {

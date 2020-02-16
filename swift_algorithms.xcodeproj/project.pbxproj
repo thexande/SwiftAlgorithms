@@ -66,7 +66,6 @@
 		B0A4DB3C212A066C000CFC7F /* ConfettiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB3B212A066C000CFC7F /* ConfettiButton.swift */; };
 		B0A4DB3E212A068A000CFC7F /* ConfettilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4DB3D212A068A000CFC7F /* ConfettilView.swift */; };
 		B0A69B2C23F103D000CC9B4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A69B2B23F103D000CC9B4D /* SceneDelegate.swift */; };
-		B0A69B2E23F103F100CC9B4D /* CatalystSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A69B2D23F103F100CC9B4D /* CatalystSearchViewController.swift */; };
 		B0A6B11D23E6B60C00EDA1E0 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = B0A6B11C23E6B60C00EDA1E0 /* main.js */; };
 		B0A8FCFD2131DEFF008F82E2 /* DataStructureSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FCFC2131DEFF008F82E2 /* DataStructureSearchPresenter.swift */; };
 		B0A8FCFF2131FE26008F82E2 /* BasicTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FCFE2131FE26008F82E2 /* BasicTableFooterView.swift */; };
@@ -84,7 +83,6 @@
 		B0CDE2FF23E906C40091E8E2 /* main_light.css in Resources */ = {isa = PBXBuildFile; fileRef = B0A6B11A23E6B60C00EDA1E0 /* main_light.css */; };
 		B0CDE30223E9090D0091E8E2 /* MarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDE30123E9090D0091E8E2 /* MarkdownView.swift */; };
 		B0CDE30523E90AFA0091E8E2 /* CategoryArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDE30423E90AFA0091E8E2 /* CategoryArticleListViewController.swift */; };
-		B0CDE30723E90B450091E8E2 /* SideMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDE30623E90B450091E8E2 /* SideMenuItemCell.swift */; };
 		B0CDE30923E90B660091E8E2 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CDE30823E90B660091E8E2 /* SideMenuTableViewController.swift */; };
 		B0D2FAAE23EFC742001ADACA /* RootCatalystCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D2FAAD23EFC742001ADACA /* RootCatalystCoordinator.swift */; };
 		B0D2FAB123EFC779001ADACA /* Coordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D2FAB023EFC779001ADACA /* Coordinating.swift */; };
@@ -193,7 +191,6 @@
 		B0A4DB3B212A066C000CFC7F /* ConfettiButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiButton.swift; sourceTree = "<group>"; };
 		B0A4DB3D212A068A000CFC7F /* ConfettilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettilView.swift; sourceTree = "<group>"; };
 		B0A69B2B23F103D000CC9B4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B0A69B2D23F103F100CC9B4D /* CatalystSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystSearchViewController.swift; sourceTree = "<group>"; };
 		B0A6B11823E6B60C00EDA1E0 /* index_dark.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index_dark.html; sourceTree = "<group>"; };
 		B0A6B11923E6B60C00EDA1E0 /* index_light.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index_light.html; sourceTree = "<group>"; };
 		B0A6B11A23E6B60C00EDA1E0 /* main_light.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = main_light.css; sourceTree = "<group>"; };
@@ -211,7 +208,6 @@
 		B0C7F04E236933BF00F9B5BF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B0CDE30123E9090D0091E8E2 /* MarkdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownView.swift; path = swift_algorithms/web/MarkdownView.swift; sourceTree = SOURCE_ROOT; };
 		B0CDE30423E90AFA0091E8E2 /* CategoryArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryArticleListViewController.swift; sourceTree = "<group>"; };
-		B0CDE30623E90B450091E8E2 /* SideMenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuItemCell.swift; sourceTree = "<group>"; };
 		B0CDE30823E90B660091E8E2 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		B0D2FAAD23EFC742001ADACA /* RootCatalystCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCatalystCoordinator.swift; sourceTree = "<group>"; };
 		B0D2FAB023EFC779001ADACA /* Coordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinating.swift; sourceTree = "<group>"; };
@@ -388,11 +384,9 @@
 			isa = PBXGroup;
 			children = (
 				B0CDE30423E90AFA0091E8E2 /* CategoryArticleListViewController.swift */,
-				B0CDE30623E90B450091E8E2 /* SideMenuItemCell.swift */,
 				B0CDE30823E90B660091E8E2 /* SideMenuTableViewController.swift */,
 				B0D2FAAD23EFC742001ADACA /* RootCatalystCoordinator.swift */,
 				B0D2FAB223EFCDD5001ADACA /* MainCatalystPresenter.swift */,
-				B0A69B2D23F103F100CC9B4D /* CatalystSearchViewController.swift */,
 			);
 			path = Catalyst;
 			sourceTree = "<group>";
@@ -836,12 +830,10 @@
 				1A1068B62222D4A1008CC444 /* IntroductionAlgorithm.swift in Sources */,
 				B0F6D77E213B428E00E52E71 /* DataStructurePresenter.swift in Sources */,
 				B0C7F04F236933BF00F9B5BF /* AppCoordinator.swift in Sources */,
-				B0CDE30723E90B450091E8E2 /* SideMenuItemCell.swift in Sources */,
 				B01733A52129351A00FBEFE5 /* BasicTableCell.swift in Sources */,
 				1A1068C02222E394008CC444 /* StringSearchAlgorithm.swift in Sources */,
 				B0A8FD03213208DB008F82E2 /* AboutViewController.swift in Sources */,
 				B06EB0B42138F6CF0088C86D /* DataStructureSectionFactory.swift in Sources */,
-				B0A69B2E23F103F100CC9B4D /* CatalystSearchViewController.swift in Sources */,
 				1A1068BE2222E226008CC444 /* SearchingAlgorithm.swift in Sources */,
 				B03CEA5D2134CDA100F87760 /* AlgorithmSectionFactory.swift in Sources */,
 				B00B26A32123B5DE00E1DF9C /* AppDelegate.swift in Sources */,
@@ -1012,7 +1004,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = swift_algorithms/swift_algorithms.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 9L49SS68XP;
 				INFOPLIST_FILE = swift_algorithms/Info.plist;
@@ -1037,7 +1029,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = swift_algorithms/swift_algorithms.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 9L49SS68XP;
 				INFOPLIST_FILE = swift_algorithms/Info.plist;

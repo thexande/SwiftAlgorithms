@@ -1,42 +1,63 @@
 import UIKit
 import Anchorage
 
-protocol CatalystSearchResultsTableViewDelegate: AnyObject {
+@available(macCatalyst 10.15, *)
+public protocol CatalystSearchResultsTableViewDelegate: AnyObject {
     func searched(for term: String)
     func selectedItem(with identifier: UUID)
     func viewDidLoad()
 }
 
-protocol CatalystSearchResultsTableViewRendering: AnyObject {
+@available(macCatalyst 10.15, *)
+public protocol CatalystSearchResultsTableViewRendering: AnyObject {
     var properties: CatalystSearchResultsTableViewController.Properties { get set }
 }
 
-extension CatalystSearchResultsTableViewController {
+@available(macCatalyst 10.15, *)
+public extension CatalystSearchResultsTableViewController {
     struct Properties {
         let sections: [SectionProperties]
-        static let `default` = Properties(sections: [])
-        struct SectionProperties {
+        public static let `default` = Properties(sections: [])
+        
+        public init(sections: [SectionProperties]) {
+            self.sections = sections
+        }
+        
+        public struct SectionProperties {
             let sectionTitle: String
             let rows: [RowProperties]
             
-            struct RowProperties {
+            public init(sectionTitle: String, rows: [RowProperties]) {
+                self.sectionTitle = sectionTitle
+                self.rows = rows
+            }
+            
+            public struct RowProperties {
                 let title: String
                 let iconProperties: CategoryIconView.Properties
                 let subtitle: String?
                 let identifier: UUID
+                
+                public init(title: String, iconProperties: CategoryIconView.Properties, subtitle: String?, identifier: UUID) {
+                    self.title = title
+                    self.iconProperties = iconProperties
+                    self.subtitle = subtitle
+                    self.identifier = identifier
+                }
                 static let `default` = RowProperties(title: "", iconProperties: .default, subtitle: "", identifier: UUID())
             }
         }
     }
 }
 
-final class CatalystSearchResultsTableViewController: UITableViewController, CatalystSearchResultsTableViewRendering {
-    weak var delegate: CatalystSearchResultsTableViewDelegate?
-    private let empty = SearchEmptyStateView()
+@available(macCatalyst 10.15, *)
+public final class CatalystSearchResultsTableViewController: UITableViewController, CatalystSearchResultsTableViewRendering {
+    public weak var delegate: CatalystSearchResultsTableViewDelegate?
+    private let empty = UIView() // SearchEmptyStateView()
     private let algorithmSearchController = UISearchController(searchResultsController: nil)
     private var hasFirstRender = false
     
-    var properties: Properties = .default {
+    public var properties: Properties = .default {
         didSet {
             update(with: properties)
         }
@@ -71,34 +92,30 @@ final class CatalystSearchResultsTableViewController: UITableViewController, Cat
                 
         
         if properties.sections.count > 0 {
-            empty.isAnimationHidden = true
+//            empty.isAnimationHidden = true
         } else {
-            empty.isAnimationHidden = false
+//            empty.isAnimationHidden = false
             view.bringSubviewToFront(empty)
         }
         
         hasFirstRender = true
     }
     
-    override init(style: UITableView.Style) {
-        if #available(iOS 13.0, *) {
-            super.init(style: .plain)
-        } else {
-            super.init(style: .grouped)
-        }
+    public override init(style: UITableView.Style) {
+        super.init(style: .plain)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         delegate?.viewDidLoad()
         
         tableView.tableFooterView = UIView()
         tableView.backgroundView = empty
-        empty.isAnimationHidden = true
+//        empty.isAnimationHidden = true
         
         algorithmSearchController.searchResultsUpdater = self
         algorithmSearchController.delegate = self
@@ -107,21 +124,20 @@ final class CatalystSearchResultsTableViewController: UITableViewController, Cat
         
         algorithmSearchController.searchBar.delegate = self
         
-//        navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+
         navigationItem.searchController = algorithmSearchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
         view.backgroundColor = .clear
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         empty.removeFromSuperview()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         algorithmSearchController.isActive = true
 //        presentAlert()
@@ -135,7 +151,7 @@ final class CatalystSearchResultsTableViewController: UITableViewController, Cat
         present(alert, animated: true, completion: nil)
     }
     
-    override var keyCommands: [UIKeyCommand]? {
+    public override var keyCommands: [UIKeyCommand]? {
         [
             UIKeyCommand(input: "\r", modifierFlags: [], action: #selector(enterPress)),
             UIKeyCommand(input: UIKeyCommand.inputEscape, modifierFlags: [], action: #selector(escape)),
@@ -171,8 +187,9 @@ final class CatalystSearchResultsTableViewController: UITableViewController, Cat
 
 // MARK: - UISearchControllerDelegate
 
+@available(macCatalyst 10.15, *)
 extension CatalystSearchResultsTableViewController: UISearchControllerDelegate {
-    func didPresentSearchController(_ searchController: UISearchController) {
+    public func didPresentSearchController(_ searchController: UISearchController) {
         DispatchQueue.main.async {
             searchController.searchBar.becomeFirstResponder()
         }
@@ -181,7 +198,8 @@ extension CatalystSearchResultsTableViewController: UISearchControllerDelegate {
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 
-extension CatalystSearchResultsTableViewController {
+@available(macCatalyst 10.15, *)
+public extension CatalystSearchResultsTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return properties.sections.count
     }
@@ -209,13 +227,20 @@ extension CatalystSearchResultsTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected cell \(indexPath)")
+        let item = properties.sections[indexPath.section].rows[indexPath.item]
+        title = item.title
+        let icon = CategoryIconView()
+        icon.sizeAnchors == CGSize(width: 36, height: 36)
+        icon.properties = item.iconProperties
+        navigationItem.leftBarButtonItem = .init(customView: icon)
     }
 }
 
 // MARK: - UISearchResultsUpdating, UISearchBarDelegate
 
+@available(macCatalyst 10.15, *)
 extension CatalystSearchResultsTableViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
+    public func updateSearchResults(for searchController: UISearchController) {
         view.isHidden = false
         if let text = searchController.searchBar.text {
             delegate?.searched(for: text)
@@ -223,18 +248,19 @@ extension CatalystSearchResultsTableViewController: UISearchResultsUpdating, UIS
         }
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         tableView.becomeFirstResponder()
         tableView.selectRow(at: .init(item: 0, section: 0), animated: true, scrollPosition: .none)
     }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         dismiss(animated: true, completion: nil)
     }
     
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+    public func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         return true
     }
 }
+
 

@@ -1,4 +1,5 @@
 import Foundation
+import SwiftAlgorithmsUserInterface
 
 @available(iOS 13.0, *)
 protocol MainCatalystPresenterDelegate: AnyObject {

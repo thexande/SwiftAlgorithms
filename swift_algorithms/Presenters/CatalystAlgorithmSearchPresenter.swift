@@ -1,4 +1,5 @@
 import UIKit
+import SwiftAlgorithmsUserInterface
 
 protocol CatalystAlgorithmSearchPresenterDispatching: AnyObject {
     func didSelect(algorithm: Algorithm)
