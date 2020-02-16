@@ -1,6 +1,7 @@
 import UIKit
 import Anchorage
 import SwiftAlgorithmsUserInterface
+import SwiftAlgorithmsDataLayer
 
 final class GlobalSplitViewController: UISplitViewController, UISplitViewControllerDelegate {
     
@@ -43,7 +44,7 @@ final class RootTabCoordinator {
     private var dataStructuresNav: UIViewController?
     
     private let urlFactory = UrlFactory()
-    private let stringNetworkService = StringNetworkService()
+    private let stringNetworkService: StringNetworkServiceInterface
     private var hasPresentedOnboarding = false
 
     private var categoryCoordinator: CategoryCoordinator?
@@ -51,7 +52,8 @@ final class RootTabCoordinator {
     var root: UIViewController?
     
     
-    init() {
+    init(stringNetworkService: StringNetworkServiceInterface = StringNetworkService()) {
+        self.stringNetworkService = stringNetworkService
         // configure dispatch
         algorithmPresenter.dispatcher = self
         algorithmViewController.dispatcher = algorithmPresenter
