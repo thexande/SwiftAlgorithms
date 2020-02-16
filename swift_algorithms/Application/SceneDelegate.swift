@@ -5,7 +5,7 @@ protocol AppToolBarDelegate: AnyObject {
     func didPressSearchButton()
 }
 
-@available(iOS 13, *)
+@available(macCatalyst 10.15, iOS 13, *)
 final class SceneDelegate: UIResponder, UISceneDelegate {
     private var coordinator: Coordinating?
     var window: UIWindow?
@@ -40,7 +40,7 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
     }
 }
 
-@available(macCatalyst 10.15, *)
+#if targetEnvironment(macCatalyst)
 fileprivate extension SceneDelegate {
     private func makeTool() -> NSToolbar {
         let toolbar = NSToolbar(identifier: "MyToolbar")
@@ -101,3 +101,4 @@ extension SceneDelegate: NSToolbarDelegate {
         toolbarDefaultItemIdentifiers(toolbar)
     }
 }
+#endif

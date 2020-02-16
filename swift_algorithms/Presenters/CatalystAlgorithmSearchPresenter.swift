@@ -1,12 +1,14 @@
 import UIKit
 import SwiftAlgorithmsUserInterface
 
+@available(macCatalyst 10.15, iOS 13, *)
 protocol CatalystAlgorithmSearchPresenterDispatching: AnyObject {
     func didSelect(algorithm: Algorithm)
     func didSelect(dataStructure: DataStructure)
     func didSelect(puzzle: Puzzle)
 }
 
+@available(macCatalyst 10.15, iOS 13, *)
 final class CatalystAlgorithmSearchPresenter {
     
     enum Action {
@@ -99,6 +101,7 @@ final class CatalystAlgorithmSearchPresenter {
     }
 }
 
+@available(macCatalyst 10.15, iOS 13, *)
 extension CatalystAlgorithmSearchPresenter: CatalystSearchResultsTableViewDelegate {
     func searched(for term: String) {
         handleSearch(term)

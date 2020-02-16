@@ -1,19 +1,19 @@
 import UIKit
 import Anchorage
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 public protocol CatalystSearchResultsTableViewDelegate: AnyObject {
     func searched(for term: String)
     func selectedItem(with identifier: UUID)
     func viewDidLoad()
 }
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 public protocol CatalystSearchResultsTableViewRendering: AnyObject {
     var properties: CatalystSearchResultsTableViewController.Properties { get set }
 }
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 public extension CatalystSearchResultsTableViewController {
     struct Properties {
         let sections: [SectionProperties]
@@ -50,12 +50,17 @@ public extension CatalystSearchResultsTableViewController {
     }
 }
 
-@available(macCatalyst 10.15, *)
-public final class CatalystSearchResultsTableViewController: UITableViewController, CatalystSearchResultsTableViewRendering {
+@available(macCatalyst 10.15, iOS 13, *)
+public final class CatalystSearchResultsTableViewController: UIViewController, CatalystSearchResultsTableViewRendering {
     public weak var delegate: CatalystSearchResultsTableViewDelegate?
-    private let empty = UIView() // SearchEmptyStateView()
+    private let empty = UIVisualEffectView(effect: UIBlurEffect(style: .regular)) // SearchEmptyStateView()
     private let algorithmSearchController = UISearchController(searchResultsController: nil)
     private var hasFirstRender = false
+    private let tableView = UITableView()
+    
+    public override func loadView() {
+        view = tableView
+    }
     
     public var properties: Properties = .default {
         didSet {
@@ -101,8 +106,9 @@ public final class CatalystSearchResultsTableViewController: UITableViewControll
         hasFirstRender = true
     }
     
-    public override init(style: UITableView.Style) {
-        super.init(style: .plain)
+
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -112,6 +118,8 @@ public final class CatalystSearchResultsTableViewController: UITableViewControll
     override public func viewDidLoad() {
         super.viewDidLoad()
         delegate?.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         
         tableView.tableFooterView = UIView()
         tableView.backgroundView = empty
@@ -187,7 +195,7 @@ public final class CatalystSearchResultsTableViewController: UITableViewControll
 
 // MARK: - UISearchControllerDelegate
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 extension CatalystSearchResultsTableViewController: UISearchControllerDelegate {
     public func didPresentSearchController(_ searchController: UISearchController) {
         DispatchQueue.main.async {
@@ -198,13 +206,13 @@ extension CatalystSearchResultsTableViewController: UISearchControllerDelegate {
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 
-@available(macCatalyst 10.15, *)
-public extension CatalystSearchResultsTableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
+@available(macCatalyst 10.15, iOS 13, *)
+extension CatalystSearchResultsTableViewController: UITableViewDelegate, UITableViewDataSource {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return properties.sections.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         cell.backgroundColor = .clear
         let item = properties.sections[indexPath.section].rows[indexPath.item]
@@ -221,11 +229,11 @@ public extension CatalystSearchResultsTableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return properties.sections[section].rows.count
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected cell \(indexPath)")
         let item = properties.sections[indexPath.section].rows[indexPath.item]
         title = item.title
@@ -238,7 +246,7 @@ public extension CatalystSearchResultsTableViewController {
 
 // MARK: - UISearchResultsUpdating, UISearchBarDelegate
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 extension CatalystSearchResultsTableViewController: UISearchResultsUpdating, UISearchBarDelegate {
     public func updateSearchResults(for searchController: UISearchController) {
         view.isHidden = false

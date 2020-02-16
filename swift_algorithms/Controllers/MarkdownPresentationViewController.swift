@@ -8,6 +8,7 @@ protocol MarkdownPresentationViewRendering: AnyObject {
     func setMarkdown(for puzzle: Puzzle)
 }
 
+
 final class MarkdownPresentationViewController: UIViewController {
     
     let markdownView = MarkdownView()
@@ -33,7 +34,11 @@ final class MarkdownPresentationViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         
-        loading.backgroundColor = .systemBackground
+        if #available(iOS 13.0, *) {
+            loading.backgroundColor = .systemBackground
+        } else {
+            loading.backgroundColor = .white
+        }
         
         view.addSubview(markdownView)
         markdownView.edgeAnchors == view.edgeAnchors

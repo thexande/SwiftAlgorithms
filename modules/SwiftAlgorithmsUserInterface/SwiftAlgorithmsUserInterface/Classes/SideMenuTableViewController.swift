@@ -1,18 +1,18 @@
 import UIKit
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 public protocol SideMenuViewDelegate: AnyObject {
     func didSelectItem(with identifier: UUID)
     func viewDidLoad()
     func presentSearch()
 }
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 public protocol SideMenuTableViewRendering: AnyObject {
     var properties: SideMenuTableViewController.Properties { get set }
 }
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 public final class SideMenuTableViewController: UITableViewController, SideMenuTableViewRendering {
     
     public struct Properties {

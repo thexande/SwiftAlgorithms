@@ -2,7 +2,7 @@ import UIKit
 import Anchorage
 import SwiftAlgorithmsUserInterface
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 final class RootCatalystCoordinator: Coordinating {
     let root: UIViewController?
     private let sideMenuPresenter = MainCatalystPresenter()
@@ -35,7 +35,7 @@ final class RootCatalystCoordinator: Coordinating {
 
 // MARK: - MainCatalystPresenterDelegate
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
     func show(puzzle: Puzzle) {
         let markdown = MarkdownPresentationViewController()
@@ -65,7 +65,7 @@ extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
     }
     
     private func makeSearchView() -> UIViewController {
-        let view = CatalystSearchResultsTableViewController(style: .grouped)
+        let view = CatalystSearchResultsTableViewController()
         view.delegate = searchPresenter
         searchPresenter.renderer = view
         searchPresenter.delegate = self
@@ -75,7 +75,7 @@ extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
 
 // MARK: - CatalystAlgorithmSearchPresenterDispatching
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 extension RootCatalystCoordinator: CatalystAlgorithmSearchPresenterDispatching {
     func didSelect(algorithm: Algorithm) {
         let markdown = MarkdownPresentationViewController()
@@ -98,7 +98,7 @@ extension RootCatalystCoordinator: CatalystAlgorithmSearchPresenterDispatching {
 
 // MARK: - AppToolBarDelegate
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 extension RootCatalystCoordinator: AppToolBarDelegate {
     func didPressSearchButton() {
         root?.present(makeSearchView(), animated: true)

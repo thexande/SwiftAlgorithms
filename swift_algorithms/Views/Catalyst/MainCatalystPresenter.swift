@@ -1,7 +1,7 @@
 import Foundation
 import SwiftAlgorithmsUserInterface
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 protocol MainCatalystPresenterDelegate: AnyObject {
     func showCategorySelectorViewWithAbout()
     func showCategorySelectorViewWithMarkdown()
@@ -10,7 +10,7 @@ protocol MainCatalystPresenterDelegate: AnyObject {
     func presentSearch()
 }
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 final class MainCatalystPresenter {
     
     private var state = State.initial {
@@ -42,7 +42,7 @@ final class MainCatalystPresenter {
 
 // MARK: - State
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 fileprivate extension MainCatalystPresenter {
     struct State {
         enum Presentation {
@@ -61,7 +61,7 @@ fileprivate extension MainCatalystPresenter {
 
 // MARK: - CategoryArticleListViewDelegate
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 extension MainCatalystPresenter: CategoryArticleListViewDelegate {
     func didSelectArticle(with identifier: UUID){
         state = MainCatalystPresenter.reduce(presentationChange: .sideAndCategoryWithMarkdown, from: state)
@@ -75,7 +75,7 @@ extension MainCatalystPresenter: CategoryArticleListViewDelegate {
 
 // MARK: - SideMenuViewDelegate
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 extension MainCatalystPresenter: SideMenuViewDelegate {
     func didSelectItem(with identifier: UUID) {
         if let puzzle = state.puzzleLookup[identifier] {
@@ -118,7 +118,7 @@ extension MainCatalystPresenter: SideMenuViewDelegate {
 
 // MARK: - Reducers
 
-@available(macCatalyst 10.15, *)
+@available(macCatalyst 10.15, iOS 13, *)
 extension MainCatalystPresenter {
     private static func reduceSideMenuItems(state: State) -> (state: State, viewProperties: SideMenuTableViewController.Properties) {
         var state = state
