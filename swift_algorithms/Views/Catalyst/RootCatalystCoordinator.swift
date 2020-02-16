@@ -68,7 +68,6 @@ extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
     
     private func makeSearchView() -> UIViewController {
         let view = CatalystSearchResultsTableViewController(style: .grouped)
-        searchPresenter.makeSearchableAlgorithmProperties()
         view.delegate = searchPresenter
         searchPresenter.renderer = view
         searchPresenter.delegate = self

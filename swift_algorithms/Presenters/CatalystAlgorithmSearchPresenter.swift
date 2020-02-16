@@ -106,4 +106,8 @@ extension CatalystAlgorithmSearchPresenter: CatalystSearchResultsTableViewDelega
     func selectedItem(with identifier: UUID) {
         handleSelected(with: identifier)
     }
+    
+    func viewDidLoad() {
+        makeSearchableAlgorithmProperties()
+    }
 }

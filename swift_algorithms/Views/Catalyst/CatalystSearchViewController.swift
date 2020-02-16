@@ -4,6 +4,7 @@ import Anchorage
 protocol CatalystSearchResultsTableViewDelegate: AnyObject {
     func searched(for term: String)
     func selectedItem(with identifier: UUID)
+    func viewDidLoad()
 }
 
 protocol CatalystSearchResultsTableViewRendering: AnyObject {
@@ -93,6 +94,8 @@ final class CatalystSearchResultsTableViewController: UITableViewController, Cat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate?.viewDidLoad()
+        
         tableView.tableFooterView = UIView()
         tableView.backgroundView = empty
         empty.isAnimationHidden = true
