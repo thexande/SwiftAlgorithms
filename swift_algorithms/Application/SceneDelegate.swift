@@ -22,6 +22,7 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
         
         #if targetEnvironment(macCatalyst)
         windowScene.titlebar?.toolbar = makeTool()
+        windowScene.titlebar?.titleVisibility = .hidden
         
         let rootCoordinator = RootCatalystCoordinator()
         toolBarDelegate = rootCoordinator
@@ -43,6 +44,7 @@ final class SceneDelegate: UIResponder, UISceneDelegate {
 fileprivate extension SceneDelegate {
     private func makeTool() -> NSToolbar {
         let toolbar = NSToolbar(identifier: "MyToolbar")
+        toolbar.displayMode = .iconOnly
         toolbar.delegate = self
         return toolbar
     }
@@ -59,24 +61,35 @@ extension SceneDelegate: NSToolbarDelegate {
         if itemIdentifier == .init("search") {
             let barButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonPressed(sender:)))
             let button = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButton)
-            button.title = "Search         "
+            button.title = "Search                       "
             return button
         }
-//        else if itemIdentifier == .init("show_sidebar") {
-//            let barButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(myFancyAction(sender:)))
-//            let button = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButton)
-//            return button
-//            return nil
-//        }
-    else {
+        else if itemIdentifier == .init("title") {
+            let title = UIBarButtonItem(title: "Algorithms And Data Structures", style: .plain, target: nil, action: nil)
+            let button = NSToolbarItem(itemIdentifier: .init("title"), barButtonItem: title)
+            return button
+        }
+            //        else if itemIdentifier == .init("show_sidebar") {
+            //            let barButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(myFancyAction(sender:)))
+            //            let button = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButton)
+            //            return button
+            //            return nil
+            //        }
+        else {
             return nil
         }
     }
-
+    
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        return [.init("show_sidebar"), NSToolbarItem.Identifier.flexibleSpace, .init("search")]
+        [
+            .init("show_sidebar"),
+            NSToolbarItem.Identifier.flexibleSpace,
+            .init("title"),
+            NSToolbarItem.Identifier.flexibleSpace,
+            .init("search")
+        ]
     }
-
+    
     func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
         return toolbarDefaultItemIdentifiers(toolbar)
     }
