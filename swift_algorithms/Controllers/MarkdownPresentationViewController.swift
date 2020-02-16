@@ -8,7 +8,6 @@ protocol MarkdownPresentationViewRendering: AnyObject {
     func setMarkdown(for puzzle: Puzzle)
 }
 
-
 final class MarkdownPresentationViewController: UIViewController {
     
     let markdownView = MarkdownView()
