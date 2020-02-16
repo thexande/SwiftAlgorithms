@@ -33,6 +33,8 @@ final class MarkdownPresentationViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         
+        loading.backgroundColor = .systemBackground
+        
         view.addSubview(markdownView)
         markdownView.edgeAnchors == view.edgeAnchors
         
