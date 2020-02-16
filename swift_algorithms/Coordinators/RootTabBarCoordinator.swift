@@ -95,7 +95,6 @@ final class RootTabCoordinator {
         if (UserDefaults.standard.object(forKey: "has_seen_onboarding") == nil) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
                 if let controller = self?.onboardingViewController {
-                    controller.modalTransitionStyle = .crossDissolve
                     self?.root?.present(controller, animated: true, completion: {
                         UserDefaults.standard.set(true, forKey: "has_seen_onboarding")
                     })
