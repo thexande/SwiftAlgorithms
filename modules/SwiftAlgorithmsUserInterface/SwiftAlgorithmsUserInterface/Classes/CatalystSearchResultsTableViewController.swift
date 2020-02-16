@@ -57,6 +57,7 @@ public final class CatalystSearchResultsTableViewController: UIViewController, C
     private let algorithmSearchController = UISearchController(searchResultsController: nil)
     private var hasFirstRender = false
     private let tableView = UITableView()
+    private var selectedIndex: IndexPath?
     
     public override func loadView() {
         view = tableView
@@ -227,6 +228,14 @@ extension CatalystSearchResultsTableViewController: UITableViewDelegate, UITable
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected cell \(indexPath)")
         let item = properties.sections[indexPath.section].rows[indexPath.item]
+        
+        if let selectedIndexPath = selectedIndex, selectedIndexPath == indexPath {
+            delegate?.selectedItem(with: item.identifier)
+            self.navigationController?.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        self.selectedIndex = indexPath
         title = item.title
         let icon = CategoryIconView()
         icon.sizeAnchors == CGSize(width: 36, height: 36)
