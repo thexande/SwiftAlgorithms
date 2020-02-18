@@ -1,6 +1,6 @@
 import Foundation
 
-enum GettingStartedAlgorithm: CaseIterable, SortingAlgorithmable {
+public enum GettingStartedAlgorithm: CaseIterable, SortingAlgorithmable {
     case stack
     case queue
     case insertionSort
@@ -12,11 +12,11 @@ enum GettingStartedAlgorithm: CaseIterable, SortingAlgorithmable {
 
 extension GettingStartedAlgorithm: Algorithm {
     
-    var category: AlgorithmCategory {
+    public var category: AlgorithmCategory {
         return .gettingStarted
     }
 
-    var title: String {
+    public var title: String {
         switch self {            
         case .stack:
             return "Stack"
@@ -35,11 +35,11 @@ extension GettingStartedAlgorithm: Algorithm {
         }
     }
     
-    var subtitle: String? {
+    public var subtitle: String? {
         return nil
     }
     
-    var resourceUrl: String {
+    public var resourceUrl: String {
         switch self {
             
         case .stack:

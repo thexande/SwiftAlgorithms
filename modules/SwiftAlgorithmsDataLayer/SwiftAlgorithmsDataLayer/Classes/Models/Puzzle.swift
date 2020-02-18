@@ -1,5 +1,5 @@
-enum Puzzle {
-    static let allCases: [Puzzle] = [.twoSumProblem, .threeSumFourSumProblem, .fizzBuzz, .montyHallProblem, .findingPalindromes, .diningPhilosophers, .eggDrop, .encodingAndDecodingBinaryTree]
+public enum Puzzle {
+    public static let allCases: [Puzzle] = [.twoSumProblem, .threeSumFourSumProblem, .fizzBuzz, .montyHallProblem, .findingPalindromes, .diningPhilosophers, .eggDrop, .encodingAndDecodingBinaryTree]
     case twoSumProblem
     case threeSumFourSumProblem
     case fizzBuzz
@@ -9,7 +9,7 @@ enum Puzzle {
     case eggDrop
     case encodingAndDecodingBinaryTree
     
-    var title: String {
+    public var title: String {
         switch self {
         case .twoSumProblem:
             return "Two-Sum Problem"
@@ -30,9 +30,9 @@ enum Puzzle {
         }
     }
     
-    static let detailInfo: String = "A lot of software developer interview questions consist of algorithmic puzzles. Here is a small selection of fun ones."
+    public static let detailInfo: String = "A lot of software developer interview questions consist of algorithmic puzzles. Here is a small selection of fun ones."
     
-    var subtitle: String? {
+    public var subtitle: String? {
         switch self {
         
         case .twoSumProblem:
@@ -58,7 +58,7 @@ enum Puzzle {
         }
     }
     
-    var resourceUrl: String {
+    public var resourceUrl: String {
         switch self {
         case .twoSumProblem:
             return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Two-Sum%20Problem/README.markdown"

@@ -1,4 +1,4 @@
-enum MathematicsAlgorithm: CaseIterable {
+public enum MathematicsAlgorithm: CaseIterable {
     case gcd
     case permutationsAndCombinations
     case shuntingYard
@@ -9,11 +9,11 @@ enum MathematicsAlgorithm: CaseIterable {
 
 extension MathematicsAlgorithm: Algorithm {
     
-    var category: AlgorithmCategory {
+    public var category: AlgorithmCategory {
         return .math
     }
     
-    var subtitle: String? {
+    public var subtitle: String? {
         switch self {
         case .gcd:
             return "Special bonus: the least common multiple."
@@ -30,7 +30,7 @@ extension MathematicsAlgorithm: Algorithm {
         }
     }
     
-    var title: String {
+    public var title: String {
         switch self {
         case .gcd:
             return "Greatest Common Denominator"
@@ -47,7 +47,7 @@ extension MathematicsAlgorithm: Algorithm {
         }
     }
     
-    var resourceUrl: String {
+    public var resourceUrl: String {
         switch self {
         case .gcd:
             return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/GCD/README.markdown"

@@ -1,6 +1,6 @@
 import UIKit
 
-protocol Algorithm {
+public protocol Algorithm {
     var category: AlgorithmCategory { get }
     var title: String { get }
     var subtitle: String? { get }
@@ -9,13 +9,13 @@ protocol Algorithm {
 }
 
 extension Algorithm {
-    var navTitle: String {
+    public var navTitle: String {
         return self.title
     }
 }
 
-struct AlgorithmType {
-    static func allCases() -> [Algorithm] {
+public struct AlgorithmType {
+    public static func allCases() -> [Algorithm] {
         var allCases: [Algorithm] = []
         
         allCases.append(contentsOf: IntroductionAlgorithm.allCases as [Algorithm])
