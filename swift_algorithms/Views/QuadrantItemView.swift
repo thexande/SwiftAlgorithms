@@ -1,6 +1,7 @@
 import UIKit
 import Anchorage
 import Lottie
+import SwiftAlgorithmsDataLayer
 
 final class CategoryTileItemView: UIView {
     

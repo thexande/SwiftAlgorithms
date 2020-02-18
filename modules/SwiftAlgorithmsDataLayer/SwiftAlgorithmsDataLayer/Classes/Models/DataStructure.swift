@@ -1,7 +1,7 @@
 import UIKit
 
-enum DataStructure {
-    static let allCases: [DataStructure] = [.array2D, .bitSet, .fixedArraySize, .orderedArray, .rootishArrayStack, .stack, .queue, .deque, .priorityQueue, .ringBuffer, .linkedList, .skipList, .tree, .binaryTree, .binarySearchTree, .redBlackTree, .splayTree, .threadedBinaryTree, .segmentTree, .sparseTable, .heap, .fibonacciHeap, .Trie, .bTree, .quadTree, .ocTree, .hashTable, .hashFunctions, .bloomFilter, .hashSet, .multiSet, .orderedSet, .graph, .breadthFirstSearch, .depthFirstSearch, .shortestPath, .singleSourceShortestPaths, .minimumSpanningTreeUnweighted, .minimumSpanningTree, .allPairShortestPaths, .dijkstrasShortestPath
+public enum DataStructure {
+    public static let allCases: [DataStructure] = [.array2D, .bitSet, .fixedArraySize, .orderedArray, .rootishArrayStack, .stack, .queue, .deque, .priorityQueue, .ringBuffer, .linkedList, .skipList, .tree, .binaryTree, .binarySearchTree, .redBlackTree, .splayTree, .threadedBinaryTree, .segmentTree, .sparseTable, .heap, .fibonacciHeap, .Trie, .bTree, .quadTree, .ocTree, .hashTable, .hashFunctions, .bloomFilter, .hashSet, .multiSet, .orderedSet, .graph, .breadthFirstSearch, .depthFirstSearch, .shortestPath, .singleSourceShortestPaths, .minimumSpanningTreeUnweighted, .minimumSpanningTree, .allPairShortestPaths, .dijkstrasShortestPath
     ]
     // Variations on Arrays
     case array2D
@@ -58,11 +58,11 @@ enum DataStructure {
     case allPairShortestPaths
     case dijkstrasShortestPath
     
-    var category: DataStructure.Category? {
+    public var category: DataStructure.Category? {
         return DataStructure.category(for: self)
     }
     
-    var title: String {
+    public var title: String {
         switch self {
         case .array2D:
             return "Array 2D"
@@ -155,7 +155,7 @@ enum DataStructure {
         }
     }
     
-    var subtitle: String? {
+    public var subtitle: String? {
         switch self {
             
         case .array2D:
@@ -249,7 +249,7 @@ enum DataStructure {
         }
     }
     
-    var resourceUrl: String {
+    public var resourceUrl: String {
         switch self {
         case .array2D:
             return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Array2D/README.markdown"
@@ -341,7 +341,7 @@ enum DataStructure {
         }
     }
     
-    static func category(for dataStructure: DataStructure) -> DataStructure.Category {
+    public static func category(for dataStructure: DataStructure) -> DataStructure.Category {
         switch dataStructure {
         // Variations on Arrays
         case .array2D, .bitSet, .fixedArraySize, .orderedArray, .rootishArrayStack:
@@ -373,8 +373,8 @@ enum DataStructure {
         }
     }
     
-    enum Category {
-        static let allCases: [Category] = [.array, .queue, .list, .tree, .hash, .set, .graph]
+    public enum Category {
+        public static let allCases: [Category] = [.array, .queue, .list, .tree, .hash, .set, .graph]
         case array
         case queue
         case list
@@ -383,7 +383,7 @@ enum DataStructure {
         case set
         case graph
         
-        var title: String {
+        public var title: String {
             switch self {
             case .array:
                 return "Arrays"
@@ -402,26 +402,7 @@ enum DataStructure {
             }
         }
         
-        var color: UIColor {
-            switch self {
-            case .array:
-                return .amethist()
-            case .queue:
-                return .newBlue()
-            case .list:
-                return .coral()
-            case .tree:
-                return .newYellow()
-            case .hash:
-                return .newGreen()
-            case .set:
-                return .newLightBlue()
-            case .graph:
-                return .newPink()
-            }
-        }
-        
-        var image: UIImage? {
+        public var image: UIImage? {
             switch self {
             case .array:
                 return UIImage(named: "array")
@@ -440,7 +421,7 @@ enum DataStructure {
             }
         }
         
-        var dataStructures: [DataStructure] {
+        public var dataStructures: [DataStructure] {
             switch self {
             case .array:
                 return [.array2D, .bitSet, .fixedArraySize, .orderedArray, .rootishArrayStack]
@@ -459,7 +440,7 @@ enum DataStructure {
             }
         }
         
-        var footerText: String? {
+        public var footerText: String? {
             switch self {
             case .graph: return """
                 The choice of data structure for a particular task depends on a few things.

@@ -1,4 +1,4 @@
-enum StringSearchAlgorithm: CaseIterable {
+public enum StringSearchAlgorithm: CaseIterable {
     case bruteForceStringSearch
     case knuthMorrisPratt
     case rabinKarp
@@ -8,11 +8,11 @@ enum StringSearchAlgorithm: CaseIterable {
 
 extension StringSearchAlgorithm: Algorithm {
     
-    var category: AlgorithmCategory {
+    public var category: AlgorithmCategory {
         return .stringSearch
     }
     
-    var title: String {
+    public var title: String {
         switch self {
         case .bruteForceStringSearch:
             return "Brute Force String Search"
@@ -27,7 +27,7 @@ extension StringSearchAlgorithm: Algorithm {
         }
     }
     
-    var subtitle: String? {
+    public var subtitle: String? {
         switch self {
         case .bruteForceStringSearch:
             return "A naive method"
@@ -42,7 +42,7 @@ extension StringSearchAlgorithm: Algorithm {
         }
     }
     
-    var resourceUrl: String {
+    public var resourceUrl: String {
         switch self {
         case .bruteForceStringSearch:
             return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Brute-Force%20String%20Search/README.markdown"

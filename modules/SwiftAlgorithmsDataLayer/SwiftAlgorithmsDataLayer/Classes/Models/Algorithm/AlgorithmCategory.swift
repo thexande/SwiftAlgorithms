@@ -1,6 +1,6 @@
 import UIKit
 
-enum AlgorithmCategory: CaseIterable {
+public enum AlgorithmCategory: CaseIterable {
     case gettingStarted
     case searching
     case stringSearch
@@ -11,7 +11,7 @@ enum AlgorithmCategory: CaseIterable {
     case machineLearning
 }
 
-extension AlgorithmCategory {
+public extension AlgorithmCategory {
     
     var title: String {
         switch self {
@@ -46,27 +46,6 @@ extension AlgorithmCategory {
             return  "It's fun to see how sorting algorithms work, but in practice you'll almost never have to provide your own sorting routines. Swift's own sort() is more than up to the job. But if you're curious, read on..."
         case .compression, .misc, .math, .machineLearning:
             return nil
-        }
-    }
-    
-    var color: UIColor {
-        switch self {
-        case .gettingStarted:
-            return .coral()
-        case .searching:
-            return .newGreen()
-        case .stringSearch:
-            return .amethist()
-        case .sorting:
-            return .newOrange()
-        case .compression:
-            return .newPink()
-        case .misc:
-            return .newBlue()
-        case .math:
-            return .newYellow()
-        case .machineLearning:
-            return .newLightBlue()
         }
     }
     

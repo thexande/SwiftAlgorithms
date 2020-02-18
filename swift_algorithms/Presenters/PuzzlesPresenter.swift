@@ -1,4 +1,5 @@
 import UIKit
+import SwiftAlgorithmsDataLayer
 
 protocol PuzzlePresenterActionDispatching: AnyObject {
     func dispatch(_ action: PuzzlesPresenter.Action)

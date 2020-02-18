@@ -1,5 +1,6 @@
 import UIKit
 import SwiftAlgorithmsUserInterface
+import SwiftAlgorithmsDataLayer
 
 @available(macCatalyst 10.15, iOS 13, *)
 protocol CatalystAlgorithmSearchPresenterDispatching: AnyObject {
@@ -8,110 +9,134 @@ protocol CatalystAlgorithmSearchPresenterDispatching: AnyObject {
     func didSelect(puzzle: Puzzle)
 }
 
+fileprivate extension CatalystAlgorithmSearchPresenter {
+    struct State {
+        enum Action {
+            case selectedAlgorithm(Algorithm)
+            case selectedDataStructure(DataStructure)
+            case selectedPuzzle(Puzzle)
+        }
+        
+        var algorithms: [Algorithm]
+        var dataStructures: [DataStructure]
+        var puzzles: [Puzzle]
+        var searchedForTerm: String
+        var actionLookup: [UUID: Action]
+        static let initial = State(algorithms: [], dataStructures: [], puzzles: [], searchedForTerm: "", actionLookup: [:])
+    }
+}
+
 @available(macCatalyst 10.15, iOS 13, *)
 final class CatalystAlgorithmSearchPresenter {
-    
-    enum Action {
-        case selectedAlgorithm(Algorithm)
-    }
-    
-    var actionLookup: [UUID: Action] = [:]
-    var algorithms: [Algorithm] = []
     weak var delegate: CatalystAlgorithmSearchPresenterDispatching?
     weak var renderer: CatalystSearchResultsTableViewRendering?
+    private var state = State.initial
     
-    var searchedProperties: CatalystSearchResultsTableViewController.Properties = .default {
-        didSet {
-            renderer?.properties = searchedProperties
-        }
-    }
-
-    func makeSearchableAlgorithmProperties() {
-        let allAlgorithmProperties = AlgorithmType.allCases()
-        algorithms = allAlgorithmProperties
-        searchedProperties = makeCategorySections(for: algorithms)
-    }
-    
-    private func makeCategorySections(for algorithms: [Algorithm]) -> CatalystSearchResultsTableViewController.Properties {
-        // reset action hash map
-        actionLookup = [:]
-        
-        let categories = AlgorithmCategory.allCases
-        
-        let categoryProps: [CatalystSearchResultsTableViewController.Properties.SectionProperties] = categories.compactMap { category in
+    private static func mapStateToViewProperties(with searchTerm: String?,
+                                                 state: State) -> (state: State, viewProperties: CatalystSearchResultsTableViewController.Properties) {
+        var state = state
+        var searchRows = [CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties]()
+        searchRows.append(contentsOf: state.algorithms.compactMap {
             
-            let categoryAlgorithms = algorithms.filter { algorithm in
-                
-                guard
-                    algorithm.category == category else {
-                        return false
-                }
-                
-                return true
-            }
-            
-            let categoryAlgorithmRowProps = categoryAlgorithms.map(makeIdentifiableAction(for:))
-            
-            let props = CatalystSearchResultsTableViewController.Properties.SectionProperties(sectionTitle: category.title,
-                                                              rows: categoryAlgorithmRowProps)
-            
-            guard categoryAlgorithmRowProps.count > 0 else {
+            if let searchTerm = searchTerm, $0.title.lowercased().contains(searchTerm) == false {
                 return nil
             }
             
-            return props
-        }
+            let id = UUID()
+            state.actionLookup[id] = .selectedAlgorithm($0)
+            return Self.makeIdentifiableAction(for: $0, searchTerm: searchTerm, with: id)
+        })
         
-        return .init(sections: categoryProps)
+        searchRows.append(contentsOf: state.dataStructures.compactMap {
+            
+            if let searchTerm = searchTerm, $0.title.lowercased().contains(searchTerm) == false {
+                return nil
+            }
+            let id = UUID()
+            state.actionLookup[id] = .selectedDataStructure($0)
+            return Self.makeIdentifiableAction(for: $0, searchTerm: searchTerm, with: id)
+        })
+        
+        searchRows.append(contentsOf: state.puzzles.compactMap {
+            
+            if let searchTerm = searchTerm, $0.title.lowercased().contains(searchTerm) == false {
+                return nil
+            }
+            let id = UUID()
+            state.actionLookup[id] = .selectedPuzzle($0)
+            return Self.makeIdentifiableAction(for: $0, searchTerm: searchTerm, with: id)
+        })
+        
+        return (state, .init(sections: [.init(sectionTitle: "",
+                                              rows: searchRows)]))
     }
     
-    private func makeIdentifiableAction(for algorithm: Algorithm) -> CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties {
-        let identifier = UUID()
-        let prop = CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties(title: algorithm.title,
-                                                                                                       iconProperties: .init(background: algorithm.category.color, icon: algorithm.category.image),
-                                                                                                       subtitle: algorithm.subtitle,
-                                                                                                       identifier: identifier)
-        
-        actionLookup[identifier] = .selectedAlgorithm(algorithm)
-        return prop
+    private static func makeInitialState() -> State {
+        State(algorithms: AlgorithmType.allCases(),
+              dataStructures: DataStructure.allCases,
+              puzzles: Puzzle.allCases,
+              searchedForTerm: "",
+              actionLookup: [:])
     }
     
-    private func handleSearch(_ term: String) {
-        
-        if term == "" {
-            let all = makeCategorySections(for: algorithms)
-            searchedProperties = all
-            return
-        }
-        
-        let searchedAlgorithms = algorithms.filter { algorithm in
-            return "\(algorithm.title)\(algorithm.subtitle ?? "")".lowercased().contains(term.lowercased())
-        }
-        
-        searchedProperties = makeCategorySections(for: searchedAlgorithms)
+    private static func makeIdentifiableAction(for algorithm: Algorithm,
+                                               searchTerm: String?,
+                                               with identifier: UUID) -> CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties {
+        CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties(title: algorithm.title,
+                                                                                            iconProperties: .init(background: algorithm.category.color,
+                                                                                                                  icon: algorithm.category.image),
+                                                                                            subtitle: algorithm.subtitle,
+                                                                                            identifier: identifier)
     }
     
-    private func handleSelected(with identifier: UUID) {
-        guard let action = actionLookup[identifier] else { return }
-        
-        switch action {
-        case.selectedAlgorithm(let algorithm):
-            delegate?.didSelect(algorithm: algorithm)
-        }
+    private static func makeIdentifiableAction(for dataStructure: DataStructure,
+                                               searchTerm: String?,
+                                               with identifier: UUID) -> CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties {
+        CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties(title: dataStructure.title,
+                                                                                            iconProperties: .init(background: dataStructure.category?.color ?? .systemGray2,
+                                                                                                                  icon: dataStructure.category?.image ?? UIImage()),
+                                                                                            subtitle: dataStructure.subtitle,
+                                                                                            identifier: identifier)
+    }
+    
+    
+    private static func makeIdentifiableAction(for puzzle: Puzzle,
+                                               searchTerm: String?,
+                                               with identifier: UUID) -> CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties {
+        CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties(title: puzzle.title,
+                                                                                            iconProperties: .init(background: .systemTeal,
+                                                                                                                  icon: UIImage(named: "puzzle")),
+                                                                                            subtitle: puzzle.subtitle,
+                                                                                            identifier: identifier)
     }
 }
 
 @available(macCatalyst 10.15, iOS 13, *)
 extension CatalystAlgorithmSearchPresenter: CatalystSearchResultsTableViewDelegate {
     func searched(for term: String) {
-        handleSearch(term)
+        let term: String? = term.isEmpty ? nil : term
+        let (state, viewProperties) = CatalystAlgorithmSearchPresenter.mapStateToViewProperties(with: term,
+                                                                                                state: self.state)
+        self.state = state
+        renderer?.properties = viewProperties
     }
     
     func selectedItem(with identifier: UUID) {
-        handleSelected(with: identifier)
+        guard let action = state.actionLookup[identifier] else { return }
+        switch action {
+        case .selectedAlgorithm(let algorithm):
+            delegate?.didSelect(algorithm: algorithm)
+        case .selectedDataStructure(let dataStructure):
+            delegate?.didSelect(dataStructure: dataStructure)
+        case .selectedPuzzle(let puzzle):
+            delegate?.didSelect(puzzle: puzzle)
+        }
     }
     
     func viewDidLoad() {
-        makeSearchableAlgorithmProperties()
+        let (state, viewProperties) = CatalystAlgorithmSearchPresenter.mapStateToViewProperties(with: nil,
+                                                                                                state: Self.makeInitialState())
+        self.state = state
+        renderer?.properties = viewProperties
     }
 }

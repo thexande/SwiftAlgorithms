@@ -1,10 +1,10 @@
 import UIKit
 
-protocol NavigationConfigurable {
+public protocol NavigationConfigurable {
     var actionImage: UIImage? { get }
 }
 
-enum IntroductionAlgorithm: CaseIterable {
+public enum IntroductionAlgorithm: CaseIterable {
     case whatAreAlgorithms
     case whyLearnAlgorithms
     case bigO
@@ -13,7 +13,7 @@ enum IntroductionAlgorithm: CaseIterable {
 }
 
 extension IntroductionAlgorithm: NavigationConfigurable {
-    var actionImage: UIImage? {
+    public var actionImage: UIImage? {
         switch self {
         case .whatAreAlgorithms:
             return UIImage(named: "pancakes")
@@ -31,11 +31,11 @@ extension IntroductionAlgorithm: NavigationConfigurable {
 
 extension IntroductionAlgorithm: Algorithm {
     
-    var category: AlgorithmCategory {
+    public var category: AlgorithmCategory {
         return .gettingStarted
     }
     
-    var navTitle: String {
+    public var navTitle: String {
         switch self {
         case .whatAreAlgorithms:
             return "Pancakes!"
@@ -50,7 +50,7 @@ extension IntroductionAlgorithm: Algorithm {
         }
     }
     
-    var title: String {
+    public var title: String {
         switch self {
         case .whatAreAlgorithms:
             return "What are algorithms and data structures?"
@@ -65,7 +65,7 @@ extension IntroductionAlgorithm: Algorithm {
         }
     }
     
-    var subtitle: String? {
+    public var subtitle: String? {
         switch self {
         case .whatAreAlgorithms:
             return "Pancakes!"
@@ -80,7 +80,7 @@ extension IntroductionAlgorithm: Algorithm {
         }
     }
     
-    var resourceUrl: String {
+    public var resourceUrl: String {
         switch self {
         case .whatAreAlgorithms:
             return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/What%20are%20Algorithms.markdown"
@@ -95,7 +95,3 @@ extension IntroductionAlgorithm: Algorithm {
         }
     }
 }
-
-
-
-

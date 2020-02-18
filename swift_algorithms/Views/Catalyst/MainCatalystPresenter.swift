@@ -1,5 +1,6 @@
 import Foundation
 import SwiftAlgorithmsUserInterface
+import SwiftAlgorithmsDataLayer
 
 @available(macCatalyst 10.15, iOS 13, *)
 protocol MainCatalystPresenterDelegate: AnyObject {

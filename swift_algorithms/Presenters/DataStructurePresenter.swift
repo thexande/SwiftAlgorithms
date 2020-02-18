@@ -1,4 +1,5 @@
 import UIKit
+import SwiftAlgorithmsDataLayer
 
 protocol DataStructurePresenterActionDispatching: AnyObject {
     func dispatch(_ action: DataStructurePresenter.Action)

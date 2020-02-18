@@ -1,4 +1,5 @@
 import UIKit
+import SwiftAlgorithmsDataLayer
 
 enum AlgorithmPresentationAction {
     case selectedCategory(AlgorithmCategory)

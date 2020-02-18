@@ -1,4 +1,5 @@
 import Foundation
+import SwiftAlgorithmsDataLayer
 
 final class DataStructureSectionFactory {
     

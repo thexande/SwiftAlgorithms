@@ -1,4 +1,4 @@
-enum SearchingAlgorithm: CaseIterable {
+public enum SearchingAlgorithm: CaseIterable {
     case linnearSearch
     case countOccurences
     case selectMinMax
@@ -9,11 +9,11 @@ enum SearchingAlgorithm: CaseIterable {
 
 extension SearchingAlgorithm: Algorithm {
     
-    var category: AlgorithmCategory {
+    public var category: AlgorithmCategory {
         return .searching
     }
     
-    var title: String {
+    public var title: String {
         switch self {
         case .linnearSearch:
             return "Linnear Search"
@@ -30,7 +30,7 @@ extension SearchingAlgorithm: Algorithm {
         }
     }
     
-    var subtitle: String? {
+    public var subtitle: String? {
         switch self {
         case .linnearSearch:
             return "Find an element in an array."
@@ -47,7 +47,7 @@ extension SearchingAlgorithm: Algorithm {
         }
     }
     
-    var resourceUrl: String {
+    public var resourceUrl: String {
         switch self {
         case .linnearSearch:
             return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Linear%20Search/README.markdown"

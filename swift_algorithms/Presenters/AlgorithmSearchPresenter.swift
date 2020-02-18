@@ -1,4 +1,5 @@
 import UIKit
+import SwiftAlgorithmsDataLayer
 
 protocol AlgorithmSearchPresenterDispatching: AnyObject {
     func dispatch(_ action: AlgorithmSearchPresenter.Action)

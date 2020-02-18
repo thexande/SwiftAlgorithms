@@ -1,4 +1,5 @@
 import Foundation
+import SwiftAlgorithmsDataLayer
 
 final class UrlFactory {
     private func url(for string: String) -> URL? {

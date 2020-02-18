@@ -1,15 +1,15 @@
-enum CompressionAlgorithm: CaseIterable {
+public enum CompressionAlgorithm: CaseIterable {
     case runLengthEncoding
     case huffmanCoding
 }
 
 extension CompressionAlgorithm: Algorithm {
 
-    var category: AlgorithmCategory {
+    public var category: AlgorithmCategory {
         return .compression
     }
     
-    var title: String {
+    public var title: String {
         switch self {
         case .runLengthEncoding:
             return "Run Length Encoding"
@@ -18,7 +18,7 @@ extension CompressionAlgorithm: Algorithm {
         }
     }
     
-    var subtitle: String? {
+    public var subtitle: String? {
         switch self {
         case .runLengthEncoding:
             return "Store repeated values as a single byte and a count."
@@ -27,7 +27,7 @@ extension CompressionAlgorithm: Algorithm {
         }
     }
     
-    var resourceUrl: String {
+    public var resourceUrl: String {
         switch self {
         case .runLengthEncoding:
             return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/Run-Length%20Encoding/README.markdown"

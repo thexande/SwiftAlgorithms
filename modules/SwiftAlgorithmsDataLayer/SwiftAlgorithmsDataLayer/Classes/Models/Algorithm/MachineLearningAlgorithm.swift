@@ -1,4 +1,4 @@
-enum MachineLearningAlgorithm: CaseIterable {
+public enum MachineLearningAlgorithm: CaseIterable {
     case kMeansClustering
     case linnearRegression
     case naiveBayesClassifier
@@ -7,11 +7,11 @@ enum MachineLearningAlgorithm: CaseIterable {
 
 extension MachineLearningAlgorithm: Algorithm {
     
-    var category: AlgorithmCategory {
+    public var category: AlgorithmCategory {
         return .machineLearning
     }
     
-    var subtitle: String? {
+    public var subtitle: String? {
         switch self {
         case .kMeansClustering:
             return "Unsupervised classifier that partitions data into k clusters"
@@ -24,7 +24,7 @@ extension MachineLearningAlgorithm: Algorithm {
         }
     }
     
-    var title: String {
+    public var title: String {
         switch self {
         case .kMeansClustering:
             return "K Means Clustering"
@@ -37,7 +37,7 @@ extension MachineLearningAlgorithm: Algorithm {
         }
     }
     
-    var resourceUrl: String {
+    public var resourceUrl: String {
         switch self {
         case .kMeansClustering:
             return "https://raw.githubusercontent.com/raywenderlich/swift-algorithm-club/master/K-Means/README.markdown"

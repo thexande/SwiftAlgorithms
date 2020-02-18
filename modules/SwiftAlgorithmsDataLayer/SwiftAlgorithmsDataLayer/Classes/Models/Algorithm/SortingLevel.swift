@@ -1,8 +1,8 @@
 import Foundation
 
-protocol SortingAlgorithmable: Algorithm { }
+public protocol SortingAlgorithmable: Algorithm { }
 
-enum SortingLevel: CaseIterable {
+public enum SortingLevel: CaseIterable {
     case basic
     case fast
     case hybrid
@@ -10,7 +10,7 @@ enum SortingLevel: CaseIterable {
     case bad
 }
 
-extension SortingLevel {
+public extension SortingLevel {
     
     var title: String {
         switch self {

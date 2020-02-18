@@ -1,4 +1,4 @@
-enum MiscAlgorithm: CaseIterable {
+public enum MiscAlgorithm: CaseIterable {
     case shuffle
     case comboSort
     case convexHull
@@ -8,11 +8,11 @@ enum MiscAlgorithm: CaseIterable {
 
 extension MiscAlgorithm: Algorithm {
     
-    var category: AlgorithmCategory {
+    public var category: AlgorithmCategory {
         return .misc
     }
     
-    var title: String {
+    public var title: String {
         switch self {
         case .shuffle:
             return "Shuffle"
@@ -27,7 +27,7 @@ extension MiscAlgorithm: Algorithm {
         }
     }
     
-    var subtitle: String? {
+    public var subtitle: String? {
         switch self {
         case .shuffle:
             return "Randomly rearranges the contents of an array."
@@ -42,7 +42,7 @@ extension MiscAlgorithm: Algorithm {
         }
     }
     
-    var resourceUrl: String {
+    public var resourceUrl: String {
         switch self {
             
         case .shuffle:
