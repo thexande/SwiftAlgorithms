@@ -9,6 +9,7 @@ protocol CatalystSearchPresenterDispatching: AnyObject {
     func didSelect(puzzle: Puzzle)
 }
 
+@available(macCatalyst 10.15, iOS 13, *)
 fileprivate extension CatalystSearchResultsPresenter {
     struct State {
         enum Action {
