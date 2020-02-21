@@ -59,7 +59,7 @@
 		B0A8FD05213210E0008F82E2 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FD04213210E0008F82E2 /* UINavigationController.swift */; };
 		B0A8FD0721321787008F82E2 /* PuzzlesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FD0621321787008F82E2 /* PuzzlesPresenter.swift */; };
 		B0A8FD0B21321FF6008F82E2 /* RootTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8FD0A21321FF6008F82E2 /* RootTabBarCoordinator.swift */; };
-		B0BEE2DD23F8E1F100D20DE9 /* CatalystAlgorithmSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BEE2DC23F8E1F100D20DE9 /* CatalystAlgorithmSearchPresenter.swift */; };
+		B0BEE2DD23F8E1F100D20DE9 /* CatalystSearchResultsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BEE2DC23F8E1F100D20DE9 /* CatalystSearchResultsPresenter.swift */; };
 		B0C7F04F236933BF00F9B5BF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7F04E236933BF00F9B5BF /* AppCoordinator.swift */; };
 		B0CDE2FC23E9069D0091E8E2 /* index_dark.html in Resources */ = {isa = PBXBuildFile; fileRef = B0A6B11823E6B60C00EDA1E0 /* index_dark.html */; };
 		B0CDE2FD23E9069D0091E8E2 /* index_light.html in Resources */ = {isa = PBXBuildFile; fileRef = B0A6B11923E6B60C00EDA1E0 /* index_light.html */; };
@@ -170,7 +170,7 @@
 		B0A8FD04213210E0008F82E2 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		B0A8FD0621321787008F82E2 /* PuzzlesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzlesPresenter.swift; sourceTree = "<group>"; };
 		B0A8FD0A21321FF6008F82E2 /* RootTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarCoordinator.swift; sourceTree = "<group>"; };
-		B0BEE2DC23F8E1F100D20DE9 /* CatalystAlgorithmSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystAlgorithmSearchPresenter.swift; sourceTree = "<group>"; };
+		B0BEE2DC23F8E1F100D20DE9 /* CatalystSearchResultsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystSearchResultsPresenter.swift; sourceTree = "<group>"; };
 		B0C7F04E236933BF00F9B5BF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B0CDE30123E9090D0091E8E2 /* MarkdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownView.swift; path = swift_algorithms/web/MarkdownView.swift; sourceTree = SOURCE_ROOT; };
 		B0CDE30423E90AFA0091E8E2 /* CategoryArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryArticleListViewController.swift; sourceTree = "<group>"; };
@@ -305,7 +305,7 @@
 				B0A4DB332129E781000CFC7F /* AlgorithmPresenter.swift */,
 				B0A8FCFC2131DEFF008F82E2 /* DataStructureSearchPresenter.swift */,
 				B0A8FD0621321787008F82E2 /* PuzzlesPresenter.swift */,
-				B0BEE2DC23F8E1F100D20DE9 /* CatalystAlgorithmSearchPresenter.swift */,
+				B0BEE2DC23F8E1F100D20DE9 /* CatalystSearchResultsPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -733,7 +733,7 @@
 				B01733912128D04500FBEFE5 /* AlgorithmViewController.swift in Sources */,
 				B0F3850C212BB29200779976 /* CategoryCollectionCell.swift in Sources */,
 				B0A4DB362129F21C000CFC7F /* BasicTableHeaderRowController.swift in Sources */,
-				B0BEE2DD23F8E1F100D20DE9 /* CatalystAlgorithmSearchPresenter.swift in Sources */,
+				B0BEE2DD23F8E1F100D20DE9 /* CatalystSearchResultsPresenter.swift in Sources */,
 				B0F6D77E213B428E00E52E71 /* DataStructurePresenter.swift in Sources */,
 				B0C7F04F236933BF00F9B5BF /* AppCoordinator.swift in Sources */,
 				B01733A52129351A00FBEFE5 /* BasicTableCell.swift in Sources */,
