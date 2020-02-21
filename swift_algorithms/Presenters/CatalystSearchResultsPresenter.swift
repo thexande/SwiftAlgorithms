@@ -3,13 +3,14 @@ import SwiftAlgorithmsUserInterface
 import SwiftAlgorithmsDataLayer
 
 @available(macCatalyst 10.15, iOS 13, *)
-protocol CatalystAlgorithmSearchPresenterDispatching: AnyObject {
+protocol CatalystSearchPresenterDispatching: AnyObject {
     func didSelect(algorithm: Algorithm)
     func didSelect(dataStructure: DataStructure)
     func didSelect(puzzle: Puzzle)
 }
 
-fileprivate extension CatalystAlgorithmSearchPresenter {
+@available(macCatalyst 10.15, iOS 13, *)
+fileprivate extension CatalystSearchResultsPresenter {
     struct State {
         enum Action {
             case selectedAlgorithm(Algorithm)
@@ -27,8 +28,8 @@ fileprivate extension CatalystAlgorithmSearchPresenter {
 }
 
 @available(macCatalyst 10.15, iOS 13, *)
-final class CatalystAlgorithmSearchPresenter {
-    weak var delegate: CatalystAlgorithmSearchPresenterDispatching?
+final class CatalystSearchResultsPresenter {
+    weak var delegate: CatalystSearchPresenterDispatching?
     weak var renderer: CatalystSearchResultsTableViewRendering?
     private var state = State.initial
     
@@ -112,10 +113,10 @@ final class CatalystAlgorithmSearchPresenter {
 }
 
 @available(macCatalyst 10.15, iOS 13, *)
-extension CatalystAlgorithmSearchPresenter: CatalystSearchResultsTableViewDelegate {
+extension CatalystSearchResultsPresenter: CatalystSearchResultsTableViewDelegate {
     func searched(for term: String) {
         let term: String? = term.isEmpty ? nil : term
-        let (state, viewProperties) = CatalystAlgorithmSearchPresenter.mapStateToViewProperties(with: term,
+        let (state, viewProperties) = CatalystSearchResultsPresenter.mapStateToViewProperties(with: term,
                                                                                                 state: self.state)
         self.state = state
         renderer?.properties = viewProperties
@@ -134,7 +135,7 @@ extension CatalystAlgorithmSearchPresenter: CatalystSearchResultsTableViewDelega
     }
     
     func viewDidLoad() {
-        let (state, viewProperties) = CatalystAlgorithmSearchPresenter.mapStateToViewProperties(with: nil,
+        let (state, viewProperties) = CatalystSearchResultsPresenter.mapStateToViewProperties(with: nil,
                                                                                                 state: Self.makeInitialState())
         self.state = state
         renderer?.properties = viewProperties

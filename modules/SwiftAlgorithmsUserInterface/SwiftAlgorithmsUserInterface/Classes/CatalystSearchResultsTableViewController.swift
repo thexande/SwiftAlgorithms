@@ -84,27 +84,33 @@ public final class CatalystSearchResultsTableViewController: UIViewController, C
               
             navigationItem.leftBarButtonItem = .init(customView: icon)
         } else if hasFirstRender == false {
-            title = "What are we looking for?"
-            let icon = UIImageView(image: UIImage(named: "AppIcon"))
-            icon.layer.cornerRadius = 6
-            icon.clipsToBounds = true
-            icon.sizeAnchors == CGSize(width: 36, height: 36)
-          
-            navigationItem.leftBarButtonItem = .init(customView: icon)
+           showDefaultState()
         }
         
 
         tableView.reloadData()
                 
+        let shouldShowEmptyState = properties.sections.first?.rows.isEmpty == true
         
-        if properties.sections.count > 0 {
-            empty.isAnimationHidden = true
-        } else {
+        if shouldShowEmptyState {
             empty.isAnimationHidden = false
             view.bringSubviewToFront(empty)
+            showDefaultState()
+        } else {
+            empty.isAnimationHidden = true
         }
         
         hasFirstRender = true
+    }
+    
+    private func showDefaultState() {
+        title = "What are we looking for?"
+        let icon = UIImageView(image: UIImage(named: "AppIcon"))
+        icon.layer.cornerRadius = 6
+        icon.clipsToBounds = true
+        icon.sizeAnchors == CGSize(width: 36, height: 36)
+        
+        navigationItem.leftBarButtonItem = .init(customView: icon)
     }
     
 
@@ -251,8 +257,8 @@ extension CatalystSearchResultsTableViewController: UISearchResultsUpdating, UIS
     public func updateSearchResults(for searchController: UISearchController) {
         view.isHidden = false
         if let text = searchController.searchBar.text {
+            if text.isEmpty { showDefaultState() }
             delegate?.searched(for: text)
-
         }
     }
     

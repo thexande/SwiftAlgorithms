@@ -12,7 +12,7 @@ final class RootCatalystCoordinator: Coordinating {
     private let sideMenuView = SideMenuTableViewController()
     private let categoryNavigationView = UINavigationController()
     private let about = AboutViewController()
-    private let searchPresenter = CatalystAlgorithmSearchPresenter()
+    private let searchPresenter = CatalystSearchResultsPresenter()
 
     init() {
         mainMenuSplitView.primaryBackgroundStyle = .sidebar
@@ -77,7 +77,7 @@ extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
 // MARK: - CatalystAlgorithmSearchPresenterDispatching
 
 @available(macCatalyst 10.15, iOS 13, *)
-extension RootCatalystCoordinator: CatalystAlgorithmSearchPresenterDispatching {
+extension RootCatalystCoordinator: CatalystSearchPresenterDispatching {
     func didSelect(algorithm: Algorithm) {
         let markdown = MarkdownPresentationViewController()
         markdown.setMarkdown(for: algorithm)
