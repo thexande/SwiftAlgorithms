@@ -58,7 +58,7 @@ public final class CatalystSearchResultsTableViewController: UIViewController, C
     private var hasFirstRender = false
     private let tableView = UITableView()
     private var selectedIndex: IndexPath?
-    
+        
     public override func loadView() {
         view = tableView
     }
