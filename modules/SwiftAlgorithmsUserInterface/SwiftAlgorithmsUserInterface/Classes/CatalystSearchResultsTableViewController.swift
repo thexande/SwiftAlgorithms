@@ -131,17 +131,15 @@ public final class CatalystSearchResultsTableViewController: UITableViewControll
     override public func viewDidLoad() {
         super.viewDidLoad()
         delegate?.viewDidLoad()
-//        tableView.delegate = self
-//        tableView.dataSource = self
-        
-        
+
         tableView.tableFooterView = UIView()
         tableView.backgroundView = empty
+        tableView.delegate = self
         empty.isAnimationHidden = true
         
         algorithmSearchController.searchResultsUpdater = self
         algorithmSearchController.delegate = self
-//        algorithmSearchController.obscuresBackgroundDuringPresentation = false
+        algorithmSearchController.obscuresBackgroundDuringPresentation = false
         algorithmSearchController.searchBar.placeholder = "Search Algorithms"
         
         algorithmSearchController.searchBar.delegate = self
@@ -228,54 +226,28 @@ extension CatalystSearchResultsTableViewController: UISearchControllerDelegate {
     }
 }
 
-// MARK: - UITableViewDelegate, UITableViewDataSource
+// MARK: - UITableViewDelegate
 
-//@available(macCatalyst 10.15, iOS 13, *)
-//extension CatalystSearchResultsTableViewController: UITableViewDelegate, UITableViewDataSource {
-//    public func numberOfSections(in tableView: UITableView) -> Int {
-//        return properties.items.count
-//    }
-    
-//    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-//        cell.backgroundColor = .clear
-//        let item = properties.sections[indexPath.section].items[indexPath.item]
-//        cell.textLabel?.text = item.title
-//        cell.detailTextLabel?.text = item.subtitle
-//
-//        let icon = CategoryIconView()
-//        icon.sizeAnchors == CGSize(width: 30, height: 30)
-//        icon.properties = item.iconProperties
-//
-//        cell.contentView.addSubview(icon)
-//        icon.trailingAnchor == cell.trailingAnchor - 24
-//        icon.centerYAnchor == cell.contentView.centerYAnchor
-//        return cell
-//    }
-    
-//    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return properties.sections[section].items.count
-//        return 1
-//    }
-    
-//    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("selected cell \(indexPath)")
-//        let item = properties.sections[indexPath.section].items[indexPath.item]
-//
-//        if let selectedIndexPath = selectedIndex, selectedIndexPath == indexPath {
-//            delegate?.selectedItem(with: item.identifier)
-//            self.navigationController?.dismiss(animated: true, completion: nil)
-//            return
-//        }
-//
-//        self.selectedIndex = indexPath
-//        title = item.title
-//        let icon = CategoryIconView()
-//        icon.sizeAnchors == CGSize(width: 36, height: 36)
-//        icon.properties = item.iconProperties
-//        navigationItem.leftBarButtonItem = .init(customView: icon)
-//    }
-//}
+@available(macCatalyst 10.15, iOS 13, *)
+extension CatalystSearchResultsTableViewController {
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected cell \(indexPath)")
+        let item = properties.items[indexPath.item]
+
+        if let selectedIndexPath = selectedIndex, selectedIndexPath == indexPath {
+            delegate?.selectedItem(with: item.identifier)
+            self.navigationController?.dismiss(animated: true, completion: nil)
+            return
+        }
+
+        self.selectedIndex = indexPath
+        title = item.title
+        let icon = CategoryIconView()
+        icon.sizeAnchors == CGSize(width: 36, height: 36)
+        icon.properties = item.iconProperties
+        navigationItem.leftBarButtonItem = .init(customView: icon)
+    }
+}
 
 // MARK: - UISearchResultsUpdating, UISearchBarDelegate
 
@@ -308,5 +280,3 @@ extension CatalystSearchResultsTableViewController: UISearchResultsUpdating, UIS
         return true
     }
 }
-
-
