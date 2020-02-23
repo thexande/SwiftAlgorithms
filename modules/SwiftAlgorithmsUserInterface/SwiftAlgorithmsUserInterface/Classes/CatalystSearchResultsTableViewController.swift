@@ -13,13 +13,13 @@ public protocol CatalystSearchResultsTableViewRendering: AnyObject {
     var properties: CatalystSearchResultsTableViewController.Properties { get set }
 }
 
-enum Section: Hashable {
-    case main
-}
-
 @available(macCatalyst 10.15, iOS 13, *)
 public extension CatalystSearchResultsTableViewController {
     struct Properties: Equatable {
+        enum Section: Hashable {
+            case main
+        }
+        
         let items: [Item]
         public static let `default` = Properties(items: [])
         
@@ -58,7 +58,7 @@ public final class CatalystSearchResultsTableViewController: UITableViewControll
     private let algorithmSearchController = UISearchController(searchResultsController: nil)
     private var hasFirstRender = false
     private var selectedIndex: IndexPath?
-    private var dataSource: UITableViewDiffableDataSource<Section, Properties.Item>?
+    private var dataSource: UITableViewDiffableDataSource<Properties.Section, Properties.Item>?
     
     public var properties: Properties = .default {
         didSet {
@@ -71,7 +71,7 @@ public final class CatalystSearchResultsTableViewController: UITableViewControll
     
     private func update(with properties: Properties) {
         
-        var snap = NSDiffableDataSourceSnapshot<Section, Properties.Item>()
+        var snap = NSDiffableDataSourceSnapshot<Properties.Section, Properties.Item>()
         snap.appendSections([.main])
         
         for item in properties.items {
@@ -256,12 +256,6 @@ extension CatalystSearchResultsTableViewController: UISearchResultsUpdating, UIS
     public func updateSearchResults(for searchController: UISearchController) {
         view.isHidden = false
         if let text = searchController.searchBar.text {
-            
-            guard text.isEmpty == false else {
-                showDefaultState()
-                return
-            }
-            
             delegate?.searched(for: text)
         }
     }
