@@ -19,11 +19,21 @@ fileprivate extension CatalystSearchResultsPresenter {
         }
         
         var algorithms: [Algorithm]
+        var algorithmResourceUrlLookup: [String: UUID]
         var dataStructures: [DataStructure]
+        var dataStructureResourceUrlLookup: [String: UUID]
         var puzzles: [Puzzle]
+        var puzzleResourceUrlLookup: [String: UUID]
         var searchedForTerm: String
         var actionLookup: [UUID: Action]
-        static let initial = State(algorithms: [], dataStructures: [], puzzles: [], searchedForTerm: "", actionLookup: [:])
+        static let initial = State(algorithms: [],
+                                   algorithmResourceUrlLookup: [:],
+                                   dataStructures: [],
+                                   dataStructureResourceUrlLookup: [:],
+                                   puzzles: [],
+                                   puzzleResourceUrlLookup: [:],
+                                   searchedForTerm: "",
+                                   actionLookup: [:])
     }
 }
 
@@ -36,79 +46,103 @@ final class CatalystSearchResultsPresenter {
     private static func mapStateToViewProperties(with searchTerm: String?,
                                                  state: State) -> (state: State, viewProperties: CatalystSearchResultsTableViewController.Properties) {
         var state = state
-        var searchRows = [CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties]()
-        searchRows.append(contentsOf: state.algorithms.compactMap {
-            
+        var items = [CatalystSearchResultsTableViewController.Properties.Item]()
+        
+        let algorithmItems: [CatalystSearchResultsTableViewController.Properties.Item] = state.algorithms.compactMap {
             if let searchTerm = searchTerm, $0.title.lowercased().contains(searchTerm) == false {
                 return nil
             }
             
-            let id = UUID()
+            guard let id = state.algorithmResourceUrlLookup[$0.resourceUrl] else { return nil }
+            
             state.actionLookup[id] = .selectedAlgorithm($0)
             return Self.makeIdentifiableAction(for: $0, searchTerm: searchTerm, with: id)
-        })
+        }
         
-        searchRows.append(contentsOf: state.dataStructures.compactMap {
+        items.append(contentsOf: algorithmItems)
+        
+        let dataStructureItems: [CatalystSearchResultsTableViewController.Properties.Item] = state.dataStructures.compactMap {
             
             if let searchTerm = searchTerm, $0.title.lowercased().contains(searchTerm) == false {
                 return nil
             }
-            let id = UUID()
+            
+            guard let id = state.dataStructureResourceUrlLookup[$0.resourceUrl] else { return nil }
             state.actionLookup[id] = .selectedDataStructure($0)
             return Self.makeIdentifiableAction(for: $0, searchTerm: searchTerm, with: id)
-        })
+        }
         
-        searchRows.append(contentsOf: state.puzzles.compactMap {
+        items.append(contentsOf: dataStructureItems)
+        
+        let puzzleItems: [CatalystSearchResultsTableViewController.Properties.Item] = state.puzzles.compactMap {
             
             if let searchTerm = searchTerm, $0.title.lowercased().contains(searchTerm) == false {
                 return nil
             }
-            let id = UUID()
+            guard let id = state.puzzleResourceUrlLookup[$0.resourceUrl] else { return nil }
             state.actionLookup[id] = .selectedPuzzle($0)
             return Self.makeIdentifiableAction(for: $0, searchTerm: searchTerm, with: id)
-        })
+        }
         
-        return (state, .init(sections: [.init(sectionTitle: "",
-                                              rows: searchRows)]))
+        items.append(contentsOf: puzzleItems)
+        
+        return (state, .init(items: items))
     }
     
     private static func makeInitialState() -> State {
-        State(algorithms: AlgorithmType.allCases(),
-              dataStructures: DataStructure.allCases,
-              puzzles: Puzzle.allCases,
-              searchedForTerm: "",
-              actionLookup: [:])
+        let algorithms = AlgorithmType.allCases()
+        let algorithmLookup = algorithms.reduce(into: [String: UUID]()) { lookup, algorithm in
+            lookup[algorithm.resourceUrl] = UUID()
+        }
+        
+        let dataStructures = DataStructure.allCases
+        let dataStructureLookup = dataStructures.reduce(into: [String: UUID]()) { lookup, ds in
+            lookup[ds.resourceUrl] = UUID()
+        }
+        
+        let puzzles = Puzzle.allCases
+        let puzzleLookup = puzzles.reduce(into: [String: UUID]()) { lookup, puzzle in
+            lookup[puzzle.resourceUrl] = UUID()
+        }
+        
+        return State(algorithms: algorithms,
+                     algorithmResourceUrlLookup: algorithmLookup,
+                     dataStructures: dataStructures,
+                     dataStructureResourceUrlLookup: dataStructureLookup,
+                     puzzles: puzzles, puzzleResourceUrlLookup: puzzleLookup,
+                     searchedForTerm: "",
+                     actionLookup: [:])
     }
     
     private static func makeIdentifiableAction(for algorithm: Algorithm,
                                                searchTerm: String?,
-                                               with identifier: UUID) -> CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties {
-        CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties(title: algorithm.title,
-                                                                                            iconProperties: .init(background: algorithm.category.color,
-                                                                                                                  icon: algorithm.category.image),
-                                                                                            subtitle: algorithm.subtitle,
-                                                                                            identifier: identifier)
+                                               with identifier: UUID) -> CatalystSearchResultsTableViewController.Properties.Item {
+        CatalystSearchResultsTableViewController.Properties.Item(title: algorithm.title,
+                                                                 iconProperties: .init(background: algorithm.category.color,
+                                                                                       icon: algorithm.category.image),
+                                                                 subtitle: algorithm.subtitle,
+                                                                 identifier: identifier)
     }
     
     private static func makeIdentifiableAction(for dataStructure: DataStructure,
                                                searchTerm: String?,
-                                               with identifier: UUID) -> CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties {
-        CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties(title: dataStructure.title,
-                                                                                            iconProperties: .init(background: dataStructure.category?.color ?? .systemGray2,
-                                                                                                                  icon: dataStructure.category?.image ?? UIImage()),
-                                                                                            subtitle: dataStructure.subtitle,
-                                                                                            identifier: identifier)
+                                               with identifier: UUID) -> CatalystSearchResultsTableViewController.Properties.Item {
+        CatalystSearchResultsTableViewController.Properties.Item(title: dataStructure.title,
+                                                                 iconProperties: .init(background: dataStructure.category?.color ?? .systemGray2,
+                                                                                       icon: dataStructure.category?.image ?? UIImage()),
+                                                                 subtitle: dataStructure.subtitle,
+                                                                 identifier: identifier)
     }
     
     
     private static func makeIdentifiableAction(for puzzle: Puzzle,
                                                searchTerm: String?,
-                                               with identifier: UUID) -> CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties {
-        CatalystSearchResultsTableViewController.Properties.SectionProperties.RowProperties(title: puzzle.title,
-                                                                                            iconProperties: .init(background: .systemTeal,
-                                                                                                                  icon: UIImage(named: "puzzle")),
-                                                                                            subtitle: puzzle.subtitle,
-                                                                                            identifier: identifier)
+                                               with identifier: UUID) -> CatalystSearchResultsTableViewController.Properties.Item {
+        CatalystSearchResultsTableViewController.Properties.Item(title: puzzle.title,
+                                                                 iconProperties: .init(background: .systemTeal,
+                                                                                       icon: UIImage(named: "puzzle")),
+                                                                 subtitle: puzzle.subtitle,
+                                                                 identifier: identifier)
     }
 }
 
@@ -117,7 +151,7 @@ extension CatalystSearchResultsPresenter: CatalystSearchResultsTableViewDelegate
     func searched(for term: String) {
         let term: String? = term.isEmpty ? nil : term
         let (state, viewProperties) = CatalystSearchResultsPresenter.mapStateToViewProperties(with: term,
-                                                                                                state: self.state)
+                                                                                              state: self.state)
         self.state = state
         renderer?.properties = viewProperties
     }
@@ -136,7 +170,7 @@ extension CatalystSearchResultsPresenter: CatalystSearchResultsTableViewDelegate
     
     func viewDidLoad() {
         let (state, viewProperties) = CatalystSearchResultsPresenter.mapStateToViewProperties(with: nil,
-                                                                                                state: Self.makeInitialState())
+                                                                                              state: Self.makeInitialState())
         self.state = state
         renderer?.properties = viewProperties
     }

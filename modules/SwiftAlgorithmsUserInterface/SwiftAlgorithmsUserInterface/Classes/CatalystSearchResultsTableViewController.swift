@@ -15,64 +15,74 @@ public protocol CatalystSearchResultsTableViewRendering: AnyObject {
 
 @available(macCatalyst 10.15, iOS 13, *)
 public extension CatalystSearchResultsTableViewController {
-    struct Properties {
-        let sections: [SectionProperties]
-        public static let `default` = Properties(sections: [])
-        
-        public init(sections: [SectionProperties]) {
-            self.sections = sections
+    struct Properties: Equatable {
+        enum Section: Hashable {
+            case main
         }
         
-        public struct SectionProperties {
-            let sectionTitle: String
-            let rows: [RowProperties]
-            
-            public init(sectionTitle: String, rows: [RowProperties]) {
-                self.sectionTitle = sectionTitle
-                self.rows = rows
+        let items: [Item]
+        public static let `default` = Properties(items: [])
+        
+        public init(items: [Item]) {
+            self.items = items
+        }
+        
+        public struct Item: Hashable {
+            let title: String
+            let iconProperties: CategoryIconView.Properties
+            let subtitle: String?
+            let identifier: UUID
+
+            public init(title: String,
+                        iconProperties: CategoryIconView.Properties,
+                        subtitle: String?,
+                        identifier: UUID) {
+                self.title = title
+                self.iconProperties = iconProperties
+                self.subtitle = subtitle
+                self.identifier = identifier
             }
             
-            public struct RowProperties {
-                let title: String
-                let iconProperties: CategoryIconView.Properties
-                let subtitle: String?
-                let identifier: UUID
-                
-                public init(title: String, iconProperties: CategoryIconView.Properties, subtitle: String?, identifier: UUID) {
-                    self.title = title
-                    self.iconProperties = iconProperties
-                    self.subtitle = subtitle
-                    self.identifier = identifier
-                }
-                static let `default` = RowProperties(title: "", iconProperties: .default, subtitle: "", identifier: UUID())
-            }
+            static let `default` = Item(title: "",
+                                        iconProperties: .default,
+                                        subtitle: "",
+                                        identifier: UUID())
         }
     }
 }
 
 @available(macCatalyst 10.15, iOS 13, *)
-public final class CatalystSearchResultsTableViewController: UIViewController, CatalystSearchResultsTableViewRendering {
+public final class CatalystSearchResultsTableViewController: UITableViewController, CatalystSearchResultsTableViewRendering {
     public weak var delegate: CatalystSearchResultsTableViewDelegate?
     private let empty = SearchEmptyStateView()
     private let algorithmSearchController = UISearchController(searchResultsController: nil)
     private var hasFirstRender = false
-    private let tableView = UITableView()
     private var selectedIndex: IndexPath?
-        
-    public override func loadView() {
-        view = tableView
-    }
+    private var dataSource: UITableViewDiffableDataSource<Properties.Section, Properties.Item>?
     
     public var properties: Properties = .default {
         didSet {
-            update(with: properties)
+            guard oldValue != properties else { return }
+            DispatchQueue.main.async {
+                self.update(with: self.properties)
+            }
         }
     }
     
     private func update(with properties: Properties) {
         
+        var snap = NSDiffableDataSourceSnapshot<Properties.Section, Properties.Item>()
+        snap.appendSections([.main])
+        
+        for item in properties.items {
+            snap.appendItems([item], toSection: .main)
+        }
+        
+        
+        dataSource?.apply(snap)
+        
         if hasFirstRender && algorithmSearchController.searchBar.text != "" {
-            let first = properties.sections.first?.rows.first
+            let first = properties.items.first
             title = first?.title
             
             let icon = CategoryIconView()
@@ -81,17 +91,14 @@ public final class CatalystSearchResultsTableViewController: UIViewController, C
             if let props = first?.iconProperties {
                 icon.properties = props
             }
-              
+
             navigationItem.leftBarButtonItem = .init(customView: icon)
         } else if hasFirstRender == false {
-           showDefaultState()
+            showDefaultState()
         }
-        
 
-        tableView.reloadData()
-                
-        let shouldShowEmptyState = properties.sections.first?.rows.isEmpty == true
-        
+        let shouldShowEmptyState = properties.items.isEmpty == true
+
         if shouldShowEmptyState {
             empty.isAnimationHidden = false
             view.bringSubviewToFront(empty)
@@ -99,7 +106,7 @@ public final class CatalystSearchResultsTableViewController: UIViewController, C
         } else {
             empty.isAnimationHidden = true
         }
-        
+
         hasFirstRender = true
     }
     
@@ -113,11 +120,10 @@ public final class CatalystSearchResultsTableViewController: UIViewController, C
         navigationItem.leftBarButtonItem = .init(customView: icon)
     }
     
-
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    override public init(style: UITableView.Style) {
+        super.init(style: style)
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -125,11 +131,10 @@ public final class CatalystSearchResultsTableViewController: UIViewController, C
     override public func viewDidLoad() {
         super.viewDidLoad()
         delegate?.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        
+
         tableView.tableFooterView = UIView()
         tableView.backgroundView = empty
+        tableView.delegate = self
         empty.isAnimationHidden = true
         
         algorithmSearchController.searchResultsUpdater = self
@@ -145,6 +150,25 @@ public final class CatalystSearchResultsTableViewController: UIViewController, C
         navigationItem.hidesSearchBarWhenScrolling = false
         
         view.backgroundColor = .clear
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
+        
+        dataSource = .init(tableView: self.tableView) { (table, indexPath, item) in
+            let cell = table.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
+            
+            cell.backgroundColor = .clear
+            cell.textLabel?.text = item.title
+            cell.detailTextLabel?.text = item.subtitle
+            
+            let icon = CategoryIconView()
+            icon.sizeAnchors == CGSize(width: 30, height: 30)
+            icon.properties = item.iconProperties
+            
+            cell.contentView.addSubview(icon)
+            icon.trailingAnchor == cell.trailingAnchor - 24
+            icon.centerYAnchor == cell.contentView.centerYAnchor
+            return cell
+        }
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -170,7 +194,7 @@ public final class CatalystSearchResultsTableViewController: UIViewController, C
         guard let index = tableView.indexPathForSelectedRow else { return }
         print("pressed enter on index \(index)")
         DispatchQueue.main.async {
-            self.delegate?.selectedItem(with: self.properties.sections[index.section].rows[index.row].identifier)
+            self.delegate?.selectedItem(with: self.properties.items[index.row].identifier)
             self.navigationController?.dismiss(animated: true, completion: nil)
         }
     }
@@ -202,45 +226,20 @@ extension CatalystSearchResultsTableViewController: UISearchControllerDelegate {
     }
 }
 
-// MARK: - UITableViewDelegate, UITableViewDataSource
+// MARK: - UITableViewDelegate
 
 @available(macCatalyst 10.15, iOS 13, *)
-extension CatalystSearchResultsTableViewController: UITableViewDelegate, UITableViewDataSource {
-    public func numberOfSections(in tableView: UITableView) -> Int {
-        return properties.sections.count
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        cell.backgroundColor = .clear
-        let item = properties.sections[indexPath.section].rows[indexPath.item]
-        cell.textLabel?.text = item.title
-        cell.detailTextLabel?.text = item.subtitle
-        
-        let icon = CategoryIconView()
-        icon.sizeAnchors == CGSize(width: 30, height: 30)
-        icon.properties = item.iconProperties
-        
-        cell.contentView.addSubview(icon)
-        icon.trailingAnchor == cell.trailingAnchor - 24
-        icon.centerYAnchor == cell.contentView.centerYAnchor
-        return cell
-    }
-    
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return properties.sections[section].rows.count
-    }
-    
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension CatalystSearchResultsTableViewController {
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected cell \(indexPath)")
-        let item = properties.sections[indexPath.section].rows[indexPath.item]
-        
+        let item = properties.items[indexPath.item]
+
         if let selectedIndexPath = selectedIndex, selectedIndexPath == indexPath {
             delegate?.selectedItem(with: item.identifier)
             self.navigationController?.dismiss(animated: true, completion: nil)
             return
         }
-        
+
         self.selectedIndex = indexPath
         title = item.title
         let icon = CategoryIconView()
@@ -257,7 +256,6 @@ extension CatalystSearchResultsTableViewController: UISearchResultsUpdating, UIS
     public func updateSearchResults(for searchController: UISearchController) {
         view.isHidden = false
         if let text = searchController.searchBar.text {
-            if text.isEmpty { showDefaultState() }
             delegate?.searched(for: text)
         }
     }
@@ -276,5 +274,3 @@ extension CatalystSearchResultsTableViewController: UISearchResultsUpdating, UIS
         return true
     }
 }
-
-
