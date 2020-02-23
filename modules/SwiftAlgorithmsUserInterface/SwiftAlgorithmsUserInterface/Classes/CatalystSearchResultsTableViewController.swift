@@ -20,64 +20,33 @@ enum Section: Hashable {
 @available(macCatalyst 10.15, iOS 13, *)
 public extension CatalystSearchResultsTableViewController {
     struct Properties: Equatable {
-        
-        public static let `default` = Properties(items: [])
         let items: [Item]
+        public static let `default` = Properties(items: [])
         
         public init(items: [Item]) {
             self.items = items
         }
         
         public struct Item: Hashable {
-            public enum Identifier: Hashable, CaseIterable {
-                case gettingStarted
-                case searching
-                case stringSearch
-                case sorting
-                case compression
-                case miscellaneous
-                case math
-                case machineLearning
-                case arrays
-                case queues
-                case lists
-                case trees
-                case hashes
-                case sets
-                case graphs
-                case puzzles
-            }
-            
             let title: String
             let iconProperties: CategoryIconView.Properties
             let subtitle: String?
             let identifier: UUID
-            let sectionIdentifier: Identifier
-            
-//            public func hash(into hasher: inout Hasher) {
-//                return hasher.combine(identifier)
-//            }
-//
-//            public static func == (lhs: Item, rhs: Item) -> Bool {
-//                return lhs.identifier == rhs.identifier
-//            }
 
             public init(title: String,
                         iconProperties: CategoryIconView.Properties,
                         subtitle: String?,
-                        identifier: UUID,
-                        sectionIdentifier: Identifier) {
+                        identifier: UUID) {
                 self.title = title
                 self.iconProperties = iconProperties
                 self.subtitle = subtitle
                 self.identifier = identifier
-                self.sectionIdentifier = sectionIdentifier
             }
+            
             static let `default` = Item(title: "",
                                         iconProperties: .default,
                                         subtitle: "",
-                                        identifier: UUID(),
-                                        sectionIdentifier: .gettingStarted)
+                                        identifier: UUID())
         }
     }
 }
@@ -88,14 +57,9 @@ public final class CatalystSearchResultsTableViewController: UITableViewControll
     private let empty = SearchEmptyStateView()
     private let algorithmSearchController = UISearchController(searchResultsController: nil)
     private var hasFirstRender = false
-//    private let tableView = UITableView()
     private var selectedIndex: IndexPath?
     private var dataSource: UITableViewDiffableDataSource<Section, Properties.Item>?
     
-//    public override func loadView() {
-//        view = tableView
-//    }
-//
     public var properties: Properties = .default {
         didSet {
             guard oldValue != properties else { return }
@@ -106,42 +70,44 @@ public final class CatalystSearchResultsTableViewController: UITableViewControll
     }
     
     private func update(with properties: Properties) {
-
-        //        guard var snap = dataSource?.snapshot() else { return }
-        var snap = NSDiffableDataSourceSnapshot<Section, Properties.Item>()
-                snap.appendSections([.main])
-        snap.appendItems(Array(properties.items), toSection: .main)
-
-                dataSource?.apply(snap)
         
-//        if hasFirstRender && algorithmSearchController.searchBar.text != "" {
-//            let first = properties.items.first
-//            title = first?.title
-//
-//            let icon = CategoryIconView()
-//            icon.sizeAnchors == CGSize(width: 36, height: 36)
-//
-//            if let props = first?.iconProperties {
-//                icon.properties = props
-//            }
-//
-//            navigationItem.leftBarButtonItem = .init(customView: icon)
-//        } else if hasFirstRender == false {
-//            showDefaultState()
-//        }
-//
-//        let shouldShowEmptyState = properties.items.isEmpty == true
-//
-//        if shouldShowEmptyState {
-//            empty.isAnimationHidden = false
-//            view.bringSubviewToFront(empty)
-//            showDefaultState()
-//        } else {
-//            empty.isAnimationHidden = true
-//        }
-//
-//        hasFirstRender = true
+        var snap = NSDiffableDataSourceSnapshot<Section, Properties.Item>()
+        snap.appendSections([.main])
+        
+        for item in properties.items {
+            snap.appendItems([item], toSection: .main)
+        }
+        
+        
+        dataSource?.apply(snap)
+        
+        if hasFirstRender && algorithmSearchController.searchBar.text != "" {
+            let first = properties.items.first
+            title = first?.title
+            
+            let icon = CategoryIconView()
+            icon.sizeAnchors == CGSize(width: 36, height: 36)
+            
+            if let props = first?.iconProperties {
+                icon.properties = props
+            }
 
+            navigationItem.leftBarButtonItem = .init(customView: icon)
+        } else if hasFirstRender == false {
+            showDefaultState()
+        }
+
+        let shouldShowEmptyState = properties.items.isEmpty == true
+
+        if shouldShowEmptyState {
+            empty.isAnimationHidden = false
+            view.bringSubviewToFront(empty)
+            showDefaultState()
+        } else {
+            empty.isAnimationHidden = true
+        }
+
+        hasFirstRender = true
     }
     
     private func showDefaultState() {
@@ -169,8 +135,8 @@ public final class CatalystSearchResultsTableViewController: UITableViewControll
 //        tableView.dataSource = self
         
         
-//        tableView.tableFooterView = UIView()
-//        tableView.backgroundView = empty
+        tableView.tableFooterView = UIView()
+        tableView.backgroundView = empty
         empty.isAnimationHidden = true
         
         algorithmSearchController.searchResultsUpdater = self
@@ -185,36 +151,36 @@ public final class CatalystSearchResultsTableViewController: UITableViewControll
         navigationItem.searchController = algorithmSearchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
-//        view.backgroundColor = .clear
+        view.backgroundColor = .clear
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
         
         dataSource = .init(tableView: self.tableView) { (table, indexPath, item) in
             let cell = table.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
             
-//            cell.backgroundColor = .clear
+            cell.backgroundColor = .clear
             cell.textLabel?.text = item.title
-//            cell.detailTextLabel?.text = item.subtitle
+            cell.detailTextLabel?.text = item.subtitle
             
-//            let icon = CategoryIconView()
-//            icon.sizeAnchors == CGSize(width: 30, height: 30)
-//            icon.properties = item.iconProperties
+            let icon = CategoryIconView()
+            icon.sizeAnchors == CGSize(width: 30, height: 30)
+            icon.properties = item.iconProperties
             
-//            cell.contentView.addSubview(icon)
-//            icon.trailingAnchor == cell.trailingAnchor - 24
-//            icon.centerYAnchor == cell.contentView.centerYAnchor
+            cell.contentView.addSubview(icon)
+            icon.trailingAnchor == cell.trailingAnchor - 24
+            icon.centerYAnchor == cell.contentView.centerYAnchor
             return cell
         }
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        empty.removeFromSuperview()
+        empty.removeFromSuperview()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        algorithmSearchController.isActive = true
+        algorithmSearchController.isActive = true
     }
     
     public override var keyCommands: [UIKeyCommand]? {
@@ -230,7 +196,7 @@ public final class CatalystSearchResultsTableViewController: UITableViewControll
         guard let index = tableView.indexPathForSelectedRow else { return }
         print("pressed enter on index \(index)")
         DispatchQueue.main.async {
-//            self.delegate?.selectedItem(with: self.properties.sections[index.section].items[index.row].identifier)
+            self.delegate?.selectedItem(with: self.properties.items[index.row].identifier)
             self.navigationController?.dismiss(animated: true, completion: nil)
         }
     }

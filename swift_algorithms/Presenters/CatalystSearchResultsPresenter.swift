@@ -37,50 +37,6 @@ fileprivate extension CatalystSearchResultsPresenter {
     }
 }
 
-fileprivate extension AlgorithmCategory {
-    func identifier() -> CatalystSearchResultsTableViewController.Properties.Item.Identifier {
-        switch self {
-        case .compression:
-            return .compression
-        case .gettingStarted:
-            return .gettingStarted
-        case .machineLearning:
-            return .machineLearning
-        case .math:
-            return .math
-        case .misc:
-            return .miscellaneous
-        case .searching:
-            return .searching
-        case .sorting:
-            return .sorting
-        case .stringSearch:
-            return .stringSearch
-        }
-    }
-}
-
-fileprivate extension DataStructure.Category {
-    func identifier() -> CatalystSearchResultsTableViewController.Properties.Item.Identifier {
-        switch self {
-        case .array:
-            return .arrays
-        case .graph:
-            return .graphs
-        case .hash:
-            return .hashes
-        case .list:
-            return .lists
-        case .queue:
-            return .queues
-        case .set:
-            return .sets
-        case .tree:
-            return .trees
-        }
-    }
-}
-
 @available(macCatalyst 10.15, iOS 13, *)
 final class CatalystSearchResultsPresenter {
     weak var delegate: CatalystSearchPresenterDispatching?
@@ -165,8 +121,7 @@ final class CatalystSearchResultsPresenter {
                                                                  iconProperties: .init(background: algorithm.category.color,
                                                                                        icon: algorithm.category.image),
                                                                  subtitle: algorithm.subtitle,
-                                                                 identifier: identifier,
-                                                                 sectionIdentifier: algorithm.category.identifier())
+                                                                 identifier: identifier)
     }
     
     private static func makeIdentifiableAction(for dataStructure: DataStructure,
@@ -176,8 +131,7 @@ final class CatalystSearchResultsPresenter {
                                                                  iconProperties: .init(background: dataStructure.category?.color ?? .systemGray2,
                                                                                        icon: dataStructure.category?.image ?? UIImage()),
                                                                  subtitle: dataStructure.subtitle,
-                                                                 identifier: identifier,
-                                                                 sectionIdentifier: dataStructure.category?.identifier() ?? .gettingStarted)
+                                                                 identifier: identifier)
     }
     
     
@@ -188,8 +142,7 @@ final class CatalystSearchResultsPresenter {
                                                                  iconProperties: .init(background: .systemTeal,
                                                                                        icon: UIImage(named: "puzzle")),
                                                                  subtitle: puzzle.subtitle,
-                                                                 identifier: identifier,
-                                                                 sectionIdentifier: .puzzles)
+                                                                 identifier: identifier)
     }
 }
 
