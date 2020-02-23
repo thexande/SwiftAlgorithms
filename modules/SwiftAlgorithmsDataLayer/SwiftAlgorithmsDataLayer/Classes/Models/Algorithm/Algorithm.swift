@@ -14,7 +14,7 @@ extension Algorithm {
     }
 }
 
-public struct AlgorithmType {
+public struct AlgorithmType: Hashable {
     public static func allCases() -> [Algorithm] {
         var allCases: [Algorithm] = []
         

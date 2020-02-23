@@ -37,7 +37,7 @@ public final class CategoryIconView: UIView {
 }
 
 public extension CategoryIconView {
-    struct Properties {
+    struct Properties: Hashable {
         let background: UIColor
         let icon: UIImage?
         public init(background: UIColor, icon: UIImage?) {
