@@ -151,22 +151,18 @@ public final class CatalystSearchResultsTableViewController: UITableViewControll
         
         view.backgroundColor = .clear
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
+        tableView.register(SearchResultsCell.self, forCellReuseIdentifier: String(describing: SearchResultsCell.self))
         
         dataSource = .init(tableView: self.tableView) { (table, indexPath, item) in
-            let cell = table.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
+            guard let cell = table.dequeueReusableCell(withIdentifier: String(describing: SearchResultsCell.self),
+                                                       for: indexPath) as?  SearchResultsCell else {
+                return UITableViewCell()
+            }
             
-            cell.backgroundColor = .clear
+            cell.icon.properties = item.iconProperties
             cell.textLabel?.text = item.title
-            cell.detailTextLabel?.text = item.subtitle
-            
-            let icon = CategoryIconView()
-            icon.sizeAnchors == CGSize(width: 30, height: 30)
-            icon.properties = item.iconProperties
-            
-            cell.contentView.addSubview(icon)
-            icon.trailingAnchor == cell.trailingAnchor - 24
-            icon.centerYAnchor == cell.contentView.centerYAnchor
+//            cell.detailTextLabel?.text = item.subtitle
+
             return cell
         }
     }
@@ -272,5 +268,34 @@ extension CatalystSearchResultsTableViewController: UISearchResultsUpdating, UIS
     
     public func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         return true
+    }
+}
+
+// MARK: - SearchResultsCell
+
+fileprivate extension CatalystSearchResultsTableViewController {
+    final class SearchResultsCell: UITableViewCell {
+        let icon = CategoryIconView()
+        
+        override func prepareForReuse() {
+            super.prepareForReuse()
+            icon.properties = .default
+            textLabel?.text = nil
+            detailTextLabel?.text = nil
+        }
+        
+        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+            super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+            backgroundColor = .clear
+            icon.sizeAnchors == CGSize(width: 30, height: 30)
+            
+            contentView.addSubview(icon)
+            icon.trailingAnchor == contentView.trailingAnchor - 24
+            icon.centerYAnchor == contentView.centerYAnchor
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
     }
 }
