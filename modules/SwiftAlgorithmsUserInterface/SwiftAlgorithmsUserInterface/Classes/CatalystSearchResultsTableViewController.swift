@@ -257,6 +257,7 @@ extension CatalystSearchResultsTableViewController: UISearchResultsUpdating, UIS
     public func updateSearchResults(for searchController: UISearchController) {
         view.isHidden = false
         if let text = searchController.searchBar.text {
+            if text.isEmpty { showDefaultState() }
             delegate?.searched(for: text)
         }
     }
