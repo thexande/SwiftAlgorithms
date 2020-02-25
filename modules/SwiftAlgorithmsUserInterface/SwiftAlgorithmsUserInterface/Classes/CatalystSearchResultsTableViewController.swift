@@ -52,13 +52,18 @@ public extension CatalystSearchResultsTableViewController {
 }
 
 @available(macCatalyst 10.15, iOS 13, *)
-public final class CatalystSearchResultsTableViewController: UITableViewController, CatalystSearchResultsTableViewRendering {
+public final class CatalystSearchResultsTableViewController: UIViewController, CatalystSearchResultsTableViewRendering {
     public weak var delegate: CatalystSearchResultsTableViewDelegate?
     private let empty = SearchEmptyStateView()
     private let algorithmSearchController = UISearchController(searchResultsController: nil)
     private var hasFirstRender = false
     private var selectedIndex: IndexPath?
     private var dataSource: UITableViewDiffableDataSource<Properties.Section, Properties.Item>?
+    private let tableView = UITableView()
+    
+    public override func loadView() {
+        view = tableView
+    }
     
     public var properties: Properties = .default {
         didSet {
@@ -120,8 +125,8 @@ public final class CatalystSearchResultsTableViewController: UITableViewControll
         navigationItem.leftBarButtonItem = .init(customView: icon)
     }
     
-    override public init(style: UITableView.Style) {
-        super.init(style: style)
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -225,8 +230,8 @@ extension CatalystSearchResultsTableViewController: UISearchControllerDelegate {
 // MARK: - UITableViewDelegate
 
 @available(macCatalyst 10.15, iOS 13, *)
-extension CatalystSearchResultsTableViewController {
-    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension CatalystSearchResultsTableViewController: UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected cell \(indexPath)")
         let item = properties.items[indexPath.item]
 
@@ -273,6 +278,7 @@ extension CatalystSearchResultsTableViewController: UISearchResultsUpdating, UIS
 
 // MARK: - SearchResultsCell
 
+@available(macCatalyst 10.15, iOS 13, *)
 fileprivate extension CatalystSearchResultsTableViewController {
     final class SearchResultsCell: UITableViewCell {
         let icon = CategoryIconView()

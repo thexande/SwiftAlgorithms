@@ -66,7 +66,7 @@ extension RootCatalystCoordinator: MainCatalystPresenterDelegate {
     }
     
     private func makeSearchView() -> UIViewController {
-        let view = CatalystSearchResultsTableViewController(style: .plain)
+        let view = CatalystSearchResultsTableViewController()
         view.delegate = searchPresenter
         searchPresenter.renderer = view
         searchPresenter.delegate = self
