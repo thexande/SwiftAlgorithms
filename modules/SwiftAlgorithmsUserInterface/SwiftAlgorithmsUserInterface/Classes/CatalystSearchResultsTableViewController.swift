@@ -52,13 +52,18 @@ public extension CatalystSearchResultsTableViewController {
 }
 
 @available(macCatalyst 10.15, iOS 13, *)
-public final class CatalystSearchResultsTableViewController: UITableViewController, CatalystSearchResultsTableViewRendering {
+public final class CatalystSearchResultsTableViewController: UIViewController, CatalystSearchResultsTableViewRendering {
     public weak var delegate: CatalystSearchResultsTableViewDelegate?
     private let empty = SearchEmptyStateView()
     private let algorithmSearchController = UISearchController(searchResultsController: nil)
     private var hasFirstRender = false
     private var selectedIndex: IndexPath?
     private var dataSource: UITableViewDiffableDataSource<Properties.Section, Properties.Item>?
+    private let tableView = UITableView()
+    
+    public override func loadView() {
+        view = tableView
+    }
     
     public var properties: Properties = .default {
         didSet {
@@ -120,8 +125,8 @@ public final class CatalystSearchResultsTableViewController: UITableViewControll
         navigationItem.leftBarButtonItem = .init(customView: icon)
     }
     
-    override public init(style: UITableView.Style) {
-        super.init(style: style)
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -151,22 +156,18 @@ public final class CatalystSearchResultsTableViewController: UITableViewControll
         
         view.backgroundColor = .clear
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
+        tableView.register(SearchResultsCell.self, forCellReuseIdentifier: String(describing: SearchResultsCell.self))
         
         dataSource = .init(tableView: self.tableView) { (table, indexPath, item) in
-            let cell = table.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
+            guard let cell = table.dequeueReusableCell(withIdentifier: String(describing: SearchResultsCell.self),
+                                                       for: indexPath) as?  SearchResultsCell else {
+                return UITableViewCell()
+            }
             
-            cell.backgroundColor = .clear
+            cell.icon.properties = item.iconProperties
             cell.textLabel?.text = item.title
-            cell.detailTextLabel?.text = item.subtitle
-            
-            let icon = CategoryIconView()
-            icon.sizeAnchors == CGSize(width: 30, height: 30)
-            icon.properties = item.iconProperties
-            
-            cell.contentView.addSubview(icon)
-            icon.trailingAnchor == cell.trailingAnchor - 24
-            icon.centerYAnchor == cell.contentView.centerYAnchor
+//            cell.detailTextLabel?.text = item.subtitle
+
             return cell
         }
     }
@@ -229,8 +230,8 @@ extension CatalystSearchResultsTableViewController: UISearchControllerDelegate {
 // MARK: - UITableViewDelegate
 
 @available(macCatalyst 10.15, iOS 13, *)
-extension CatalystSearchResultsTableViewController {
-    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension CatalystSearchResultsTableViewController: UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected cell \(indexPath)")
         let item = properties.items[indexPath.item]
 
@@ -256,6 +257,7 @@ extension CatalystSearchResultsTableViewController: UISearchResultsUpdating, UIS
     public func updateSearchResults(for searchController: UISearchController) {
         view.isHidden = false
         if let text = searchController.searchBar.text {
+            if text.isEmpty { showDefaultState() }
             delegate?.searched(for: text)
         }
     }
@@ -272,5 +274,35 @@ extension CatalystSearchResultsTableViewController: UISearchResultsUpdating, UIS
     
     public func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         return true
+    }
+}
+
+// MARK: - SearchResultsCell
+
+@available(macCatalyst 10.15, iOS 13, *)
+fileprivate extension CatalystSearchResultsTableViewController {
+    final class SearchResultsCell: UITableViewCell {
+        let icon = CategoryIconView()
+        
+        override func prepareForReuse() {
+            super.prepareForReuse()
+            icon.properties = .default
+            textLabel?.text = nil
+            detailTextLabel?.text = nil
+        }
+        
+        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+            super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+            backgroundColor = .clear
+            icon.sizeAnchors == CGSize(width: 30, height: 30)
+            
+            contentView.addSubview(icon)
+            icon.trailingAnchor == contentView.trailingAnchor - 24
+            icon.centerYAnchor == contentView.centerYAnchor
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
     }
 }
