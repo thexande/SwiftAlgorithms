@@ -8,7 +8,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         if #available(iOS 13, *) { return true }
-        
+        window = UIWindow(frame: UIScreen.main.bounds)
         let rootCoordinator = AppCoordinator()
         coordinator = rootCoordinator
         rootCoordinator.launch(in: window)
