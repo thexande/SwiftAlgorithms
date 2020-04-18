@@ -53,7 +53,7 @@ public extension CatalystSearchResultsTableViewController {
 
 @available(macCatalyst 10.15, iOS 13, *)
 public final class CatalystSearchResultsTableViewController: UIViewController, CatalystSearchResultsTableViewRendering {
-    public weak var delegate: CatalystSearchResultsTableViewDelegate?
+    public var delegate: CatalystSearchResultsTableViewDelegate?
     private let empty = SearchEmptyStateView()
     private let algorithmSearchController = UISearchController(searchResultsController: nil)
     private var hasFirstRender = false
