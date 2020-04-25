@@ -1,9 +1,9 @@
 PODS:
   - Anchorage (4.4.0)
   - Cache (5.2.0)
-  - DeviceKit (3.0.0)
+  - DeviceKit (3.1.0)
   - Hero (1.5.0)
-  - lottie-ios (3.1.6)
+  - lottie-ios (3.1.8)
   - SwiftAlgorithmsDataLayer (0.1.0):
     - Cache
   - SwiftAlgorithmsUserInterface (0.1.0):
@@ -34,12 +34,12 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Anchorage: d7f02c4f9425b537053237aab11ae97e59b55f36
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
-  DeviceKit: fc3c2bd361a8d68d8a91eb715e453aede57317e5
+  DeviceKit: b9a28acbad6b8dbccf456814b6f95bef17a6654f
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
-  lottie-ios: 85ce835dd8c53e02509f20729fc7d6a4e6645a0a
+  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   SwiftAlgorithmsDataLayer: 7b569782881def516bc81ef5b244587d81e4f045
   SwiftAlgorithmsUserInterface: 6a482d25352ceffe9d3ebe3926ad7f3fe1e05ccc
 
 PODFILE CHECKSUM: ad80d11ac9e84dc28c84ec21968ca857995d1095
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1
